@@ -338,7 +338,11 @@ export default function PaymentCalculatorPage() {
                     outerRadius={100}
                     paddingAngle={2}
                     label={({ name, percent }) =>
-                      percent > 0.05 ? `${name}: ${(percent * 100).toFixed(0)}%` : ""
+                      percent !== undefined
+                        ? percent > 0.05
+                          ? `${name}: ${(percent * 100).toFixed(0)}%`
+                          : ""
+                        : ""
                     }
                   >
                     {pieData.map((entry, index) => (
