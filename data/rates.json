@@ -1,0 +1,10 @@
+{
+  "lastUpdated": "2026-03-10",
+  "rates": [
+    { "type": "30-Year Fixed", "rate": "6.09", "apr": "6.28", "payment": "605" },
+    { "type": "15-Year Fixed", "rate": "5.43", "apr": "5.69", "payment": "811" },
+    { "type": "FHA 30-Year", "rate": "5.87", "apr": "6.75", "payment": "592" },
+    { "type": "VA 30-Year", "rate": "5.75", "apr": "5.95", "payment": "583" },
+    { "type": "5/1 ARM", "rate": "5.75", "apr": "6.85", "payment": "583" }
+  ]
+}

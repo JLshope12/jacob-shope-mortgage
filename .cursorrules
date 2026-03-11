@@ -1,0 +1,688 @@
+# CURSOR PROJECT RULES — Jacob Shope Mortgage Website
+
+## PROJECT OVERVIEW
+
+You are building a professional mortgage loan officer website for **Captain Jacob Shope**, a Charlotte Fire Department captain and licensed mortgage loan officer (NMLS# 2090979) at Mpire Financial (NMLS# 2090979). The site serves the Charlotte, NC metro area (primary) and statewide North Carolina (secondary).
+
+The site must be fast, mobile-first, SEO-optimized, and designed to generate mortgage leads. It should rank for local search terms in Charlotte and surrounding areas.
+
+---
+
+## TECH STACK (Do not deviate from this)
+
+- **Framework:** Next.js 14+ with App Router (NOT Pages Router)
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS (utility-first, no custom CSS files unless absolutely necessary)
+- **UI Components:** shadcn/ui (install components as needed via CLI)
+- **Icons:** Lucide React
+- **Charts:** Recharts (for mortgage calculators)
+- **Forms:** React Hook Form + Zod validation
+- **SEO:** next-seo or Next.js built-in metadata API
+- **Sitemap:** next-sitemap
+- **Analytics:** Google Analytics 4 (via @next/third-parties or next/script)
+- **Images:** Next.js `<Image>` component (always — never use `<img>`)
+- **Font:** next/font with Inter or similar clean sans-serif
+- **Deployment:** Vercel
+- **Blog:** MDX with @next/mdx or contentlayer (local Markdown files in /content/blog/)
+- **Email:** ConvertKit API for newsletter signups
+- **Booking:** Cal.com or Calendly embed component
+
+---
+
+## DESIGN SYSTEM
+
+### Brand Colors (use these exact values)
+
+```typescript
+// tailwind.config.ts — extend colors
+colors: {
+  navy: '#1B2A4A',      // Primary — headers, nav, footer, dark sections
+  slate: '#3D4F6F',     // Secondary text, subtle backgrounds
+  gold: '#C8963E',      // Accent — CTAs, highlights, trust badges, hover states
+  offwhite: '#F8F6F2',  // Page backgrounds
+  charcoal: '#2D2D2D',  // Body text
+}
+```
+
+### Design Principles
+
+- **Clean and modern.** Think high-end financial services, not flashy mortgage broker.
+- **Navy + gold palette.** Navy conveys trust. Gold conveys warmth and quality. No red.
+- **Generous whitespace.** Let the content breathe. Don't cram sections together.
+- **Typography hierarchy:** Clear distinction between H1, H2, H3, body. H1 should feel authoritative.
+- **Cards with subtle shadows** for content sections, not flat boxes.
+- **Rounded corners** (rounded-lg or rounded-xl) on cards and buttons — feels approachable.
+- **Gold CTAs on navy backgrounds. Navy CTAs on light backgrounds.** High contrast always.
+- **No stock photos.** Use Jacob's actual photos (see Photo Assets below). Use subtle gradient overlays or geometric patterns for visual interest where needed.
+- **Mobile-first.** Design for 375px width first, then scale up. Every element must look perfect on phone.
+
+### Typography
+
+```
+Headings: font-semibold or font-bold, text-navy
+  H1: text-4xl md:text-5xl lg:text-6xl
+  H2: text-3xl md:text-4xl
+  H3: text-xl md:text-2xl
+  
+Body: text-base md:text-lg, text-charcoal, leading-relaxed
+
+Small/meta: text-sm, text-slate
+```
+
+### Buttons
+
+```
+Primary CTA: bg-gold text-white hover:bg-gold/90 rounded-lg px-6 py-3 font-semibold
+Secondary CTA: border-2 border-navy text-navy hover:bg-navy hover:text-white rounded-lg px-6 py-3
+Ghost: text-gold hover:underline font-medium
+```
+
+### Component Patterns
+
+- **Section padding:** py-16 md:py-24 px-4 md:px-6 lg:px-8
+- **Max container width:** max-w-7xl mx-auto
+- **Section alternating backgrounds:** white → offwhite → white → navy (dark section) → white
+- **Cards:** bg-white rounded-xl shadow-md p-6 md:p-8
+- **Trust badges / stat counters:** Grid of 3-4 items with icon + number + label
+
+---
+
+## PHOTO ASSETS
+
+These photos are in `/public/images/`. Reference them by these names:
+
+| File Name | Description | Where to Use |
+|-----------|-------------|-------------|
+| `headshot-primary.jpg` | Natural light casual headshot (green henley, warm smile) | Homepage hero, nav bar small avatar, contact page, blog author bio |
+| `dress-uniform.jpg` | Fire captain dress uniform, American flag background | About page "My Story" section |
+| `family-field.jpg` | Professional golden hour family photo in field | About page hero/banner |
+| `family-station.jpg` | Wife + baby in front of ladder truck | About page, bridges fire service + family |
+| `headshot-formal.jpg` | Navy blazer and tie professional headshot | NMLS/compliance contexts |
+| `couple-sunset.jpg` | Jacob and Christine at sunset on green lawn | About page personal section |
+
+**Image optimization rules:**
+- Always use `<Image>` from next/image with width, height, and alt text
+- Use `priority` prop on above-the-fold hero images
+- Use `placeholder="blur"` with blurDataURL for large images
+- Serve WebP/AVIF automatically (Next.js handles this)
+- Use `sizes` prop for responsive images
+
+---
+
+## SITE ARCHITECTURE (Complete Route Map)
+
+```
+/                           → Homepage
+/about                      → About / My Story
+/loan-programs              → Loan Programs hub
+/loan-programs/conventional → Conventional Loans
+/loan-programs/fha          → FHA Loans
+/loan-programs/va           → VA Loans
+/loan-programs/usda         → USDA Loans
+/loan-programs/jumbo        → Jumbo Loans
+/loan-programs/refinance    → Refinance Options
+/loan-programs/first-time-buyer → First-Time Home Buyer
+/calculators                → Calculator hub
+/calculators/payment        → Monthly Payment Calculator
+/calculators/affordability  → Affordability Calculator
+/calculators/refinance      → Refinance Savings Calculator
+/calculators/amortization   → Amortization Schedule
+/rates                      → Current Mortgage Rates
+/apply                      → Apply Now (pre-qual form or LOS embed)
+/reviews                    → Testimonials & Reviews
+/blog                       → Blog listing page
+/blog/[slug]                → Individual blog post
+/contact                    → Contact page
+/book                       → Book a Consultation (calendar embed)
+/faq                        → Frequently Asked Questions
+/service-areas              → Service Areas hub
+/service-areas/charlotte    → Charlotte NC
+/service-areas/huntersville → Huntersville NC
+/service-areas/cornelius    → Cornelius NC
+/service-areas/lake-norman  → Lake Norman NC
+/service-areas/mooresville  → Mooresville NC
+/service-areas/concord      → Concord NC
+/service-areas/gastonia     → Gastonia NC
+/service-areas/matthews     → Matthews NC
+/service-areas/mint-hill    → Mint Hill NC
+/service-areas/indian-trail → Indian Trail NC
+/service-areas/north-carolina → North Carolina (statewide)
+/privacy                    → Privacy Policy
+/terms                      → Terms of Service
+/sitemap.xml                → Auto-generated sitemap
+```
+
+---
+
+## PAGE-BY-PAGE SPECIFICATIONS
+
+### GLOBAL LAYOUT (app/layout.tsx)
+
+**Header / Navigation:**
+- Sticky on scroll, white background with subtle shadow when scrolled
+- Left: Logo text "Jacob Shope" in navy, font-bold text-xl. Below or beside it in small text: "Mortgage Loan Officer | NMLS# 2090979"
+- Center/Right: Nav links — Home, About, Loan Programs (dropdown), Calculators (dropdown), Rates, Blog, Contact
+- Far right: Gold CTA button "Get a Free Quote" → links to /contact
+- Mobile: Hamburger menu with slide-out drawer. Keep "Get a Free Quote" button visible on mobile header.
+- Mobile: Add click-to-call phone icon in header
+
+**Footer:**
+- Navy background (#1B2A4A), white/gold text
+- 4-column grid on desktop, stacked on mobile:
+  - Column 1: "Jacob Shope" name, tagline "Serving Charlotte. Building Futures.", brief 2-line description, social links (Instagram: @jlshopeloans, LinkedIn)
+  - Column 2: Quick Links — Home, About, Loan Programs, Calculators, Rates, Blog
+  - Column 3: Service Areas — Charlotte, Huntersville, Cornelius, Lake Norman, View All
+  - Column 4: Contact info — phone (click-to-call), email (shope@mpirefi.com), office location
+- Below columns: Newsletter signup form (email input + "Subscribe" button, ConvertKit integration)
+- Bottom bar: "© 2026 Jacob Shope | NMLS# 2090979 | Mpire Financial NMLS# 2090979 | Equal Housing Lender" + Equal Housing Lender icon + NMLS Consumer Access link
+- Equal Housing Lender logo must appear in footer on EVERY page (compliance requirement)
+
+### HOMEPAGE (app/page.tsx)
+
+**Section 1 — Hero**
+- Split layout: Text left (60%), Photo right (40%) on desktop. Stacked on mobile (text first).
+- H1: "Serving Charlotte. Building Futures."
+- Subtext (p tag, not H2): "I'm Jacob Shope — a captain with the Charlotte Fire Department and a licensed mortgage loan officer. I've built my career around one thing: showing up for my community. Whether I'm leading my crew on a call or helping a family find the right path to homeownership, I bring the same dedication to everything I do."
+- Two CTA buttons: "Get a Free Consultation" (gold, primary) + "Explore Loan Options" (navy outline, secondary)
+- Right side: `headshot-primary.jpg` — large, rounded-xl, subtle shadow
+- Background: offwhite or subtle gradient
+
+**Section 2 — Trust Signals Bar**
+- offwhite or light background
+- Grid of 4 items, centered:
+  - "Captain, Charlotte Fire Dept." + Shield/Badge icon
+  - "NMLS# 2090979" + Verified icon
+  - "Charlotte Metro & NC Statewide" + MapPin icon
+  - "5-Star Rated" + Star icon (or review count when available)
+- Keep these compact. Icon + bold text + small description.
+
+**Section 3 — Loan Programs Overview**
+- H2: "Find the Right Loan for You"
+- Grid of 6-7 cards (3 columns desktop, 2 tablet, 1 mobile):
+  - Each card: Icon + program name + 1-line description + "Learn More →" link
+  - Programs: Conventional, FHA, VA, USDA, Jumbo, Refinance, First-Time Buyer
+- Each card links to its /loan-programs/[slug] page
+
+**Section 4 — Mortgage Calculator Preview**
+- Navy background section (dark, high contrast)
+- H2 (white text): "What Can You Afford?"
+- Embedded mini payment calculator (simplified: home price + down payment + rate → monthly payment)
+- Gold CTA: "Try Our Full Calculator Suite" → /calculators
+- This is a teaser — the full calculators live on their own pages
+
+**Section 5 — Why Work With Me**
+- H2: "Why Charlotte Families Trust Jacob Shope"
+- 3 columns with icons:
+  - "Community First" — brief text about serving Charlotte as both firefighter and LO
+  - "Wealth Through Homeownership" — text about using real estate as a wealth-building tool
+  - "Guidance You Can Trust" — text about transparency, no hidden fees, honest advice
+- Keep this section concise — 2-3 sentences per column max.
+
+**Section 6 — Testimonials**
+- H2: "What My Clients Say"
+- Carousel or grid of 3 testimonial cards (placeholder content for now)
+- Each card: Star rating (5 stars), quote text, client first name + last initial, loan type
+- If no real testimonials yet, use placeholder structure with a note to replace
+
+**Section 7 — Blog Preview**
+- H2: "Mortgage Tips & Charlotte Market Insights"
+- Grid of 3 latest blog post cards (title, excerpt, date, read more link)
+- Link: "View All Posts →" to /blog
+
+**Section 8 — Final CTA**
+- Navy background, centered text
+- H2 (white): "Ready to Get Started?"
+- Subtext: "Whether you're buying your first home or refinancing, I'm here to help."
+- Two buttons: "Book a Free Consultation" (gold) + "Apply Now" (white outline)
+
+### ABOUT PAGE (app/about/page.tsx)
+
+**Section 1 — Hero Banner**
+- Full-width `family-field.jpg` as background with navy overlay (opacity 60-70%)
+- H1 (white, centered): "Captain Jacob Shope"
+- Subtitle: "Charlotte Fire Department Captain · Mortgage Loan Officer · NMLS# 2090979"
+
+**Section 2 — My Story**
+- H2: "Same Dedication. Different Uniform."
+- Two-column layout: Text left, `dress-uniform.jpg` right
+- Text content (2-3 paragraphs):
+  - Paragraph 1: How he got into firefighting, what it means to serve Charlotte, the role of captain
+  - Paragraph 2: How he got into mortgage — the connection between protecting families and helping them build wealth through homeownership
+  - Paragraph 3: His personal mission — using real estate as a tool for generational wealth, serving the Charlotte community in two ways
+- Tone: Confident, grounded, warm. NOT salesy. Written in first person.
+
+**Section 3 — Family**
+- Casual section with `couple-sunset.jpg` or `family-station.jpg`
+- Brief text about his family, living in the Charlotte/Huntersville area, being a local
+- This section is about connection, not selling
+
+**Section 4 — Credentials & Trust**
+- Grid or list:
+  - NMLS# 2090979
+  - Licensed in North Carolina
+  - Mpire Financial (company NMLS#)
+  - Captain, Charlotte Fire Department
+  - Years of experience (placeholder until confirmed)
+- Link to NMLS Consumer Access
+
+**Section 5 — CTA**
+- "Let's Talk About Your Goals" + Book a Consultation button + Contact button
+
+### LOAN PROGRAM PAGES (app/loan-programs/[slug]/page.tsx)
+
+Use a shared template component. Each page has:
+- H1: "[Program Name] in Charlotte, NC"
+- Hero section with brief description
+- "Key Benefits" section (3-4 bullet points in a styled list or grid)
+- "Requirements" section (credit score, down payment, DTI, eligibility)
+- "How It Works" — 3-4 step process with numbered icons
+- FAQ section at bottom (3-5 questions) — MUST include FAQPage JSON-LD schema
+- CTA: "See If You Qualify" → /contact or /apply
+- Sidebar or bottom section: Related calculators, link to rates page
+- Internal links to other loan programs ("Not sure which loan is right? Compare options →")
+
+Generate unique, substantive content for each program. Do NOT use placeholder "Lorem ipsum" text. Write real mortgage content optimized for Charlotte NC keywords.
+
+### CALCULATOR PAGES (app/calculators/[slug]/page.tsx)
+
+**Payment Calculator (/calculators/payment)**
+- Inputs: Home price (slider + input), Down payment ($ and %, linked), Loan term (15/20/30yr toggle), Interest rate, Annual property tax, Annual homeowner's insurance, Monthly PMI (auto-calculate based on down payment < 20%), Monthly HOA
+- Output: Total monthly payment (PITI + PMI + HOA), interactive Recharts pie chart showing breakdown by category
+- Use sliders for mobile-friendly UX on home price and down payment
+- Format all currency with commas and $ signs
+- Recalculate on every input change (no submit button)
+
+**Affordability Calculator (/calculators/affordability)**
+- Inputs: Annual gross income, Monthly debt payments, Down payment available, Interest rate, Loan term
+- Output: Maximum home price (based on 43% DTI), Comfortable home price (based on 36% DTI), Estimated monthly payment at each level
+- Visual: Bar chart or gauge showing the range
+- Include explanation of DTI ratio
+
+**Refinance Calculator (/calculators/refinance)**
+- Inputs: Current loan balance, Current interest rate, Current monthly payment, New interest rate, New loan term, Estimated closing costs
+- Output: New monthly payment, Monthly savings, Break-even month, Total interest saved over life of loan
+- Visual: Line chart showing cumulative savings over time
+
+**Amortization Schedule (/calculators/amortization)**
+- Inputs: Loan amount, Interest rate, Loan term
+- Output: Full monthly payment schedule table (month, payment, principal, interest, balance)
+- Visual: Area chart showing principal vs interest over time
+- Optional: Extra payment input to show payoff acceleration
+- Table should be scrollable on mobile with sticky headers
+
+**All calculators must:**
+- Be fully client-side (no API calls — instant calculation)
+- Use "use client" directive
+- Be responsive and touch-friendly
+- Use brand colors in charts (navy for primary data, gold for highlights, slate for secondary)
+- Include a CTA below results: "Get Your Personalized Rate" → /contact
+- Include SEO meta title and description targeting calculator keywords
+
+### BLOG (app/blog/)
+
+**Blog listing page (app/blog/page.tsx):**
+- H1: "Mortgage Tips & Charlotte Market Insights"
+- Grid of blog post cards (2 columns desktop, 1 mobile)
+- Each card: Featured image (or placeholder gradient), title, excerpt (first 160 chars), date, category tag, "Read More →"
+- Pagination or "Load More" if more than 12 posts
+
+**Blog post page (app/blog/[slug]/page.tsx):**
+- Article layout: max-w-3xl centered
+- H1: Post title
+- Meta: Date, estimated read time, category
+- Author bio at bottom: headshot-primary.jpg, "Jacob Shope is a Charlotte Fire Department captain and mortgage loan officer helping families across the Charlotte metro build wealth through homeownership." + link to /about
+- Related posts section (2-3 posts)
+- CTA section: "Have questions? Book a free consultation" → /book
+- Schema: Article JSON-LD with author, datePublished, headline, image
+
+**MDX blog post structure (/content/blog/example-post.mdx):**
+```mdx
+---
+title: "Step-by-Step Guide to Buying a Home in Charlotte, NC"
+description: "Everything you need to know about buying a home in the Charlotte metro area, from pre-approval to closing day."
+date: "2026-03-01"
+category: "Buying Guides"
+image: "/images/blog/charlotte-homes.jpg"
+---
+
+Content goes here in standard Markdown...
+```
+
+### SERVICE AREA PAGES (app/service-areas/[slug]/page.tsx)
+
+Use a shared template. Each page includes:
+- H1: "Mortgage Lender in [City], NC" (or "Lake Norman Mortgage Lender")
+- Hero with Google Maps embed centered on that area
+- Section: "[City] Housing Market Overview" — local stats, trends, neighborhood descriptions
+- Section: "Loan Programs Available in [City]" — links to each loan program
+- Section: "Why Choose a Local Mortgage Professional" — community trust angle
+- Testimonials from clients in that area (placeholder for now)
+- FAQ section with local questions (e.g., "What is the average home price in Huntersville?")
+- CTA: "Get Pre-Approved for a Home in [City]" → /contact
+- Internal links to other nearby service areas
+- UNIQUE content per page — do NOT duplicate content across service area pages
+
+### FAQ PAGE (app/faq/page.tsx)
+
+- H1: "Frequently Asked Mortgage Questions"
+- Accordion-style Q&A (use shadcn/ui Accordion component)
+- Minimum 15-20 questions covering:
+  - Pre-approval process
+  - Down payment requirements
+  - Credit score requirements
+  - FHA vs Conventional
+  - Closing costs
+  - Refinancing
+  - First-time buyer programs in NC
+  - NCHFA programs
+  - Mortgage rates
+  - Timeline to close
+  - Documents needed
+  - PMI
+  - DTI ratio
+  - VA loan eligibility
+  - USDA eligibility near Charlotte
+- MUST include FAQPage JSON-LD schema for every Q&A pair
+- Each answer should be substantive (2-4 sentences), not one-liners
+- Internal links within answers to relevant pages (e.g., "Learn more about FHA loans →")
+
+### CONTACT PAGE (app/contact/page.tsx)
+
+- H1: "Get in Touch"
+- Two-column layout: Form left, contact info + map right
+- Form fields: First name, Last name, Email, Phone, Loan type (dropdown: Purchase, Refinance, Not Sure), Purchase timeline (dropdown: ASAP, 1-3 months, 3-6 months, 6+ months, Just exploring), Message (textarea)
+- Form submission: Server action → sends email via Resend or Formspree
+- Success state: "Thank you! I'll be in touch within 24 hours."
+- Right column: Phone (click-to-call link), Email (mailto link), Office address, Google Maps embed, "Book a Consultation" button → /book
+- Include Cloudflare Turnstile for spam protection
+
+### RATES PAGE (app/rates/page.tsx)
+
+- H1: "Today's Mortgage Rates in Charlotte, NC"
+- Table or card grid showing:
+  - 30-Year Fixed
+  - 15-Year Fixed
+  - FHA 30-Year
+  - VA 30-Year
+  - 5/1 ARM
+- Each row: Loan type, Rate %, APR %, monthly payment per $100K
+- "Last Updated: [date]" timestamp
+- Store rates in a simple JSON file (/data/rates.json) so Jacob can update easily
+- Disclaimer text below: "Rates shown are for informational purposes only and are subject to change without notice. Your actual rate will depend on your credit score, loan amount, down payment, and other factors. Contact me for a personalized rate quote."
+- CTA: "Get Your Personalized Rate" → /contact
+
+---
+
+## SEO REQUIREMENTS (Critical — implement on EVERY page)
+
+### Metadata (app/layout.tsx defaults + per-page overrides)
+
+Every page MUST have:
+- Unique `<title>` tag (50-60 characters, include primary keyword + "| Jacob Shope")
+- Unique `<meta name="description">` (150-160 characters, include keyword + CTA)
+- Open Graph tags: og:title, og:description, og:image, og:url, og:type
+- Twitter Card tags: twitter:card, twitter:title, twitter:description, twitter:image
+- Canonical URL
+- Appropriate robots meta (index, follow for all public pages)
+
+### JSON-LD Structured Data
+
+**Every page (in layout or shared component):**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Jacob Shope - Mortgage Loan Officer",
+  "url": "https://jacobshope.com",
+  "logo": "https://jacobshope.com/images/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-XXX-XXX-XXXX",
+    "contactType": "customer service"
+  },
+  "sameAs": ["https://instagram.com/jlshopeloans"]
+}
+```
+
+**Homepage — LocalBusiness:**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Jacob Shope - Mortgage Loan Officer",
+  "description": "Charlotte NC mortgage loan officer and fire department captain helping families build wealth through homeownership.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Charlotte",
+    "addressRegion": "NC",
+    "postalCode": "XXXXX",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "35.2271", "longitude": "-80.8431" },
+  "areaServed": [
+    { "@type": "City", "name": "Charlotte" },
+    { "@type": "City", "name": "Huntersville" },
+    { "@type": "City", "name": "Cornelius" },
+    { "@type": "City", "name": "Mooresville" },
+    { "@type": "State", "name": "North Carolina" }
+  ],
+  "priceRange": "$$"
+}
+```
+
+**About page — Person:**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jacob Shope",
+  "jobTitle": "Mortgage Loan Officer",
+  "worksFor": { "@type": "Organization", "name": "Mpire Financial" },
+  "image": "https://jacobshope.com/images/headshot-primary.jpg",
+  "sameAs": ["https://instagram.com/jlshopeloans"]
+}
+```
+
+**FAQ pages — FAQPage schema** (generate dynamically from Q&A data)
+
+**Blog posts — Article schema** (generate from MDX frontmatter)
+
+**Calculator pages — WebApplication schema**
+
+### Technical SEO Checklist
+
+- [ ] next-sitemap configured to auto-generate sitemap.xml and robots.txt
+- [ ] All images have descriptive alt text (not "image1" — describe what's in the photo)
+- [ ] One H1 per page, logical H2→H3 hierarchy
+- [ ] Internal links between related pages (loan programs ↔ calculators ↔ blog posts ↔ service areas)
+- [ ] Breadcrumbs on all sub-pages (with BreadcrumbList schema)
+- [ ] Custom 404 page with helpful links
+- [ ] No orphan pages (every page reachable from navigation or internal links)
+- [ ] All external links use rel="noopener noreferrer" and target="_blank"
+- [ ] Page load target: Lighthouse Performance 95+, Accessibility 100, Best Practices 100, SEO 95+
+
+---
+
+## COMPLIANCE REQUIREMENTS (Mortgage Industry — Non-Negotiable)
+
+These MUST appear on EVERY page of the site:
+
+1. **NMLS# 2090979** — visible in footer on every page
+2. **Equal Housing Lender** logo/icon — visible in footer on every page
+3. **NMLS Consumer Access** link — link to https://www.nmlsconsumeraccess.org/ in footer
+4. **Mpire Financial** — company name and NMLS# in footer
+5. **Rate disclaimers** — wherever rates are displayed, include disclaimer text about rates being subject to change
+
+The footer compliance line should read:
+"Jacob Shope | NMLS# 2090979 | Mpire Financial NMLS# 2090979 | Equal Housing Lender"
+with the Equal Housing Lender icon and a link to NMLS Consumer Access.
+
+---
+
+## MOBILE-FIRST REQUIREMENTS
+
+- All layouts designed for 375px width first, then responsive up
+- Touch targets: minimum 44x44px for all interactive elements
+- Sticky mobile header with hamburger + "Call" button + "Get a Quote" CTA
+- Bottom-anchored floating CTA on mobile: "Get a Free Quote" or click-to-call
+- Calculator inputs: Use range sliders instead of (or in addition to) number inputs
+- Forms: Use appropriate input types (tel, email) for mobile keyboards
+- Font size: minimum 16px body text (prevents iOS zoom on input focus)
+- No horizontal scroll on any viewport
+- Images: serve appropriately sized images via Next.js Image srcset
+- Test at: 375px, 414px, 768px, 1024px, 1280px, 1440px
+
+---
+
+## FILE STRUCTURE
+
+```
+/
+├── app/
+│   ├── layout.tsx              # Global layout (header, footer, fonts, metadata defaults)
+│   ├── page.tsx                # Homepage
+│   ├── about/page.tsx
+│   ├── loan-programs/
+│   │   ├── page.tsx            # Programs hub
+│   │   └── [slug]/page.tsx     # Individual program (dynamic route)
+│   ├── calculators/
+│   │   ├── page.tsx            # Calculator hub
+│   │   ├── payment/page.tsx
+│   │   ├── affordability/page.tsx
+│   │   ├── refinance/page.tsx
+│   │   └── amortization/page.tsx
+│   ├── rates/page.tsx
+│   ├── apply/page.tsx
+│   ├── reviews/page.tsx
+│   ├── blog/
+│   │   ├── page.tsx            # Blog listing
+│   │   └── [slug]/page.tsx     # Individual post
+│   ├── contact/page.tsx
+│   ├── book/page.tsx
+│   ├── faq/page.tsx
+│   ├── service-areas/
+│   │   ├── page.tsx            # Service areas hub
+│   │   └── [slug]/page.tsx     # Individual area (dynamic route)
+│   ├── privacy/page.tsx
+│   ├── terms/page.tsx
+│   ├── not-found.tsx           # Custom 404
+│   └── sitemap.ts              # Dynamic sitemap generation
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   ├── MobileNav.tsx
+│   │   └── Breadcrumbs.tsx
+│   ├── ui/                     # shadcn/ui components
+│   ├── calculators/
+│   │   ├── PaymentCalculator.tsx
+│   │   ├── AffordabilityCalculator.tsx
+│   │   ├── RefinanceCalculator.tsx
+│   │   └── AmortizationCalculator.tsx
+│   ├── forms/
+│   │   ├── ContactForm.tsx
+│   │   ├── NewsletterSignup.tsx
+│   │   └── PreQualForm.tsx
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── TrustSignals.tsx
+│   │   ├── TestimonialCarousel.tsx
+│   │   ├── BlogPreview.tsx
+│   │   ├── CTASection.tsx
+│   │   └── LoanProgramCards.tsx
+│   └── seo/
+│       ├── JsonLd.tsx          # Reusable JSON-LD component
+│       └── Breadcrumbs.tsx     # With schema markup
+├── content/
+│   ├── blog/                   # MDX blog posts
+│   ├── loan-programs/          # Loan program data (JSON or MDX)
+│   └── service-areas/          # Service area data (JSON or MDX)
+├── data/
+│   ├── rates.json              # Manually updated rate data
+│   ├── testimonials.json       # Client testimonials
+│   ├── faq.json                # FAQ questions and answers
+│   └── navigation.ts           # Nav menu structure
+├── lib/
+│   ├── utils.ts                # Utility functions
+│   ├── mortgage-math.ts        # Calculator formulas
+│   └── seo.ts                  # SEO helper functions
+├── public/
+│   ├── images/
+│   │   ├── headshot-primary.jpg
+│   │   ├── dress-uniform.jpg
+│   │   ├── family-field.jpg
+│   │   ├── family-station.jpg
+│   │   ├── headshot-formal.jpg
+│   │   ├── couple-sunset.jpg
+│   │   └── equal-housing-lender.png
+│   └── favicon.ico
+├── styles/
+│   └── globals.css             # Tailwind imports + minimal global styles
+├── tailwind.config.ts
+├── next.config.mjs
+├── next-sitemap.config.js
+├── tsconfig.json
+└── package.json
+```
+
+---
+
+## CONTENT TONE & WRITING GUIDELINES
+
+- **First person.** Jacob speaks directly to the visitor. "I help families..." not "We help families..."
+- **Confident but not salesy.** No "ACT NOW!" or "Don't miss out!" or "Call today for the BEST rates!"
+- **Educational.** Explain mortgage concepts simply. Jacob's audience includes first-time buyers who don't know the terminology.
+- **Charlotte-specific.** Reference Charlotte, NC neighborhoods, market conditions, and local programs (NCHFA) naturally.
+- **No fire puns.** No "extinguish your debt," "blazing fast closings," "hot rates," or any fire-related wordplay. Ever.
+- **Mention firefighting naturally, sparingly.** Homepage hero (one line), About page (full story), trust signals (badge), and that's it. Don't force it onto every page.
+
+---
+
+## PERFORMANCE TARGETS
+
+- Lighthouse Performance: 95+
+- Lighthouse Accessibility: 100
+- Lighthouse Best Practices: 100
+- Lighthouse SEO: 95+
+- Largest Contentful Paint (LCP): < 2.5s
+- Interaction to Next Paint (INP): < 200ms
+- Cumulative Layout Shift (CLS): < 0.1
+- First Contentful Paint (FCP): < 1.8s
+- Total Blocking Time (TBT): < 200ms
+
+---
+
+## INITIAL SETUP COMMANDS
+
+```bash
+npx create-next-app@latest jacob-shope-mortgage --typescript --tailwind --eslint --app --src-dir=false --import-alias="@/*"
+cd jacob-shope-mortgage
+npx shadcn@latest init
+npm install lucide-react recharts react-hook-form @hookform/resolvers zod next-sitemap
+npm install -D @types/node
+```
+
+Then install shadcn components as needed:
+```bash
+npx shadcn@latest add button card accordion input label select textarea badge separator sheet dialog
+```
+
+---
+
+## WHAT TO BUILD FIRST (Priority Order)
+
+1. Global layout (Header + Footer with compliance elements)
+2. Homepage (all sections)
+3. About page
+4. Contact page with working form
+5. Loan program pages (start with Conventional, then template the rest)
+6. Payment Calculator (most used calculator)
+7. FAQ page with schema
+8. Blog setup + 1 sample post
+9. Service area pages (start with Charlotte, then template the rest)
+10. Remaining calculators (affordability, refinance, amortization)
+11. Rates page
+12. Reviews page
+13. Book a Consultation page
+14. Apply Now page
+15. Remaining service area pages
