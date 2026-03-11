@@ -350,7 +350,9 @@ export default function PaymentCalculatorPage() {
                     ))}
                   </Pie>
                   <Tooltip
-                    formatter={(value: number) => formatCurrencyPrecise(value)}
+                    formatter={(value: number | string) =>
+                      `$${Number(value).toLocaleString()}`
+                    }
                   />
                   <Legend />
                 </PieChart>
