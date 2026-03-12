@@ -93,13 +93,13 @@ export function Footer() {
           {/* Equal Housing logos */}
           <div className="flex items-center justify-center gap-4">
             <img
-              src="/images/equal-housing-lender.png"
+              src="/images/equal-housing-lender.png.png"
               alt="Equal Housing Lender"
               width={70}
               height={70}
             />
             <img
-              src="/images/equal-housing-opportunity.png"
+              src="/images/equal-housing-opportunity.png.png"
               alt="Equal Housing Opportunity"
               width={70}
               height={70}
