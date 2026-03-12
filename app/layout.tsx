@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: "Jacob Shope | Mortgage Loan Officer | Charlotte, NC",
   description:
     "Charlotte Fire Department captain and licensed mortgage loan officer helping families across the Charlotte metro build wealth through homeownership. NMLS# 2090979.",
+  verification: {
+    google: "5HRFCHh4-CxFunRQ8uAW2mYLrbTsbnFD7nbjMabhzhM",
+  },
 };
 
 export default function RootLayout({
