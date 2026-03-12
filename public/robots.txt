@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jacobshopemortgage.com
+
+# Sitemaps
+Sitemap: https://jacobshopemortgage.com/sitemap.xml
