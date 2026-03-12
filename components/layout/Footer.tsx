@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const QUICK_LINKS = [
   { href: "/", label: "Home" },
@@ -92,13 +91,18 @@ export function Footer() {
       <div className="border-t border-white/20 bg-[#152034]">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-center text-xs text-white/80 md:px-6 lg:px-8 md:text-sm">
           {/* Equal Housing logos */}
-          <div className="flex justify-center">
-            <Image
-              src="/images/equal-housing-logos.png"
-              alt="Equal Housing Lender and Equal Housing Opportunity"
-              width={120}
-              height={40}
-              className="h-auto w-[120px]"
+          <div className="flex items-center justify-center gap-4">
+            <img
+              src="/images/equal-housing-lender.png"
+              alt="Equal Housing Lender"
+              width={70}
+              height={70}
+            />
+            <img
+              src="/images/equal-housing-opportunity.png"
+              alt="Equal Housing Opportunity"
+              width={70}
+              height={70}
             />
           </div>
 
