@@ -47,10 +47,6 @@ const CHART_COLORS = {
   hoa: "#2D2D2D", // charcoal
 };
 
-const tooltipFormatter = (value: number | string, name: string) => {
-  return [`$${Number(value).toLocaleString()}`, name] as [string, string];
-};
-
 export default function PaymentCalculatorPage() {
   const [homePrice, setHomePrice] = useState(350_000);
   const [downPaymentPct, setDownPaymentPct] = useState(20);
@@ -342,10 +338,8 @@ export default function PaymentCalculatorPage() {
                     outerRadius={100}
                     paddingAngle={2}
                     label={({ name, percent }) =>
-                      percent !== undefined
-                        ? percent > 0.05
-                          ? `${name}: ${(percent * 100).toFixed(0)}%`
-                          : ""
+                      percent && percent > 0.05
+                        ? `${name}: ${(percent * 100).toFixed(0)}%`
                         : ""
                     }
                   >
@@ -353,7 +347,11 @@ export default function PaymentCalculatorPage() {
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={tooltipFormatter} />
+                  <Tooltip
+                    formatter={(value: unknown) =>
+                      `$${Number(value).toLocaleString()}`
+                    }
+                  />
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
