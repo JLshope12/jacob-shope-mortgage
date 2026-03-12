@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About Jacob Shope | Captain, Charlotte Fire Dept. & Mortgage Loan Officer",
+  title: "About Jacob Shope | Charlotte Fire Captain & Loan Officer",
   description:
-    "Captain Jacob Shope serves Charlotte as a firefighter and mortgage loan officer. Same dedication, different uniform. NMLS# 2090979.",
+    "Meet Jacob Shope, a Charlotte Fire Department captain and licensed mortgage loan officer at Mpire Financial. Serving Charlotte, NC families with honesty and expertise.",
 };
 
 export default function AboutPage() {

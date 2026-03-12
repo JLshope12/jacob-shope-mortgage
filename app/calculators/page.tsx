@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Calculator, Home, RefreshCw, ListOrdered, ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "Mortgage Calculators | Jacob Shope",
+  title: "Mortgage Calculators | Charlotte NC | Jacob Shope",
   description:
-    "Free mortgage calculators: payment, affordability, refinance savings, and amortization schedule. Estimate your monthly payment and see how much home you can afford.",
+    "Free mortgage calculators for Charlotte, NC homebuyers. Calculate your monthly payment, affordability, refinance savings, and amortization schedule.",
 };
 
 const CALCULATORS = [

@@ -60,6 +60,12 @@ const LOAN_PROGRAMS = [
   },
 ] as const;
 
+export const metadata = {
+  title: "Charlotte Mortgage Broker | Jacob Shope | NMLS# 2090979",
+  description:
+    "Jacob Shope is a Charlotte, NC mortgage broker and loan officer at Mpire Financial. Get low rates on FHA, VA, Conventional, and USDA loans. Serving Charlotte, Huntersville, Lake Norman, and all of NC.",
+};
+
 export default function Home() {
   return (
     <div className="bg-offwhite">

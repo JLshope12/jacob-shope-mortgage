@@ -11,9 +11,9 @@ type RateRow = {
 };
 
 export const metadata = {
-  title: "Today's Mortgage Rates | Charlotte, NC | Jacob Shope",
+  title: "Today's Mortgage Rates in Charlotte, NC | Jacob Shope",
   description:
-    "View current mortgage rates in Charlotte, NC. 30-year fixed, 15-year fixed, FHA, VA, and ARM. Contact Jacob Shope for a personalized rate quote. NMLS# 2090979.",
+    "Current mortgage rates in Charlotte, NC updated regularly. View rates for 30-year fixed, 15-year fixed, FHA, VA, and ARM loans.",
 };
 
 export default function RatesPage() {

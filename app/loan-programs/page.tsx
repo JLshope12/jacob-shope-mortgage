@@ -23,9 +23,9 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 export const metadata = {
-  title: "Loan Programs | Jacob Shope | Charlotte Mortgage",
+  title: "Mortgage Loan Programs | FHA, VA, Conventional & More | Jacob Shope",
   description:
-    "Explore conventional, FHA, VA, USDA, jumbo, refinance, and first-time buyer programs in Charlotte, NC. Find the right loan for your situation.",
+    "Explore mortgage loan programs available in Charlotte, NC including FHA, VA, USDA, Conventional, Jumbo, and first-time buyer programs.",
 };
 
 export default function LoanProgramsHubPage() {

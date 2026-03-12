@@ -3,9 +3,9 @@ import { FAQ_ITEMS } from "@/data/faq";
 import { FAQAccordion } from "@/components/faq/FAQAccordion";
 
 export const metadata = {
-  title: "Frequently Asked Mortgage Questions | Jacob Shope | Charlotte, NC",
+  title: "Mortgage FAQ | Common Questions Answered | Jacob Shope",
   description:
-    "Get answers to common questions about the home buying and mortgage process in Charlotte and North Carolina. Pre-approval, down payments, FHA vs conventional, and more.",
+    "Answers to the most common mortgage questions. Learn about pre-approval, down payments, credit scores, FHA vs Conventional, closing costs, and more.",
 };
 
 function buildFAQPageSchema() {

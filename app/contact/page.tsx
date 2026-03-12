@@ -1,9 +1,9 @@
 import { ContactContent } from "./ContactContent";
 
 export const metadata = {
-  title: "Contact Jacob Shope | Get in Touch | Charlotte Mortgage Loan Officer",
+  title: "Contact Jacob Shope | Charlotte Mortgage Broker",
   description:
-    "Contact Jacob Shope for mortgage questions, pre-approval, or to book a consultation. Phone (704) 614-5340. NMLS# 2090979.",
+    "Get in touch with Jacob Shope, Charlotte NC mortgage loan officer. Call (704) 614-5340 or fill out the form to get started.",
 };
 
 export default function ContactPage() {

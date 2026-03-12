@@ -20,9 +20,9 @@ const GROUP_ORDER: ServiceAreaGroup[] = [
 ];
 
 export const metadata = {
-  title: "Areas We Serve | Jacob Shope | Charlotte & NC Mortgage",
+  title: "Mortgage Lender Serving Charlotte, NC & Beyond | Jacob Shope",
   description:
-    "Mortgage lending in Charlotte, Lake Norman, Huntersville, Cornelius, Mooresville, Concord, Gastonia, Matthews, Mint Hill, Indian Trail, North Carolina, South Carolina, and nationwide.",
+    "Jacob Shope provides mortgage loans throughout Charlotte, Huntersville, Cornelius, Lake Norman, Mooresville, Concord, and all of North Carolina.",
 };
 
 export default function ServiceAreasHubPage() {
