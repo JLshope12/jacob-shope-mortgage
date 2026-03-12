@@ -66,12 +66,26 @@ export function ContactContent() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   async function onSubmit(data: ContactFormData) {
-    // TODO: Send to server action / Resend / Formspree
-    await new Promise((r) => setTimeout(r, 500));
-    reset();
-    setSubmitted(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch("https://formspree.io/f/xwvrblkq", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        throw new Error("Something went wrong. Please try again or email me directly.");
+      }
+      reset();
+      setSubmitted(true);
+    } catch {
+      setSubmitError(
+        "Something went wrong. Please try again or email me directly at shope@mpirefi.com."
+      );
+    }
   }
 
   return (
@@ -85,10 +99,16 @@ export function ContactContent() {
           <div className="rounded-xl bg-white p-6 shadow-md md:p-8">
             {submitted ? (
               <p className="text-lg text-charcoal">
-                Thank you! I&apos;ll be in touch within 24 hours.
+                Thanks! I&apos;ll be in touch within one business day.
               </p>
             ) : (
-              <form
+              <>
+                {submitError && (
+                  <p className="mb-6 rounded-lg bg-destructive/10 p-4 text-sm text-destructive">
+                    {submitError}
+                  </p>
+                )}
+                <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="space-y-6"
               >
@@ -252,6 +272,7 @@ export function ContactContent() {
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
+              </>
             )}
           </div>
 
