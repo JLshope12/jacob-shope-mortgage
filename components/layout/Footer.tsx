@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { House } from "lucide-react";
 
 const QUICK_LINKS = [
   { href: "/", label: "Home" },
@@ -84,6 +85,98 @@ export function Footer() {
           >
             NMLS Consumer Access
           </a>
+        </div>
+      </div>
+
+      {/* Extended compliance section */}
+      <div className="border-t border-white/20 bg-[#152034]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-center text-xs text-white/80 md:px-6 lg:px-8 md:text-sm">
+          {/* Equal Housing logos (placeholders) */}
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <div className="inline-flex items-center gap-2 rounded-md border border-white/30 px-3 py-2">
+              <House className="h-4 w-4 text-white" aria-hidden />
+              <span className="text-[0.7rem] font-semibold tracking-wide md:text-xs">
+                EQUAL HOUSING LENDER
+              </span>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-md border border-white/30 px-3 py-2">
+              <House className="h-4 w-4 text-white" aria-hidden />
+              <span className="text-[0.7rem] font-semibold tracking-wide md:text-xs">
+                EQUAL HOUSING OPPORTUNITY
+              </span>
+            </div>
+          </div>
+
+          {/* Compliance info block */}
+          <div className="space-y-1">
+            <p>Jacob Shope, NMLS# 2090979 | Mpire Financial LLC, NMLS# 2108504</p>
+            <p>189 S Orange Ave #2020, Orlando, FL 32801</p>
+            <p>
+              For licensing information, go to{" "}
+              <a
+                href="https://www.nmlsconsumeraccess.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white underline underline-offset-2 hover:text-gold"
+              >
+                www.nmlsconsumeraccess.org
+              </a>
+              .
+            </p>
+          </div>
+
+          {/* Footer links row */}
+          <div className="flex flex-wrap items-center justify-center gap-2 text-[0.7rem] md:text-xs">
+            <Link
+              href="/privacy"
+              className="text-white hover:text-gold"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link
+              href="/terms"
+              className="text-white hover:text-gold"
+            >
+              Terms of Use
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link
+              href="/licensing"
+              className="text-white hover:text-gold"
+            >
+              Licensing &amp; Disclosures
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link
+              href="/accessibility"
+              className="text-white hover:text-gold"
+            >
+              Accessibility
+            </Link>
+            <span className="text-white/50">|</span>
+            <a
+              href="https://www.nmlsconsumeraccess.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gold"
+            >
+              NMLS Consumer Access
+            </a>
+          </div>
+
+          {/* Disclaimer text */}
+          <p className="text-[0.65rem] leading-relaxed text-white/70 md:text-[0.7rem]">
+            All loan programs, rates, terms, and conditions are subject to change without notice.
+            Not all loan programs are available in all states. Other restrictions and limitations
+            may apply. This is not a commitment to lend or extend credit. All loans are subject to
+            credit approval. Equal Housing Opportunity.
+          </p>
+
+          {/* Copyright */}
+          <p className="text-[0.65rem] text-white/60 md:text-[0.7rem]">
+            © 2026 Jacob Shope | Mpire Financial LLC, NMLS# 2108504. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
