@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { House } from "lucide-react";
+import Image from "next/image";
 
 const QUICK_LINKS = [
   { href: "/", label: "Home" },
@@ -91,20 +91,15 @@ export function Footer() {
       {/* Extended compliance section */}
       <div className="border-t border-white/20 bg-[#152034]">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-center text-xs text-white/80 md:px-6 lg:px-8 md:text-sm">
-          {/* Equal Housing logos (placeholders) */}
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <div className="inline-flex items-center gap-2 rounded-md border border-white/30 px-3 py-2">
-              <House className="h-4 w-4 text-white" aria-hidden />
-              <span className="text-[0.7rem] font-semibold tracking-wide md:text-xs">
-                EQUAL HOUSING LENDER
-              </span>
-            </div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-white/30 px-3 py-2">
-              <House className="h-4 w-4 text-white" aria-hidden />
-              <span className="text-[0.7rem] font-semibold tracking-wide md:text-xs">
-                EQUAL HOUSING OPPORTUNITY
-              </span>
-            </div>
+          {/* Equal Housing logos */}
+          <div className="flex justify-center">
+            <Image
+              src="/images/equal-housing-logos.png"
+              alt="Equal Housing Lender and Equal Housing Opportunity"
+              width={120}
+              height={40}
+              className="h-auto w-[120px]"
+            />
           </div>
 
           {/* Compliance info block */}
