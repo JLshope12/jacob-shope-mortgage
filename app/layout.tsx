@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { NewsletterSignup } from "@/components/forms/NewsletterSignup";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const GA_MEASUREMENT_ID = "G-GEG0J8SFCX";
@@ -53,6 +54,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <Header />
         <main className="flex-1">{children}</main>
+        <NewsletterSignup />
         <Footer />
       </body>
     </html>
