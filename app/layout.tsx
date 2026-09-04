@@ -76,6 +76,7 @@ export default function RootLayout({
                 identifier: "NMLS 2090979",
                 sameAs: [
                   "https://www.instagram.com/jlshopeloans/",
+                  "https://www.facebook.com/jacob.shope.33",
                 ],
                 knowsAbout: [
                   "Mortgage lending",
