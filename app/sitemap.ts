@@ -11,7 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact", "/faq", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
     "/service-areas", "/down-payment-assistance-charlotte", "/va-loans-charlotte",
     "/first-time-homebuyer-charlotte", "/investment-property-loans-charlotte",
-    "/construction-loans-charlotte",
+    "/construction-loans-charlotte", "/mortgage-broker-vs-lender-charlotte",
+    "/mortgage-preapproval-charlotte", "/mortgage-credit-score-charlotte",
+    "/mortgage-dti-charlotte", "/mortgage-income-employment-charlotte",
+    "/seller-concessions-north-carolina",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
@@ -29,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
               "/first-time-homebuyer-charlotte",
               "/investment-property-loans-charlotte",
               "/construction-loans-charlotte",
+              "/mortgage-broker-vs-lender-charlotte",
+              "/mortgage-preapproval-charlotte",
+              "/mortgage-credit-score-charlotte",
+              "/mortgage-dti-charlotte",
+              "/mortgage-income-employment-charlotte",
+              "/seller-concessions-north-carolina",
             ].includes(path)
             ? 0.85
             : path === "/newsletter"
