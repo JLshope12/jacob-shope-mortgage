@@ -14,7 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/construction-loans-charlotte", "/mortgage-broker-vs-lender-charlotte",
     "/mortgage-preapproval-charlotte", "/mortgage-credit-score-charlotte",
     "/mortgage-dti-charlotte", "/mortgage-income-employment-charlotte",
-    "/seller-concessions-north-carolina",
+    "/seller-concessions-north-carolina", "/refinance-charlotte",
+    "/home-equity-heloc-charlotte", "/how-much-house-can-i-afford-charlotte",
+    "/mortgage-closing-costs-charlotte", "/mortgage-appraisal-charlotte",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
@@ -38,6 +40,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
               "/mortgage-dti-charlotte",
               "/mortgage-income-employment-charlotte",
               "/seller-concessions-north-carolina",
+              "/refinance-charlotte",
+              "/home-equity-heloc-charlotte",
+              "/how-much-house-can-i-afford-charlotte",
+              "/mortgage-closing-costs-charlotte",
+              "/mortgage-appraisal-charlotte",
             ].includes(path)
             ? 0.85
             : path === "/newsletter"
