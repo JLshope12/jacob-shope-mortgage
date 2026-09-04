@@ -35,10 +35,11 @@ const TOPICS = [
     title: "Mortgage Programs",
     description: "Compare the major loan types and understand which options may fit a purchase, refinance, or property type.",
     links: [
+      ["FHA vs Conventional in Charlotte", "/fha-vs-conventional-charlotte"],
+      ["Private Mortgage Insurance (PMI)", "/private-mortgage-insurance-charlotte"],
       ["VA Loans in Charlotte", "/va-loans-charlotte"],
       ["Conventional Loans", "/loan-programs/conventional"],
       ["FHA Loans", "/loan-programs/fha"],
-      ["VA Loans", "/loan-programs/va"],
       ["USDA Loans", "/loan-programs/usda"],
       ["Jumbo Loans", "/loan-programs/jumbo"],
     ],
@@ -48,6 +49,7 @@ const TOPICS = [
     description: "Financing guidance for rental properties, investor scenarios, equity strategies, and building a home.",
     links: [
       ["Investment Property Loans in Charlotte", "/investment-property-loans-charlotte"],
+      ["DSCR Loans in Charlotte", "/dscr-loans-charlotte"],
       ["Construction Loans in Charlotte", "/construction-loans-charlotte"],
       ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
       ["Ask Jacob About a Scenario", "/contact"],
@@ -55,10 +57,12 @@ const TOPICS = [
   },
   {
     title: "Homeowners, Equity & Refinancing",
-    description: "Review refinance, HELOC, home equity, payment, and long-term financing questions with the numbers in front of you.",
+    description: "Review refinance, HELOC, home equity, bridge, payment, and long-term financing questions with the numbers in front of you.",
     links: [
       ["Mortgage Refinance in Charlotte", "/refinance-charlotte"],
+      ["Cash-Out Refinance in Charlotte", "/cash-out-refinance-charlotte"],
       ["HELOC & Home Equity Options in Charlotte", "/home-equity-heloc-charlotte"],
+      ["Bridge Loans in Charlotte", "/bridge-loans-charlotte"],
       ["Refinance Calculator", "/calculators/refinance"],
       ["Mortgage Rates", "/rates"],
     ],
