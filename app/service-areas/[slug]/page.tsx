@@ -6,6 +6,7 @@ import {
   type ServiceArea,
 } from "@/data/service-areas";
 import { LOAN_PROGRAMS } from "@/data/loan-programs";
+import { AuthorBox } from "@/components/seo/AuthorBox";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -69,7 +70,8 @@ export default async function ServiceAreaPage({ params }: Props) {
   return (
     <div className="bg-offwhite">
       <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <h1 className="text-3xl font-bold tracking-tight text-navy md:text-4xl lg:text-5xl">
+        <p className="font-semibold text-gold">Local mortgage guidance from Jacob Shope</p>
+        <h1 className="mt-3 text-3xl font-bold tracking-tight text-navy md:text-4xl lg:text-5xl">
           {getH1(area)}
         </h1>
         <p className="mt-6 text-base leading-relaxed text-charcoal md:text-lg">
@@ -84,26 +86,20 @@ export default async function ServiceAreaPage({ params }: Props) {
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
               <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
-              <Link href="/loan-programs/first-time-buyer" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
-              <Link href="/loan-programs/va" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+              <Link href="/first-time-homebuyer-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
+              <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+              <Link href="/mortgage-guides" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Guides</Link>
             </div>
           </section>
         )}
 
         <section className="mt-14">
-          <h2 className="text-2xl font-bold tracking-tight text-navy md:text-3xl">
-            Loan Programs Available
-          </h2>
-          <p className="mt-2 text-charcoal">
-            I offer a full range of loan options for buyers and refinancers in this area:
-          </p>
+          <h2 className="text-2xl font-bold tracking-tight text-navy md:text-3xl">Loan Programs Available</h2>
+          <p className="mt-2 text-charcoal">Explore mortgage options for buyers and homeowners in this area:</p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {LOAN_PROGRAMS.map((program) => (
               <li key={program.slug}>
-                <Link
-                  href={`/loan-programs/${program.slug}`}
-                  className="inline-flex items-center text-gold font-medium hover:underline"
-                >
+                <Link href={`/loan-programs/${program.slug}`} className="inline-flex items-center font-medium text-gold hover:underline">
                   {program.name}
                 </Link>
               </li>
@@ -112,35 +108,17 @@ export default async function ServiceAreaPage({ params }: Props) {
         </section>
 
         <section className="mt-14">
-          <h2 className="text-2xl font-bold tracking-tight text-navy md:text-3xl">
-            Why Choose a Local Mortgage Professional
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-charcoal md:text-lg">
-            {area.whyLocal}
-          </p>
-        </section>
-
-        <section className="mt-14 text-center">
-          <Link
-            href="/contact"
-            className="inline-flex rounded-lg bg-gold px-6 py-3 font-semibold text-white transition-colors hover:bg-gold/90"
-          >
-            {getCTAText(area)}
-          </Link>
+          <h2 className="text-2xl font-bold tracking-tight text-navy md:text-3xl">Why Choose a Local Mortgage Professional</h2>
+          <p className="mt-6 text-base leading-relaxed text-charcoal md:text-lg">{area.whyLocal}</p>
         </section>
 
         {nearbyAreas.length > 0 && (
           <section className="mt-14 border-t border-charcoal/10 pt-14">
-            <h2 className="text-xl font-bold tracking-tight text-navy md:text-2xl">
-              Nearby Areas We Serve
-            </h2>
+            <h2 className="text-xl font-bold tracking-tight text-navy md:text-2xl">Nearby Areas We Serve</h2>
             <ul className="mt-6 flex flex-wrap gap-4">
               {nearbyAreas.map((nearby) => (
                 <li key={nearby.slug}>
-                  <Link
-                    href={`/service-areas/${nearby.slug}`}
-                    className="text-gold font-medium hover:underline"
-                  >
+                  <Link href={`/service-areas/${nearby.slug}`} className="font-medium text-gold hover:underline">
                     {nearby.name}
                   </Link>
                 </li>
@@ -148,6 +126,16 @@ export default async function ServiceAreaPage({ params }: Props) {
             </ul>
           </section>
         )}
+
+        <div className="mt-14">
+          <AuthorBox />
+        </div>
+
+        <section className="mt-14 text-center">
+          <Link href="/contact" className="inline-flex rounded-lg bg-gold px-6 py-3 font-semibold text-white transition-colors hover:bg-gold/90">
+            {getCTAText(area)}
+          </Link>
+        </section>
       </div>
     </div>
   );
