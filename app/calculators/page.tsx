@@ -5,6 +5,7 @@ export const metadata = {
   title: "Mortgage Calculators | Charlotte NC | Jacob Shope",
   description:
     "Free mortgage calculators for Charlotte, NC homebuyers. Calculate your monthly payment, affordability, refinance savings, and amortization schedule.",
+  alternates: { canonical: "/calculators" },
 };
 
 const CALCULATORS = [

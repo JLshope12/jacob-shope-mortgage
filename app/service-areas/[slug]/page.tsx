@@ -26,10 +26,13 @@ export async function generateMetadata({ params }: Props) {
           ? "South Carolina Mortgage Lender | Jacob Shope"
           : area.slug === "nationwide"
             ? "Nationwide Mortgage Lender | Jacob Shope"
-            : `Mortgage Lender in ${area.name}, NC | Jacob Shope`;
+            : area.slug === "charlotte-metro"
+              ? "Charlotte Metro Mortgage Broker | Jacob Shope"
+              : `${area.name} Mortgage Broker | Jacob Shope`;
   return {
     title,
     description: area.shortDescription,
+    alternates: { canonical: `/service-areas/${area.slug}` },
   };
 }
 
@@ -38,7 +41,8 @@ function getH1(area: ServiceArea): string {
   if (area.slug === "north-carolina") return "North Carolina Mortgage Lender";
   if (area.slug === "south-carolina") return "South Carolina Mortgage Lender";
   if (area.slug === "nationwide") return "Nationwide Mortgage Lender";
-  return `Mortgage Lender in ${area.name}, NC`;
+  if (area.slug === "charlotte-metro") return "Charlotte Metro Mortgage Broker";
+  return `${area.name} Mortgage Broker`;
 }
 
 function getCTAText(area: ServiceArea): string {

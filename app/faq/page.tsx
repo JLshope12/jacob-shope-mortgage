@@ -6,6 +6,7 @@ export const metadata = {
   title: "Mortgage FAQ | Common Questions Answered | Jacob Shope",
   description:
     "Answers to the most common mortgage questions. Learn about pre-approval, down payments, credit scores, FHA vs Conventional, closing costs, and more.",
+  alternates: { canonical: "/faq" },
 };
 
 function buildFAQPageSchema() {

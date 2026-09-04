@@ -2,7 +2,12 @@
 
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
+import dynamic from "next/dynamic";
+
+const PaymentBreakdownChart = dynamic(() => import("./PaymentBreakdownChart"), {
+  ssr: false,
+  loading: () => <div className="h-full w-full animate-pulse rounded-full bg-offwhite" aria-hidden />,
+});
 
 function formatCurrency(value: number) {
   return new Intl.NumberFormat("en-US", {
@@ -325,36 +330,8 @@ export default function PaymentCalculatorPage() {
               {formatCurrencyPrecise(breakdown.total)}
             </p>
 
-            <div className="h-64 w-full min-h-[240px] md:h-72">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={pieData}
-                    dataKey="value"
-                    nameKey="name"
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={100}
-                    paddingAngle={2}
-                    label={({ name, percent }) =>
-                      percent && percent > 0.05
-                        ? `${name}: ${(percent * 100).toFixed(0)}%`
-                        : ""
-                    }
-                  >
-                    {pieData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip
-                    formatter={(value: unknown) =>
-                      `$${Number(value).toLocaleString()}`
-                    }
-                  />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
+            <div className="h-64 min-h-[240px] min-w-0 w-full md:h-72">
+              <PaymentBreakdownChart data={pieData} />
             </div>
 
             <ul className="space-y-2 border-t border-charcoal/10 pt-4">

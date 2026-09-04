@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { href: "/calculators", label: "Calculators" },
   { href: "/rates", label: "Rates" },
   { href: "/service-areas", label: "Service Areas" },
-  { href: "/blog", label: "Blog" },
+  { href: "/newsletter", label: "Newsletter" },
   { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -50,7 +50,7 @@ export function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
+          <nav className="hidden items-center gap-4 md:flex lg:gap-6" aria-label="Main">
             {NAV_LINKS.map(({ href, label }) => (
               <Link
                 key={href}
@@ -65,9 +65,9 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden shrink-0 rounded-lg bg-gold px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-gold/90 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 sm:inline-flex"
+              className="hidden shrink-0 rounded-lg bg-gold px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-gold/90 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 lg:inline-flex"
             >
-              Get a Free Quote
+              Get Started
             </Link>
 
             {/* Mobile menu button */}
@@ -114,7 +114,7 @@ export function Header() {
             onClick={() => setMobileOpen(false)}
             className="mt-4 inline-flex justify-center rounded-lg bg-gold px-5 py-3 text-base font-semibold text-white hover:bg-gold/90"
           >
-            Get a Free Quote
+            Get Started
           </Link>
         </div>
       </aside>
