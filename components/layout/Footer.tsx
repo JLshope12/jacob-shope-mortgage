@@ -25,14 +25,24 @@ export function Footer() {
             <p className="mt-2 text-sm text-white/70">
               Mortgage Loan Officer · NMLS# 2090979 · Mpire Financial
             </p>
-            <a
-              href="https://www.instagram.com/jlshopeloans/"
-              target="_blank"
-              rel="noopener noreferrer me"
-              className="mt-4 inline-flex text-sm font-medium text-gold hover:underline"
-            >
-              Instagram @jlshopeloans
-            </a>
+            <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+              <a
+                href="https://www.instagram.com/jlshopeloans/"
+                target="_blank"
+                rel="noopener noreferrer me"
+                className="inline-flex text-sm font-medium text-gold hover:underline"
+              >
+                Instagram @jlshopeloans
+              </a>
+              <a
+                href="https://www.facebook.com/jacob.shope.33"
+                target="_blank"
+                rel="noopener noreferrer me"
+                className="inline-flex text-sm font-medium text-gold hover:underline"
+              >
+                Facebook
+              </a>
+            </div>
           </div>
 
           <div>
