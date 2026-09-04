@@ -17,6 +17,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/seller-concessions-north-carolina", "/refinance-charlotte",
     "/home-equity-heloc-charlotte", "/how-much-house-can-i-afford-charlotte",
     "/mortgage-closing-costs-charlotte", "/mortgage-appraisal-charlotte",
+    "/fha-vs-conventional-charlotte", "/dscr-loans-charlotte",
+    "/private-mortgage-insurance-charlotte", "/cash-out-refinance-charlotte",
+    "/bridge-loans-charlotte",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
@@ -45,6 +48,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
               "/how-much-house-can-i-afford-charlotte",
               "/mortgage-closing-costs-charlotte",
               "/mortgage-appraisal-charlotte",
+              "/fha-vs-conventional-charlotte",
+              "/dscr-loans-charlotte",
+              "/private-mortgage-insurance-charlotte",
+              "/cash-out-refinance-charlotte",
+              "/bridge-loans-charlotte",
             ].includes(path)
             ? 0.85
             : path === "/newsletter"
