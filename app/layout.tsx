@@ -74,6 +74,21 @@ export default function RootLayout({
                 email: "shope@mpirefi.com",
                 jobTitle: "Mortgage Loan Officer",
                 identifier: "NMLS 2090979",
+                sameAs: [
+                  "https://www.instagram.com/jlshopeloans/",
+                ],
+                knowsAbout: [
+                  "Mortgage lending",
+                  "Mortgage brokerage",
+                  "VA loans",
+                  "FHA loans",
+                  "Conventional loans",
+                  "First-time homebuyer financing",
+                  "Investment property financing",
+                  "Construction loans",
+                  "Refinancing",
+                  "Home equity",
+                ],
                 worksFor: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
               },
               {
