@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
 
 export const metadata = {
   title: "Mortgage Guides by Jacob Shope | Charlotte & Lake Norman",
@@ -92,9 +93,21 @@ const TOPICS = [
   },
 ] as const;
 
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://jacobshopemortgage.com/mortgage-guides#collection",
+  url: "https://jacobshopemortgage.com/mortgage-guides",
+  name: "Charlotte Mortgage Guides & Resources",
+  author: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
+  publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
+  about: ["Mortgages", "Charlotte real estate financing", "Lake Norman mortgage guidance"],
+};
+
 export default function MortgageGuidesPage() {
   return (
     <div className="bg-offwhite">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <section className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage answers from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">
@@ -106,10 +119,10 @@ export default function MortgageGuidesPage() {
           Lake Norman. The goal is simple: clear answers, useful tools, and a direct path to the
           financing topic you need.
         </p>
-        <p className="mt-4 max-w-3xl text-charcoal">
-          Guides and resources are provided by Jacob Shope, Charlotte mortgage broker and Mortgage
-          Loan Officer with Mpire Financial, NMLS# 2090979.
-        </p>
+
+        <div className="mt-8 max-w-3xl">
+          <AuthorBox />
+        </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {TOPICS.map((topic) => (
