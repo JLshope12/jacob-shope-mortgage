@@ -9,7 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "", "/about", "/apply", "/book", "/calculators", "/calculators/payment",
     "/calculators/affordability", "/calculators/refinance", "/calculators/amortization",
     "/contact", "/faq", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
-    "/service-areas", "/down-payment-assistance-charlotte",
+    "/service-areas", "/down-payment-assistance-charlotte", "/va-loans-charlotte",
+    "/first-time-homebuyer-charlotte", "/investment-property-loans-charlotte",
+    "/construction-loans-charlotte",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
@@ -22,8 +24,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1
         : path === "/mortgage-guides" || path === "/about"
           ? 0.9
-          : path === "/newsletter"
+          : [
+              "/va-loans-charlotte",
+              "/first-time-homebuyer-charlotte",
+              "/investment-property-loans-charlotte",
+              "/construction-loans-charlotte",
+            ].includes(path)
             ? 0.85
-            : 0.7,
+            : path === "/newsletter"
+              ? 0.8
+              : 0.7,
   }));
 }
