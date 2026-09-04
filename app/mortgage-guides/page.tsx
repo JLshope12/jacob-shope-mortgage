@@ -12,6 +12,7 @@ const TOPICS = [
     title: "Buying a Home",
     description: "Start with the basics: payments, pre-approval, loan options, and what to expect before you make an offer.",
     links: [
+      ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
       ["First-Time Buyer Loans", "/loan-programs/first-time-buyer"],
       ["Mortgage Payment Calculator", "/calculators/payment"],
       ["Affordability Calculator", "/calculators/affordability"],
@@ -22,11 +23,22 @@ const TOPICS = [
     title: "Mortgage Programs",
     description: "Compare the major loan types and understand which options may fit a purchase, refinance, or property type.",
     links: [
+      ["VA Loans in Charlotte", "/va-loans-charlotte"],
       ["Conventional Loans", "/loan-programs/conventional"],
       ["FHA Loans", "/loan-programs/fha"],
       ["VA Loans", "/loan-programs/va"],
       ["USDA Loans", "/loan-programs/usda"],
       ["Jumbo Loans", "/loan-programs/jumbo"],
+    ],
+  },
+  {
+    title: "Investors & Construction",
+    description: "Financing guidance for rental properties, investor scenarios, equity strategies, and building a home.",
+    links: [
+      ["Investment Property Loans in Charlotte", "/investment-property-loans-charlotte"],
+      ["Construction Loans in Charlotte", "/construction-loans-charlotte"],
+      ["Mortgage Payment Calculator", "/calculators/payment"],
+      ["Ask Jacob About a Scenario", "/contact"],
     ],
   },
   {
@@ -50,6 +62,16 @@ const TOPICS = [
       ["Mooresville Mortgage Broker", "/service-areas/mooresville"],
     ],
   },
+  {
+    title: "About Jacob Shope",
+    description: "Connect the mortgage information on this site to the local professional behind it.",
+    links: [
+      ["About Jacob Shope", "/about"],
+      ["Charlotte Mortgage Broker", "/"],
+      ["Contact Jacob", "/contact"],
+      ["Book a Conversation", "/book"],
+    ],
+  },
 ] as const;
 
 export default function MortgageGuidesPage() {
@@ -67,8 +89,8 @@ export default function MortgageGuidesPage() {
           financing topic you need.
         </p>
         <p className="mt-4 max-w-3xl text-charcoal">
-          Guides and resources are provided by Jacob Shope, Mortgage Loan Officer with Mpire
-          Financial, NMLS# 2090979.
+          Guides and resources are provided by Jacob Shope, Charlotte mortgage broker and Mortgage
+          Loan Officer with Mpire Financial, NMLS# 2090979.
         </p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
