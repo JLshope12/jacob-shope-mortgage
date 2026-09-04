@@ -10,14 +10,14 @@ export const metadata = {
 const TOPICS = [
   {
     title: "Buying a Home",
-    description: "Start with the basics: payments, pre-approval, loan options, and what to expect before you make an offer.",
+    description: "Start with the basics: payments, pre-approval, affordability, closing costs, and what to expect before you make an offer.",
     links: [
       ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
+      ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
       ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
-      ["First-Time Buyer Loans", "/loan-programs/first-time-buyer"],
+      ["Mortgage Closing Costs in Charlotte", "/mortgage-closing-costs-charlotte"],
       ["Mortgage Payment Calculator", "/calculators/payment"],
       ["Affordability Calculator", "/calculators/affordability"],
-      ["Mortgage FAQs", "/faq"],
     ],
   },
   {
@@ -49,15 +49,16 @@ const TOPICS = [
     links: [
       ["Investment Property Loans in Charlotte", "/investment-property-loans-charlotte"],
       ["Construction Loans in Charlotte", "/construction-loans-charlotte"],
-      ["Mortgage Payment Calculator", "/calculators/payment"],
+      ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
       ["Ask Jacob About a Scenario", "/contact"],
     ],
   },
   {
-    title: "Homeowners & Refinancing",
-    description: "Review payment, equity, refinance, and long-term financing questions with the numbers in front of you.",
+    title: "Homeowners, Equity & Refinancing",
+    description: "Review refinance, HELOC, home equity, payment, and long-term financing questions with the numbers in front of you.",
     links: [
-      ["Refinance Options", "/loan-programs/refinance"],
+      ["Mortgage Refinance in Charlotte", "/refinance-charlotte"],
+      ["HELOC & Home Equity Options in Charlotte", "/home-equity-heloc-charlotte"],
       ["Refinance Calculator", "/calculators/refinance"],
       ["Mortgage Rates", "/rates"],
     ],
@@ -80,6 +81,7 @@ const TOPICS = [
     links: [
       ["About Jacob Shope", "/about"],
       ["Charlotte Mortgage Broker", "/"],
+      ["Mortgage FAQs", "/faq"],
       ["Contact Jacob", "/contact"],
       ["Book a Conversation", "/book"],
     ],
