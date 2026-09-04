@@ -8,7 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const mainRoutes = [
     "", "/about", "/apply", "/book", "/calculators", "/calculators/payment",
     "/calculators/affordability", "/calculators/refinance", "/calculators/amortization",
-    "/contact", "/faq", "/loan-programs", "/newsletter", "/rates", "/service-areas",
+    "/contact", "/faq", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
+    "/service-areas", "/down-payment-assistance-charlotte",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
@@ -16,6 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
     changeFrequency: path === "/newsletter" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : path === "/newsletter" ? 0.9 : 0.7,
+    priority:
+      path === ""
+        ? 1
+        : path === "/mortgage-guides" || path === "/about"
+          ? 0.9
+          : path === "/newsletter"
+            ? 0.85
+            : 0.7,
   }));
 }
