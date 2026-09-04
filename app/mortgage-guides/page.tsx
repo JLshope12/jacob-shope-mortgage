@@ -1,0 +1,110 @@
+import Link from "next/link";
+
+export const metadata = {
+  title: "Mortgage Guides by Jacob Shope | Charlotte & Lake Norman",
+  description:
+    "Mortgage guides and answers from Jacob Shope for homebuyers, homeowners, veterans, first-time buyers, and real estate investors in Charlotte and Lake Norman.",
+  alternates: { canonical: "/mortgage-guides" },
+};
+
+const TOPICS = [
+  {
+    title: "Buying a Home",
+    description: "Start with the basics: payments, pre-approval, loan options, and what to expect before you make an offer.",
+    links: [
+      ["First-Time Buyer Loans", "/loan-programs/first-time-buyer"],
+      ["Mortgage Payment Calculator", "/calculators/payment"],
+      ["Affordability Calculator", "/calculators/affordability"],
+      ["Mortgage FAQs", "/faq"],
+    ],
+  },
+  {
+    title: "Mortgage Programs",
+    description: "Compare the major loan types and understand which options may fit a purchase, refinance, or property type.",
+    links: [
+      ["Conventional Loans", "/loan-programs/conventional"],
+      ["FHA Loans", "/loan-programs/fha"],
+      ["VA Loans", "/loan-programs/va"],
+      ["USDA Loans", "/loan-programs/usda"],
+      ["Jumbo Loans", "/loan-programs/jumbo"],
+    ],
+  },
+  {
+    title: "Homeowners & Refinancing",
+    description: "Review payment, equity, refinance, and long-term financing questions with the numbers in front of you.",
+    links: [
+      ["Refinance Options", "/loan-programs/refinance"],
+      ["Refinance Calculator", "/calculators/refinance"],
+      ["Mortgage Rates", "/rates"],
+    ],
+  },
+  {
+    title: "Charlotte & Lake Norman",
+    description: "Local mortgage guidance for buyers and homeowners across the Charlotte metro and Lake Norman corridor.",
+    links: [
+      ["Charlotte Mortgage Options", "/service-areas/charlotte"],
+      ["Huntersville Mortgage Broker", "/service-areas/huntersville"],
+      ["Lake Norman Mortgage Lender", "/service-areas/lake-norman"],
+      ["Cornelius Mortgage Broker", "/service-areas/cornelius"],
+      ["Davidson Mortgage Broker", "/service-areas/davidson"],
+      ["Mooresville Mortgage Broker", "/service-areas/mooresville"],
+    ],
+  },
+] as const;
+
+export default function MortgageGuidesPage() {
+  return (
+    <div className="bg-offwhite">
+      <section className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+        <p className="font-semibold text-gold">Mortgage answers from Jacob Shope</p>
+        <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">
+          Charlotte Mortgage Guides & Resources
+        </h1>
+        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal">
+          This is the starting point for mortgage questions I hear from buyers, homeowners,
+          veterans, first-time buyers, Realtors, and real estate investors across Charlotte and
+          Lake Norman. The goal is simple: clear answers, useful tools, and a direct path to the
+          financing topic you need.
+        </p>
+        <p className="mt-4 max-w-3xl text-charcoal">
+          Guides and resources are provided by Jacob Shope, Mortgage Loan Officer with Mpire
+          Financial, NMLS# 2090979.
+        </p>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {TOPICS.map((topic) => (
+            <section key={topic.title} className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
+              <h2 className="text-2xl font-bold text-navy">{topic.title}</h2>
+              <p className="mt-3 leading-relaxed text-charcoal">{topic.description}</p>
+              <ul className="mt-5 space-y-3">
+                {topic.links.map(([label, href]) => (
+                  <li key={href}>
+                    <Link href={href} className="font-medium text-gold hover:underline">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+
+        <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
+          <h2 className="text-2xl font-bold">Have a mortgage question that is not covered yet?</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-white/85">
+            Send me the scenario. The questions clients and Realtors ask are what I use to keep
+            building this resource library.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Link href="/contact" className="rounded-lg bg-gold px-5 py-3 font-semibold text-white hover:bg-gold/90">
+              Ask Jacob a Mortgage Question
+            </Link>
+            <Link href="/about" className="rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white hover:text-navy">
+              About Jacob Shope
+            </Link>
+          </div>
+        </section>
+      </section>
+    </div>
+  );
+}
