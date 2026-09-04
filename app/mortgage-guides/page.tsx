@@ -12,11 +12,23 @@ const TOPICS = [
     title: "Buying a Home",
     description: "Start with the basics: payments, pre-approval, loan options, and what to expect before you make an offer.",
     links: [
+      ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
       ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
       ["First-Time Buyer Loans", "/loan-programs/first-time-buyer"],
       ["Mortgage Payment Calculator", "/calculators/payment"],
       ["Affordability Calculator", "/calculators/affordability"],
       ["Mortgage FAQs", "/faq"],
+    ],
+  },
+  {
+    title: "Mortgage Qualification",
+    description: "Direct answers to the questions buyers ask about credit, debt-to-income, income, employment, and the mortgage approval process.",
+    links: [
+      ["Credit Score for a Mortgage", "/mortgage-credit-score-charlotte"],
+      ["Debt-to-Income Ratio Explained", "/mortgage-dti-charlotte"],
+      ["Income & Employment for a Mortgage", "/mortgage-income-employment-charlotte"],
+      ["Mortgage Broker vs Lender", "/mortgage-broker-vs-lender-charlotte"],
+      ["Seller Concessions in North Carolina", "/seller-concessions-north-carolina"],
     ],
   },
   {
