@@ -16,6 +16,18 @@ export type ServiceArea = {
 
 export const SERVICE_AREAS: ServiceArea[] = [
   {
+    slug: "charlotte-metro",
+    group: "charlotte-metro",
+    name: "Charlotte Metro",
+    shortDescription:
+      "Mortgage guidance throughout Mecklenburg County and the greater Charlotte region.",
+    introParagraph:
+      "The Charlotte metro includes a wide range of communities, property types, and price points across Mecklenburg and the surrounding counties. Buyers may be comparing an in-town condo, a suburban single-family home, new construction, or an investment property. I help clients compare the complete payment and loan structure, prepare a strong pre-approval, and keep the financing on track from offer through closing.",
+    whyLocal:
+      "I was born and raised in the Charlotte area and serve the community as both a mortgage professional and Charlotte Fire Department captain. My clients get straightforward answers, local availability, and access to multiple lending options through a mortgage broker.",
+    nearbySlugs: ["charlotte", "huntersville", "ballantyne", "lake-norman", "concord"],
+  },
+  {
     slug: "charlotte",
     group: "charlotte-metro",
     name: "Charlotte",
@@ -40,6 +52,18 @@ export const SERVICE_AREAS: ServiceArea[] = [
     nearbySlugs: ["cornelius", "lake-norman", "charlotte", "mooresville"],
   },
   {
+    slug: "ballantyne",
+    group: "charlotte-metro",
+    name: "Ballantyne",
+    shortDescription:
+      "Mortgage options for homebuyers and homeowners in Ballantyne and south Charlotte.",
+    introParagraph:
+      "Ballantyne and south Charlotte offer established neighborhoods, newer communities, townhomes, and convenient access to major employers, shopping, and the I-485 corridor. Buyers in this part of Mecklenburg County may be comparing conventional, jumbo, first-time buyer, or relocation financing. I help clients understand the full payment, prepare for the offer, and choose a loan structure that fits both the property and their longer-term goals.",
+    whyLocal:
+      "I know the Charlotte market and work with buyers, homeowners, and Realtors across Mecklenburg County. You will get direct communication and a financing plan built around your actual scenario, not a generic online quote.",
+    nearbySlugs: ["charlotte", "charlotte-metro", "matthews", "indian-trail"],
+  },
+  {
     slug: "cornelius",
     group: "charlotte-metro",
     name: "Cornelius",
@@ -50,6 +74,18 @@ export const SERVICE_AREAS: ServiceArea[] = [
     whyLocal:
       "I serve the Lake Norman corridor daily and understand how the Cornelius market works—from lakefront to inland subdivisions. You'll get straightforward advice and a smooth process so you can focus on finding your home.",
     nearbySlugs: ["huntersville", "lake-norman", "charlotte"],
+  },
+  {
+    slug: "davidson",
+    group: "charlotte-metro",
+    name: "Davidson",
+    shortDescription:
+      "Local mortgage guidance for Davidson, North Carolina and the Lake Norman area.",
+    introParagraph:
+      "Davidson combines a walkable college-town center with neighborhoods extending toward Lake Norman and the surrounding area. Buyers may encounter historic homes, newer construction, townhomes, condominiums, and higher-priced properties that require careful loan planning. I help Davidson buyers review conventional, jumbo, VA, and other available options while keeping the payment, appraisal, and closing timeline clear.",
+    whyLocal:
+      "I live in the Lake Norman area and regularly work with buyers and Realtors along the I-77 corridor. That local connection makes it easier to communicate quickly, understand the property, and solve issues before they slow down the closing.",
+    nearbySlugs: ["cornelius", "huntersville", "lake-norman", "mooresville"],
   },
   {
     slug: "lake-norman",

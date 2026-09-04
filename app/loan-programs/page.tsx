@@ -26,6 +26,7 @@ export const metadata = {
   title: "Mortgage Loan Programs | FHA, VA, Conventional & More | Jacob Shope",
   description:
     "Explore mortgage loan programs available in Charlotte, NC including FHA, VA, USDA, Conventional, Jumbo, and first-time buyer programs.",
+  alternates: { canonical: "/loan-programs" },
 };
 
 export default function LoanProgramsHubPage() {

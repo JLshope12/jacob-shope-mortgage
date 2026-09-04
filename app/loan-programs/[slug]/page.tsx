@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${program.name} Loans in Charlotte, NC | Jacob Shope`,
     description: program.description.slice(0, 155) + "...",
+    alternates: { canonical: `/loan-programs/${program.slug}` },
   };
 }
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const QUICK_LINKS = [
   { href: "/", label: "Home" },
@@ -6,7 +7,7 @@ const QUICK_LINKS = [
   { href: "/loan-programs", label: "Loan Programs" },
   { href: "/calculators", label: "Calculators" },
   { href: "/rates", label: "Rates" },
-  { href: "/blog", label: "Blog" },
+  { href: "/newsletter", label: "Newsletter" },
   { href: "/contact", label: "Contact" },
   { href: "/faq", label: "FAQ" },
   { href: "/service-areas", label: "Service Areas" },
@@ -16,7 +17,7 @@ export function Footer() {
   return (
     <footer className="bg-navy text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
           <div>
             <p className="text-lg font-bold text-white">Jacob Shope</p>
@@ -62,43 +63,16 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Compliance bar */}
-        <div className="mt-10 flex flex-col items-center gap-4 border-t border-white/20 pt-8 text-center">
-          <p className="text-xs text-white/70">
-            © {new Date().getFullYear()} Jacob Shope | NMLS# 2090979 | Mpire Financial NMLS# 2090979
-            {" · "}
-            <span className="inline-flex items-center gap-1">
-              Equal Housing Lender
-              <span
-                className="inline-block h-4 w-4 rounded bg-white/20"
-                title="Equal Housing Lender"
-                aria-hidden
-              />
-            </span>
-          </p>
-          <a
-            href="https://www.nmlsconsumeraccess.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-gold underline hover:text-gold/90"
-          >
-            NMLS Consumer Access
-          </a>
-        </div>
-      </div>
-
-      {/* Extended compliance section */}
-      <div className="border-t border-white/20 bg-[#152034]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-center text-xs text-white/80 md:px-6 lg:px-8 md:text-sm">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/20 pt-8 text-center text-xs text-white/80">
           {/* Equal Housing logos */}
           <div className="flex items-center justify-center gap-4">
-            <img
+            <Image
               src="/images/equal-housing-lender.png.png"
               alt="Equal Housing Lender"
               width={70}
               height={70}
             />
-            <img
+            <Image
               src="/images/equal-housing-opportunity.png.png"
               alt="Equal Housing Opportunity"
               width={70}
@@ -174,7 +148,7 @@ export function Footer() {
 
           {/* Copyright */}
           <p className="text-[0.65rem] text-white/60 md:text-[0.7rem]">
-            © 2026 Jacob Shope | Mpire Financial LLC, NMLS# 2108504. All rights reserved.
+            © {new Date().getFullYear()} Jacob Shope | Mpire Financial LLC, NMLS# 2108504. All rights reserved.
           </p>
         </div>
       </div>

@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 
-const KIT_SUBSCRIBE_URL =
-  "https://app.kit.com/forms/9614062/subscriptions";
-
 export function NewsletterSignup() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<
@@ -18,10 +15,10 @@ export function NewsletterSignup() {
     setStatus("submitting");
 
     try {
-      const res = await fetch(KIT_SUBSCRIBE_URL, {
+      const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email_address: email.trim() }),
+        body: JSON.stringify({ email: email.trim() }),
       });
 
       if (!res.ok) {
@@ -37,10 +34,10 @@ export function NewsletterSignup() {
 
   if (status === "success") {
     return (
-      <section className="border-b border-gold/30 bg-navy">
+      <section id="newsletter-signup" className="scroll-mt-20 border-b border-gold/30 bg-navy">
         <div className="mx-auto max-w-7xl px-4 py-10 md:px-6 lg:px-8">
           <p className="text-center text-base text-white md:text-lg">
-            You&apos;re in! Check your inbox for a confirmation.
+            You&apos;re on the list. Watch your inbox for the next Sunday Rundown.
           </p>
         </div>
       </section>
@@ -48,15 +45,15 @@ export function NewsletterSignup() {
   }
 
   return (
-    <section className="border-b border-gold/30 bg-navy">
+    <section id="newsletter-signup" className="scroll-mt-20 border-b border-gold/30 bg-navy">
       <div className="mx-auto max-w-7xl px-4 py-10 md:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-bold text-white md:text-3xl">
             The Real Estate Rundown
           </h2>
           <p className="mt-3 text-sm text-white/85 md:text-base">
-            Rates, market trends, and mortgage tips delivered to Charlotte
-            realtors every week.
+            A quick Sunday preview of rates, Lake Norman real estate, and the
+            conversations worth having with clients in the week ahead.
           </p>
 
           <form
@@ -70,6 +67,8 @@ export function NewsletterSignup() {
               id="newsletter-email"
               type="email"
               name="email"
+              autoComplete="email"
+              inputMode="email"
               required
               value={email}
               onChange={(e) => {
@@ -89,8 +88,8 @@ export function NewsletterSignup() {
           </form>
 
           {status === "error" && (
-            <p className="mt-3 text-sm text-gold">
-              Something went wrong. Please try again.
+            <p className="mt-3 text-sm text-gold" role="alert" aria-live="polite">
+              I couldn&apos;t add you just yet. Please try again or email shope@mpirefi.com.
             </p>
           )}
         </div>

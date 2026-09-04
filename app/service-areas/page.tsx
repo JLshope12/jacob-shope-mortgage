@@ -23,6 +23,7 @@ export const metadata = {
   title: "Mortgage Lender Serving Charlotte, NC & Beyond | Jacob Shope",
   description:
     "Jacob Shope provides mortgage loans throughout Charlotte, Huntersville, Cornelius, Lake Norman, Mooresville, Concord, and all of North Carolina.",
+  alternates: { canonical: "/service-areas" },
 };
 
 export default function ServiceAreasHubPage() {
