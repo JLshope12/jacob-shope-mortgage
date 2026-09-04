@@ -17,18 +17,22 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const area = getServiceAreaBySlug(slug);
   if (!area) return { title: "Service Area | Jacob Shope" };
+
   const title =
-    area.slug === "lake-norman"
-      ? "Lake Norman Mortgage Lender | Jacob Shope"
-      : area.slug === "north-carolina"
-        ? "North Carolina Mortgage Lender | Jacob Shope"
-        : area.slug === "south-carolina"
-          ? "South Carolina Mortgage Lender | Jacob Shope"
-          : area.slug === "nationwide"
-            ? "Nationwide Mortgage Lender | Jacob Shope"
-            : area.slug === "charlotte-metro"
-              ? "Charlotte Metro Mortgage Broker | Jacob Shope"
-              : `${area.name} Mortgage Broker | Jacob Shope`;
+    area.slug === "charlotte"
+      ? "Charlotte Home Loans | FHA, VA, Conventional & More | Jacob Shope"
+      : area.slug === "lake-norman"
+        ? "Lake Norman Mortgage Broker | Jacob Shope"
+        : area.slug === "north-carolina"
+          ? "North Carolina Mortgage Lender | Jacob Shope"
+          : area.slug === "south-carolina"
+            ? "South Carolina Mortgage Lender | Jacob Shope"
+            : area.slug === "nationwide"
+              ? "Nationwide Mortgage Lender | Jacob Shope"
+              : area.slug === "charlotte-metro"
+                ? "Charlotte Metro Home Loans | Jacob Shope"
+                : `${area.name} Mortgage Broker | Jacob Shope`;
+
   return {
     title,
     description: area.shortDescription,
@@ -37,11 +41,12 @@ export async function generateMetadata({ params }: Props) {
 }
 
 function getH1(area: ServiceArea): string {
-  if (area.slug === "lake-norman") return "Lake Norman Mortgage Lender";
+  if (area.slug === "charlotte") return "Mortgage Options for Charlotte Homebuyers";
+  if (area.slug === "lake-norman") return "Lake Norman Mortgage Broker";
   if (area.slug === "north-carolina") return "North Carolina Mortgage Lender";
   if (area.slug === "south-carolina") return "South Carolina Mortgage Lender";
   if (area.slug === "nationwide") return "Nationwide Mortgage Lender";
-  if (area.slug === "charlotte-metro") return "Charlotte Metro Mortgage Broker";
+  if (area.slug === "charlotte-metro") return "Mortgage Options Across the Charlotte Metro";
   return `${area.name} Mortgage Broker`;
 }
 
@@ -71,13 +76,26 @@ export default async function ServiceAreaPage({ params }: Props) {
           {area.introParagraph}
         </p>
 
+        {area.slug === "charlotte" && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">Buying a home in Charlotte?</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              The financing should fit the property and the buyer, not the other way around. I help Charlotte buyers compare conventional, FHA, VA, jumbo, first-time buyer, and other available mortgage options while keeping the payment, cash to close, appraisal, and offer strategy clear.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+              <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
+              <Link href="/loan-programs/first-time-buyer" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
+              <Link href="/loan-programs/va" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+            </div>
+          </section>
+        )}
+
         <section className="mt-14">
           <h2 className="text-2xl font-bold tracking-tight text-navy md:text-3xl">
             Loan Programs Available
           </h2>
           <p className="mt-2 text-charcoal">
-            I offer a full range of loan options for buyers and refinancers in
-            this area:
+            I offer a full range of loan options for buyers and refinancers in this area:
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {LOAN_PROGRAMS.map((program) => (
