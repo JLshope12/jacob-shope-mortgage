@@ -7,6 +7,8 @@ import { NewsletterSignup } from "@/components/forms/NewsletterSignup";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 const GA_MEASUREMENT_ID = "G-GEG0J8SFCX";
+const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
+const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jacobshopemortgage.com"),
@@ -87,9 +89,15 @@ export default function RootLayout({
                 telephone: "+1-704-614-5340",
                 email: "shope@mpirefi.com",
                 jobTitle: "Mortgage Loan Officer",
-                identifier: "NMLS 2090979",
+                identifier: {
+                  "@type": "PropertyValue",
+                  propertyID: "NMLS",
+                  value: "2090979",
+                  url: NMLS_URL,
+                },
                 mainEntityOfPage: { "@id": "https://jacobshopemortgage.com/about#profile" },
                 sameAs: [
+                  NMLS_URL,
                   "https://www.instagram.com/jlshopeloans/",
                   "https://www.facebook.com/jacob.shope.33",
                 ],
@@ -100,6 +108,7 @@ export default function RootLayout({
                   "FHA loans",
                   "Conventional loans",
                   "First-time homebuyer financing",
+                  "First responder home financing",
                   "Investment property financing",
                   "DSCR loans",
                   "Construction loans",
@@ -117,6 +126,7 @@ export default function RootLayout({
                 "@id": "https://jacobshopemortgage.com/#mpire-financial",
                 name: "Mpire Financial LLC - Jacob Shope",
                 url: "https://jacobshopemortgage.com",
+                sameAs: [MPIRE_URL],
                 telephone: "+1-704-614-5340",
                 areaServed: [
                   "Charlotte",

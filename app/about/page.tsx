@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
+const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+
 export const metadata = {
   title: "Jacob Shope | Charlotte Mortgage Broker & Loan Officer",
   description:
-    "Meet Jacob Shope, a Charlotte-area mortgage broker and Mortgage Loan Officer with Mpire Financial, serving Charlotte, Huntersville, Lake Norman, and surrounding communities. NMLS# 2090979.",
+    "Meet Jacob Shope, a Charlotte-area mortgage broker, Charlotte Fire captain, and Mortgage Loan Officer with Mpire Financial, serving Charlotte, Huntersville, Lake Norman, and surrounding communities. NMLS# 2090979.",
   alternates: { canonical: "/about" },
 };
 
@@ -21,7 +24,12 @@ const profileSchema = {
     url: "https://jacobshopemortgage.com/about",
     image: "https://jacobshopemortgage.com/images/DSC_0084.jpg",
     jobTitle: "Mortgage Loan Officer",
-    identifier: "NMLS 2090979",
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "NMLS",
+      value: "2090979",
+      url: NMLS_URL,
+    },
     email: "shope@mpirefi.com",
     telephone: "+1-704-614-5340",
     worksFor: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
@@ -37,6 +45,7 @@ const profileSchema = {
       "Mortgages",
       "Mortgage brokerage",
       "Home financing",
+      "First responder home financing",
       "First-time homebuyer financing",
       "VA loans",
       "FHA loans",
@@ -48,6 +57,7 @@ const profileSchema = {
       "Mortgage rates",
     ],
     sameAs: [
+      NMLS_URL,
       "https://www.instagram.com/jlshopeloans/",
       "https://www.facebook.com/jacob.shope.33",
     ],
@@ -64,7 +74,7 @@ export default function AboutPage() {
           <p className="font-semibold text-gold">Charlotte mortgage guidance with a local connection</p>
           <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">Jacob Shope, Charlotte Mortgage Broker</h1>
           <p className="mt-6 text-lg leading-relaxed text-charcoal">
-            I&apos;m Jacob Shope, a Mortgage Loan Officer with Mpire Financial and a Charlotte Fire Department captain. I help homebuyers, homeowners, veterans, first-time buyers, and real estate investors understand their mortgage options and build a financing plan around the property and the goal.
+            I&apos;m Jacob Shope, a Mortgage Loan Officer with Mpire Financial and a Charlotte Fire Department captain. I help homebuyers, homeowners, veterans, first responders, first-time buyers, and real estate investors understand their mortgage options and build a financing plan around the property and the goal.
           </p>
           <p className="mt-4 font-medium text-charcoal">Mortgage Loan Officer · Mpire Financial · NMLS# 2090979</p>
           <div className="mt-7 flex flex-wrap gap-3">
@@ -72,6 +82,8 @@ export default function AboutPage() {
             <Link href="/mortgage-guides" className="rounded-lg border border-navy/20 px-5 py-3 font-semibold text-navy hover:border-gold hover:text-gold">Read Mortgage Guides</Link>
           </div>
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href={NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Verify NMLS# 2090979</a>
+            <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mpire Financial</a>
             <a href="https://www.instagram.com/jlshopeloans/" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Instagram @jlshopeloans</a>
             <a href="https://www.facebook.com/jacob.shope.33" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Facebook</a>
           </div>
@@ -83,9 +95,10 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl gap-12 px-4 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8">
           <div className="space-y-5 text-base leading-relaxed text-charcoal md:text-lg">
             <h2 className="text-3xl font-bold tracking-tight text-navy md:text-4xl">A mortgage resource for Charlotte and Lake Norman</h2>
-            <p>My goal is to be the person clients and Realtors can call when a mortgage question comes up. That includes straightforward purchases as well as VA financing, FHA and conventional loans, first-time buyer scenarios, investment properties, construction, refinancing, and files that need a little more problem-solving.</p>
+            <p>My goal is to be the person clients and Realtors can call when a mortgage question comes up. That includes straightforward purchases as well as first responder scenarios, VA financing, FHA and conventional loans, first-time buyer scenarios, investment properties, construction, refinancing, and files that need a little more problem-solving.</p>
             <p>I work throughout Charlotte, Huntersville, Cornelius, Davidson, Lake Norman, Mooresville, and the surrounding region. The website is built to answer real mortgage questions clearly, so buyers can understand the options before they make a decision.</p>
             <div className="flex flex-wrap gap-x-5 gap-y-2 text-base font-medium text-gold">
+              <Link href="/first-responder-home-loans-charlotte" className="hover:underline">First Responder Home Loans</Link>
               <Link href="/loan-programs/va" className="hover:underline">VA Loans</Link>
               <Link href="/loan-programs/fha" className="hover:underline">FHA Loans</Link>
               <Link href="/loan-programs/conventional" className="hover:underline">Conventional Loans</Link>
