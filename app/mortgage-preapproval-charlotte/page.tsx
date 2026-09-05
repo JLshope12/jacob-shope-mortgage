@@ -1,14 +1,27 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
+import { GuideSchema } from "@/components/seo/GuideSchema";
+
+const title = "Mortgage Pre-Approval in Charlotte";
+const description =
+  "A practical guide to mortgage pre-approval in Charlotte from Jacob Shope, Mortgage Loan Officer with Mpire Financial, NMLS# 2090979.";
 
 export const metadata = {
   title: "Mortgage Pre-Approval in Charlotte | Jacob Shope",
-  description: "A practical guide to mortgage pre-approval in Charlotte from Jacob Shope, Mortgage Loan Officer with Mpire Financial, NMLS# 2090979.",
+  description,
   alternates: { canonical: "/mortgage-preapproval-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 export default function MortgagePreapprovalCharlottePage() {
   return (
     <div className="bg-offwhite">
+      <GuideSchema
+        title={title}
+        description={description}
+        path="/mortgage-preapproval-charlotte"
+        topics={["Mortgage pre-approval", "Home buying", "Mortgage qualification"]}
+      />
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">Mortgage Pre-Approval in Charlotte</h1>
@@ -32,9 +45,9 @@ export default function MortgagePreapprovalCharlottePage() {
             ["Credit history", "Credit is one part of determining which loan options may be available."],
             ["Monthly obligations", "Existing recurring debts are considered alongside income and the proposed housing payment."],
             ["Funds for the transaction", "A lender may review funds for down payment, closing costs, and any required reserves."],
-          ].map(([title, body]) => (
-            <div key={title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/5">
-              <h3 className="font-bold text-navy">{title}</h3>
+          ].map(([cardTitle, body]) => (
+            <div key={cardTitle} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/5">
+              <h3 className="font-bold text-navy">{cardTitle}</h3>
               <p className="mt-3 leading-relaxed text-charcoal">{body}</p>
             </div>
           ))}
@@ -55,6 +68,23 @@ export default function MortgagePreapprovalCharlottePage() {
             <div><h3 className="font-semibold text-navy">Can a pre-approval be updated?</h3><p className="mt-2 leading-relaxed text-charcoal">Yes. If a home search takes time or finances change, the review may need to be refreshed.</p></div>
           </div>
         </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Related mortgage qualification guides</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            Pre-approval makes more sense when credit, debt-to-income, income, employment, and affordability are reviewed together.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 font-medium">
+            <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">Credit Score Guide</Link>
+            <Link href="/mortgage-dti-charlotte" className="text-gold hover:underline">Debt-to-Income Guide</Link>
+            <Link href="/mortgage-income-employment-charlotte" className="text-gold hover:underline">Income &amp; Employment Guide</Link>
+            <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Charlotte Affordability Guide</Link>
+          </div>
+        </section>
+
+        <div className="mt-12">
+          <AuthorBox />
+        </div>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Planning a home purchase in Charlotte?</h2>
