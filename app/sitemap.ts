@@ -12,15 +12,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact", "/faq", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
     "/service-areas", "/down-payment-assistance-charlotte", "/va-loans-charlotte",
     "/first-time-homebuyer-charlotte", "/charlotte-home-buying-mortgage-guide",
-    "/investment-property-loans-charlotte", "/construction-loans-charlotte",
-    "/mortgage-broker-vs-lender-charlotte", "/mortgage-preapproval-charlotte",
-    "/mortgage-credit-score-charlotte", "/mortgage-dti-charlotte",
-    "/mortgage-income-employment-charlotte", "/seller-concessions-north-carolina",
-    "/refinance-charlotte", "/home-equity-heloc-charlotte",
-    "/how-much-house-can-i-afford-charlotte", "/mortgage-closing-costs-charlotte",
-    "/mortgage-appraisal-charlotte", "/fha-vs-conventional-charlotte",
-    "/dscr-loans-charlotte", "/private-mortgage-insurance-charlotte",
-    "/cash-out-refinance-charlotte", "/bridge-loans-charlotte",
+    "/charlotte-mortgage-loan-limits-2026", "/investment-property-loans-charlotte",
+    "/construction-loans-charlotte", "/mortgage-broker-vs-lender-charlotte",
+    "/mortgage-preapproval-charlotte", "/mortgage-credit-score-charlotte",
+    "/mortgage-dti-charlotte", "/mortgage-income-employment-charlotte",
+    "/seller-concessions-north-carolina", "/refinance-charlotte",
+    "/home-equity-heloc-charlotte", "/how-much-house-can-i-afford-charlotte",
+    "/mortgage-closing-costs-charlotte", "/mortgage-appraisal-charlotte",
+    "/fha-vs-conventional-charlotte", "/dscr-loans-charlotte",
+    "/private-mortgage-insurance-charlotte", "/cash-out-refinance-charlotte",
+    "/bridge-loans-charlotte",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
@@ -32,7 +33,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       path === ""
         ? 1
-        : ["/mortgage-guides", "/about", "/blog", "/charlotte-home-buying-mortgage-guide"].includes(path)
+        : [
+            "/mortgage-guides",
+            "/about",
+            "/blog",
+            "/charlotte-home-buying-mortgage-guide",
+            "/charlotte-mortgage-loan-limits-2026",
+          ].includes(path)
           ? 0.9
           : [
               "/va-loans-charlotte",
