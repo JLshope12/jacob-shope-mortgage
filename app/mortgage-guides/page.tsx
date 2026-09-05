@@ -11,9 +11,9 @@ export const metadata = {
 const TOPICS = [
   {
     title: "Buying a Home",
-    description: "Start with the basics: payments, pre-approval, affordability, closing costs, and what to expect before you make an offer.",
+    description: "Start with the basics: payments, pre-approval, affordability, closing costs, real estate financing, and what to expect before you make an offer.",
     links: [
-      ["Charlotte Home Buying & Mortgage Guide", "/charlotte-home-buying-mortgage-guide"],
+      ["Charlotte Home Buying & Real Estate Financing Guide", "/charlotte-home-buying-mortgage-guide"],
       ["2026 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
       ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
       ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
