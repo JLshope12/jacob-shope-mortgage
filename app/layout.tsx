@@ -10,6 +10,11 @@ const GA_MEASUREMENT_ID = "G-GEG0J8SFCX";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jacobshopemortgage.com"),
+  applicationName: "Jacob Shope Mortgage",
+  authors: [{ name: "Jacob Shope", url: "/about" }],
+  creator: "Jacob Shope",
+  publisher: "Mpire Financial LLC",
+  category: "Mortgage and real estate financing",
   title: {
     default: "Jacob Shope | Charlotte Mortgage Broker",
     template: "%s | Jacob Shope Mortgage",
