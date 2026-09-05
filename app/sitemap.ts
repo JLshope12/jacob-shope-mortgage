@@ -12,16 +12,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact", "/faq", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
     "/service-areas", "/down-payment-assistance-charlotte", "/va-loans-charlotte",
     "/first-time-homebuyer-charlotte", "/charlotte-home-buying-mortgage-guide",
-    "/charlotte-mortgage-loan-limits-2026", "/investment-property-loans-charlotte",
-    "/construction-loans-charlotte", "/mortgage-broker-vs-lender-charlotte",
-    "/mortgage-preapproval-charlotte", "/mortgage-credit-score-charlotte",
-    "/mortgage-dti-charlotte", "/mortgage-income-employment-charlotte",
-    "/seller-concessions-north-carolina", "/refinance-charlotte",
-    "/home-equity-heloc-charlotte", "/how-much-house-can-i-afford-charlotte",
-    "/mortgage-closing-costs-charlotte", "/mortgage-appraisal-charlotte",
-    "/fha-vs-conventional-charlotte", "/dscr-loans-charlotte",
-    "/private-mortgage-insurance-charlotte", "/cash-out-refinance-charlotte",
-    "/bridge-loans-charlotte",
+    "/charlotte-housing-market-september-2026", "/charlotte-mortgage-loan-limits-2026",
+    "/investment-property-loans-charlotte", "/construction-loans-charlotte",
+    "/mortgage-broker-vs-lender-charlotte", "/mortgage-preapproval-charlotte",
+    "/mortgage-credit-score-charlotte", "/mortgage-dti-charlotte",
+    "/mortgage-income-employment-charlotte", "/seller-concessions-north-carolina",
+    "/refinance-charlotte", "/home-equity-heloc-charlotte",
+    "/how-much-house-can-i-afford-charlotte", "/mortgage-closing-costs-charlotte",
+    "/mortgage-appraisal-charlotte", "/fha-vs-conventional-charlotte",
+    "/dscr-loans-charlotte", "/private-mortgage-insurance-charlotte",
+    "/cash-out-refinance-charlotte", "/bridge-loans-charlotte",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
@@ -29,7 +29,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
     lastModified: seoRefreshDate,
-    changeFrequency: path === "/newsletter" ? "weekly" : "monthly",
+    changeFrequency:
+      path === "/newsletter" || path === "/charlotte-housing-market-september-2026"
+        ? "weekly"
+        : "monthly",
     priority:
       path === ""
         ? 1
@@ -38,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             "/about",
             "/blog",
             "/charlotte-home-buying-mortgage-guide",
+            "/charlotte-housing-market-september-2026",
             "/charlotte-mortgage-loan-limits-2026",
           ].includes(path)
           ? 0.9
