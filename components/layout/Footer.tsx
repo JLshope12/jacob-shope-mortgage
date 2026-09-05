@@ -5,6 +5,7 @@ const QUICK_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Jacob" },
   { href: "/mortgage-guides", label: "Mortgage Guides" },
+  { href: "/blog", label: "Mortgage & Real Estate Insights" },
   { href: "/loan-programs", label: "Loan Programs" },
   { href: "/calculators", label: "Calculators" },
   { href: "/rates", label: "Rates" },
