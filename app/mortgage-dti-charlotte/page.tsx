@@ -1,14 +1,27 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
+import { GuideSchema } from "@/components/seo/GuideSchema";
+
+const title = "How Debt-to-Income Ratio Works for a Mortgage";
+const description =
+  "Learn how debt-to-income ratio is used in mortgage qualification and why the full loan scenario matters. Guidance from Jacob Shope, NMLS# 2090979.";
 
 export const metadata = {
   title: "Debt-to-Income Ratio for a Mortgage | Charlotte | Jacob Shope",
-  description: "Learn how debt-to-income ratio is used in mortgage qualification and why the full loan scenario matters. Guidance from Jacob Shope, NMLS# 2090979.",
+  description,
   alternates: { canonical: "/mortgage-dti-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 export default function MortgageDtiCharlottePage() {
   return (
     <div className="bg-offwhite">
+      <GuideSchema
+        title={title}
+        description={description}
+        path="/mortgage-dti-charlotte"
+        topics={["Debt-to-income ratio", "Mortgage qualification", "Home affordability"]}
+      />
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">How Debt-to-Income Ratio Works for a Mortgage</h1>
@@ -26,8 +39,8 @@ export default function MortgageDtiCharlottePage() {
             ["Recurring debts", "Examples can include auto loans, student loans, installment debt, and required revolving account payments."],
             ["Qualifying income", "The income used must meet the documentation and continuity rules of the loan program."],
             ["Compensating factors", "Credit, assets, reserves, property type, loan-to-value, and the overall file may affect how a mortgage is evaluated."],
-          ].map(([title, body]) => (
-            <div key={title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/5"><h3 className="font-bold text-navy">{title}</h3><p className="mt-3 leading-relaxed text-charcoal">{body}</p></div>
+          ].map(([cardTitle, body]) => (
+            <div key={cardTitle} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/5"><h3 className="font-bold text-navy">{cardTitle}</h3><p className="mt-3 leading-relaxed text-charcoal">{body}</p></div>
           ))}
         </section>
 
@@ -39,6 +52,20 @@ export default function MortgageDtiCharlottePage() {
             <div><h3 className="font-semibold text-navy">Can paying off a debt change the calculation?</h3><p className="mt-2 leading-relaxed text-charcoal">It can in some scenarios, but the impact depends on the account, remaining payments, and applicable loan guidelines.</p></div>
           </div>
         </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Related mortgage qualification guides</h2>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Charlotte Pre-Approval Guide</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">Credit Score Guide</Link>
+            <Link href="/mortgage-income-employment-charlotte" className="text-gold hover:underline">Income &amp; Employment Guide</Link>
+            <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Charlotte Affordability Guide</Link>
+          </div>
+        </section>
+
+        <div className="mt-12">
+          <AuthorBox />
+        </div>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white"><h2 className="text-2xl font-bold">Trying to understand your buying range?</h2><p className="mt-3 text-white/85">Use DTI as one part of the picture, then compare the actual payment and cash needed.</p><div className="mt-6 flex flex-wrap gap-4"><Link href="/calculators/affordability" className="rounded-lg bg-gold px-5 py-3 font-semibold text-white hover:bg-gold/90">Affordability Calculator</Link><Link href="/mortgage-guides" className="rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white hover:text-navy">More Mortgage Guides</Link></div></section>
       </article>
