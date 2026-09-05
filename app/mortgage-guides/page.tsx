@@ -2,13 +2,27 @@ import Link from "next/link";
 import { AuthorBox } from "@/components/seo/AuthorBox";
 
 export const metadata = {
-  title: "Mortgage Guides by Jacob Shope | Charlotte & Lake Norman",
+  title: "Charlotte Mortgage & Real Estate Financing Guides | Jacob Shope",
   description:
-    "Mortgage guides and answers from Jacob Shope for homebuyers, homeowners, veterans, first-time buyers, and real estate investors in Charlotte and Lake Norman.",
+    "Charlotte mortgage and real estate financing guides from Jacob Shope, including homebuyer planning, local housing-market context, loan limits, VA, FHA, conventional, investor, construction, equity, and refinance resources.",
   alternates: { canonical: "/mortgage-guides" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 const TOPICS = [
+  {
+    title: "Charlotte Market & Local Numbers",
+    description:
+      "Start with current Charlotte-area context: local housing-market conditions, 2026 mortgage loan limits, home-buying costs, affordability, and the financing side of a real estate purchase.",
+    links: [
+      ["Charlotte Housing Market: September 2026", "/charlotte-housing-market-september-2026"],
+      ["2026 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
+      ["Charlotte Home Buying & Real Estate Financing Guide", "/charlotte-home-buying-mortgage-guide"],
+      ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
+      ["Mortgage Closing Costs in Charlotte", "/mortgage-closing-costs-charlotte"],
+      ["Charlotte Mortgage Options", "/service-areas/charlotte"],
+    ],
+  },
   {
     title: "Buying a Home",
     description: "Start with the basics: payments, pre-approval, affordability, closing costs, real estate financing, and what to expect before you make an offer.",
@@ -95,15 +109,48 @@ const TOPICS = [
   },
 ] as const;
 
+const featuredResources = [
+  ["Charlotte Housing Market: September 2026", "/charlotte-housing-market-september-2026"],
+  ["2026 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
+  ["Charlotte Home Buying & Real Estate Financing Guide", "/charlotte-home-buying-mortgage-guide"],
+  ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
+  ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
+  ["VA Loans in Charlotte", "/va-loans-charlotte"],
+  ["Investment Property Loans in Charlotte", "/investment-property-loans-charlotte"],
+  ["Construction Loans in Charlotte", "/construction-loans-charlotte"],
+] as const;
+
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "@id": "https://jacobshopemortgage.com/mortgage-guides#collection",
   url: "https://jacobshopemortgage.com/mortgage-guides",
-  name: "Charlotte Mortgage Guides & Resources",
+  name: "Charlotte Mortgage & Real Estate Financing Guides",
+  description:
+    "A locally focused collection of mortgage, homebuyer, housing-market, investor, construction, refinance, and real estate financing resources for Charlotte and Lake Norman.",
   author: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
   publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
-  about: ["Mortgages", "Charlotte real estate financing", "Lake Norman mortgage guidance"],
+  isPartOf: { "@id": "https://jacobshopemortgage.com/#website" },
+  about: [
+    "Charlotte mortgages",
+    "Charlotte real estate financing",
+    "Charlotte housing market",
+    "Lake Norman mortgage guidance",
+    "Home buying",
+    "Mortgage qualification",
+    "Investment property financing",
+    "Construction financing",
+  ],
+  mainEntity: {
+    "@type": "ItemList",
+    name: "Featured Charlotte mortgage and real estate financing resources",
+    itemListElement: featuredResources.map(([name, path], index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name,
+      url: `https://jacobshopemortgage.com${path}`,
+    })),
+  },
 };
 
 export default function MortgageGuidesPage() {
@@ -113,18 +160,42 @@ export default function MortgageGuidesPage() {
       <section className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage answers from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">
-          Charlotte Mortgage Guides & Resources
+          Charlotte Mortgage & Real Estate Financing Guides
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal">
-          This is the starting point for mortgage questions I hear from buyers, homeowners,
-          veterans, first-time buyers, Realtors, and real estate investors across Charlotte and
-          Lake Norman. The goal is simple: clear answers, useful tools, and a direct path to the
-          financing topic you need.
+          This is the starting point for mortgage and real estate financing questions I hear from buyers,
+          homeowners, veterans, first-time buyers, Realtors, and real estate investors across Charlotte and
+          Lake Norman. It also connects the current local market context and numbers that can affect a financing
+          decision, so you can move from the big picture to the specific mortgage question you need answered.
         </p>
 
         <div className="mt-8 max-w-3xl">
           <AuthorBox />
         </div>
+
+        <section className="mt-12 rounded-2xl border border-gold/25 bg-white p-7 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-gold">Current Charlotte resources</p>
+          <h2 className="mt-2 text-2xl font-bold text-navy">Start with the local market and financing numbers</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
+            Home prices, available inventory, loan limits, taxes, insurance, rates, and cash-to-close all shape the
+            financing conversation. These resources connect the Charlotte market to the mortgage decisions buyers
+            and homeowners are actually making.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+            <Link href="/charlotte-housing-market-september-2026" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">
+              Charlotte Housing Market
+            </Link>
+            <Link href="/charlotte-mortgage-loan-limits-2026" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">
+              2026 Loan Limits
+            </Link>
+            <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">
+              Home Buying & Financing Guide
+            </Link>
+            <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">
+              Charlotte Pre-Approval
+            </Link>
+          </div>
+        </section>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {TOPICS.map((topic) => (
