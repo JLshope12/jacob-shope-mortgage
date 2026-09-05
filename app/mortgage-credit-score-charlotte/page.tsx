@@ -1,14 +1,27 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
+import { GuideSchema } from "@/components/seo/GuideSchema";
+
+const title = "What Credit Score Do You Need for a Mortgage in Charlotte?";
+const description =
+  "Learn how credit can affect mortgage options in Charlotte and why the full borrower profile matters, from Jacob Shope, NMLS# 2090979.";
 
 export const metadata = {
   title: "Credit Score for a Mortgage in Charlotte | Jacob Shope",
-  description: "Learn how credit can affect mortgage options in Charlotte and why the full borrower profile matters, from Jacob Shope, NMLS# 2090979.",
+  description,
   alternates: { canonical: "/mortgage-credit-score-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 export default function MortgageCreditScoreCharlottePage() {
   return (
     <div className="bg-offwhite">
+      <GuideSchema
+        title={title}
+        description={description}
+        path="/mortgage-credit-score-charlotte"
+        topics={["Mortgage credit", "Credit scores", "Mortgage qualification"]}
+      />
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">What Credit Score Do You Need for a Mortgage in Charlotte?</h1>
@@ -28,8 +41,8 @@ export default function MortgageCreditScoreCharlottePage() {
             ["Credit utilization", "Balances compared with available revolving credit can influence a credit profile."],
             ["Recent inquiries or new accounts", "New debt can affect both credit and the monthly obligations used in qualification."],
             ["Overall borrower profile", "Income, assets, debts, property type, and loan program are reviewed together with credit."],
-          ].map(([title, body]) => (
-            <div key={title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/5"><h3 className="font-bold text-navy">{title}</h3><p className="mt-3 leading-relaxed text-charcoal">{body}</p></div>
+          ].map(([cardTitle, body]) => (
+            <div key={cardTitle} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/5"><h3 className="font-bold text-navy">{cardTitle}</h3><p className="mt-3 leading-relaxed text-charcoal">{body}</p></div>
           ))}
         </section>
 
@@ -41,6 +54,20 @@ export default function MortgageCreditScoreCharlottePage() {
             <div><h3 className="font-semibold text-navy">Can paying down debt help?</h3><p className="mt-2 leading-relaxed text-charcoal">Sometimes, but the effect depends on the account and timing. It is better to review the mortgage strategy before making major credit changes.</p></div>
           </div>
         </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Related mortgage qualification guides</h2>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Charlotte Pre-Approval Guide</Link>
+            <Link href="/mortgage-dti-charlotte" className="text-gold hover:underline">Debt-to-Income Guide</Link>
+            <Link href="/mortgage-income-employment-charlotte" className="text-gold hover:underline">Income &amp; Employment Guide</Link>
+            <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-Time Homebuyer Guide</Link>
+          </div>
+        </section>
+
+        <div className="mt-12">
+          <AuthorBox />
+        </div>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Looking at your mortgage options?</h2>
