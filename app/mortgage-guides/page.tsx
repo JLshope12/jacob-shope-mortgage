@@ -13,6 +13,7 @@ const TOPICS = [
     title: "Buying a Home",
     description: "Start with the basics: payments, pre-approval, affordability, closing costs, and what to expect before you make an offer.",
     links: [
+      ["Charlotte Home Buying & Mortgage Guide", "/charlotte-home-buying-mortgage-guide"],
       ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
       ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
       ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
