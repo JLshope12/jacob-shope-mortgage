@@ -12,8 +12,9 @@ const collections = [
   {
     title: "Buying a Home in Charlotte",
     description:
-      "Start with payment, cash to close, pre-approval, and the financing details that affect an offer before you begin comparing homes.",
+      "Start with the current market, payment, cash to close, pre-approval, and the financing details that affect an offer before you begin comparing homes.",
     links: [
+      ["Charlotte Housing Market September 2026", "/charlotte-housing-market-september-2026"],
       ["Charlotte Home Buying & Mortgage Guide", "/charlotte-home-buying-mortgage-guide"],
       ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
       ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
@@ -26,6 +27,7 @@ const collections = [
     description:
       "Compare the structure of common loan programs instead of assuming one option is automatically the best fit for every buyer or property.",
     links: [
+      ["2026 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
       ["FHA vs Conventional in Charlotte", "/fha-vs-conventional-charlotte"],
       ["VA Loans in Charlotte", "/va-loans-charlotte"],
       ["Private Mortgage Insurance Explained", "/private-mortgage-insurance-charlotte"],
@@ -149,19 +151,19 @@ export default function BlogPage() {
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Where should you start?</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-white/85">
-            If you are actively looking at a home, start with the Charlotte Home Buying & Mortgage
-            Guide. If you are comparing loan structures, go to Mortgage Guides. For changing rates,
-            market context, and the weekly real estate conversation, use the newsletter.
+            If you are actively looking at a home, start with the current Charlotte housing-market update
+            and the Charlotte Home Buying & Mortgage Guide. If you are comparing loan structures, go to
+            Mortgage Guides. For changing rates and the weekly real estate conversation, use the newsletter.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-lg bg-gold px-5 py-3 font-semibold text-white hover:bg-gold/90">
+            <Link href="/charlotte-housing-market-september-2026" className="rounded-lg bg-gold px-5 py-3 font-semibold text-white hover:bg-gold/90">
+              September Charlotte Market Update
+            </Link>
+            <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white hover:text-navy">
               Charlotte Home Buying Guide
             </Link>
             <Link href="/mortgage-guides" className="rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white hover:text-navy">
               Mortgage Guides
-            </Link>
-            <Link href="/newsletter" className="rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white hover:text-navy">
-              Weekly Market Newsletter
             </Link>
           </div>
         </section>
