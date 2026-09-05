@@ -1,14 +1,77 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
+
+const origin = "https://jacobshopemortgage.com";
+const pageUrl = `${origin}/mortgage-preapproval-charlotte`;
 
 export const metadata = {
   title: "Mortgage Pre-Approval in Charlotte | Jacob Shope",
-  description: "A practical guide to mortgage pre-approval in Charlotte from Jacob Shope, Mortgage Loan Officer with Mpire Financial, NMLS# 2090979.",
+  description:
+    "A practical guide to mortgage pre-approval in Charlotte from Jacob Shope, Mortgage Loan Officer with Mpire Financial, NMLS# 2090979.",
   alternates: { canonical: "/mortgage-preapproval-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
+};
+
+const FAQS = [
+  [
+    "Is pre-approval the same as final approval?",
+    "No. Final approval also depends on the property, appraisal, title, insurance, updated borrower information, and the lender's final review.",
+  ],
+  [
+    "Should I shop only at the highest price I qualify for?",
+    "Qualification and comfort are different. It is useful to compare payment ranges rather than focus only on a maximum purchase price.",
+  ],
+  [
+    "Can a pre-approval be updated?",
+    "Yes. If a home search takes time or finances change, the review may need to be refreshed.",
+  ],
+] as const;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: "Mortgage Pre-Approval in Charlotte",
+      description:
+        "A practical Charlotte mortgage pre-approval guide covering income, employment, credit, monthly obligations, funds, and property considerations.",
+      author: { "@id": `${origin}/#jacob-shope` },
+      isPartOf: { "@id": `${origin}/#website` },
+      about: [
+        { "@type": "Thing", name: "Mortgage pre-approval" },
+        { "@type": "Thing", name: "Mortgage qualification" },
+        { "@type": "Place", name: "Charlotte, North Carolina" },
+        { "@type": "Place", name: "Lake Norman, North Carolina" },
+      ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: origin },
+        { "@type": "ListItem", position: 2, name: "Mortgage Guides", item: `${origin}/mortgage-guides` },
+        { "@type": "ListItem", position: 3, name: "Mortgage Pre-Approval in Charlotte", item: pageUrl },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: FAQS.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      })),
+    },
+  ],
 };
 
 export default function MortgagePreapprovalCharlottePage() {
   return (
     <div className="bg-offwhite">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">Mortgage Pre-Approval in Charlotte</h1>
@@ -24,6 +87,11 @@ export default function MortgagePreapprovalCharlottePage() {
           <p className="mt-4 leading-relaxed text-charcoal">
             A typical review looks at income, employment, credit history, monthly obligations, available funds, the planned property type, and the loan program being considered. The exact documentation depends on the borrower and the loan.
           </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">Mortgage Credit Guide</Link>
+            <Link href="/mortgage-dti-charlotte" className="text-gold hover:underline">Debt-to-Income Guide</Link>
+            <Link href="/mortgage-income-employment-charlotte" className="text-gold hover:underline">Income &amp; Employment Guide</Link>
+          </div>
         </section>
 
         <section className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -45,16 +113,26 @@ export default function MortgagePreapprovalCharlottePage() {
           <p className="mt-4 leading-relaxed text-charcoal">
             It gives the buyer and Realtor a clearer starting point. It also creates time to compare loan structures and resolve documentation questions before a property is under contract.
           </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Buyers who are early in the process can also review the <Link href="/first-time-homebuyer-charlotte" className="font-medium text-gold hover:underline">Charlotte first-time homebuyer guide</Link> and the broader <Link href="/mortgage-guides" className="font-medium text-gold hover:underline">mortgage guide library</Link> before deciding what to do next.
+          </p>
         </section>
 
         <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
           <h2 className="text-2xl font-bold text-navy">Common pre-approval questions</h2>
           <div className="mt-6 space-y-6">
-            <div><h3 className="font-semibold text-navy">Is pre-approval the same as final approval?</h3><p className="mt-2 leading-relaxed text-charcoal">No. Final approval also depends on the property, appraisal, title, insurance, updated borrower information, and the lender&apos;s final review.</p></div>
-            <div><h3 className="font-semibold text-navy">Should I shop only at the highest price I qualify for?</h3><p className="mt-2 leading-relaxed text-charcoal">Qualification and comfort are different. It is useful to compare payment ranges rather than focus only on a maximum purchase price.</p></div>
-            <div><h3 className="font-semibold text-navy">Can a pre-approval be updated?</h3><p className="mt-2 leading-relaxed text-charcoal">Yes. If a home search takes time or finances change, the review may need to be refreshed.</p></div>
+            {FAQS.map(([question, answer]) => (
+              <div key={question}>
+                <h3 className="font-semibold text-navy">{question}</h3>
+                <p className="mt-2 leading-relaxed text-charcoal">{answer}</p>
+              </div>
+            ))}
           </div>
         </section>
+
+        <div className="mt-12">
+          <AuthorBox />
+        </div>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Planning a home purchase in Charlotte?</h2>
