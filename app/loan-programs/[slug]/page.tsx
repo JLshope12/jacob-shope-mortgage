@@ -7,6 +7,8 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 
 type Props = { params: Promise<{ slug: string }> };
 
+const origin = "https://jacobshopemortgage.com";
+
 export async function generateStaticParams() {
   return getAllProgramSlugs().map((slug) => ({ slug }));
 }
@@ -19,6 +21,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${program.name} Loans in Charlotte, NC | Jacob Shope`,
     description: program.description.slice(0, 155) + "...",
     alternates: { canonical: `/loan-programs/${program.slug}` },
+    authors: [{ name: "Jacob Shope", url: "/about" }],
   };
 }
 
@@ -27,8 +30,50 @@ export default async function LoanProgramPage({ params }: Props) {
   const program = getProgramBySlug(slug);
   if (!program) notFound();
 
+  const pageUrl = `${origin}/loan-programs/${program.slug}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: `${program.name} Loans in Charlotte, NC`,
+        description: program.description,
+        author: { "@id": `${origin}/#jacob-shope` },
+        isPartOf: { "@id": `${origin}/#website` },
+        about: [
+          { "@type": "Thing", name: program.name },
+          { "@type": "Place", name: "Charlotte, North Carolina" },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: origin },
+          { "@type": "ListItem", position: 2, name: "Loan Programs", item: `${origin}/loan-programs` },
+          { "@type": "ListItem", position: 3, name: program.name, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: program.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="bg-offwhite">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-navy md:text-4xl lg:text-5xl">
