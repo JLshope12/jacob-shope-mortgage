@@ -1,0 +1,1 @@
+Phase 4 strengthens the existing Charlotte mortgage pre-approval guide with explicit Jacob Shope authorship, structured data, and internal links into the qualification topic cluster. No photos or image files are changed.
