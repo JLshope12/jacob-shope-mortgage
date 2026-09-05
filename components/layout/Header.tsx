@@ -8,10 +8,10 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/mortgage-guides", label: "Mortgage Guides" },
+  { href: "/blog", label: "Insights" },
   { href: "/loan-programs", label: "Loan Programs" },
   { href: "/service-areas", label: "Service Areas" },
   { href: "/calculators", label: "Calculators" },
-  { href: "/newsletter", label: "Newsletter" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -112,6 +112,13 @@ export function Header() {
             className="rounded-lg px-4 py-3 text-base font-medium text-charcoal hover:bg-offwhite hover:text-gold"
           >
             Mortgage FAQ
+          </Link>
+          <Link
+            href="/newsletter"
+            onClick={() => setMobileOpen(false)}
+            className="rounded-lg px-4 py-3 text-base font-medium text-charcoal hover:bg-offwhite hover:text-gold"
+          >
+            Newsletter
           </Link>
           <Link
             href="/contact"
