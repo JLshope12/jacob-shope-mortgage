@@ -4,16 +4,17 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 export const metadata = {
   title: "Mortgage Guides by Jacob Shope | Charlotte & Lake Norman",
   description:
-    "Mortgage guides and answers from Jacob Shope for homebuyers, homeowners, veterans, first-time buyers, and real estate investors in Charlotte and Lake Norman.",
+    "Mortgage guides and answers from Jacob Shope for homebuyers, homeowners, veterans, first responders, first-time buyers, and real estate investors in Charlotte and Lake Norman.",
   alternates: { canonical: "/mortgage-guides" },
 };
 
 const TOPICS = [
   {
     title: "Buying a Home",
-    description: "Start with the basics: payments, pre-approval, affordability, closing costs, real estate financing, and what to expect before you make an offer.",
+    description: "Start with the basics: payments, pre-approval, affordability, closing costs, first responder financing, real estate financing, and what to expect before you make an offer.",
     links: [
       ["Charlotte Home Buying & Real Estate Financing Guide", "/charlotte-home-buying-mortgage-guide"],
+      ["First Responder Home Loans in Charlotte", "/first-responder-home-loans-charlotte"],
       ["2026 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
       ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
       ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
@@ -103,7 +104,7 @@ const collectionSchema = {
   name: "Charlotte Mortgage Guides & Resources",
   author: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
   publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
-  about: ["Mortgages", "Charlotte real estate financing", "Lake Norman mortgage guidance"],
+  about: ["Mortgages", "Charlotte real estate financing", "First responder home financing", "Lake Norman mortgage guidance"],
 };
 
 export default function MortgageGuidesPage() {
@@ -117,7 +118,7 @@ export default function MortgageGuidesPage() {
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal">
           This is the starting point for mortgage questions I hear from buyers, homeowners,
-          veterans, first-time buyers, Realtors, and real estate investors across Charlotte and
+          veterans, first responders, first-time buyers, Realtors, and real estate investors across Charlotte and
           Lake Norman. The goal is simple: clear answers, useful tools, and a direct path to the
           financing topic you need.
         </p>
