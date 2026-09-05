@@ -9,6 +9,44 @@ type Props = { params: Promise<{ slug: string }> };
 
 const origin = "https://jacobshopemortgage.com";
 
+const RELATED_GUIDES: Record<string, readonly [string, string][]> = {
+  conventional: [
+    ["FHA vs Conventional in Charlotte", "/fha-vs-conventional-charlotte"],
+    ["Private Mortgage Insurance in Charlotte", "/private-mortgage-insurance-charlotte"],
+    ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
+  ],
+  fha: [
+    ["FHA vs Conventional in Charlotte", "/fha-vs-conventional-charlotte"],
+    ["Charlotte Down Payment Assistance", "/down-payment-assistance-charlotte"],
+    ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
+  ],
+  va: [
+    ["VA Loans in Charlotte", "/va-loans-charlotte"],
+    ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
+    ["Seller Concessions in North Carolina", "/seller-concessions-north-carolina"],
+  ],
+  usda: [
+    ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
+    ["Charlotte Down Payment Assistance", "/down-payment-assistance-charlotte"],
+    ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
+  ],
+  jumbo: [
+    ["2026 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
+    ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
+    ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
+  ],
+  refinance: [
+    ["Mortgage Refinance in Charlotte", "/refinance-charlotte"],
+    ["Cash-Out Refinance in Charlotte", "/cash-out-refinance-charlotte"],
+    ["HELOC & Home Equity Options", "/home-equity-heloc-charlotte"],
+  ],
+  "first-time-buyer": [
+    ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
+    ["Charlotte Down Payment Assistance", "/down-payment-assistance-charlotte"],
+    ["Charlotte Home Buying & Real Estate Financing Guide", "/charlotte-home-buying-mortgage-guide"],
+  ],
+};
+
 export async function generateStaticParams() {
   return getAllProgramSlugs().map((slug) => ({ slug }));
 }
@@ -31,6 +69,12 @@ export default async function LoanProgramPage({ params }: Props) {
   if (!program) notFound();
 
   const pageUrl = `${origin}/loan-programs/${program.slug}`;
+  const relatedGuides = RELATED_GUIDES[program.slug] ?? [
+    ["Charlotte Mortgage Guides", "/mortgage-guides"],
+    ["Charlotte Home Buying & Real Estate Financing Guide", "/charlotte-home-buying-mortgage-guide"],
+    ["Charlotte Mortgage Options", "/service-areas/charlotte"],
+  ];
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -41,11 +85,15 @@ export default async function LoanProgramPage({ params }: Props) {
         name: `${program.name} Loans in Charlotte, NC`,
         description: program.description,
         author: { "@id": `${origin}/#jacob-shope` },
+        publisher: { "@id": `${origin}/#mpire-financial` },
         isPartOf: { "@id": `${origin}/#website` },
+        mainEntity: { "@id": `${origin}/#jacob-shope` },
         about: [
           { "@type": "Thing", name: program.name },
           { "@type": "Place", name: "Charlotte, North Carolina" },
+          { "@type": "Thing", name: "Mortgage financing" },
         ],
+        relatedLink: relatedGuides.map(([, href]) => `${origin}${href}`),
       },
       {
         "@type": "BreadcrumbList",
@@ -138,6 +186,28 @@ export default async function LoanProgramPage({ params }: Props) {
           <h2 className="text-2xl font-bold tracking-tight text-navy md:text-3xl">Frequently Asked Questions</h2>
           <div className="mt-6 rounded-xl border border-charcoal/10 bg-white p-4 shadow-sm md:p-6">
             <ProgramFAQ faq={program.faq} />
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gold">Related Charlotte mortgage guides</p>
+          <h2 className="mt-2 text-2xl font-bold text-navy">Keep researching the financing behind your next move</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            These guides connect this loan program to the Charlotte-specific questions buyers, homeowners, veterans, and investors usually need to solve next.
+          </p>
+          <ul className="mt-5 space-y-3">
+            {relatedGuides.map(([label, href]) => (
+              <li key={href}>
+                <Link href={href} className="font-medium text-gold hover:underline">
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium">
+            <Link href="/mortgage-guides" className="text-gold hover:underline">All Mortgage Guides</Link>
+            <Link href="/service-areas/charlotte" className="text-gold hover:underline">Charlotte Mortgage Options</Link>
+            <Link href="/blog" className="text-gold hover:underline">Charlotte Mortgage & Real Estate Insights</Link>
           </div>
         </section>
 
