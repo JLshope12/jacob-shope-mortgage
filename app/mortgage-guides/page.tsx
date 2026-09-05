@@ -26,11 +26,11 @@ const TOPICS = [
   },
   {
     title: "Mortgage Qualification",
-    description: "Direct answers to the questions buyers ask about credit, debt-to-income, income, employment, and the mortgage approval process.",
+    description: "Direct answers to the questions buyers ask about credit, debt-to-income, income, employment gaps, job changes, variable pay, and the mortgage approval process.",
     links: [
       ["Credit Score for a Mortgage", "/mortgage-credit-score-charlotte"],
       ["Debt-to-Income Ratio Explained", "/mortgage-dti-charlotte"],
-      ["Income & Employment for a Mortgage", "/mortgage-income-employment-charlotte"],
+      ["Income, Employment Gaps & Job Changes", "/mortgage-income-employment-charlotte"],
       ["Mortgage Broker vs Lender", "/mortgage-broker-vs-lender-charlotte"],
       ["Seller Concessions in North Carolina", "/seller-concessions-north-carolina"],
     ],
