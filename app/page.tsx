@@ -72,46 +72,38 @@ export const metadata = {
   description:
     "Jacob Shope is a local Charlotte mortgage broker and Mortgage Loan Officer with Mpire Financial, serving Charlotte and Lake Norman with FHA, VA, conventional, first-time buyer, investor, construction, and refinance options.",
   alternates: { canonical: "/" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 export default function Home() {
-  const personSchema = {
+  const homePageSchema = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Jacob Shope",
+    "@type": "WebPage",
+    "@id": "https://jacobshopemortgage.com/#homepage",
     url: "https://jacobshopemortgage.com",
-    jobTitle: "Mortgage Loan Officer",
-    worksFor: {
-      "@type": "Organization",
-      name: "Mpire Financial",
-    },
-    knowsAbout: [
-      "Mortgage lending",
+    name: "Jacob Shope | Charlotte Mortgage Broker",
+    description:
+      "Charlotte mortgage and real estate financing guidance from Jacob Shope, Mortgage Loan Officer with Mpire Financial, NMLS 2090979.",
+    isPartOf: { "@id": "https://jacobshopemortgage.com/#website" },
+    about: [
+      { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
       "Charlotte mortgages",
+      "Charlotte real estate financing",
       "Lake Norman mortgages",
-      "FHA loans",
+      "First-time homebuyer financing",
       "VA loans",
-      "Conventional loans",
-      "Down payment assistance",
       "Investment property financing",
       "Construction loans",
-      "Mortgage refinancing",
     ],
-  };
-
-  const financialServiceSchema = {
-    "@context": "https://schema.org",
-    "@type": "FinancialService",
-    name: "Jacob Shope Mortgage",
-    url: "https://jacobshopemortgage.com",
-    areaServed: ["Charlotte, NC", "Lake Norman, NC", "Huntersville, NC", "Cornelius, NC", "Davidson, NC", "Mooresville, NC"],
-    telephone: "+1-704-614-5340",
-    email: "shope@mpirefi.com",
+    mainEntity: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
+    publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": "https://jacobshopemortgage.com/#faq",
+    isPartOf: { "@id": "https://jacobshopemortgage.com/#homepage" },
     mainEntity: FAQS.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -124,8 +116,7 @@ export default function Home() {
 
   return (
     <div className="bg-offwhite">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(financialServiceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:px-8">
@@ -149,6 +140,9 @@ export default function Home() {
                 Explore Loan Options
               </Link>
             </div>
+            <Link href="/charlotte-home-buying-mortgage-guide" className="mt-5 inline-flex items-center text-sm font-semibold text-gold hover:underline">
+              Charlotte Home Buying &amp; Real Estate Financing Guide <ChevronRight className="ml-1 h-4 w-4" />
+            </Link>
           </div>
           <Image
             src="/images/DSC_0084.jpg"
@@ -200,6 +194,26 @@ export default function Home() {
               <Link href="/loan-programs/conventional" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Conventional</Link>
               <Link href="/loan-programs/first-time-buyer" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
               <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-navy py-16 text-white md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 md:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
+          <div>
+            <p className="font-semibold text-gold">Charlotte real estate financing</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">Financing the property should be part of the real estate plan</h2>
+          </div>
+          <div>
+            <p className="leading-relaxed text-white/85 md:text-lg">
+              I handle the mortgage and financing side of Charlotte real estate transactions. That can mean a primary home, a rental property, new construction, or a purchase that needs to be coordinated with the sale or equity in another home. I do not provide real estate brokerage or representation, but I work alongside buyers and their real estate agents to make sure the financing supports the transaction.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
+              <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-full border border-white/35 px-4 py-2 text-white hover:border-gold hover:text-gold">Charlotte Real Estate Financing Guide</Link>
+              <Link href="/investment-property-loans-charlotte" className="rounded-full border border-white/35 px-4 py-2 text-white hover:border-gold hover:text-gold">Investment Property Loans</Link>
+              <Link href="/construction-loans-charlotte" className="rounded-full border border-white/35 px-4 py-2 text-white hover:border-gold hover:text-gold">Construction Financing</Link>
+              <Link href="/bridge-loans-charlotte" className="rounded-full border border-white/35 px-4 py-2 text-white hover:border-gold hover:text-gold">Bridge Loans</Link>
             </div>
           </div>
         </div>
