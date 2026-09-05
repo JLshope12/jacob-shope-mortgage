@@ -10,6 +10,8 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 
 type Props = { params: Promise<{ slug: string }> };
 
+const origin = "https://jacobshopemortgage.com";
+
 export async function generateStaticParams() {
   return getAllServiceAreaSlugs().map((slug) => ({ slug }));
 }
@@ -38,6 +40,7 @@ export async function generateMetadata({ params }: Props) {
     title,
     description: area.shortDescription,
     alternates: { canonical: `/service-areas/${area.slug}` },
+    authors: [{ name: "Jacob Shope", url: "/about" }],
   };
 }
 
@@ -67,8 +70,47 @@ export default async function ServiceAreaPage({ params }: Props) {
     .map((s) => getServiceAreaBySlug(s))
     .filter(Boolean) as ServiceArea[];
 
+  const pageUrl = `${origin}/service-areas/${area.slug}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: getH1(area),
+        description: area.shortDescription,
+        author: { "@id": `${origin}/#jacob-shope` },
+        isPartOf: { "@id": `${origin}/#website` },
+        about: { "@id": `${pageUrl}#mortgage-service` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#mortgage-service`,
+        name: `Mortgage guidance in ${area.name}`,
+        serviceType: "Mortgage brokerage and home loan guidance",
+        provider: { "@id": `${origin}/#mpire-financial` },
+        areaServed: { "@type": "Place", name: area.name },
+        url: pageUrl,
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: origin },
+          { "@type": "ListItem", position: 2, name: "Service Areas", item: `${origin}/service-areas` },
+          { "@type": "ListItem", position: 3, name: area.name, item: pageUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <div className="bg-offwhite">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Local mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-navy md:text-4xl lg:text-5xl">
