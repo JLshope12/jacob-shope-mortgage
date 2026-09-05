@@ -13,8 +13,10 @@ export function AuthorBox() {
         and Realtor partners across Charlotte, Huntersville, Lake Norman, and surrounding communities.
       </p>
       <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
-        <Link href="/about" className="text-gold hover:underline">About Jacob</Link>
+        <Link href="/about" rel="author" className="text-gold hover:underline">About Jacob</Link>
         <Link href="/mortgage-guides" className="text-gold hover:underline">Mortgage Guides</Link>
+        <Link href="/blog" className="text-gold hover:underline">Mortgage &amp; Real Estate Insights</Link>
+        <Link href="/charlotte-home-buying-mortgage-guide" className="text-gold hover:underline">Charlotte Home Buying Guide</Link>
         <a href="https://www.instagram.com/jlshopeloans/" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Instagram</a>
         <a href="https://www.facebook.com/jacob.shope.33" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Facebook</a>
       </div>
