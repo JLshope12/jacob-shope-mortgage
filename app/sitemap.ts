@@ -6,7 +6,7 @@ const origin = "https://jacobshopemortgage.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const mainRoutes = [
-    "", "/about", "/apply", "/book", "/calculators", "/calculators/payment",
+    "", "/about", "/apply", "/book", "/blog", "/calculators", "/calculators/payment",
     "/calculators/affordability", "/calculators/refinance", "/calculators/amortization",
     "/contact", "/faq", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
     "/service-areas", "/down-payment-assistance-charlotte", "/va-loans-charlotte",
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       path === ""
         ? 1
-        : path === "/mortgage-guides" || path === "/about" || path === "/charlotte-home-buying-mortgage-guide"
+        : ["/mortgage-guides", "/about", "/blog", "/charlotte-home-buying-mortgage-guide"].includes(path)
           ? 0.9
           : [
               "/va-loans-charlotte",
