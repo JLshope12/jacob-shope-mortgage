@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
+
+const origin = "https://jacobshopemortgage.com";
+const pageUrl = `${origin}/va-loans-charlotte`;
 
 export const metadata = {
   title: "VA Loans Charlotte NC | Jacob Shope Mortgage",
   description:
     "VA mortgage guidance in Charlotte and Lake Norman from Jacob Shope, Mortgage Loan Officer with Mpire Financial, NMLS# 2090979.",
   alternates: { canonical: "/va-loans-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 const FAQS = [
@@ -15,19 +20,48 @@ const FAQS = [
 ] as const;
 
 export default function VALoansCharlottePage() {
-  const faqSchema = {
+  const schema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQS.map(([question, answer]) => ({
-      "@type": "Question",
-      name: question,
-      acceptedAnswer: { "@type": "Answer", text: answer },
-    })),
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "VA Loans in Charlotte, NC",
+        description:
+          "VA mortgage guidance for eligible veterans, active-duty service members, and military families buying in Charlotte and Lake Norman.",
+        author: { "@id": `${origin}/#jacob-shope` },
+        isPartOf: { "@id": `${origin}/#website` },
+        about: [
+          { "@type": "Thing", name: "VA home loans" },
+          { "@type": "Place", name: "Charlotte, North Carolina" },
+          { "@type": "Place", name: "Lake Norman, North Carolina" },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: origin },
+          { "@type": "ListItem", position: 2, name: "Mortgage Guides", item: `${origin}/mortgage-guides` },
+          { "@type": "ListItem", position: 3, name: "VA Loans in Charlotte", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: FAQS.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
+    ],
   };
 
   return (
     <div className="bg-offwhite">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <section className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">VA mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">VA Loans in Charlotte, NC</h1>
@@ -63,6 +97,10 @@ export default function VALoansCharlottePage() {
             ))}
           </div>
         </section>
+
+        <div className="mt-14">
+          <AuthorBox />
+        </div>
 
         <section className="mt-14 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Talk through a VA scenario with Jacob</h2>
