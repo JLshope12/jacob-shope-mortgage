@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
+
+const origin = "https://jacobshopemortgage.com";
+const pageUrl = `${origin}/first-time-homebuyer-charlotte`;
 
 export const metadata = {
   title: "First-Time Homebuyer Charlotte NC | Jacob Shope Mortgage",
   description:
     "First-time homebuyer mortgage guidance in Charlotte and Lake Norman from Jacob Shope, Mortgage Loan Officer with Mpire Financial, NMLS# 2090979.",
   alternates: { canonical: "/first-time-homebuyer-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 const STEPS = [
@@ -17,11 +22,40 @@ const STEPS = [
 export default function FirstTimeHomebuyerCharlottePage() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "First-Time Homebuyer Guide for Charlotte, NC",
-    author: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
-    publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
-    mainEntityOfPage: "https://jacobshopemortgage.com/first-time-homebuyer-charlotte",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}#article`,
+        headline: "First-Time Homebuyer Guide for Charlotte, NC",
+        description:
+          "A practical first-time homebuyer mortgage guide covering payment planning, pre-approval, loan comparisons, and offer strategy in Charlotte and Lake Norman.",
+        author: { "@id": `${origin}/#jacob-shope` },
+        publisher: { "@id": `${origin}/#mpire-financial` },
+        mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "First-Time Homebuyer Guide for Charlotte, NC",
+        author: { "@id": `${origin}/#jacob-shope` },
+        isPartOf: { "@id": `${origin}/#website` },
+        about: [
+          { "@type": "Thing", name: "First-time homebuyer financing" },
+          { "@type": "Place", name: "Charlotte, North Carolina" },
+          { "@type": "Place", name: "Lake Norman, North Carolina" },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: origin },
+          { "@type": "ListItem", position: 2, name: "Mortgage Guides", item: `${origin}/mortgage-guides` },
+          { "@type": "ListItem", position: 3, name: "First-Time Homebuyer Charlotte", item: pageUrl },
+        ],
+      },
+    ],
   };
 
   return (
@@ -58,6 +92,10 @@ export default function FirstTimeHomebuyerCharlottePage() {
             <p><strong>Do I need perfect credit?</strong> No. Different programs have different qualification standards, and the full file matters more than any one number.</p>
           </div>
         </section>
+
+        <div className="mt-14">
+          <AuthorBox />
+        </div>
 
         <section className="mt-14 flex flex-wrap gap-4">
           <Link href="/calculators/affordability" className="rounded-lg bg-navy px-5 py-3 font-semibold text-white hover:bg-slate">Use the Affordability Calculator</Link>
