@@ -1,20 +1,56 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
+
+const origin = "https://jacobshopemortgage.com";
+const pageUrl = `${origin}/investment-property-loans-charlotte`;
 
 export const metadata = {
   title: "Investment Property Loans Charlotte NC | Jacob Shope Mortgage",
   description:
     "Investment property and real estate investor mortgage guidance in Charlotte and Lake Norman from Jacob Shope, NMLS# 2090979.",
   alternates: { canonical: "/investment-property-loans-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 export default function InvestmentPropertyLoansCharlottePage() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "Investment Property Financing in Charlotte, NC",
-    author: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
-    publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
-    mainEntityOfPage: "https://jacobshopemortgage.com/investment-property-loans-charlotte",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}#article`,
+        headline: "Investment Property Financing in Charlotte, NC",
+        description:
+          "A practical guide to comparing conventional, DSCR, bridge, home-equity, and other financing structures for Charlotte-area real estate investors.",
+        author: { "@id": `${origin}/#jacob-shope` },
+        publisher: { "@id": `${origin}/#mpire-financial` },
+        mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "Investment Property Loans in Charlotte, NC",
+        author: { "@id": `${origin}/#jacob-shope` },
+        isPartOf: { "@id": `${origin}/#website` },
+        about: [
+          { "@type": "Thing", name: "Investment property financing" },
+          { "@type": "Thing", name: "DSCR loans" },
+          { "@type": "Thing", name: "Real estate investor financing" },
+          { "@type": "Place", name: "Charlotte, North Carolina" },
+          { "@type": "Place", name: "Lake Norman, North Carolina" },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: origin },
+          { "@type": "ListItem", position: 2, name: "Mortgage Guides", item: `${origin}/mortgage-guides` },
+          { "@type": "ListItem", position: 3, name: "Investment Property Loans Charlotte", item: pageUrl },
+        ],
+      },
+    ],
   };
 
   return (
@@ -53,6 +89,23 @@ export default function InvestmentPropertyLoansCharlottePage() {
             Charlotte, Lake Norman, Cabarrus, Gaston, and Iredell County all have different investor opportunities. The financing should match the business plan for the property.
           </p>
         </section>
+
+        <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-8">
+          <h2 className="text-2xl font-bold text-navy">Related investor financing guides</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
+            Different deals call for different capital structures. These guides cover the financing options I compare most often with Charlotte-area investors.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
+            <Link href="/dscr-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">DSCR Loans</Link>
+            <Link href="/bridge-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Bridge Loans</Link>
+            <Link href="/home-equity-heloc-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">HELOC & Home Equity</Link>
+            <Link href="/cash-out-refinance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Cash-Out Refinance</Link>
+          </div>
+        </section>
+
+        <div className="mt-14">
+          <AuthorBox />
+        </div>
 
         <section className="mt-14 flex flex-wrap gap-4">
           <Link href="/contact" className="rounded-lg bg-gold px-5 py-3 font-semibold text-white hover:bg-gold/90">Send Jacob an Investment Scenario</Link>
