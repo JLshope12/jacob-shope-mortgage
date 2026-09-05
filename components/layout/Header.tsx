@@ -7,13 +7,12 @@ import { Menu, X } from "lucide-react";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/mortgage-guides", label: "Mortgage Guides" },
+  { href: "/blog", label: "Insights" },
   { href: "/loan-programs", label: "Loan Programs" },
-  { href: "/calculators", label: "Calculators" },
-  { href: "/rates", label: "Rates" },
   { href: "/service-areas", label: "Service Areas" },
-  { href: "/newsletter", label: "Newsletter" },
+  { href: "/calculators", label: "Calculators" },
   { href: "/contact", label: "Contact" },
-  { href: "/faq", label: "FAQ" },
 ];
 
 export function Header() {
@@ -44,13 +43,13 @@ export function Header() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
           <Link
             href="/"
-            className="text-xl font-bold text-navy focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 rounded"
+            className="rounded text-xl font-bold text-navy focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
+            aria-label="Jacob Shope Mortgage home"
           >
             Jacob Shope
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-4 md:flex lg:gap-6" aria-label="Main">
+          <nav className="hidden items-center gap-4 md:flex lg:gap-5" aria-label="Main">
             {NAV_LINKS.map(({ href, label }) => (
               <Link
                 key={href}
@@ -70,7 +69,6 @@ export function Header() {
               Get Started
             </Link>
 
-            {/* Mobile menu button */}
             <button
               type="button"
               onClick={() => setMobileOpen((o) => !o)}
@@ -84,7 +82,6 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile slide-out menu */}
       <div
         className={`fixed inset-0 z-40 bg-navy/20 backdrop-blur-sm transition-opacity md:hidden ${
           mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
@@ -93,7 +90,7 @@ export function Header() {
         onClick={() => setMobileOpen(false)}
       />
       <aside
-        className={`fixed top-0 right-0 z-40 h-full w-full max-w-sm bg-white shadow-xl transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed right-0 top-0 z-40 h-full w-full max-w-sm bg-white shadow-xl transition-transform duration-300 ease-out md:hidden ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-label="Mobile menu"
@@ -109,6 +106,20 @@ export function Header() {
               {label}
             </Link>
           ))}
+          <Link
+            href="/faq"
+            onClick={() => setMobileOpen(false)}
+            className="rounded-lg px-4 py-3 text-base font-medium text-charcoal hover:bg-offwhite hover:text-gold"
+          >
+            Mortgage FAQ
+          </Link>
+          <Link
+            href="/newsletter"
+            onClick={() => setMobileOpen(false)}
+            className="rounded-lg px-4 py-3 text-base font-medium text-charcoal hover:bg-offwhite hover:text-gold"
+          >
+            Newsletter
+          </Link>
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}

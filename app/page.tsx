@@ -34,27 +34,103 @@ const SERVICE_AREAS = [
   ["charlotte-metro", "Charlotte Metro"],
 ] as const;
 
+const FAQS = [
+  {
+    question: "What does a mortgage broker do?",
+    answer:
+      "A mortgage broker helps borrowers compare loan options from multiple lending sources instead of being limited to one bank's products. The goal is to match the loan structure to the borrower, property, and transaction.",
+  },
+  {
+    question: "How much down payment do I need to buy a home in Charlotte?",
+    answer:
+      "It depends on the loan program. Some conventional options can start around 3% down, FHA commonly starts at 3.5%, and eligible VA and USDA borrowers may qualify for zero-down financing. Down payment assistance may also be available depending on the borrower and program.",
+  },
+  {
+    question: "Can I get pre-approved before I find a house?",
+    answer:
+      "Yes. In most cases that is the better order. A pre-approval helps you understand your price range, expected payment, and cash needed before you start writing offers.",
+  },
+  {
+    question: "Do you work with VA loans?",
+    answer:
+      "Yes. I work with eligible veterans and service members on VA purchase and refinance options, including more complex scenarios that may need a broker with access to multiple lenders.",
+  },
+  {
+    question: "Do you finance investment properties?",
+    answer:
+      "Yes. Depending on the scenario, options may include conventional investment loans, DSCR financing, HELOC or cash-out strategies, bridge financing, and investor construction loans.",
+  },
+  {
+    question: "What areas do you serve?",
+    answer:
+      "I serve Charlotte, Huntersville, Cornelius, Davidson, Lake Norman, Mooresville, and the surrounding Charlotte region, plus borrowers in other states where I am licensed.",
+  },
+] as const;
+
 export const metadata = {
-  title: "Charlotte Mortgage Broker",
+  title: "Charlotte Mortgage Broker | Jacob Shope | NMLS# 2090979",
   description:
-    "Work with Jacob Shope, a local Charlotte mortgage broker serving Charlotte, Huntersville, Cornelius, Davidson, Ballantyne, and Lake Norman. NMLS# 2090979.",
+    "Jacob Shope is a local Charlotte mortgage broker and Mortgage Loan Officer with Mpire Financial, serving Charlotte and Lake Norman with FHA, VA, conventional, first-time buyer, investor, construction, and refinance options.",
   alternates: { canonical: "/" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 export default function Home() {
+  const homePageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://jacobshopemortgage.com/#homepage",
+    url: "https://jacobshopemortgage.com",
+    name: "Jacob Shope | Charlotte Mortgage Broker",
+    description:
+      "Charlotte mortgage and real estate financing guidance from Jacob Shope, Mortgage Loan Officer with Mpire Financial, NMLS 2090979.",
+    isPartOf: { "@id": "https://jacobshopemortgage.com/#website" },
+    about: [
+      { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
+      "Charlotte mortgages",
+      "Charlotte real estate financing",
+      "Lake Norman mortgages",
+      "First-time homebuyer financing",
+      "VA loans",
+      "Investment property financing",
+      "Construction loans",
+    ],
+    mainEntity: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
+    publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://jacobshopemortgage.com/#faq",
+    isPartOf: { "@id": "https://jacobshopemortgage.com/#homepage" },
+    mainEntity: FAQS.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <div className="bg-offwhite">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="font-semibold text-gold">Local mortgage guidance from someone who lives here</p>
             <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl lg:text-6xl">
-              A clear mortgage plan for your next move
+              Charlotte Mortgage Broker for Homebuyers, Homeowners and Investors
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-charcoal md:text-lg">
-              I&apos;m Jacob Shope, a Charlotte Fire Department captain and mortgage broker. I help
-              buyers, homeowners, veterans, first responders, and investors understand their
-              options and move forward with a plan that makes sense.
+              I&apos;m Jacob Shope, a local Charlotte mortgage broker, Charlotte Fire Department captain,
+              and Mortgage Loan Officer with Mpire Financial. I help homebuyers, veterans, first-time buyers,
+              homeowners, and real estate investors compare mortgage options and build a financing plan that fits
+              the property and the goal.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/contact" className="rounded-lg bg-gold px-6 py-3 font-semibold text-white hover:bg-gold/90">
@@ -64,6 +140,9 @@ export default function Home() {
                 Explore Loan Options
               </Link>
             </div>
+            <Link href="/charlotte-home-buying-mortgage-guide" className="mt-5 inline-flex items-center text-sm font-semibold text-gold hover:underline">
+              Charlotte Home Buying &amp; Real Estate Financing Guide <ChevronRight className="ml-1 h-4 w-4" />
+            </Link>
           </div>
           <Image
             src="/images/DSC_0084.jpg"
@@ -97,6 +176,50 @@ export default function Home() {
       </section>
 
       <section className="py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 md:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:px-8">
+          <div>
+            <p className="font-semibold text-gold">Why use a broker?</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">Why work with a mortgage broker in Charlotte?</h2>
+          </div>
+          <div className="space-y-5 text-base leading-relaxed text-charcoal md:text-lg">
+            <p>
+              A mortgage broker is not limited to one bank&apos;s loan menu. I can compare options across multiple lending sources and help match the loan structure to the borrower, property, and transaction.
+            </p>
+            <p>
+              That matters when you&apos;re dealing with anything from a first home or VA purchase to investment property, new construction, jumbo financing, or a scenario that does not fit neatly into a standard box.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2 text-sm font-medium">
+              <Link href="/loan-programs/fha" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">FHA Loans</Link>
+              <Link href="/loan-programs/va" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+              <Link href="/loan-programs/conventional" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Conventional</Link>
+              <Link href="/loan-programs/first-time-buyer" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
+              <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-navy py-16 text-white md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 md:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
+          <div>
+            <p className="font-semibold text-gold">Charlotte real estate financing</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">Financing the property should be part of the real estate plan</h2>
+          </div>
+          <div>
+            <p className="leading-relaxed text-white/85 md:text-lg">
+              I handle the mortgage and financing side of Charlotte real estate transactions. That can mean a primary home, a rental property, new construction, or a purchase that needs to be coordinated with the sale or equity in another home. I do not provide real estate brokerage or representation, but I work alongside buyers and their real estate agents to make sure the financing supports the transaction.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3 text-sm font-semibold">
+              <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-full border border-white/35 px-4 py-2 text-white hover:border-gold hover:text-gold">Charlotte Real Estate Financing Guide</Link>
+              <Link href="/investment-property-loans-charlotte" className="rounded-full border border-white/35 px-4 py-2 text-white hover:border-gold hover:text-gold">Investment Property Loans</Link>
+              <Link href="/construction-loans-charlotte" className="rounded-full border border-white/35 px-4 py-2 text-white hover:border-gold hover:text-gold">Construction Financing</Link>
+              <Link href="/bridge-loans-charlotte" className="rounded-full border border-white/35 px-4 py-2 text-white hover:border-gold hover:text-gold">Bridge Loans</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-navy md:text-4xl">Loan options without the runaround</h2>
           <p className="mt-4 max-w-2xl text-charcoal md:text-lg">
@@ -104,7 +227,7 @@ export default function Home() {
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {LOAN_PROGRAMS.map(({ slug, title, description, icon: Icon }) => (
-              <Link key={slug} href={`/loan-programs/${slug}`} className="group flex flex-col rounded-xl bg-white p-6 shadow-sm ring-1 ring-navy/5 hover:shadow-md">
+              <Link key={slug} href={`/loan-programs/${slug}`} className="group flex flex-col rounded-xl bg-offwhite p-6 shadow-sm ring-1 ring-navy/5 hover:shadow-md">
                 <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy/10 text-navy"><Icon className="h-5 w-5" /></span>
                 <h3 className="mt-4 font-semibold text-navy">{title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-charcoal">{description}</p>
@@ -115,7 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-navy md:text-4xl">Mortgage help across the Charlotte area</h2>
           <p className="mt-4 max-w-2xl text-charcoal md:text-lg">
@@ -131,6 +254,21 @@ export default function Home() {
           <Link href="/service-areas" className="mt-7 inline-flex items-center font-medium text-gold hover:underline">
             View all service areas <ChevronRight className="ml-1 h-4 w-4" />
           </Link>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8">
+          <p className="font-semibold text-gold">Common mortgage questions</p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">Straight answers before you apply</h2>
+          <div className="mt-10 divide-y divide-charcoal/10 rounded-2xl border border-charcoal/10 bg-offwhite px-6 md:px-8">
+            {FAQS.map((item) => (
+              <div key={item.question} className="py-6">
+                <h3 className="text-lg font-semibold text-navy">{item.question}</h3>
+                <p className="mt-3 leading-relaxed text-charcoal">{item.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

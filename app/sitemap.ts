@@ -3,19 +3,73 @@ import { getAllServiceAreaSlugs } from "@/data/service-areas";
 import { LOAN_PROGRAMS } from "@/data/loan-programs";
 
 const origin = "https://jacobshopemortgage.com";
+const seoRefreshDate = new Date("2026-09-05T00:00:00-04:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const mainRoutes = [
-    "", "/about", "/apply", "/book", "/calculators", "/calculators/payment",
+    "", "/about", "/apply", "/book", "/blog", "/calculators", "/calculators/payment",
     "/calculators/affordability", "/calculators/refinance", "/calculators/amortization",
-    "/contact", "/faq", "/loan-programs", "/newsletter", "/rates", "/service-areas",
+    "/contact", "/faq", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
+    "/service-areas", "/down-payment-assistance-charlotte", "/va-loans-charlotte",
+    "/first-time-homebuyer-charlotte", "/charlotte-home-buying-mortgage-guide",
+    "/charlotte-housing-market-september-2026", "/charlotte-mortgage-loan-limits-2026",
+    "/investment-property-loans-charlotte", "/construction-loans-charlotte",
+    "/mortgage-broker-vs-lender-charlotte", "/mortgage-preapproval-charlotte",
+    "/mortgage-credit-score-charlotte", "/mortgage-dti-charlotte",
+    "/mortgage-income-employment-charlotte", "/seller-concessions-north-carolina",
+    "/refinance-charlotte", "/home-equity-heloc-charlotte",
+    "/how-much-house-can-i-afford-charlotte", "/mortgage-closing-costs-charlotte",
+    "/mortgage-appraisal-charlotte", "/fha-vs-conventional-charlotte",
+    "/dscr-loans-charlotte", "/private-mortgage-insurance-charlotte",
+    "/cash-out-refinance-charlotte", "/bridge-loans-charlotte",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
 
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
-    changeFrequency: path === "/newsletter" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : path === "/newsletter" ? 0.9 : 0.7,
+    lastModified: seoRefreshDate,
+    changeFrequency:
+      path === "/newsletter" || path === "/charlotte-housing-market-september-2026"
+        ? "weekly"
+        : "monthly",
+    priority:
+      path === ""
+        ? 1
+        : [
+            "/mortgage-guides",
+            "/about",
+            "/blog",
+            "/charlotte-home-buying-mortgage-guide",
+            "/charlotte-housing-market-september-2026",
+            "/charlotte-mortgage-loan-limits-2026",
+          ].includes(path)
+          ? 0.9
+          : [
+              "/va-loans-charlotte",
+              "/first-time-homebuyer-charlotte",
+              "/investment-property-loans-charlotte",
+              "/construction-loans-charlotte",
+              "/mortgage-broker-vs-lender-charlotte",
+              "/mortgage-preapproval-charlotte",
+              "/mortgage-credit-score-charlotte",
+              "/mortgage-dti-charlotte",
+              "/mortgage-income-employment-charlotte",
+              "/seller-concessions-north-carolina",
+              "/refinance-charlotte",
+              "/home-equity-heloc-charlotte",
+              "/how-much-house-can-i-afford-charlotte",
+              "/mortgage-closing-costs-charlotte",
+              "/mortgage-appraisal-charlotte",
+              "/fha-vs-conventional-charlotte",
+              "/dscr-loans-charlotte",
+              "/private-mortgage-insurance-charlotte",
+              "/cash-out-refinance-charlotte",
+              "/bridge-loans-charlotte",
+            ].includes(path)
+            ? 0.85
+            : path === "/newsletter"
+              ? 0.8
+              : 0.7,
   }));
 }
