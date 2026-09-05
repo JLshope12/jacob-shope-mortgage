@@ -122,15 +122,16 @@ export default async function ServiceAreaPage({ params }: Props) {
 
         {area.slug === "charlotte" && (
           <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-navy">Buying a home in Charlotte?</h2>
+            <h2 className="text-2xl font-bold text-navy">Buying real estate in Charlotte?</h2>
             <p className="mt-4 leading-relaxed text-charcoal">
-              The financing should fit the property and the buyer, not the other way around. I help Charlotte buyers compare conventional, FHA, VA, jumbo, first-time buyer, and other available mortgage options while keeping the payment, cash to close, appraisal, and offer strategy clear.
+              The financing should fit the property and the buyer, not the other way around. I help Charlotte buyers compare conventional, FHA, VA, jumbo, first-time buyer, investment-property, construction, bridge, and other available mortgage options while keeping the payment, cash to close, appraisal, and offer strategy clear.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+              <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Charlotte Real Estate Financing Guide</Link>
               <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
               <Link href="/first-time-homebuyer-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
               <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
-              <Link href="/mortgage-guides" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Guides</Link>
+              <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
             </div>
           </section>
         )}
