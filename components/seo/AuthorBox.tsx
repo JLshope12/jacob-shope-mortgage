@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
+const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+
 export function AuthorBox() {
   return (
     <aside className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/5" aria-label="About the author">
@@ -17,6 +20,8 @@ export function AuthorBox() {
         <Link href="/mortgage-guides" className="text-gold hover:underline">Mortgage Guides</Link>
         <Link href="/blog" className="text-gold hover:underline">Mortgage &amp; Real Estate Insights</Link>
         <Link href="/charlotte-home-buying-mortgage-guide" className="text-gold hover:underline">Charlotte Home Buying Guide</Link>
+        <a href={NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Verify NMLS# 2090979</a>
+        <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mpire Financial</a>
         <a href="https://www.instagram.com/jlshopeloans/" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Instagram</a>
         <a href="https://www.facebook.com/jacob.shope.33" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Facebook</a>
       </div>
