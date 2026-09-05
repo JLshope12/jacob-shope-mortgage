@@ -3,6 +3,7 @@ import { getAllServiceAreaSlugs } from "@/data/service-areas";
 import { LOAN_PROGRAMS } from "@/data/loan-programs";
 
 const origin = "https://jacobshopemortgage.com";
+const seoRefreshDate = new Date("2026-09-05T00:00:00-04:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const mainRoutes = [
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
+    lastModified: seoRefreshDate,
     changeFrequency: path === "/newsletter" ? "weekly" : "monthly",
     priority:
       path === ""
