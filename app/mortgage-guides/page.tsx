@@ -6,6 +6,7 @@ export const metadata = {
   description:
     "Mortgage guides and answers from Jacob Shope for homebuyers, homeowners, veterans, first responders, first-time buyers, and real estate investors in Charlotte and Lake Norman.",
   alternates: { canonical: "/mortgage-guides" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 const TOPICS = [
@@ -107,10 +108,31 @@ const collectionSchema = {
   about: ["Mortgages", "Charlotte real estate financing", "First responder home financing", "Lake Norman mortgage guidance"],
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://jacobshopemortgage.com/mortgage-guides#breadcrumbs",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://jacobshopemortgage.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Mortgage Guides",
+      item: "https://jacobshopemortgage.com/mortgage-guides",
+    },
+  ],
+};
+
 export default function MortgageGuidesPage() {
   return (
     <div className="bg-offwhite">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage answers from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">

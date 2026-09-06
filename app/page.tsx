@@ -24,6 +24,39 @@ const LOAN_PROGRAMS = [
   { slug: "first-time-buyer", title: "First-Time Buyer", description: "A clear plan for your first purchase.", icon: Heart },
 ] as const;
 
+const MORTGAGE_GUIDES = [
+  {
+    href: "/mortgage-preapproval-charlotte",
+    title: "Mortgage Pre-Approval",
+    description: "What lenders review before you start shopping and how a pre-approval fits into the offer process.",
+  },
+  {
+    href: "/how-much-house-can-i-afford-charlotte",
+    title: "How Much House Can I Afford?",
+    description: "Build a price range around the monthly payment, cash to close, debts, and the property itself.",
+  },
+  {
+    href: "/mortgage-credit-score-charlotte",
+    title: "Credit Score & Mortgage",
+    description: "Understand how credit fits into mortgage qualification without assuming one score fits every loan.",
+  },
+  {
+    href: "/mortgage-dti-charlotte",
+    title: "Debt-to-Income Ratio",
+    description: "See how monthly debts and housing costs are considered when a mortgage file is reviewed.",
+  },
+  {
+    href: "/mortgage-income-employment-charlotte",
+    title: "Income & Employment",
+    description: "Learn how income history, job changes, variable pay, and documentation can affect the review.",
+  },
+  {
+    href: "/mortgage-closing-costs-charlotte",
+    title: "Mortgage Closing Costs",
+    description: "Know the major cost categories that can affect cash to close before you write an offer.",
+  },
+] as const;
+
 const SERVICE_AREAS = [
   ["charlotte", "Charlotte"],
   ["huntersville", "Huntersville"],
@@ -232,6 +265,34 @@ export default function Home() {
                 <h3 className="mt-4 font-semibold text-navy">{title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-charcoal">{description}</p>
                 <span className="mt-4 inline-flex items-center text-sm font-medium text-gold">Learn More <ChevronRight className="ml-1 h-4 w-4" /></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <p className="font-semibold text-gold">Mortgage qualification guides</p>
+          <div className="mt-2 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-navy md:text-4xl">Answers to the questions that shape a homebuying plan</h2>
+              <p className="mt-4 max-w-3xl text-charcoal md:text-lg">
+                Before you focus on a loan program, it helps to understand the numbers and documentation behind the approval. These Charlotte mortgage guides cover the qualification questions buyers ask most often.
+              </p>
+            </div>
+            <Link href="/mortgage-guides" className="inline-flex shrink-0 items-center font-semibold text-gold hover:underline">
+              Browse All Mortgage Guides <ChevronRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {MORTGAGE_GUIDES.map((guide) => (
+              <Link key={guide.href} href={guide.href} className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/10 transition-shadow hover:shadow-md">
+                <h3 className="text-lg font-semibold text-navy group-hover:text-gold">{guide.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-charcoal">{guide.description}</p>
+                <span className="mt-4 inline-flex items-center text-sm font-semibold text-gold">
+                  Read Guide <ChevronRight className="ml-1 h-4 w-4" />
+                </span>
               </Link>
             ))}
           </div>
