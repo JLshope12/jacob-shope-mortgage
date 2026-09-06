@@ -8,7 +8,14 @@ export const metadata = {
   alternates: { canonical: "/mortgage-guides" },
 };
 
-const TOPICS = [
+type GuideLink = readonly [label: string, href: string];
+type GuideTopic = {
+  title: string;
+  description: string;
+  links: readonly GuideLink[];
+};
+
+const TOPICS: readonly GuideTopic[] = [
   {
     title: "Buying a Home",
     description: "Start with the basics: payments, pre-approval, affordability, closing costs, first responder financing, real estate financing, and what to expect before you make an offer.",
@@ -94,7 +101,7 @@ const TOPICS = [
       ["Book a Conversation", "/book"],
     ],
   },
-] as const;
+];
 
 const origin = "https://jacobshopemortgage.com";
 const guideLinks = TOPICS.flatMap((topic) => topic.links).filter(
