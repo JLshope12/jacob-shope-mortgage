@@ -96,21 +96,69 @@ const TOPICS = [
   },
 ] as const;
 
-const collectionSchema = {
+const origin = "https://jacobshopemortgage.com";
+const guideLinks = TOPICS.flatMap((topic) => topic.links).filter(
+  ([, href]) => !["/", "/about", "/contact", "/book"].includes(href),
+);
+
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://jacobshopemortgage.com/mortgage-guides#collection",
-  url: "https://jacobshopemortgage.com/mortgage-guides",
-  name: "Charlotte Mortgage Guides & Resources",
-  author: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
-  publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
-  about: ["Mortgages", "Charlotte real estate financing", "First responder home financing", "Lake Norman mortgage guidance"],
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${origin}/mortgage-guides#collection`,
+      url: `${origin}/mortgage-guides`,
+      name: "Charlotte Mortgage Guides & Resources",
+      description:
+        "Mortgage and real estate financing guides for Charlotte and Lake Norman homebuyers, homeowners, veterans, first responders, and real estate investors.",
+      author: { "@id": `${origin}/#jacob-shope` },
+      publisher: { "@id": `${origin}/#mpire-financial` },
+      about: [
+        "Mortgages",
+        "Charlotte real estate financing",
+        "First responder home financing",
+        "Lake Norman mortgage guidance",
+      ],
+      hasPart: guideLinks.map(([, href]) => ({ "@id": `${origin}${href}` })),
+      mainEntity: { "@id": `${origin}/mortgage-guides#guide-list` },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${origin}/mortgage-guides#guide-list`,
+      name: "Jacob Shope Mortgage Guide Library",
+      numberOfItems: guideLinks.length,
+      itemListElement: guideLinks.map(([name, href], index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name,
+        url: `${origin}${href}`,
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${origin}/mortgage-guides#breadcrumbs`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: origin,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Mortgage Guides",
+          item: `${origin}/mortgage-guides`,
+        },
+      ],
+    },
+  ],
 };
 
 export default function MortgageGuidesPage() {
   return (
     <div className="bg-offwhite">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <section className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage answers from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">
