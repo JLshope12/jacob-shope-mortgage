@@ -15,11 +15,20 @@ const QUICK_LINKS = [
   { href: "/service-areas", label: "Service Areas" },
 ];
 
+const FEATURED_GUIDES = [
+  { href: "/charlotte-home-buying-mortgage-guide", label: "Charlotte Home Buying Guide" },
+  { href: "/mortgage-preapproval-charlotte", label: "Charlotte Mortgage Preapproval" },
+  { href: "/mortgage-income-employment-charlotte", label: "Income & Employment Guide" },
+  { href: "/mortgage-dti-charlotte", label: "Debt-to-Income Guide" },
+  { href: "/mortgage-credit-score-charlotte", label: "Mortgage Credit Score Guide" },
+  { href: "/first-responder-home-loans-charlotte", label: "First Responder Home Loans" },
+];
+
 export function Footer() {
   return (
     <footer className="bg-navy text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="text-lg font-bold text-white">Jacob Shope</p>
             <p className="mt-1 text-sm text-white/80">Charlotte Mortgage Broker | Charlotte &amp; Lake Norman</p>
@@ -59,7 +68,20 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-2 lg:col-span-1">
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-gold">Featured Mortgage Guides</h3>
+            <ul className="mt-3 space-y-2">
+              {FEATURED_GUIDES.map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href} className="text-sm text-white/80 transition-colors hover:text-gold">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gold">Contact</h3>
             <ul className="mt-3 space-y-2 text-sm text-white/80">
               <li><a href="tel:+17046145340" className="hover:text-gold">(704) 614-5340</a></li>
