@@ -9,6 +9,16 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 const GA_MEASUREMENT_ID = "G-GEG0J8SFCX";
 const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+const CORE_AUTHORITY_URLS = [
+  "https://jacobshopemortgage.com/about",
+  "https://jacobshopemortgage.com/mortgage-guides",
+  "https://jacobshopemortgage.com/va-loans-charlotte",
+  "https://jacobshopemortgage.com/first-time-homebuyer-charlotte",
+  "https://jacobshopemortgage.com/investment-property-loans-charlotte",
+  "https://jacobshopemortgage.com/construction-loans-charlotte",
+  "https://jacobshopemortgage.com/mortgage-preapproval-charlotte",
+  "https://jacobshopemortgage.com/mortgage-credit-score-charlotte",
+] as const;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jacobshopemortgage.com"),
@@ -79,6 +89,10 @@ export default function RootLayout({
                 description: "Mortgage guidance and resources for Charlotte and Lake Norman.",
                 publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
                 about: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
+                hasPart: CORE_AUTHORITY_URLS.map((url) => ({
+                  "@type": "WebPage",
+                  url,
+                })),
               },
               {
                 "@type": "Person",
@@ -86,6 +100,8 @@ export default function RootLayout({
                 name: "Jacob Shope",
                 url: "https://jacobshopemortgage.com/about",
                 image: "https://jacobshopemortgage.com/images/DSC_0084.jpg",
+                description:
+                  "Charlotte-area mortgage broker and Mortgage Loan Officer with Mpire Financial, NMLS# 2090979, serving homebuyers, homeowners, veterans, first responders, and real estate investors across Charlotte and Lake Norman.",
                 telephone: "+1-704-614-5340",
                 email: "shope@mpirefi.com",
                 jobTitle: "Mortgage Loan Officer",
@@ -96,6 +112,13 @@ export default function RootLayout({
                   url: NMLS_URL,
                 },
                 mainEntityOfPage: { "@id": "https://jacobshopemortgage.com/about#profile" },
+                subjectOf: [
+                  {
+                    "@type": "WebPage",
+                    url: NMLS_URL,
+                    name: "NMLS Consumer Access profile for Jacob Shope",
+                  },
+                ],
                 sameAs: [
                   NMLS_URL,
                   "https://www.instagram.com/jlshopeloans/",
