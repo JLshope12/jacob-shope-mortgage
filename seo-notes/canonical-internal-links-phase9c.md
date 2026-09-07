@@ -1,0 +1,1 @@
+Internal service-area links now point directly to the canonical Charlotte VA and first-time homebuyer pages instead of legacy redirect URLs. Existing photos remain unchanged.
