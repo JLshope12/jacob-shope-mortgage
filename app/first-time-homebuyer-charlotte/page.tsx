@@ -19,6 +19,25 @@ const STEPS = [
   ["4. Make the offer with financing in mind", "The property type, appraisal, seller concessions, closing timeline, and loan structure all matter once you find a home."],
 ] as const;
 
+const FAQS = [
+  [
+    "How much house can I afford?",
+    "Start with the payment you are comfortable with, then work backward into a price range using taxes, insurance, mortgage insurance when applicable, and the loan structure.",
+  ],
+  [
+    "Which loan is best?",
+    "There is no single best loan for every first-time buyer. The right comparison depends on credit, income, assets, property type, goals, and how long you expect to keep the financing.",
+  ],
+  [
+    "When should I get pre-approved?",
+    "Before you seriously shop. That gives you time to solve issues and helps your Realtor know what range and financing structure you can confidently use.",
+  ],
+  [
+    "Do I need perfect credit?",
+    "No. Different programs have different qualification standards, and the full file matters more than any one number.",
+  ],
+] as const;
+
 export default function FirstTimeHomebuyerCharlottePage() {
   const schema = {
     "@context": "https://schema.org",
@@ -55,6 +74,15 @@ export default function FirstTimeHomebuyerCharlottePage() {
           { "@type": "ListItem", position: 3, name: "First-Time Homebuyer Charlotte", item: pageUrl },
         ],
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: FAQS.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
     ],
   };
 
@@ -86,10 +114,24 @@ export default function FirstTimeHomebuyerCharlottePage() {
         <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
           <h2 className="text-2xl font-bold text-navy">Questions first-time buyers ask me most</h2>
           <div className="mt-5 space-y-4 text-charcoal">
-            <p><strong>How much house can I afford?</strong> Start with the payment you are comfortable with, then work backward into a price range using taxes, insurance, mortgage insurance when applicable, and the loan structure.</p>
-            <p><strong>Which loan is best?</strong> There is no single best loan for every first-time buyer. The right comparison depends on credit, income, assets, property type, goals, and how long you expect to keep the financing.</p>
-            <p><strong>When should I get pre-approved?</strong> Before you seriously shop. That gives you time to solve issues and helps your Realtor know what range and financing structure you can confidently use.</p>
-            <p><strong>Do I need perfect credit?</strong> No. Different programs have different qualification standards, and the full file matters more than any one number.</p>
+            {FAQS.map(([question, answer]) => (
+              <p key={question}>
+                <strong>{question}</strong> {answer}
+              </p>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-8">
+          <h2 className="text-2xl font-bold text-navy">Build the financing plan before you shop</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
+            First-time buyers usually have several questions at the same time. These guides go deeper on the parts of qualification and cash planning that most often shape the buying range.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit</Link>
+            <Link href="/mortgage-dti-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Debt-to-Income</Link>
+            <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
           </div>
         </section>
 
