@@ -3,7 +3,8 @@ import { getAllServiceAreaSlugs } from "@/data/service-areas";
 import { LOAN_PROGRAMS } from "@/data/loan-programs";
 
 const origin = "https://jacobshopemortgage.com";
-const seoRefreshDate = new Date("2026-09-05T00:00:00-04:00");
+const seoRefreshDate = new Date("2026-09-07T00:00:00-04:00");
+const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const mainRoutes = [
@@ -25,7 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/bridge-loans-charlotte",
   ];
   const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
-  const programRoutes = LOAN_PROGRAMS.map((program) => `/loan-programs/${program.slug}`);
+  const programRoutes = LOAN_PROGRAMS
+    .filter((program) => !consolidatedProgramSlugs.has(program.slug))
+    .map((program) => `/loan-programs/${program.slug}`);
 
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
