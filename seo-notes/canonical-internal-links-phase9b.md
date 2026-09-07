@@ -1,0 +1,1 @@
+Phase 9 keeps service-area internal links pointed at the canonical VA and first-time homebuyer authority pages. No photos or image assets are changed.
