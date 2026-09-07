@@ -90,7 +90,16 @@ export default async function ServiceAreaPage({ params }: Props) {
         name: `Mortgage guidance in ${area.name}`,
         serviceType: "Mortgage brokerage and home loan guidance",
         provider: { "@id": `${origin}/#mpire-financial` },
-        areaServed: { "@type": "Place", name: area.name },
+        areaServed:
+          area.slug === "lake-norman"
+            ? [
+                { "@type": "Place", name: "Lake Norman, North Carolina" },
+                { "@type": "City", name: "Huntersville, North Carolina" },
+                { "@type": "City", name: "Cornelius, North Carolina" },
+                { "@type": "City", name: "Davidson, North Carolina" },
+                { "@type": "City", name: "Mooresville, North Carolina" },
+              ]
+            : { "@type": "Place", name: area.name },
         url: pageUrl,
       },
       {
@@ -132,6 +141,28 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/first-time-homebuyer-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
               <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
               <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
+            </div>
+          </section>
+        )}
+
+        {area.slug === "lake-norman" && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">Mortgage guidance across the Lake Norman corridor</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Lake Norman financing can look very different depending on the property. Buyers may be comparing an inland single-family home, new construction, a condominium, a higher-priced property, or an investment property. I help buyers and homeowners across Huntersville, Cornelius, Davidson, Mooresville, and the surrounding lake area compare the financing structure, payment, appraisal considerations, and cash needed before making the next move.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
+              <Link href="/service-areas/huntersville" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Huntersville</Link>
+              <Link href="/service-areas/cornelius" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Cornelius</Link>
+              <Link href="/service-areas/davidson" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Davidson</Link>
+              <Link href="/service-areas/mooresville" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mooresville</Link>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm font-medium">
+              <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
+              <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+              <Link href="/construction-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Construction Loans</Link>
+              <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
+              <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
             </div>
           </section>
         )}
