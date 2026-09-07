@@ -12,6 +12,25 @@ export const metadata = {
   authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
+const FAQS = [
+  [
+    "What makes a construction loan different from a standard mortgage?",
+    "Construction financing adds project-level review. In addition to the borrower, the lender may need to review the builder, plans, specifications, budget, appraisal, draw process, and completion timeline.",
+  ],
+  [
+    "What is a one-time-close construction loan?",
+    "A one-time-close structure combines construction financing and permanent financing into one closing. Program details vary by lender and loan type, so the full project and borrower profile still need to be reviewed.",
+  ],
+  [
+    "Can land or existing land equity be part of the financing?",
+    "Sometimes. The treatment of owned land, a land purchase, and existing equity depends on the loan program, project structure, appraisal, and lender requirements.",
+  ],
+  [
+    "Can eligible veterans use VA financing to build a home?",
+    "VA guidance confirms that eligible borrowers may use VA-backed purchase financing to build a new home, and the VA Lenders Handbook permits both one-time and two-time construction loans subject to program and lender requirements.",
+  ],
+] as const;
+
 export default function ConstructionLoansCharlottePage() {
   const schema = {
     "@context": "https://schema.org",
@@ -25,6 +44,7 @@ export default function ConstructionLoansCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+        dateModified: "2026-09-07",
       },
       {
         "@type": "WebPage",
@@ -49,6 +69,15 @@ export default function ConstructionLoansCharlottePage() {
           { "@type": "ListItem", position: 2, name: "Mortgage Guides", item: `${origin}/mortgage-guides` },
           { "@type": "ListItem", position: 3, name: "Construction Loans Charlotte", item: pageUrl },
         ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: FAQS.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
       },
     ],
   };
@@ -90,6 +119,17 @@ export default function ConstructionLoansCharlottePage() {
           </p>
         </section>
 
+        <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">VA construction financing: what the official guidance says</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            The U.S. Department of Veterans Affairs states that eligible borrowers can use a VA-backed purchase loan to build a new home. The VA Lenders Handbook also states that VA permits both one-time and two-time construction loans, subject to VA underwriting and lender requirements.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href="https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA purchase loan guidance</a>
+            <a href="https://www.benefits.va.gov/WARMS/docs/admin26/m26-07/vap26-7-chapter7-loans-requiring-special-underwriting-guaranty-and-other-considerations.pdf" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA Lenders Handbook, Chapter 7</a>
+          </div>
+        </section>
+
         <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-8">
           <h2 className="text-2xl font-bold text-navy">Construction financing topics to review early</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
@@ -100,6 +140,18 @@ export default function ConstructionLoansCharlottePage() {
             <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
             <Link href="/mortgage-income-employment-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Income & Employment</Link>
             <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">Common construction loan questions</h2>
+          <div className="mt-6 space-y-6">
+            {FAQS.map(([question, answer]) => (
+              <div key={question}>
+                <h3 className="font-semibold text-navy">{question}</h3>
+                <p className="mt-2 leading-relaxed text-charcoal">{answer}</p>
+              </div>
+            ))}
           </div>
         </section>
 
