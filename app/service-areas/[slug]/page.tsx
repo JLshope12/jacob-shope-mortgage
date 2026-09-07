@@ -61,6 +61,12 @@ function getCTAText(area: ServiceArea): string {
   return `Get Pre-Approved for a Home in ${area.name}`;
 }
 
+function getProgramHref(slug: string): string {
+  if (slug === "va") return "/va-loans-charlotte";
+  if (slug === "first-time-buyer") return "/first-time-homebuyer-charlotte";
+  return `/loan-programs/${slug}`;
+}
+
 export default async function ServiceAreaPage({ params }: Props) {
   const { slug } = await params;
   const area = getServiceAreaBySlug(slug);
@@ -173,7 +179,7 @@ export default async function ServiceAreaPage({ params }: Props) {
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {LOAN_PROGRAMS.map((program) => (
               <li key={program.slug}>
-                <Link href={`/loan-programs/${program.slug}`} className="inline-flex items-center font-medium text-gold hover:underline">
+                <Link href={getProgramHref(program.slug)} className="inline-flex items-center font-medium text-gold hover:underline">
                   {program.name}
                 </Link>
               </li>
