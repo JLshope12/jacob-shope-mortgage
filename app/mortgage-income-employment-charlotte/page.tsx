@@ -1,14 +1,79 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
 
 export const metadata = {
   title: "Mortgage Income & Employment Questions | Charlotte | Jacob Shope",
-  description: "A practical guide to how income and employment are reviewed for a mortgage, including salary, bonus, overtime, job changes, and employment gaps.",
+  description:
+    "A practical guide to how income and employment are reviewed for a mortgage, including salary, bonus, overtime, job changes, and employment gaps.",
   alternates: { canonical: "/mortgage-income-employment-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://jacobshopemortgage.com/mortgage-income-employment-charlotte#article",
+  headline: "How Income and Employment Are Reviewed for a Mortgage",
+  description:
+    "A Charlotte mortgage qualification guide from Jacob Shope covering salary, hourly income, bonus, overtime, job changes, employment gaps, self-employment, and other income sources.",
+  mainEntityOfPage: "https://jacobshopemortgage.com/mortgage-income-employment-charlotte",
+  author: {
+    "@type": "Person",
+    "@id": "https://jacobshopemortgage.com/#jacob-shope",
+    name: "Jacob Shope",
+    url: "https://jacobshopemortgage.com/about",
+  },
+  publisher: {
+    "@type": "Organization",
+    "@id": "https://jacobshopemortgage.com/#mpire-financial",
+    name: "Mpire Financial",
+  },
+  about: [
+    "Mortgage income",
+    "Employment history",
+    "Mortgage qualification",
+    "Charlotte mortgages",
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://jacobshopemortgage.com/mortgage-income-employment-charlotte#faq",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Can I qualify for a mortgage after changing jobs?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Possibly. A job change can be acceptable depending on the employment history, type of work, pay structure, and loan program.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can bonus or overtime income count for a mortgage?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "It can in some scenarios when there is enough history and documentation to support using it.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does an employment gap automatically disqualify me from a mortgage?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Employment gaps need to be reviewed in context with prior work history, the reason for the gap, and the borrower's return to work.",
+      },
+    },
+  ],
 };
 
 export default function MortgageIncomeEmploymentCharlottePage() {
   return (
     <div className="bg-offwhite">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">How Income and Employment Are Reviewed for a Mortgage</h1>
@@ -41,6 +106,23 @@ export default function MortgageIncomeEmploymentCharlottePage() {
             <div><h3 className="font-semibold text-navy">Does an employment gap automatically disqualify me?</h3><p className="mt-2 leading-relaxed text-charcoal">No. Employment gaps need to be reviewed in context with prior work history, the reason for the gap, and the borrower&apos;s return to work.</p></div>
           </div>
         </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">How income and employment fit into the full approval</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Income and employment are reviewed alongside credit, debt-to-income ratio, assets, down payment, property type, and the loan program. Looking at the full file early can help uncover documentation questions before a buyer is under contract.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Charlotte Mortgage Preapproval</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">Mortgage Credit Guide</Link>
+            <Link href="/mortgage-dti-charlotte" className="text-gold hover:underline">Debt-to-Income Guide</Link>
+            <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-Time Homebuyer Guide</Link>
+          </div>
+        </section>
+
+        <div className="mt-12">
+          <AuthorBox />
+        </div>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white"><h2 className="text-2xl font-bold">Have an income scenario that does not fit neatly in a box?</h2><p className="mt-3 text-white/85">That is exactly when it helps to review the details before assuming the answer is no.</p><div className="mt-6 flex flex-wrap gap-4"><Link href="/contact" className="rounded-lg bg-gold px-5 py-3 font-semibold text-white hover:bg-gold/90">Ask Jacob About the Scenario</Link><Link href="/mortgage-guides" className="rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white hover:text-navy">More Mortgage Guides</Link></div></section>
       </article>

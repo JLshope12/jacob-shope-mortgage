@@ -1,14 +1,79 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
 
 export const metadata = {
   title: "Debt-to-Income Ratio for a Mortgage | Charlotte | Jacob Shope",
-  description: "Learn how debt-to-income ratio is used in mortgage qualification and why the full loan scenario matters. Guidance from Jacob Shope, NMLS# 2090979.",
+  description:
+    "Learn how debt-to-income ratio is used in mortgage qualification and why the full loan scenario matters. Guidance from Jacob Shope, NMLS# 2090979.",
   alternates: { canonical: "/mortgage-dti-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://jacobshopemortgage.com/mortgage-dti-charlotte#article",
+  headline: "How Debt-to-Income Ratio Works for a Mortgage",
+  description:
+    "A Charlotte mortgage qualification guide from Jacob Shope explaining debt-to-income ratio and how it fits into the broader approval picture.",
+  mainEntityOfPage: "https://jacobshopemortgage.com/mortgage-dti-charlotte",
+  author: {
+    "@type": "Person",
+    "@id": "https://jacobshopemortgage.com/#jacob-shope",
+    name: "Jacob Shope",
+    url: "https://jacobshopemortgage.com/about",
+  },
+  publisher: {
+    "@type": "Organization",
+    "@id": "https://jacobshopemortgage.com/#mpire-financial",
+    name: "Mpire Financial",
+  },
+  about: [
+    "Debt-to-income ratio",
+    "Mortgage qualification",
+    "Charlotte mortgages",
+    "Home affordability",
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://jacobshopemortgage.com/mortgage-dti-charlotte#faq",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is there one maximum debt-to-income ratio for every mortgage?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Different loan programs and lenders can evaluate debt-to-income ratio differently, and the overall borrower profile matters.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does a lower debt-to-income ratio always mean a better loan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Not necessarily. Debt-to-income ratio is important, but it is only one part of the mortgage decision.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can paying off a debt change a mortgage debt-to-income calculation?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "It can in some scenarios, but the impact depends on the account, remaining payments, and applicable loan guidelines.",
+      },
+    },
+  ],
 };
 
 export default function MortgageDtiCharlottePage() {
   return (
     <div className="bg-offwhite">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
         <p className="font-semibold text-gold">Mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">How Debt-to-Income Ratio Works for a Mortgage</h1>
@@ -39,6 +104,23 @@ export default function MortgageDtiCharlottePage() {
             <div><h3 className="font-semibold text-navy">Can paying off a debt change the calculation?</h3><p className="mt-2 leading-relaxed text-charcoal">It can in some scenarios, but the impact depends on the account, remaining payments, and applicable loan guidelines.</p></div>
           </div>
         </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">How DTI fits into the rest of mortgage qualification</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            DTI works together with credit, income stability, assets, down payment, property type, and the loan program. Looking at those pieces together gives a more useful picture than treating one ratio as the entire approval decision.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Charlotte Mortgage Preapproval</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">Mortgage Credit Guide</Link>
+            <Link href="/mortgage-income-employment-charlotte" className="text-gold hover:underline">Income &amp; Employment Guide</Link>
+            <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Charlotte Affordability Guide</Link>
+          </div>
+        </section>
+
+        <div className="mt-12">
+          <AuthorBox />
+        </div>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white"><h2 className="text-2xl font-bold">Trying to understand your buying range?</h2><p className="mt-3 text-white/85">Use DTI as one part of the picture, then compare the actual payment and cash needed.</p><div className="mt-6 flex flex-wrap gap-4"><Link href="/calculators/affordability" className="rounded-lg bg-gold px-5 py-3 font-semibold text-white hover:bg-gold/90">Affordability Calculator</Link><Link href="/mortgage-guides" className="rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white hover:text-navy">More Mortgage Guides</Link></div></section>
       </article>
