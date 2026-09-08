@@ -15,6 +15,9 @@ const QUICK_LINKS = [
   { href: "/service-areas", label: "Service Areas" },
 ];
 
+const JACOB_NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
+const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+
 export function Footer() {
   return (
     <footer className="bg-navy text-white">
@@ -23,10 +26,14 @@ export function Footer() {
           <div>
             <p className="text-lg font-bold text-white">Jacob Shope</p>
             <p className="mt-1 text-sm text-white/80">Charlotte Mortgage Broker | Charlotte &amp; Lake Norman</p>
-            <p className="mt-2 text-sm text-white/70">
-              Mortgage Loan Officer · NMLS# 2090979 · Mpire Financial
-            </p>
+            <p className="mt-2 text-sm text-white/70">Mortgage Loan Officer · NMLS# 2090979 · Mpire Financial</p>
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+              <a href={JACOB_NMLS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex text-sm font-medium text-gold hover:underline">
+                Verify Jacob&apos;s NMLS
+              </a>
+              <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex text-sm font-medium text-gold hover:underline">
+                Mpire Financial
+              </a>
               <a
                 href="https://www.instagram.com/jlshopeloans/"
                 target="_blank"
@@ -79,9 +86,13 @@ export function Footer() {
             <p>Jacob Shope, NMLS# 2090979 | Mpire Financial LLC, NMLS# 2108504</p>
             <p>189 S Orange Ave #2020, Orlando, FL 32801</p>
             <p>
-              For licensing information, go to{" "}
-              <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2 hover:text-gold">
-                www.nmlsconsumeraccess.org
+              Verify Jacob Shope&apos;s mortgage license through{" "}
+              <a href={JACOB_NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2 hover:text-gold">
+                NMLS Consumer Access
+              </a>{" "}
+              and learn more about{" "}
+              <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2 hover:text-gold">
+                Mpire Financial
               </a>.
             </p>
           </div>
@@ -95,7 +106,7 @@ export function Footer() {
             <span className="text-white/50">|</span>
             <Link href="/accessibility" className="text-white hover:text-gold">Accessibility</Link>
             <span className="text-white/50">|</span>
-            <a href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold">NMLS Consumer Access</a>
+            <a href={JACOB_NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold">Jacob Shope NMLS</a>
           </div>
 
           <p className="text-[0.65rem] leading-relaxed text-white/70 md:text-[0.7rem]">
