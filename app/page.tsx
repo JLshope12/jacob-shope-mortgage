@@ -15,13 +15,13 @@ import {
 } from "lucide-react";
 
 const LOAN_PROGRAMS = [
-  { slug: "conventional", title: "Conventional", description: "Flexible financing for qualified buyers.", icon: HomeIcon },
-  { slug: "fha", title: "FHA", description: "Lower down payment and flexible credit options.", icon: Landmark },
-  { slug: "va", title: "VA", description: "Powerful benefits for eligible veterans and service members.", icon: Medal },
-  { slug: "usda", title: "USDA", description: "100% financing in eligible rural and suburban areas.", icon: Sprout },
-  { slug: "jumbo", title: "Jumbo", description: "Options for homes above conforming loan limits.", icon: Banknote },
-  { slug: "refinance", title: "Refinance", description: "Review your rate, term, or equity options.", icon: RefreshCw },
-  { slug: "first-time-buyer", title: "First-Time Buyer", description: "A clear plan for your first purchase.", icon: Heart },
+  { href: "/loan-programs/conventional", title: "Conventional", description: "Flexible financing for qualified buyers.", icon: HomeIcon },
+  { href: "/loan-programs/fha", title: "FHA", description: "Lower down payment and flexible credit options.", icon: Landmark },
+  { href: "/va-loans-charlotte", title: "VA", description: "Powerful benefits for eligible veterans and service members.", icon: Medal },
+  { href: "/loan-programs/usda", title: "USDA", description: "100% financing in eligible rural and suburban areas.", icon: Sprout },
+  { href: "/loan-programs/jumbo", title: "Jumbo", description: "Options for homes above conforming loan limits.", icon: Banknote },
+  { href: "/loan-programs/refinance", title: "Refinance", description: "Review your rate, term, or equity options.", icon: RefreshCw },
+  { href: "/first-time-homebuyer-charlotte", title: "First-Time Buyer", description: "A clear plan for your first purchase.", icon: Heart },
 ] as const;
 
 const SERVICE_AREAS = [
@@ -190,9 +190,9 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3 pt-2 text-sm font-medium">
               <Link href="/loan-programs/fha" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">FHA Loans</Link>
-              <Link href="/loan-programs/va" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+              <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
               <Link href="/loan-programs/conventional" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Conventional</Link>
-              <Link href="/loan-programs/first-time-buyer" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
+              <Link href="/first-time-homebuyer-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
               <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
             </div>
           </div>
@@ -226,14 +226,31 @@ export default function Home() {
             The right loan depends on the property, your goals, and how you want the payment structured.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {LOAN_PROGRAMS.map(({ slug, title, description, icon: Icon }) => (
-              <Link key={slug} href={`/loan-programs/${slug}`} className="group flex flex-col rounded-xl bg-offwhite p-6 shadow-sm ring-1 ring-navy/5 hover:shadow-md">
+            {LOAN_PROGRAMS.map(({ href, title, description, icon: Icon }) => (
+              <Link key={href} href={href} className="group flex flex-col rounded-xl bg-offwhite p-6 shadow-sm ring-1 ring-navy/5 hover:shadow-md">
                 <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy/10 text-navy"><Icon className="h-5 w-5" /></span>
                 <h3 className="mt-4 font-semibold text-navy">{title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-charcoal">{description}</p>
                 <span className="mt-4 inline-flex items-center text-sm font-medium text-gold">Learn More <ChevronRight className="ml-1 h-4 w-4" /></span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <p className="font-semibold text-gold">Mortgage qualification</p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">Know the numbers before you shop</h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-charcoal md:text-lg">
+            Pre-approval, credit, debt-to-income, income, and affordability work together. These guides explain the parts of a mortgage file that most often shape the price range, payment, and financing options.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3 text-sm font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit Score</Link>
+            <Link href="/mortgage-dti-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Debt-to-Income</Link>
+            <Link href="/mortgage-income-employment-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Income &amp; Employment</Link>
+            <Link href="/how-much-house-can-i-afford-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Affordability</Link>
           </div>
         </div>
       </section>
