@@ -3,6 +3,8 @@ import Link from "next/link";
 
 const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+const GOOGLE_BUSINESS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8";
 
 export const metadata = {
   title: "Jacob Shope | Charlotte Mortgage Broker & Loan Officer",
@@ -56,8 +58,13 @@ const profileSchema = {
       "Mortgage qualification",
       "Mortgage rates",
     ],
+    subjectOf: [
+      { "@type": "WebPage", url: NMLS_URL, name: "NMLS Consumer Access profile for Jacob Shope" },
+      { "@type": "WebPage", url: GOOGLE_BUSINESS_URL, name: "Jacob Shope Mortgage Broker Google Business Profile" },
+    ],
     sameAs: [
       NMLS_URL,
+      GOOGLE_BUSINESS_URL,
       "https://www.instagram.com/jlshopeloans/",
       "https://www.facebook.com/jacob.shope.33",
     ],
@@ -84,6 +91,7 @@ export default function AboutPage() {
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
             <a href={NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Verify NMLS# 2090979</a>
             <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mpire Financial</a>
+            <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Google Business Profile</a>
             <a href="https://www.instagram.com/jlshopeloans/" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Instagram @jlshopeloans</a>
             <a href="https://www.facebook.com/jacob.shope.33" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Facebook</a>
           </div>
