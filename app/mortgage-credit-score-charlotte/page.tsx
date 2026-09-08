@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { AuthorBox } from "@/components/seo/AuthorBox";
 
+const CFPB_CREDIT_SCORE = "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-score-en-315/";
+const CFPB_MORTGAGE_CREDIT = "https://www.consumerfinance.gov/ask-cfpb/does-my-credit-score-affect-my-ability-to-get-a-mortgage-loan-or-the-mortgage-rate-i-pay-en-319/";
+const CFPB_CREDIT_CHECKS = "https://www.consumerfinance.gov/ask-cfpb/what-exactly-happens-when-a-mortgage-lender-checks-my-credit-en-2005/";
+
 export const metadata = {
   title: "Credit Score for a Mortgage in Charlotte | Jacob Shope",
   description:
@@ -17,6 +21,7 @@ const articleSchema = {
   description:
     "A Charlotte mortgage credit guide from Jacob Shope explaining how credit fits into the broader mortgage qualification picture.",
   mainEntityOfPage: "https://jacobshopemortgage.com/mortgage-credit-score-charlotte",
+  dateModified: "2026-09-08",
   author: {
     "@type": "Person",
     "@id": "https://jacobshopemortgage.com/#jacob-shope",
@@ -28,12 +33,8 @@ const articleSchema = {
     "@id": "https://jacobshopemortgage.com/#mpire-financial",
     name: "Mpire Financial",
   },
-  about: [
-    "Mortgage credit scores",
-    "Mortgage qualification",
-    "Charlotte mortgages",
-    "Home financing",
-  ],
+  citation: [CFPB_CREDIT_SCORE, CFPB_MORTGAGE_CREDIT, CFPB_CREDIT_CHECKS],
+  about: ["Mortgage credit scores", "Mortgage qualification", "Charlotte mortgages", "Home financing"],
 };
 
 const faqSchema = {
@@ -91,8 +92,7 @@ export default function MortgageCreditScoreCharlottePage() {
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-navy md:text-3xl">Why credit matters</h2>
           <p className="mt-4 leading-relaxed text-charcoal">
-            Credit can influence which loan programs are available, how a file is evaluated, and the pricing a borrower may
-            receive. Lenders also review the history behind the score, not just the number itself.
+            The Consumer Financial Protection Bureau explains that credit scores are based on information in your credit reports and can affect both mortgage eligibility and pricing. A mortgage decision still considers the broader file, including debts, assets, and income.
           </p>
         </section>
 
@@ -115,21 +115,15 @@ export default function MortgageCreditScoreCharlottePage() {
           <div className="mt-6 space-y-6">
             <div>
               <h3 className="font-semibold text-navy">Is there one minimum credit score for every mortgage?</h3>
-              <p className="mt-2 leading-relaxed text-charcoal">
-                No. Requirements can vary by loan program and lender, and approval depends on more than one number.
-              </p>
+              <p className="mt-2 leading-relaxed text-charcoal">No. Requirements can vary by loan program and lender, and approval depends on more than one number.</p>
             </div>
             <div>
               <h3 className="font-semibold text-navy">Should I wait to buy until my score is perfect?</h3>
-              <p className="mt-2 leading-relaxed text-charcoal">
-                Not necessarily. It is more useful to review your full scenario and compare what is available now with the value of waiting.
-              </p>
+              <p className="mt-2 leading-relaxed text-charcoal">Not necessarily. It is more useful to review your full scenario and compare what is available now with the value of waiting.</p>
             </div>
             <div>
               <h3 className="font-semibold text-navy">Can paying down debt help?</h3>
-              <p className="mt-2 leading-relaxed text-charcoal">
-                Sometimes, but the effect depends on the account and timing. It is better to review the mortgage strategy before making major credit changes.
-              </p>
+              <p className="mt-2 leading-relaxed text-charcoal">Sometimes, but the effect depends on the account and timing. It is better to review the mortgage strategy before making major credit changes.</p>
             </div>
           </div>
         </section>
@@ -137,20 +131,31 @@ export default function MortgageCreditScoreCharlottePage() {
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-navy md:text-3xl">How credit fits into the rest of the approval</h2>
           <p className="mt-4 leading-relaxed text-charcoal">
-            Credit works together with income, debt-to-income ratio, assets, down payment, property type, and the loan program.
-            If you are preparing to buy, it can help to review those pieces together before making changes to accounts or taking on new debt.
+            Credit works together with income, debt-to-income ratio, assets, down payment, property type, and the loan program. If you are preparing to buy, it can help to review those pieces together before making changes to accounts or taking on new debt.
           </p>
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-medium">
             <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Charlotte Mortgage Preapproval</Link>
             <Link href="/mortgage-dti-charlotte" className="text-gold hover:underline">Debt-to-Income Guide</Link>
             <Link href="/mortgage-income-employment-charlotte" className="text-gold hover:underline">Income &amp; Employment Guide</Link>
+            <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-Time Homebuyer Guide</Link>
+            <Link href="/service-areas/charlotte" className="text-gold hover:underline">Charlotte Mortgage Options</Link>
             <Link href="/mortgage-guides" className="text-gold hover:underline">All Mortgage Guides</Link>
           </div>
         </section>
 
-        <div className="mt-12">
-          <AuthorBox />
-        </div>
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Official consumer credit resources</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            For neutral consumer guidance, these CFPB resources explain how credit scores work, how mortgage lenders use credit, and what happens when a lender checks your credit.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href={CFPB_CREDIT_SCORE} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: What is a credit score?</a>
+            <a href={CFPB_MORTGAGE_CREDIT} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Credit scores and mortgages</a>
+            <a href={CFPB_CREDIT_CHECKS} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Mortgage credit checks</a>
+          </div>
+        </section>
+
+        <div className="mt-12"><AuthorBox /></div>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Looking at your mortgage options?</h2>
