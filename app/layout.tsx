@@ -9,6 +9,8 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 const GA_MEASUREMENT_ID = "G-GEG0J8SFCX";
 const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+const GOOGLE_BUSINESS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8";
 const CORE_AUTHORITY_URLS = [
   "https://jacobshopemortgage.com/about",
   "https://jacobshopemortgage.com/mortgage-guides",
@@ -118,9 +120,15 @@ export default function RootLayout({
                     url: NMLS_URL,
                     name: "NMLS Consumer Access profile for Jacob Shope",
                   },
+                  {
+                    "@type": "WebPage",
+                    url: GOOGLE_BUSINESS_URL,
+                    name: "Jacob Shope Mortgage Broker Google Business Profile",
+                  },
                 ],
                 sameAs: [
                   NMLS_URL,
+                  GOOGLE_BUSINESS_URL,
                   "https://www.instagram.com/jlshopeloans/",
                   "https://www.facebook.com/jacob.shope.33",
                 ],
@@ -149,7 +157,7 @@ export default function RootLayout({
                 "@id": "https://jacobshopemortgage.com/#mpire-financial",
                 name: "Mpire Financial LLC - Jacob Shope",
                 url: "https://jacobshopemortgage.com",
-                sameAs: [MPIRE_URL],
+                sameAs: [MPIRE_URL, GOOGLE_BUSINESS_URL],
                 telephone: "+1-704-614-5340",
                 areaServed: [
                   "Charlotte",
