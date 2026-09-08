@@ -139,14 +139,17 @@ export default async function ServiceAreaPage({ params }: Props) {
           <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
             <h2 className="text-2xl font-bold text-navy">Buying real estate in Charlotte?</h2>
             <p className="mt-4 leading-relaxed text-charcoal">
-              The financing should fit the property and the buyer, not the other way around. I help Charlotte buyers compare conventional, FHA, VA, jumbo, first-time buyer, investment-property, construction, bridge, and other available mortgage options while keeping the payment, cash to close, appraisal, and offer strategy clear.
+              The financing should fit the property and the buyer, not the other way around. I help Charlotte buyers compare conventional, FHA, VA, jumbo, first-time buyer, investment-property, construction, bridge, and other available mortgage options while keeping the payment, cash to close, appraisal, credit, and offer strategy clear.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
               <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Charlotte Real Estate Financing Guide</Link>
-              <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
+              <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
+              <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit</Link>
               <Link href="/first-time-homebuyer-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
               <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+              <Link href="/construction-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Construction Loans</Link>
               <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
+              <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
             </div>
           </section>
         )}
@@ -155,7 +158,7 @@ export default async function ServiceAreaPage({ params }: Props) {
           <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
             <h2 className="text-2xl font-bold text-navy">Mortgage guidance across the Lake Norman corridor</h2>
             <p className="mt-4 leading-relaxed text-charcoal">
-              Lake Norman financing can look very different depending on the property. Buyers may be comparing an inland single-family home, new construction, a condominium, a higher-priced property, or an investment property. I help buyers and homeowners across Huntersville, Cornelius, Davidson, Mooresville, and the surrounding lake area compare the financing structure, payment, appraisal considerations, and cash needed before making the next move.
+              Lake Norman financing can look very different depending on the property. Buyers may be comparing an inland single-family home, new construction, a condominium, a higher-priced property, or an investment property. I help buyers and homeowners across Huntersville, Cornelius, Davidson, Mooresville, and the surrounding lake area compare the financing structure, payment, credit, appraisal considerations, and cash needed before making the next move.
             </p>
             <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
               <Link href="/service-areas/huntersville" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Huntersville</Link>
@@ -165,6 +168,8 @@ export default async function ServiceAreaPage({ params }: Props) {
             </div>
             <div className="mt-4 flex flex-wrap gap-3 text-sm font-medium">
               <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
+              <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit</Link>
+              <Link href="/first-time-homebuyer-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
               <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
               <Link href="/construction-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Construction Loans</Link>
               <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
