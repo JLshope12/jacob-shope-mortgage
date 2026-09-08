@@ -3,6 +3,9 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 
 const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/first-time-homebuyer-charlotte`;
+const HUD_BUYING_URL = "https://www.hud.gov/helping-americans/buying-a-home";
+const HUD_FHA_URL = "https://www.hud.gov/buying/loans";
+const NCHFA_URL = "https://www.nchfa.com/home-ownership-partners/community-partners/community-programs/community-partners-loan-pool";
 
 export const metadata = {
   title: "First-Time Homebuyer Charlotte NC | Jacob Shope Mortgage",
@@ -51,6 +54,7 @@ export default function FirstTimeHomebuyerCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+        citation: [HUD_BUYING_URL, HUD_FHA_URL, NCHFA_URL],
       },
       {
         "@type": "WebPage",
@@ -131,7 +135,21 @@ export default function FirstTimeHomebuyerCharlottePage() {
             <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
             <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit</Link>
             <Link href="/mortgage-dti-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Debt-to-Income</Link>
+            <Link href="/mortgage-closing-costs-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Closing Costs</Link>
+            <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisal</Link>
             <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl border border-charcoal/10 bg-offwhite p-8">
+          <h2 className="text-2xl font-bold text-navy">Official homebuyer resources</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
+            I use primary sources where they help buyers verify program information. HUD publishes a step-by-step homebuying resource and FHA loan information, while the North Carolina Housing Finance Agency publishes current information about state-supported homebuyer assistance programs.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={HUD_BUYING_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">HUD: Buying a Home</a>
+            <a href={HUD_FHA_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">HUD: FHA Loan Information</a>
+            <a href={NCHFA_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">NC Housing Finance Agency</a>
           </div>
         </section>
 
