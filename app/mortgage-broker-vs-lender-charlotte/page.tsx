@@ -1,15 +1,22 @@
 import Link from "next/link";
+import { AuthorBox } from "@/components/seo/AuthorBox";
+
+const origin = "https://jacobshopemortgage.com";
+const pageUrl = `${origin}/mortgage-broker-vs-lender-charlotte`;
+const CFPB_BROKER_URL = "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-mortgage-lender-and-a-mortgage-broker-en-130/";
+const CFPB_SHOP_URL = "https://www.consumerfinance.gov/owning-a-home/explore/contact-multiple-lenders/";
 
 export const metadata = {
   title: "Mortgage Broker vs Lender in Charlotte | Jacob Shope",
   description:
     "Understand the difference between a mortgage broker and a direct lender in Charlotte, and how to decide which approach fits your home financing needs.",
   alternates: { canonical: "/mortgage-broker-vs-lender-charlotte" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 const faq = [
   ["What is a mortgage broker?", "A mortgage broker helps borrowers evaluate loan options from multiple lending sources rather than being limited to one institution's product menu."],
-  ["What is a direct mortgage lender?", "A direct lender typically originates and funds loans using its own lending platform or a defined set of in-house products."],
+  ["What is a direct mortgage lender?", "A direct lender is a financial institution or mortgage company that makes loans directly to borrowers through its own lending platform."],
   ["Is a mortgage broker the same as a loan officer?", "Not exactly. A loan officer is the licensed professional working with the borrower. A loan officer may work for a bank, direct lender, credit union, or mortgage brokerage."],
   ["Why might a Charlotte buyer use a mortgage broker?", "A broker can be useful when a buyer wants to compare structures, has a property or income scenario that needs more than one option, or simply wants someone to evaluate alternatives across multiple lending sources."],
 ] as const;
@@ -17,11 +24,51 @@ const faq = [
 export default function MortgageBrokerVsLenderCharlottePage() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "Mortgage Broker vs Lender in Charlotte",
-    author: { "@type": "Person", "@id": "https://jacobshopemortgage.com/#jacob-shope", name: "Jacob Shope" },
-    publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
-    mainEntityOfPage: "https://jacobshopemortgage.com/mortgage-broker-vs-lender-charlotte",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}#article`,
+        headline: "Mortgage Broker vs Lender in Charlotte",
+        description: "A practical Charlotte guide to the difference between mortgage brokers and direct lenders and how borrowers can compare options.",
+        author: { "@id": `${origin}/#jacob-shope` },
+        publisher: { "@id": `${origin}/#mpire-financial` },
+        mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+        dateModified: "2026-09-08",
+        citation: [CFPB_BROKER_URL, CFPB_SHOP_URL],
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "Mortgage Broker vs Lender in Charlotte",
+        author: { "@id": `${origin}/#jacob-shope` },
+        isPartOf: { "@id": `${origin}/#website` },
+        about: [
+          { "@type": "Thing", name: "Mortgage brokers" },
+          { "@type": "Thing", name: "Mortgage lenders" },
+          { "@type": "Place", name: "Charlotte, North Carolina" },
+          { "@type": "Place", name: "Lake Norman, North Carolina" },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: faq.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: origin },
+          { "@type": "ListItem", position: 2, name: "Mortgage Guides", item: `${origin}/mortgage-guides` },
+          { "@type": "ListItem", position: 3, name: "Mortgage Broker vs Lender Charlotte", item: pageUrl },
+        ],
+      },
+    ],
   };
 
   return (
@@ -36,6 +83,17 @@ export default function MortgageBrokerVsLenderCharlottePage() {
         <p className="mt-4 text-charcoal">
           I&apos;m Jacob Shope, a Charlotte mortgage broker and Mortgage Loan Officer with Mpire Financial, NMLS# 2090979. My role is to help borrowers understand the differences, compare options, and choose a financing path based on the borrower, property, and goal.
         </p>
+
+        <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">What the CFPB says</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            The Consumer Financial Protection Bureau explains that a lender makes loans directly, while a mortgage broker helps a borrower find lenders or mortgage loans. CFPB also recommends shopping around because different lenders can offer different loan types, rates, and fees.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href={CFPB_BROKER_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB broker vs lender explanation</a>
+            <a href={CFPB_SHOP_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB guide to comparing lenders</a>
+          </div>
+        </section>
 
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-navy md:text-3xl">The simplest difference</h2>
@@ -79,6 +137,20 @@ export default function MortgageBrokerVsLenderCharlottePage() {
           </p>
         </section>
 
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Compare the financing, not just the company type</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            The best comparison is usually between complete scenarios: rate, APR, lender credits or points, estimated fees, monthly payment, cash to close, property eligibility, and how the loan fits the borrower&apos;s goals.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
+            <Link href="/mortgage-closing-costs-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Closing Costs</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit</Link>
+            <Link href="/service-areas/charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Charlotte Mortgage Options</Link>
+            <Link href="/service-areas/lake-norman" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Lake Norman Mortgage Options</Link>
+          </div>
+        </section>
+
         <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
           <h2 className="text-2xl font-bold text-navy">Common questions</h2>
           <div className="mt-6 space-y-6">
@@ -90,6 +162,10 @@ export default function MortgageBrokerVsLenderCharlottePage() {
             ))}
           </div>
         </section>
+
+        <div className="mt-12">
+          <AuthorBox />
+        </div>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Want me to compare the options with you?</h2>
