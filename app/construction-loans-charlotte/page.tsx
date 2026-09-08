@@ -3,6 +3,9 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 
 const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/construction-loans-charlotte`;
+const FANNIE_CTP_URL = "https://singlefamily.fanniemae.com/learning-center/originating-and-underwriting/faqs-construction-permanent-financing";
+const VA_PURCHASE_URL = "https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/";
+const VA_HANDBOOK_URL = "https://www.benefits.va.gov/WARMS/docs/admin26/m26-07/vap26-7-chapter7-loans-requiring-special-underwriting-guaranty-and-other-considerations.pdf";
 
 export const metadata = {
   title: "Construction Loans Charlotte NC | Jacob Shope Mortgage",
@@ -44,7 +47,8 @@ export default function ConstructionLoansCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-09-07",
+        dateModified: "2026-09-08",
+        citation: [FANNIE_CTP_URL, VA_PURCHASE_URL, VA_HANDBOOK_URL],
       },
       {
         "@type": "WebPage",
@@ -56,6 +60,7 @@ export default function ConstructionLoansCharlottePage() {
         about: [
           { "@type": "Thing", name: "Construction loans" },
           { "@type": "Thing", name: "One-time-close construction financing" },
+          { "@type": "Thing", name: "Construction-to-permanent financing" },
           { "@type": "Thing", name: "VA construction financing" },
           { "@type": "Place", name: "Charlotte, North Carolina" },
           { "@type": "Place", name: "Lake Norman, North Carolina" },
@@ -120,13 +125,23 @@ export default function ConstructionLoansCharlottePage() {
         </section>
 
         <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">Construction-to-permanent financing: what agency guidance confirms</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Fannie Mae publishes specific guidance for construction-to-permanent loans, including single-closing transactions that convert from construction financing into permanent financing after completion. That is useful context when comparing one-time-close structures with other construction options.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href={FANNIE_CTP_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Fannie Mae construction-to-permanent FAQs</a>
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
           <h2 className="text-2xl font-bold text-navy">VA construction financing: what the official guidance says</h2>
           <p className="mt-4 leading-relaxed text-charcoal">
             The U.S. Department of Veterans Affairs states that eligible borrowers can use a VA-backed purchase loan to build a new home. The VA Lenders Handbook also states that VA permits both one-time and two-time construction loans, subject to VA underwriting and lender requirements.
           </p>
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
-            <a href="https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA purchase loan guidance</a>
-            <a href="https://www.benefits.va.gov/WARMS/docs/admin26/m26-07/vap26-7-chapter7-loans-requiring-special-underwriting-guaranty-and-other-considerations.pdf" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA Lenders Handbook, Chapter 7</a>
+            <a href={VA_PURCHASE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA purchase loan guidance</a>
+            <a href={VA_HANDBOOK_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA Lenders Handbook, Chapter 7</a>
           </div>
         </section>
 
@@ -140,6 +155,8 @@ export default function ConstructionLoansCharlottePage() {
             <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
             <Link href="/mortgage-income-employment-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Income & Employment</Link>
             <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
+            <Link href="/service-areas/charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Charlotte Mortgage Options</Link>
+            <Link href="/service-areas/lake-norman" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Lake Norman Mortgage Options</Link>
           </div>
         </section>
 
