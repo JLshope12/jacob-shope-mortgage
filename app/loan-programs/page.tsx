@@ -22,6 +22,11 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "first-time-buyer": Heart,
 };
 
+const CANONICAL_PROGRAM_HREFS: Record<string, string> = {
+  va: "/va-loans-charlotte",
+  "first-time-buyer": "/first-time-homebuyer-charlotte",
+};
+
 export const metadata = {
   title: "Mortgage Loan Programs | FHA, VA, Conventional & More | Jacob Shope",
   description:
@@ -39,10 +44,11 @@ export default function LoanProgramsHubPage() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {LOAN_PROGRAMS.map((program) => {
             const Icon = ICONS[program.slug] ?? HomeIcon;
+            const href = CANONICAL_PROGRAM_HREFS[program.slug] ?? `/loan-programs/${program.slug}`;
             return (
               <Link
                 key={program.slug}
-                href={`/loan-programs/${program.slug}`}
+                href={href}
                 className="group flex flex-col rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy/10 text-navy">
