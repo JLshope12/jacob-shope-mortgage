@@ -3,6 +3,8 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 
 const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/mortgage-preapproval-charlotte`;
+const CFPB_PREAPPROVAL_URL = "https://www.consumerfinance.gov/owning-a-home/explore/get-a-preapproval-letter/";
+const CFPB_SHOP_URL = "https://www.consumerfinance.gov/consumer-tools/mortgages/shopping-for-a-mortgage/";
 
 export const metadata = {
   title: "Mortgage Pre-Approval in Charlotte | Jacob Shope",
@@ -31,12 +33,22 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Article",
+      "@id": `${pageUrl}#article`,
+      headline: "Mortgage Pre-Approval in Charlotte",
+      description:
+        "A practical Charlotte mortgage pre-approval guide covering income, employment, credit, monthly obligations, funds, and property considerations.",
+      author: { "@id": `${origin}/#jacob-shope` },
+      publisher: { "@id": `${origin}/#mpire-financial` },
+      mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+      dateModified: "2026-09-08",
+      citation: [CFPB_PREAPPROVAL_URL, CFPB_SHOP_URL],
+    },
+    {
       "@type": "WebPage",
       "@id": `${pageUrl}#webpage`,
       url: pageUrl,
       name: "Mortgage Pre-Approval in Charlotte",
-      description:
-        "A practical Charlotte mortgage pre-approval guide covering income, employment, credit, monthly obligations, funds, and property considerations.",
       author: { "@id": `${origin}/#jacob-shope` },
       isPartOf: { "@id": `${origin}/#website` },
       about: [
@@ -82,6 +94,20 @@ export default function MortgagePreapprovalCharlottePage() {
           I&apos;m Jacob Shope, a Charlotte mortgage broker and Mortgage Loan Officer with Mpire Financial, NMLS# 2090979. I work with buyers across Charlotte and Lake Norman to make the financing side of a home search easier to understand.
         </p>
 
+        <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">What CFPB says about pre-approval</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            The Consumer Financial Protection Bureau describes a pre-approval letter as a lender&apos;s tentative willingness to lend up to a stated amount. It is not a final loan approval, but it can help a seller see that a buyer is likely to obtain financing.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            CFPB also recommends comparing multiple pre-approvals and loan offers instead of assuming the first option is automatically the best fit.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href={CFPB_PREAPPROVAL_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB pre-approval guidance</a>
+            <a href={CFPB_SHOP_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB mortgage shopping guide</a>
+          </div>
+        </section>
+
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-navy md:text-3xl">What is reviewed during pre-approval?</h2>
           <p className="mt-4 leading-relaxed text-charcoal">
@@ -91,6 +117,7 @@ export default function MortgagePreapprovalCharlottePage() {
             <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">Mortgage Credit Guide</Link>
             <Link href="/mortgage-dti-charlotte" className="text-gold hover:underline">Debt-to-Income Guide</Link>
             <Link href="/mortgage-income-employment-charlotte" className="text-gold hover:underline">Income &amp; Employment Guide</Link>
+            <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Closing Costs Guide</Link>
           </div>
         </section>
 
@@ -116,6 +143,19 @@ export default function MortgagePreapprovalCharlottePage() {
           <p className="mt-4 leading-relaxed text-charcoal">
             Buyers who are early in the process can also review the <Link href="/first-time-homebuyer-charlotte" className="font-medium text-gold hover:underline">Charlotte first-time homebuyer guide</Link> and the broader <Link href="/mortgage-guides" className="font-medium text-gold hover:underline">mortgage guide library</Link> before deciding what to do next.
           </p>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Local mortgage planning</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            Pre-approval is the starting point for many Charlotte and Lake Norman purchases, whether the property is a first home, new construction, a VA purchase, or an investment property. These local hubs connect the financing guidance to the markets I serve.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+            <Link href="/service-areas/charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Charlotte Mortgage Options</Link>
+            <Link href="/service-areas/lake-norman" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Lake Norman Mortgage Options</Link>
+            <Link href="/construction-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Construction Loans</Link>
+            <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+          </div>
         </section>
 
         <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
