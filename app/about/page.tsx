@@ -99,10 +99,14 @@ export default function AboutPage() {
             <p>I work throughout Charlotte, Huntersville, Cornelius, Davidson, Lake Norman, Mooresville, and the surrounding region. The website is built to answer real mortgage questions clearly, so buyers can understand the options before they make a decision.</p>
             <div className="flex flex-wrap gap-x-5 gap-y-2 text-base font-medium text-gold">
               <Link href="/first-responder-home-loans-charlotte" className="hover:underline">First Responder Home Loans</Link>
-              <Link href="/loan-programs/va" className="hover:underline">VA Loans</Link>
+              <Link href="/va-loans-charlotte" className="hover:underline">VA Loans</Link>
               <Link href="/loan-programs/fha" className="hover:underline">FHA Loans</Link>
               <Link href="/loan-programs/conventional" className="hover:underline">Conventional Loans</Link>
-              <Link href="/loan-programs/first-time-buyer" className="hover:underline">First-Time Buyers</Link>
+              <Link href="/first-time-homebuyer-charlotte" className="hover:underline">First-Time Buyers</Link>
+              <Link href="/mortgage-preapproval-charlotte" className="hover:underline">Mortgage Pre-Approval</Link>
+              <Link href="/mortgage-credit-score-charlotte" className="hover:underline">Mortgage Credit</Link>
+              <Link href="/investment-property-loans-charlotte" className="hover:underline">Investment Property Loans</Link>
+              <Link href="/construction-loans-charlotte" className="hover:underline">Construction Loans</Link>
               <Link href="/calculators" className="hover:underline">Mortgage Calculators</Link>
               <Link href="/faq" className="hover:underline">Mortgage FAQs</Link>
             </div>
