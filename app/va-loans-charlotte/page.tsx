@@ -3,6 +3,9 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 
 const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/va-loans-charlotte`;
+const VA_ELIGIBILITY_URL = "https://www.va.gov/housing-assistance/home-loans/eligibility/";
+const VA_PURCHASE_URL = "https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/";
+const VA_BUYING_PROCESS_URL = "https://www.va.gov/housing-assistance/home-loans/home-buying-process/";
 
 export const metadata = {
   title: "VA Loans Charlotte NC | Jacob Shope Mortgage",
@@ -32,6 +35,7 @@ export default function VALoansCharlottePage() {
           "VA mortgage guidance for eligible veterans, active-duty service members, and military families buying in Charlotte and Lake Norman.",
         author: { "@id": `${origin}/#jacob-shope` },
         isPartOf: { "@id": `${origin}/#website` },
+        citation: [VA_ELIGIBILITY_URL, VA_PURCHASE_URL, VA_BUYING_PROCESS_URL],
         about: [
           { "@type": "Thing", name: "VA home loans" },
           { "@type": "Place", name: "Charlotte, North Carolina" },
@@ -95,6 +99,32 @@ export default function VALoansCharlottePage() {
                 <p className="mt-2 leading-relaxed text-charcoal">{answer}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl border border-charcoal/10 bg-white p-7 md:p-8">
+          <h2 className="text-2xl font-bold text-navy">Official VA home loan resources</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
+            For benefit eligibility and program rules, I use the Department of Veterans Affairs as the primary source. These official VA resources explain Certificate of Eligibility requirements, VA-backed purchase loans, and the home-buying process.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={VA_ELIGIBILITY_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA home loan eligibility</a>
+            <a href={VA_PURCHASE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA-backed purchase loans</a>
+            <a href={VA_BUYING_PROCESS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA home-buying process</a>
+          </div>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-navy">Related Charlotte mortgage guidance</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
+            A VA approval still depends on the complete borrower and property file. These guides explain the parts of the process that most often come up before and after an offer.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage Pre-Approval</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">Mortgage Credit</Link>
+            <Link href="/mortgage-appraisal-charlotte" className="text-gold hover:underline">Mortgage Appraisals</Link>
+            <Link href="/construction-loans-charlotte" className="text-gold hover:underline">Construction Loans</Link>
+            <Link href="/service-areas/lake-norman" className="text-gold hover:underline">Lake Norman Mortgage Guidance</Link>
           </div>
         </section>
 
