@@ -3,7 +3,7 @@ import { getAllServiceAreaSlugs } from "@/data/service-areas";
 import { LOAN_PROGRAMS } from "@/data/loan-programs";
 
 const origin = "https://jacobshopemortgage.com";
-const seoRefreshDate = new Date("2026-09-07T00:00:00-04:00");
+const seoRefreshDate = new Date("2026-09-08T00:00:00-04:00");
 const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
