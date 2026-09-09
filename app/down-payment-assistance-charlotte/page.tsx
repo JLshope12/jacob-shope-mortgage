@@ -184,7 +184,7 @@ export default function DownPaymentAssistanceCharlottePage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/contact" className="rounded-lg bg-gold px-6 py-3 font-semibold text-white hover:bg-gold/90">Check My Options</Link>
-            <Link href="/loan-programs/first-time-buyer" className="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white hover:text-navy">First-Time Buyer Guide</Link>
+            <Link href="/first-time-homebuyer-charlotte" className="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white hover:text-navy">First-Time Buyer Guide</Link>
           </div>
         </div>
       </section>

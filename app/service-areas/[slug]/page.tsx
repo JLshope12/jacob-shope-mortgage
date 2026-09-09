@@ -7,6 +7,7 @@ import {
 } from "@/data/service-areas";
 import { LOAN_PROGRAMS } from "@/data/loan-programs";
 import { AuthorBox } from "@/components/seo/AuthorBox";
+import { LocalPropertyResources } from "@/components/seo/LocalPropertyResources";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -88,6 +89,7 @@ export default async function ServiceAreaPage({ params }: Props) {
         description: area.shortDescription,
         author: { "@id": `${origin}/#jacob-shope` },
         isPartOf: { "@id": `${origin}/#website` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumbs` },
         about: { "@id": `${pageUrl}#mortgage-service` },
       },
       {
@@ -127,6 +129,15 @@ export default async function ServiceAreaPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+        <nav aria-label="Breadcrumb" className="mb-6 text-sm text-charcoal">
+          <ol className="flex flex-wrap items-center gap-2">
+            <li><Link href="/" className="hover:underline">Home</Link></li>
+            <li aria-hidden="true">/</li>
+            <li><Link href="/service-areas" className="hover:underline">Service Areas</Link></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">{area.name}</li>
+          </ol>
+        </nav>
         <p className="font-semibold text-gold">Local mortgage guidance from Jacob Shope</p>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-navy md:text-4xl lg:text-5xl">
           {getH1(area)}
@@ -171,6 +182,10 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
             </div>
           </section>
+        )}
+
+        {(area.slug === "charlotte" || area.slug === "lake-norman") && (
+          <LocalPropertyResources area={area.slug} />
         )}
 
         <section className="mt-14">

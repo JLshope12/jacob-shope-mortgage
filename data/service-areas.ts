@@ -34,9 +34,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     shortDescription:
       "Serving the Queen City and Mecklenburg County with conventional, FHA, VA, and first-time buyer loans.",
     introParagraph:
-      "Charlotte is the largest city in North Carolina and one of the fastest-growing metros in the country. From South End and NoDa to Myers Park, Dilworth, and Ballantyne, neighborhoods offer a mix of historic bungalows, new construction, and townhomes. Strong school districts like Charlotte-Mecklenburg Schools (CMS) and proximity to top employers, the airport, and Lake Norman make the city a draw for families and professionals. Whether you're buying your first home in Plaza Midwood or upgrading in SouthPark, I help Charlotte buyers navigate pre-approval, competitive offers, and a smooth closing.",
+      "Buying in Charlotte starts with matching the financing to the property and your budget. Whether you are considering a condominium, townhome, existing single-family home, or new construction, bring the address, purchase price, intended use, and expected timing to the loan discussion. I help Charlotte buyers compare available mortgage options, prepare for preapproval, and understand the payment and cash needed before making an offer.",
     whyLocal:
-      "I live and work in the Charlotte area and know the market from the inside. As a local mortgage loan officer and Charlotte Fire Department captain, I'm invested in helping families here get into the right loan and the right neighborhood. I'll walk you through programs that fit the Queen City market and your timeline.",
+      "I help buyers and homeowners across Charlotte connect their property search with a financing plan. We can review the address, available loan programs, documentation, appraisal questions, and closing timeline together. Use the official property resources on this page to gather questions for that conversation.",
     nearbySlugs: ["matthews", "mint-hill", "huntersville", "lake-norman", "concord"],
   },
   {
@@ -94,9 +94,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     shortDescription:
       "Lake Norman mortgage lending: Cornelius, Davidson, Huntersville, Mooresville, and the greater lake region.",
     introParagraph:
-      "Lake Norman is one of the Southeast's premier lake communities, spanning Mecklenburg, Iredell, Catawba, and Lincoln counties. Towns like Cornelius, Davidson, Huntersville, and Mooresville offer everything from waterfront estates and golf-course homes to family subdivisions and new construction. The lake drives demand for both primary residences and second homes, and school districts in the area—including Lake Norman Charter and strong public options—draw families from across the region. Whether you're buying a condo near the water or a single-family home in Troutman or Sherrills Ford, I help Lake Norman buyers and refinancers with conventional, jumbo, FHA, VA, and USDA loans tailored to this unique market.",
+      "A Lake Norman home search may include waterfront and inland properties, condominiums, existing homes, and new construction. Start with the exact property address and how you plan to use the home, then compare the loan options, total payment, and cash needed. I help buyers and homeowners across the Lake Norman area, including Huntersville, Cornelius, Davidson, and Mooresville, work through those financing questions.",
     whyLocal:
-      "I've helped countless families buy and refinance around the lake. I know the nuances of lakefront lending, local appraisals, and how to get you to closing without surprises. You get a local partner who understands Lake Norman's neighborhoods and your goals.",
+      "When comparing Lake Norman properties, keep the financing discussion specific to each address. I can help you organize questions about the loan structure, appraisal, documentation, and timing. County records and property-specific insurance quotes give us useful starting points for discussing the costs beyond principal and interest.",
     nearbySlugs: ["huntersville", "cornelius", "mooresville", "charlotte"],
   },
   {
