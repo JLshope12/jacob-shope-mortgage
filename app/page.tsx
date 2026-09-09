@@ -140,9 +140,14 @@ export default function Home() {
                 Explore Loan Options
               </Link>
             </div>
-            <Link href="/charlotte-home-buying-mortgage-guide" className="mt-5 inline-flex items-center text-sm font-semibold text-gold hover:underline">
-              Charlotte Home Buying &amp; Real Estate Financing Guide <ChevronRight className="ml-1 h-4 w-4" />
-            </Link>
+            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+              <Link href="/charlotte-home-buying-mortgage-guide" className="inline-flex items-center text-gold hover:underline">
+                Charlotte Home Buying Guide <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
+              <Link href="/mortgage-guides" className="inline-flex items-center text-gold hover:underline">
+                Mortgage Guide Library <ChevronRight className="ml-1 h-4 w-4" />
+              </Link>
+            </div>
           </div>
           <Image
             src="/images/DSC_0084.jpg"
@@ -189,6 +194,7 @@ export default function Home() {
               That matters when you&apos;re dealing with anything from a first home or VA purchase to investment property, new construction, jumbo financing, or a scenario that does not fit neatly into a standard box.
             </p>
             <div className="flex flex-wrap gap-3 pt-2 text-sm font-medium">
+              <Link href="/mortgage-broker-vs-lender-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Broker vs Lender</Link>
               <Link href="/loan-programs/fha" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">FHA Loans</Link>
               <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
               <Link href="/loan-programs/conventional" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Conventional</Link>
@@ -243,14 +249,17 @@ export default function Home() {
           <p className="font-semibold text-gold">Mortgage qualification</p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-navy md:text-4xl">Know the numbers before you shop</h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-charcoal md:text-lg">
-            Pre-approval, credit, debt-to-income, income, and affordability work together. These guides explain the parts of a mortgage file that most often shape the price range, payment, and financing options.
+            Pre-approval, credit, debt-to-income, income, closing costs, appraisal, and affordability work together. These guides explain the parts of a mortgage file that most often shape the price range, payment, cash needed, and financing options.
           </p>
           <div className="mt-7 flex flex-wrap gap-3 text-sm font-medium">
             <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
             <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit Score</Link>
             <Link href="/mortgage-dti-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Debt-to-Income</Link>
             <Link href="/mortgage-income-employment-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Income &amp; Employment</Link>
+            <Link href="/mortgage-closing-costs-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Closing Costs</Link>
+            <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
             <Link href="/how-much-house-can-i-afford-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Affordability</Link>
+            <Link href="/mortgage-guides" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">All Mortgage Guides</Link>
           </div>
         </div>
       </section>
