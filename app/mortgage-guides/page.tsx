@@ -1,11 +1,27 @@
 import Link from "next/link";
 import { AuthorBox } from "@/components/seo/AuthorBox";
 
+const origin = "https://jacobshopemortgage.com";
+const pageUrl = `${origin}/mortgage-guides`;
+
+const CORE_GUIDES = [
+  ["Charlotte Mortgage Broker", "/"],
+  ["Charlotte Mortgage Options", "/service-areas/charlotte"],
+  ["Lake Norman Mortgage Broker", "/service-areas/lake-norman"],
+  ["VA Loans in Charlotte", "/va-loans-charlotte"],
+  ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
+  ["Investment Property Loans in Charlotte", "/investment-property-loans-charlotte"],
+  ["Construction Loans in Charlotte", "/construction-loans-charlotte"],
+  ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
+  ["Credit Score for a Mortgage", "/mortgage-credit-score-charlotte"],
+] as const;
+
 export const metadata = {
   title: "Mortgage Guides by Jacob Shope | Charlotte & Lake Norman",
   description:
     "Mortgage guides and answers from Jacob Shope for homebuyers, homeowners, veterans, first responders, first-time buyers, and real estate investors in Charlotte and Lake Norman.",
   alternates: { canonical: "/mortgage-guides" },
+  authors: [{ name: "Jacob Shope", url: "/about" }],
 };
 
 const TOPICS = [
@@ -26,11 +42,12 @@ const TOPICS = [
   },
   {
     title: "Mortgage Qualification",
-    description: "Direct answers to the questions buyers ask about credit, debt-to-income, income, employment, and the mortgage approval process.",
+    description: "Direct answers to the questions buyers ask about credit, debt-to-income, income, employment, appraisal, and the mortgage approval process.",
     links: [
       ["Credit Score for a Mortgage", "/mortgage-credit-score-charlotte"],
       ["Debt-to-Income Ratio Explained", "/mortgage-dti-charlotte"],
       ["Income & Employment for a Mortgage", "/mortgage-income-employment-charlotte"],
+      ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
       ["Mortgage Broker vs Lender", "/mortgage-broker-vs-lender-charlotte"],
       ["Seller Concessions in North Carolina", "/seller-concessions-north-carolina"],
     ],
@@ -55,7 +72,6 @@ const TOPICS = [
       ["Investment Property Loans in Charlotte", "/investment-property-loans-charlotte"],
       ["DSCR Loans in Charlotte", "/dscr-loans-charlotte"],
       ["Construction Loans in Charlotte", "/construction-loans-charlotte"],
-      ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
       ["Ask Jacob About a Scenario", "/contact"],
     ],
   },
@@ -77,7 +93,7 @@ const TOPICS = [
     links: [
       ["Charlotte Mortgage Options", "/service-areas/charlotte"],
       ["Huntersville Mortgage Broker", "/service-areas/huntersville"],
-      ["Lake Norman Mortgage Lender", "/service-areas/lake-norman"],
+      ["Lake Norman Mortgage Broker", "/service-areas/lake-norman"],
       ["Cornelius Mortgage Broker", "/service-areas/cornelius"],
       ["Davidson Mortgage Broker", "/service-areas/davidson"],
       ["Mooresville Mortgage Broker", "/service-areas/mooresville"],
@@ -98,13 +114,49 @@ const TOPICS = [
 
 const collectionSchema = {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "@id": "https://jacobshopemortgage.com/mortgage-guides#collection",
-  url: "https://jacobshopemortgage.com/mortgage-guides",
-  name: "Charlotte Mortgage Guides & Resources",
-  author: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
-  publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
-  about: ["Mortgages", "Charlotte real estate financing", "First responder home financing", "Lake Norman mortgage guidance"],
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${pageUrl}#collection`,
+      url: pageUrl,
+      name: "Charlotte Mortgage Guides & Resources",
+      author: { "@id": `${origin}/#jacob-shope` },
+      publisher: { "@id": `${origin}/#mpire-financial` },
+      isPartOf: { "@id": `${origin}/#website` },
+      dateModified: "2026-09-09",
+      about: [
+        "Mortgages",
+        "Charlotte real estate financing",
+        "First responder home financing",
+        "Lake Norman mortgage guidance",
+      ],
+      mainEntity: { "@id": `${pageUrl}#core-guides` },
+      hasPart: CORE_GUIDES.map(([name, href]) => ({
+        "@type": "WebPage",
+        name,
+        url: `${origin}${href}`,
+      })),
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${pageUrl}#core-guides`,
+      name: "Core Charlotte and Lake Norman mortgage guides",
+      itemListElement: CORE_GUIDES.map(([name, href], index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name,
+        url: `${origin}${href}`,
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: origin },
+        { "@type": "ListItem", position: 2, name: "Mortgage Guides", item: pageUrl },
+      ],
+    },
+  ],
 };
 
 export default function MortgageGuidesPage() {
@@ -126,6 +178,20 @@ export default function MortgageGuidesPage() {
         <div className="mt-8 max-w-3xl">
           <AuthorBox />
         </div>
+
+        <section className="mt-10 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-xl font-bold text-navy">Core Charlotte and Lake Norman mortgage pages</h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
+            Start here for the local mortgage topics buyers, homeowners, veterans, and investors most often need.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+            {CORE_GUIDES.map(([label, href]) => (
+              <Link key={href} href={href} className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </section>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {TOPICS.map((topic) => (
