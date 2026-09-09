@@ -158,6 +158,7 @@ export default function RootLayout({
                 name: "Mpire Financial LLC - Jacob Shope",
                 url: "https://jacobshopemortgage.com",
                 sameAs: [MPIRE_URL, GOOGLE_BUSINESS_URL],
+                hasMap: GOOGLE_BUSINESS_URL,
                 telephone: "+1-704-614-5340",
                 areaServed: [
                   "Charlotte",
