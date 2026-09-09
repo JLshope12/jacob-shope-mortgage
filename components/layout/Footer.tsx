@@ -17,6 +17,8 @@ const QUICK_LINKS = [
 
 const JACOB_NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+const GOOGLE_BUSINESS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8";
 
 export function Footer() {
   return (
@@ -33,6 +35,9 @@ export function Footer() {
               </a>
               <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex text-sm font-medium text-gold hover:underline">
                 Mpire Financial
+              </a>
+              <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex text-sm font-medium text-gold hover:underline">
+                Google Business &amp; Reviews
               </a>
               <a
                 href="https://www.instagram.com/jlshopeloans/"
@@ -107,6 +112,8 @@ export function Footer() {
             <Link href="/accessibility" className="text-white hover:text-gold">Accessibility</Link>
             <span className="text-white/50">|</span>
             <a href={JACOB_NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold">Jacob Shope NMLS</a>
+            <span className="text-white/50">|</span>
+            <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold">Google Business Profile</a>
           </div>
 
           <p className="text-[0.65rem] leading-relaxed text-white/70 md:text-[0.7rem]">
