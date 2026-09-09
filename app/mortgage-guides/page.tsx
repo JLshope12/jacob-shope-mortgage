@@ -14,6 +14,11 @@ const CORE_GUIDES = [
   ["Construction Loans in Charlotte", "/construction-loans-charlotte"],
   ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
   ["Credit Score for a Mortgage", "/mortgage-credit-score-charlotte"],
+  ["Debt-to-Income Ratio", "/mortgage-dti-charlotte"],
+  ["Income & Employment for a Mortgage", "/mortgage-income-employment-charlotte"],
+  ["Mortgage Closing Costs in Charlotte", "/mortgage-closing-costs-charlotte"],
+  ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
+  ["Mortgage Broker vs Lender", "/mortgage-broker-vs-lender-charlotte"],
 ] as const;
 
 export const metadata = {
@@ -36,17 +41,20 @@ const TOPICS = [
       ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
       ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
       ["Mortgage Closing Costs in Charlotte", "/mortgage-closing-costs-charlotte"],
+      ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
       ["Mortgage Payment Calculator", "/calculators/payment"],
       ["Affordability Calculator", "/calculators/affordability"],
     ],
   },
   {
     title: "Mortgage Qualification",
-    description: "Direct answers to the questions buyers ask about credit, debt-to-income, income, employment, appraisal, and the mortgage approval process.",
+    description: "Direct answers to the questions buyers ask about credit, debt-to-income, income, employment, appraisal, closing costs, and the mortgage approval process.",
     links: [
+      ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
       ["Credit Score for a Mortgage", "/mortgage-credit-score-charlotte"],
       ["Debt-to-Income Ratio Explained", "/mortgage-dti-charlotte"],
       ["Income & Employment for a Mortgage", "/mortgage-income-employment-charlotte"],
+      ["Mortgage Closing Costs in Charlotte", "/mortgage-closing-costs-charlotte"],
       ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
       ["Mortgage Broker vs Lender", "/mortgage-broker-vs-lender-charlotte"],
       ["Seller Concessions in North Carolina", "/seller-concessions-north-carolina"],
@@ -72,6 +80,7 @@ const TOPICS = [
       ["Investment Property Loans in Charlotte", "/investment-property-loans-charlotte"],
       ["DSCR Loans in Charlotte", "/dscr-loans-charlotte"],
       ["Construction Loans in Charlotte", "/construction-loans-charlotte"],
+      ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
       ["Ask Jacob About a Scenario", "/contact"],
     ],
   },
@@ -127,6 +136,7 @@ const collectionSchema = {
       about: [
         "Mortgages",
         "Charlotte real estate financing",
+        "Mortgage qualification",
         "First responder home financing",
         "Lake Norman mortgage guidance",
       ],
