@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
 
   const title =
     area.slug === "charlotte"
-      ? "Charlotte Home Loans | FHA, VA, Conventional & More | Jacob Shope"
+      ? "Charlotte Mortgage Lender Options | Jacob Shope"
       : area.slug === "lake-norman"
         ? "Lake Norman Mortgage Broker | Jacob Shope"
         : area.slug === "north-carolina"
@@ -36,16 +36,21 @@ export async function generateMetadata({ params }: Props) {
                 ? "Charlotte Metro Home Loans | Jacob Shope"
                 : `${area.name} Mortgage Broker | Jacob Shope`;
 
+  const description =
+    area.slug === "charlotte"
+      ? "Compare Charlotte mortgage lender and loan options through Jacob Shope, a local mortgage broker and Mortgage Loan Officer with Mpire Financial. FHA, VA, conventional, jumbo, first-time buyer, investor, and construction financing."
+      : area.shortDescription;
+
   return {
     title,
-    description: area.shortDescription,
+    description,
     alternates: { canonical: `/service-areas/${area.slug}` },
     authors: [{ name: "Jacob Shope", url: "/about" }],
   };
 }
 
 function getH1(area: ServiceArea): string {
-  if (area.slug === "charlotte") return "Mortgage Options for Charlotte Homebuyers";
+  if (area.slug === "charlotte") return "Mortgage Lender Options in Charlotte";
   if (area.slug === "lake-norman") return "Lake Norman Mortgage Broker";
   if (area.slug === "north-carolina") return "North Carolina Mortgage Lender";
   if (area.slug === "south-carolina") return "South Carolina Mortgage Lender";
@@ -85,7 +90,10 @@ export default async function ServiceAreaPage({ params }: Props) {
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
         name: getH1(area),
-        description: area.shortDescription,
+        description:
+          area.slug === "charlotte"
+            ? "Charlotte mortgage lender and loan options available through Jacob Shope, a local mortgage broker and Mortgage Loan Officer with Mpire Financial."
+            : area.shortDescription,
         author: { "@id": `${origin}/#jacob-shope` },
         isPartOf: { "@id": `${origin}/#website` },
         about: { "@id": `${pageUrl}#mortgage-service` },
@@ -93,7 +101,10 @@ export default async function ServiceAreaPage({ params }: Props) {
       {
         "@type": "Service",
         "@id": `${pageUrl}#mortgage-service`,
-        name: `Mortgage guidance in ${area.name}`,
+        name:
+          area.slug === "charlotte"
+            ? "Mortgage lender comparison and home loan guidance in Charlotte"
+            : `Mortgage guidance in ${area.name}`,
         serviceType: "Mortgage brokerage and home loan guidance",
         provider: { "@id": `${origin}/#mpire-financial` },
         areaServed:
@@ -137,11 +148,12 @@ export default async function ServiceAreaPage({ params }: Props) {
 
         {area.slug === "charlotte" && (
           <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-navy">Buying real estate in Charlotte?</h2>
+            <h2 className="text-2xl font-bold text-navy">Comparing mortgage lenders in Charlotte?</h2>
             <p className="mt-4 leading-relaxed text-charcoal">
-              The financing should fit the property and the buyer, not the other way around. I help Charlotte buyers compare conventional, FHA, VA, jumbo, first-time buyer, investment-property, construction, bridge, and other available mortgage options while keeping the payment, cash to close, appraisal, credit, and offer strategy clear.
+              I work as a mortgage broker, which means I can compare loan options from multiple lending sources rather than being limited to one bank&apos;s product menu. For Charlotte buyers, that can include conventional, FHA, VA, jumbo, first-time buyer, investment-property, construction, bridge, and other available mortgage options. I help you compare the payment, cash to close, loan structure, appraisal considerations, credit requirements, and timing before you choose a path.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+              <Link href="/mortgage-broker-vs-lender-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Broker vs Lender</Link>
               <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Charlotte Real Estate Financing Guide</Link>
               <Link href="/mortgage-preapproval-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Pre-Approval</Link>
               <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit</Link>
