@@ -29,10 +29,7 @@ export const metadata: Metadata = {
   creator: "Jacob Shope",
   publisher: "Mpire Financial LLC",
   category: "Mortgage and real estate financing",
-  title: {
-    default: "Jacob Shope | Charlotte Mortgage Broker",
-    template: "%s | Jacob Shope Mortgage",
-  },
+  title: "Jacob Shope | Charlotte Mortgage Broker",
   description:
     "Local mortgage guidance for buyers, homeowners, veterans, first responders, and real estate investors across Charlotte and Lake Norman. NMLS# 2090979.",
   openGraph: {
