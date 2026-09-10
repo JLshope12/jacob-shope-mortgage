@@ -35,6 +35,7 @@ const profileSchema = {
     email: "shope@mpirefi.com",
     telephone: "+1-704-614-5340",
     worksFor: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
+    affiliation: { "@id": "https://jacobshopemortgage.com/#jacob-shope-mortgage" },
     areaServed: [
       "Charlotte, North Carolina",
       "Huntersville, North Carolina",
@@ -64,7 +65,6 @@ const profileSchema = {
     ],
     sameAs: [
       NMLS_URL,
-      GOOGLE_BUSINESS_URL,
       "https://www.instagram.com/jlshopeloans/",
       "https://www.facebook.com/jacob.shope.33",
     ],
@@ -91,7 +91,7 @@ export default function AboutPage() {
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
             <a href={NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Verify NMLS# 2090979</a>
             <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mpire Financial</a>
-            <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Google Business Profile</a>
+            <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Google Business Profile</a>
             <a href="https://www.instagram.com/jlshopeloans/" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Instagram @jlshopeloans</a>
             <a href="https://www.facebook.com/jacob.shope.33" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Facebook</a>
           </div>
