@@ -97,6 +97,9 @@ export default function RootLayout({
                 "@type": "Person",
                 "@id": "https://jacobshopemortgage.com/#jacob-shope",
                 name: "Jacob Shope",
+                alternateName: ["Jacob Shope Mortgage", "Jacob Shope Mortgage Broker"],
+                disambiguatingDescription:
+                  "Mortgage Loan Officer with Mpire Financial, NMLS# 2090979, serving Charlotte and Lake Norman, North Carolina.",
                 url: "https://jacobshopemortgage.com/about",
                 image: "https://jacobshopemortgage.com/images/DSC_0084.jpg",
                 description:
