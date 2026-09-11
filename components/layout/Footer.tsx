@@ -17,6 +17,7 @@ const QUICK_LINKS = [
 
 const JACOB_NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+const LINKEDIN_URL = "https://www.linkedin.com/in/jacob-shope-9b8972282";
 const GOOGLE_BUSINESS_URL =
   "https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8";
 
@@ -38,6 +39,9 @@ export function Footer() {
               </a>
               <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex text-sm font-medium text-gold hover:underline">
                 Google Business &amp; Reviews
+              </a>
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer me" className="inline-flex text-sm font-medium text-gold hover:underline">
+                LinkedIn
               </a>
               <a
                 href="https://www.instagram.com/jlshopeloans/"
@@ -112,6 +116,8 @@ export function Footer() {
             <Link href="/accessibility" className="text-white hover:text-gold">Accessibility</Link>
             <span className="text-white/50">|</span>
             <a href={JACOB_NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold">Jacob Shope NMLS</a>
+            <span className="text-white/50">|</span>
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer me" className="text-white hover:text-gold">LinkedIn</a>
             <span className="text-white/50">|</span>
             <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold">Google Business Profile</a>
           </div>
