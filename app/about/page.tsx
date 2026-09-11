@@ -67,6 +67,7 @@ const profileSchema = {
     ],
     sameAs: [
       NMLS_URL,
+      GOOGLE_BUSINESS_URL,
       LINKEDIN_URL,
       "https://www.instagram.com/jlshopeloans/",
       "https://www.facebook.com/jacob.shope.33",
