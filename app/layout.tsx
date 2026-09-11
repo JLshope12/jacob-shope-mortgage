@@ -125,6 +125,7 @@ export default function RootLayout({
                 ],
                 sameAs: [
                   NMLS_URL,
+                  "https://www.linkedin.com/in/jacob-shope-9b8972282",
                   "https://www.instagram.com/jlshopeloans/",
                   "https://www.facebook.com/jacob.shope.33",
                 ],
