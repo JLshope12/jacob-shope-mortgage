@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { getProgramBySlug, getAllProgramSlugs } from "@/data/loan-programs";
 import { ProgramFAQ } from "@/components/loan-programs/ProgramFAQ";
@@ -8,6 +8,10 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 type Props = { params: Promise<{ slug: string }> };
 
 const origin = "https://jacobshopemortgage.com";
+const CONSOLIDATED_PROGRAM_ROUTES: Record<string, string> = {
+  va: "/va-loans-charlotte",
+  "first-time-buyer": "/first-time-homebuyer-charlotte",
+};
 
 export async function generateStaticParams() {
   return getAllProgramSlugs().map((slug) => ({ slug }));
@@ -15,6 +19,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
+  const consolidatedRoute = CONSOLIDATED_PROGRAM_ROUTES[slug];
+  if (consolidatedRoute) {
+    return {
+      robots: { index: false, follow: true },
+      alternates: { canonical: consolidatedRoute },
+    };
+  }
+
   const program = getProgramBySlug(slug);
   if (!program) return { title: "Loan Program | Jacob Shope" };
   return {
@@ -27,6 +39,9 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function LoanProgramPage({ params }: Props) {
   const { slug } = await params;
+  const consolidatedRoute = CONSOLIDATED_PROGRAM_ROUTES[slug];
+  if (consolidatedRoute) permanentRedirect(consolidatedRoute);
+
   const program = getProgramBySlug(slug);
   if (!program) notFound();
 
