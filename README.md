@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jacob Shope Mortgage
 
-## Getting Started
+This repository powers the official website for **Jacob Shope Mortgage** at [jacobshopemortgage.com](https://jacobshopemortgage.com).
 
-First, run the development server:
+Jacob Shope is a Mortgage Loan Officer with **Mpire Financial LLC**, NMLS# 2090979. The site provides mortgage education and financing guidance for homebuyers, homeowners, veterans, first responders, first-time buyers, real estate investors, and Realtor partners across Charlotte, Lake Norman, and surrounding North Carolina communities.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Official profiles and verification
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Website: [jacobshopemortgage.com](https://jacobshopemortgage.com)
+- About Jacob: [jacobshopemortgage.com/about](https://jacobshopemortgage.com/about)
+- Mortgage guides: [jacobshopemortgage.com/mortgage-guides](https://jacobshopemortgage.com/mortgage-guides)
+- NMLS Consumer Access: [NMLS# 2090979](https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979)
+- Mpire Financial: [mpirefinancialgroup.com](https://www.mpirefinancialgroup.com/)
+- Google Business Profile: [Jacob Shope Mortgage Broker](https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Core local mortgage resources
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The site includes original guidance covering:
 
-## Learn More
+- [Charlotte mortgage options](https://jacobshopemortgage.com/service-areas/charlotte)
+- [Lake Norman mortgage guidance](https://jacobshopemortgage.com/service-areas/lake-norman)
+- [VA loans in Charlotte](https://jacobshopemortgage.com/va-loans-charlotte)
+- [First-time homebuyer guidance](https://jacobshopemortgage.com/first-time-homebuyer-charlotte)
+- [Investment property loans](https://jacobshopemortgage.com/investment-property-loans-charlotte)
+- [Construction loans](https://jacobshopemortgage.com/construction-loans-charlotte)
+- [Mortgage pre-approval](https://jacobshopemortgage.com/mortgage-preapproval-charlotte)
+- [Mortgage credit guidance](https://jacobshopemortgage.com/mortgage-credit-score-charlotte)
 
-To learn more about Next.js, take a look at the following resources:
+## Technical stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The website is built with Next.js and deployed through Vercel. SEO implementation includes canonical URLs, structured data, sitemap and robots metadata, author attribution, internal topic clusters, and local service-area pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All mortgage information on the website is educational and subject to applicable program, lender, underwriting, licensing, and eligibility requirements.
