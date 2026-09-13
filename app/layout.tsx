@@ -14,6 +14,9 @@ const GOOGLE_BUSINESS_URL =
 const CORE_AUTHORITY_URLS = [
   "https://jacobshopemortgage.com/about",
   "https://jacobshopemortgage.com/mortgage-guides",
+  "https://jacobshopemortgage.com/service-areas/charlotte",
+  "https://jacobshopemortgage.com/service-areas/lake-norman",
+  "https://jacobshopemortgage.com/mortgage-broker-vs-lender-charlotte",
   "https://jacobshopemortgage.com/va-loans-charlotte",
   "https://jacobshopemortgage.com/first-time-homebuyer-charlotte",
   "https://jacobshopemortgage.com/investment-property-loans-charlotte",
