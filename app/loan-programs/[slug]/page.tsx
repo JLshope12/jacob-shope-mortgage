@@ -13,6 +13,69 @@ const CONSOLIDATED_PROGRAM_ROUTES: Record<string, string> = {
   "first-time-buyer": "/first-time-homebuyer-charlotte",
 };
 
+const FHFA_2026_LIMITS = "https://www.fhfa.gov/data/conforming-loan-limit";
+const HUD_2026_FHA_LIMITS = "https://www.hud.gov/LENDERS";
+
+const CURRENT_FAQ_OVERRIDES: Record<string, Record<string, string>> = {
+  conventional: {
+    "Are conventional loan limits different in Charlotte, NC?":
+      "Conforming loan limits are set annually by the Federal Housing Finance Agency. For 2026, the national baseline limit for a one-unit property is $832,750. County-specific limits should always be confirmed with the current FHFA lookup before a purchase price or loan structure is finalized.",
+  },
+  fha: {
+    "Are FHA loan limits different in the Charlotte area?":
+      "Yes. FHA loan limits are set by county and property size. For 2026, HUD set the national one-unit FHA floor at $541,287 and the high-cost ceiling at $1,249,125. The exact county limit should be confirmed with HUD's current FHA mortgage limits before a buyer relies on a maximum loan amount.",
+  },
+  jumbo: {
+    "What is the jumbo loan limit in Charlotte, NC?":
+      "A jumbo loan generally starts above the applicable conforming loan limit. For 2026, the national baseline conforming limit for a one-unit property is $832,750. The exact county limit should be confirmed with FHFA because high-cost areas can have higher limits.",
+  },
+};
+
+const OFFICIAL_RESOURCES: Record<string, { href: string; label: string }[]> = {
+  conventional: [
+    { href: FHFA_2026_LIMITS, label: "FHFA: 2026 conforming loan limits" },
+  ],
+  fha: [
+    { href: HUD_2026_FHA_LIMITS, label: "HUD: 2026 FHA mortgage limits" },
+  ],
+  jumbo: [
+    { href: FHFA_2026_LIMITS, label: "FHFA: 2026 conforming loan limits" },
+  ],
+};
+
+const RELATED_GUIDES: Record<string, { href: string; label: string }[]> = {
+  conventional: [
+    { href: "/mortgage-preapproval-charlotte", label: "Charlotte Mortgage Pre-Approval" },
+    { href: "/mortgage-credit-score-charlotte", label: "Mortgage Credit Score Guide" },
+    { href: "/first-time-homebuyer-charlotte", label: "First-Time Homebuyer Guide" },
+    { href: "/fha-vs-conventional-charlotte", label: "FHA vs. Conventional" },
+  ],
+  fha: [
+    { href: "/first-time-homebuyer-charlotte", label: "First-Time Homebuyer Guide" },
+    { href: "/down-payment-assistance-charlotte", label: "Down Payment Assistance" },
+    { href: "/mortgage-credit-score-charlotte", label: "Mortgage Credit Score Guide" },
+    { href: "/fha-vs-conventional-charlotte", label: "FHA vs. Conventional" },
+  ],
+  usda: [
+    { href: "/mortgage-preapproval-charlotte", label: "Charlotte Mortgage Pre-Approval" },
+    { href: "/mortgage-credit-score-charlotte", label: "Mortgage Credit Score Guide" },
+    { href: "/service-areas/charlotte-metro", label: "Charlotte Metro Mortgage Options" },
+    { href: "/service-areas/north-carolina", label: "North Carolina Mortgage Options" },
+  ],
+  jumbo: [
+    { href: "/mortgage-preapproval-charlotte", label: "Charlotte Mortgage Pre-Approval" },
+    { href: "/mortgage-dti-charlotte", label: "Debt-to-Income Guide" },
+    { href: "/mortgage-income-employment-charlotte", label: "Income & Employment Guide" },
+    { href: "/mortgage-appraisal-charlotte", label: "Mortgage Appraisal Guide" },
+  ],
+  refinance: [
+    { href: "/refinance-charlotte", label: "Charlotte Refinance Guide" },
+    { href: "/cash-out-refinance-charlotte", label: "Cash-Out Refinance" },
+    { href: "/home-equity-heloc-charlotte", label: "Home Equity & HELOC" },
+    { href: "/mortgage-credit-score-charlotte", label: "Mortgage Credit Score Guide" },
+  ],
+};
+
 export async function generateStaticParams() {
   return getAllProgramSlugs().map((slug) => ({ slug }));
 }
@@ -45,6 +108,17 @@ export default async function LoanProgramPage({ params }: Props) {
   const program = getProgramBySlug(slug);
   if (!program) notFound();
 
+  const faq = program.faq.map((item) => ({
+    ...item,
+    answer: CURRENT_FAQ_OVERRIDES[program.slug]?.[item.question] ?? item.answer,
+  }));
+  const officialResources = OFFICIAL_RESOURCES[program.slug] ?? [];
+  const relatedGuides = RELATED_GUIDES[program.slug] ?? [
+    { href: "/mortgage-preapproval-charlotte", label: "Charlotte Mortgage Pre-Approval" },
+    { href: "/mortgage-guides", label: "Mortgage Guides" },
+    { href: "/service-areas/charlotte", label: "Charlotte Mortgage Options" },
+  ];
+
   const pageUrl = `${origin}/loan-programs/${program.slug}`;
   const schema = {
     "@context": "https://schema.org",
@@ -61,6 +135,7 @@ export default async function LoanProgramPage({ params }: Props) {
           { "@type": "Thing", name: program.name },
           { "@type": "Place", name: "Charlotte, North Carolina" },
         ],
+        citation: officialResources.map((resource) => resource.href),
       },
       {
         "@type": "BreadcrumbList",
@@ -74,7 +149,7 @@ export default async function LoanProgramPage({ params }: Props) {
       {
         "@type": "FAQPage",
         "@id": `${pageUrl}#faq`,
-        mainEntity: program.faq.map((item) => ({
+        mainEntity: faq.map((item) => ({
           "@type": "Question",
           name: item.question,
           acceptedAnswer: { "@type": "Answer", text: item.answer },
@@ -149,10 +224,40 @@ export default async function LoanProgramPage({ params }: Props) {
           </ol>
         </section>
 
+        {officialResources.length > 0 && (
+          <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-6 md:p-7">
+            <h2 className="text-2xl font-bold text-navy">Official program resources</h2>
+            <p className="mt-3 leading-relaxed text-charcoal">
+              Loan limits and program rules change over time. These government resources are the source used to verify current limits before relying on a maximum loan amount.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+              {officialResources.map((resource) => (
+                <a key={resource.href} href={resource.href} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">
+                  {resource.label}
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="mt-14">
           <h2 className="text-2xl font-bold tracking-tight text-navy md:text-3xl">Frequently Asked Questions</h2>
           <div className="mt-6 rounded-xl border border-charcoal/10 bg-white p-4 shadow-sm md:p-6">
-            <ProgramFAQ faq={program.faq} />
+            <ProgramFAQ faq={faq} />
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-navy/5 md:p-7">
+          <h2 className="text-2xl font-bold text-navy">Related Charlotte mortgage guides</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            The loan program is only one part of the financing decision. These guides connect the program to qualification, credit, property, and local Charlotte planning.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+            {relatedGuides.map((guide) => (
+              <Link key={guide.href} href={guide.href} className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">
+                {guide.label}
+              </Link>
+            ))}
           </div>
         </section>
 
