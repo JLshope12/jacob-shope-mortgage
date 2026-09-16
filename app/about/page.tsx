@@ -4,6 +4,7 @@ import Link from "next/link";
 const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
 const LINKEDIN_URL = "https://www.linkedin.com/in/jacob-shope-9b8972282";
+const BLOC_URL = "https://www.businessleadersofcharlotte.com/";
 const GOOGLE_BUSINESS_URL =
   "https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8";
 
@@ -37,6 +38,11 @@ const profileSchema = {
     telephone: "+1-704-614-5340",
     worksFor: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
     affiliation: { "@id": "https://jacobshopemortgage.com/#jacob-shope-mortgage" },
+    memberOf: {
+      "@type": "Organization",
+      name: "Business Leaders of Charlotte",
+      url: BLOC_URL,
+    },
     areaServed: [
       "Charlotte, North Carolina",
       "Huntersville, North Carolina",
@@ -97,6 +103,7 @@ export default function AboutPage() {
             <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mpire Financial</a>
             <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Google Business Profile</a>
             <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">LinkedIn</a>
+            <a href={BLOC_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Business Leaders of Charlotte</a>
             <a href="https://www.instagram.com/jlshopeloans/" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Instagram @jlshopeloans</a>
             <a href="https://www.facebook.com/jacob.shope.33" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Facebook</a>
           </div>
