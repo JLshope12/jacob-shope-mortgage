@@ -6,6 +6,8 @@ const pageUrl = `${origin}/first-time-homebuyer-charlotte`;
 const HUD_BUYING_URL = "https://www.hud.gov/helping-americans/buying-a-home";
 const HUD_FHA_URL = "https://www.hud.gov/buying/loans";
 const NCHFA_URL = "https://www.nchfa.com/home-ownership-partners/community-partners/community-programs/community-partners-loan-pool";
+const CHARLOTTE_HOMEOWNERSHIP_URL =
+  "https://www.charlottenc.gov/Streets-and-Neighborhoods/Housing/Resources-for-Homeowners-Renters/Homeownership";
 
 export const metadata = {
   title: "First-Time Homebuyer Charlotte NC | Jacob Shope Mortgage",
@@ -54,7 +56,8 @@ export default function FirstTimeHomebuyerCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        citation: [HUD_BUYING_URL, HUD_FHA_URL, NCHFA_URL],
+        dateModified: "2026-09-17",
+        citation: [HUD_BUYING_URL, HUD_FHA_URL, NCHFA_URL, CHARLOTTE_HOMEOWNERSHIP_URL],
       },
       {
         "@type": "WebPage",
@@ -144,12 +147,13 @@ export default function FirstTimeHomebuyerCharlottePage() {
         <section className="mt-14 rounded-2xl border border-charcoal/10 bg-offwhite p-8">
           <h2 className="text-2xl font-bold text-navy">Official homebuyer resources</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
-            I use primary sources where they help buyers verify program information. HUD publishes a step-by-step homebuying resource and FHA loan information, while the North Carolina Housing Finance Agency publishes current information about state-supported homebuyer assistance programs.
+            I use primary sources where they help buyers verify program information. HUD publishes a step-by-step homebuying resource and FHA loan information, the North Carolina Housing Finance Agency publishes information about state-supported homebuyer assistance programs, and the City of Charlotte maintains local homeownership and HouseCharlotte program information.
           </p>
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
             <a href={HUD_BUYING_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">HUD: Buying a Home</a>
             <a href={HUD_FHA_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">HUD: FHA Loan Information</a>
             <a href={NCHFA_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">NC Housing Finance Agency</a>
+            <a href={CHARLOTTE_HOMEOWNERSHIP_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">City of Charlotte: Homeownership &amp; HouseCharlotte</a>
           </div>
         </section>
 
