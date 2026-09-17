@@ -5,6 +5,7 @@ const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDU
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
 const LINKEDIN_URL = "https://www.linkedin.com/in/jacob-shope-9b8972282";
 const BLOC_URL = "https://www.businessleadersofcharlotte.com/";
+const CHARLOTTE_FIRE_URL = "https://www.charlottenc.gov/Public-Safety/Fire-Department";
 const GOOGLE_BUSINESS_URL =
   "https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8";
 
@@ -21,13 +22,31 @@ const profileSchema = {
   "@id": "https://jacobshopemortgage.com/about#profile",
   url: "https://jacobshopemortgage.com/about",
   name: "About Jacob Shope",
+  dateModified: "2026-09-17",
   mainEntity: {
     "@type": "Person",
     "@id": "https://jacobshopemortgage.com/#jacob-shope",
     name: "Jacob Shope",
+    alternateName: ["Jacob Shope Mortgage", "Jacob Shope Mortgage Broker"],
+    disambiguatingDescription:
+      "Charlotte-area Mortgage Loan Officer with Mpire Financial, NMLS# 2090979, and Charlotte Fire Department captain serving Charlotte and Lake Norman, North Carolina.",
     url: "https://jacobshopemortgage.com/about",
     image: "https://jacobshopemortgage.com/images/DSC_0084.jpg",
     jobTitle: "Mortgage Loan Officer",
+    hasOccupation: [
+      {
+        "@type": "Occupation",
+        name: "Mortgage Loan Officer",
+      },
+      {
+        "@type": "Occupation",
+        name: "Fire Captain",
+      },
+    ],
+    workLocation: {
+      "@type": "Place",
+      name: "Charlotte, North Carolina",
+    },
     identifier: {
       "@type": "PropertyValue",
       propertyID: "NMLS",
@@ -37,7 +56,14 @@ const profileSchema = {
     email: "shope@mpirefi.com",
     telephone: "+1-704-614-5340",
     worksFor: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
-    affiliation: { "@id": "https://jacobshopemortgage.com/#jacob-shope-mortgage" },
+    affiliation: [
+      { "@id": "https://jacobshopemortgage.com/#jacob-shope-mortgage" },
+      {
+        "@type": "Organization",
+        name: "Charlotte Fire Department",
+        url: CHARLOTTE_FIRE_URL,
+      },
+    ],
     memberOf: {
       "@type": "Organization",
       name: "Business Leaders of Charlotte",
@@ -104,6 +130,7 @@ export default function AboutPage() {
             <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Google Business Profile</a>
             <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">LinkedIn</a>
             <a href={BLOC_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Business Leaders of Charlotte</a>
+            <a href={CHARLOTTE_FIRE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Charlotte Fire Department</a>
             <a href="https://www.instagram.com/jlshopeloans/" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Instagram @jlshopeloans</a>
             <a href="https://www.facebook.com/jacob.shope.33" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Facebook</a>
           </div>
