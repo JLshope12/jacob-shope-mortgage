@@ -56,7 +56,7 @@ export default function FirstTimeHomebuyerCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-09-17",
+        dateModified: "2026-09-18",
         citation: [HUD_BUYING_URL, HUD_FHA_URL, NCHFA_URL, CHARLOTTE_HOMEOWNERSHIP_URL],
       },
       {
@@ -126,6 +126,22 @@ export default function FirstTimeHomebuyerCharlottePage() {
                 <strong>{question}</strong> {answer}
               </p>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl border border-gold/30 bg-white p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gold">Charlotte-specific resource</p>
+          <h2 className="mt-2 text-2xl font-bold text-navy">House Charlotte down payment assistance</h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-charcoal">
+            As of September 18, 2026, the City of Charlotte says the House Charlotte program offers deferred and forgivable loan options for eligible first-time homebuyers. The City says qualified buyers may receive up to $80,000 in assistance that can help with down payment, closing costs, and interest-rate buydowns.
+          </p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-charcoal">
+            The amount available depends on the buyer&apos;s program tier, household eligibility, the property, available program funding, and the current rules. Because those details can change, I verify the City&apos;s current program page before quoting assistance in a buyer scenario.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={CHARLOTTE_HOMEOWNERSHIP_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">City of Charlotte: House Charlotte</a>
+            <Link href="/down-payment-assistance-charlotte" className="text-gold hover:underline">Charlotte Down Payment Assistance Guide</Link>
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Start with Mortgage Pre-Approval</Link>
           </div>
         </section>
 
