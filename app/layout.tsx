@@ -9,6 +9,10 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 const GA_MEASUREMENT_ID = "G-GEG0J8SFCX";
 const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2090979";
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
+const LINKEDIN_URL = "https://www.linkedin.com/in/jacob-shope-9b8972282";
+const BLOC_URL = "https://www.businessleadersofcharlotte.com/";
+const CHARLOTTE_FIRE_URL = "https://www.charlottenc.gov/Public-Safety/Fire-Department";
+const CHARLOTTE_FIRE_PROMOTION_URL = "https://www.youtube.com/watch?v=BqQZO2EPxvo";
 const GOOGLE_BUSINESS_URL =
   "https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8";
 const CORE_AUTHORITY_URLS = [
@@ -102,7 +106,7 @@ export default function RootLayout({
                 name: "Jacob Shope",
                 alternateName: ["Jacob Shope Mortgage", "Jacob Shope Mortgage Broker"],
                 disambiguatingDescription:
-                  "Mortgage Loan Officer with Mpire Financial, NMLS# 2090979, serving Charlotte and Lake Norman, North Carolina.",
+                  "Mortgage Loan Officer with Mpire Financial, NMLS# 2090979, and Charlotte Fire Department captain serving Charlotte and Lake Norman, North Carolina.",
                 url: "https://jacobshopemortgage.com/about",
                 image: "https://jacobshopemortgage.com/images/DSC_0084.jpg",
                 description:
@@ -110,6 +114,11 @@ export default function RootLayout({
                 telephone: "+1-704-614-5340",
                 email: "shope@mpirefi.com",
                 jobTitle: "Mortgage Loan Officer",
+                hasOccupation: [
+                  { "@type": "Occupation", name: "Mortgage Loan Officer" },
+                  { "@type": "Occupation", name: "Fire Captain" },
+                ],
+                workLocation: { "@type": "Place", name: "Charlotte, North Carolina" },
                 identifier: {
                   "@type": "PropertyValue",
                   propertyID: "NMLS",
@@ -117,6 +126,19 @@ export default function RootLayout({
                   url: NMLS_URL,
                 },
                 mainEntityOfPage: { "@id": "https://jacobshopemortgage.com/about#profile" },
+                affiliation: [
+                  { "@id": "https://jacobshopemortgage.com/#jacob-shope-mortgage" },
+                  {
+                    "@type": "Organization",
+                    name: "Charlotte Fire Department",
+                    url: CHARLOTTE_FIRE_URL,
+                  },
+                ],
+                memberOf: {
+                  "@type": "Organization",
+                  name: "Business Leaders of Charlotte",
+                  url: BLOC_URL,
+                },
                 subjectOf: [
                   {
                     "@type": "WebPage",
@@ -128,11 +150,21 @@ export default function RootLayout({
                     url: GOOGLE_BUSINESS_URL,
                     name: "Jacob Shope Mortgage Broker Google Business Profile",
                   },
+                  {
+                    "@type": "WebPage",
+                    url: LINKEDIN_URL,
+                    name: "Jacob Shope LinkedIn profile",
+                  },
+                  {
+                    "@type": "VideoObject",
+                    url: CHARLOTTE_FIRE_PROMOTION_URL,
+                    name: "Charlotte Fire Promotes Jacob Shope To Captain",
+                  },
                 ],
                 sameAs: [
                   NMLS_URL,
                   GOOGLE_BUSINESS_URL,
-                  "https://www.linkedin.com/in/jacob-shope-9b8972282",
+                  LINKEDIN_URL,
                   "https://www.instagram.com/jlshopeloans/",
                   "https://www.facebook.com/jacob.shope.33",
                 ],
