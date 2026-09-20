@@ -3,9 +3,9 @@ import { getAllServiceAreaSlugs } from "@/data/service-areas";
 import { LOAN_PROGRAMS } from "@/data/loan-programs";
 
 const origin = "https://jacobshopemortgage.com";
-const siteRefreshDate = new Date("2026-09-15T00:00:00-04:00");
-const aboutRefreshDate = new Date("2026-09-19T00:00:00-04:00");
-const firstTimeBuyerRefreshDate = new Date("2026-09-18T00:00:00-04:00");
+const siteRefreshDate = new Date("2026-09-20T00:00:00-04:00");
+const aboutRefreshDate = new Date("2026-09-20T00:00:00-04:00");
+const firstTimeBuyerRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
