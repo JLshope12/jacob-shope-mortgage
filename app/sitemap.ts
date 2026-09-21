@@ -6,7 +6,12 @@ const origin = "https://jacobshopemortgage.com";
 const siteRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const aboutRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const firstTimeBuyerRefreshDate = new Date("2026-09-20T00:00:00-04:00");
+const localServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
 const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
+const refreshedLocalServiceRoutes = new Set([
+  "/service-areas/charlotte",
+  "/service-areas/lake-norman",
+]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const mainRoutes = [
@@ -35,11 +40,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
     lastModified:
-      path === "/about"
-        ? aboutRefreshDate
-        : path === "/first-time-homebuyer-charlotte"
-          ? firstTimeBuyerRefreshDate
-          : siteRefreshDate,
+      refreshedLocalServiceRoutes.has(path)
+        ? localServiceRefreshDate
+        : path === "/about"
+          ? aboutRefreshDate
+          : path === "/first-time-homebuyer-charlotte"
+            ? firstTimeBuyerRefreshDate
+            : siteRefreshDate,
     changeFrequency:
       path === "/newsletter" || path === "/charlotte-housing-market-september-2026"
         ? "weekly"
