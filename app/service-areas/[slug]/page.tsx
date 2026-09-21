@@ -11,6 +11,68 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 type Props = { params: Promise<{ slug: string }> };
 
 const origin = "https://jacobshopemortgage.com";
+const CHARLOTTE_HOMEOWNERSHIP_URL =
+  "https://www.charlottenc.gov/Streets-and-Neighborhoods/Housing/Resources-for-Homeowners-Renters/Homeownership";
+const MECKLENBURG_TAX_URL = "https://tax.mecknc.gov/";
+const NCHFA_HOME_BUYERS_URL = "https://www.nchfa.com/home-buyers";
+const IREDELL_TAX_URL = "https://iredellcountync.gov/368/Tax-Administration-Land-Records";
+const LINCOLN_TAX_URL = "https://www.lincolncountync.gov/73/Tax-Department";
+const CATAWBA_TAX_URL = "https://catawbacountync.gov/county-services/tax/";
+
+const LOCAL_RESOURCES: Record<
+  string,
+  { href: string; label: string; detail: string }[]
+> = {
+  charlotte: [
+    {
+      href: CHARLOTTE_HOMEOWNERSHIP_URL,
+      label: "City of Charlotte homeownership resources",
+      detail: "Current City information for House Charlotte and other homeownership resources.",
+    },
+    {
+      href: MECKLENBURG_TAX_URL,
+      label: "Mecklenburg County property tax resources",
+      detail: "Official property values, tax bills, payments, and real-property information for Mecklenburg County.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "North Carolina Housing Finance Agency home buyers",
+      detail: "State homebuyer and down-payment-assistance resources maintained by NCHFA.",
+    },
+  ],
+  "lake-norman": [
+    {
+      href: MECKLENBURG_TAX_URL,
+      label: "Mecklenburg County property tax resources",
+      detail: "Official property-tax information for Huntersville, Cornelius, Davidson, and other Mecklenburg County properties.",
+    },
+    {
+      href: IREDELL_TAX_URL,
+      label: "Iredell County tax and land records",
+      detail: "Official property assessment, land-record, and tax information for Iredell County, including Mooresville-area properties.",
+    },
+    {
+      href: LINCOLN_TAX_URL,
+      label: "Lincoln County Tax Department",
+      detail: "Official real-property appraisal and tax information for Lincoln County properties around the lake.",
+    },
+    {
+      href: CATAWBA_TAX_URL,
+      label: "Catawba County Tax Office",
+      detail: "Official property-tax and real-estate records for Catawba County properties around Lake Norman.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "North Carolina Housing Finance Agency home buyers",
+      detail: "State homebuyer and down-payment-assistance resources maintained by NCHFA.",
+    },
+  ],
+};
+
+const LOCAL_PAGE_MODIFIED: Record<string, string> = {
+  charlotte: "2026-09-21",
+  "lake-norman": "2026-09-21",
+};
 
 export async function generateStaticParams() {
   return getAllServiceAreaSlugs().map((slug) => ({ slug }));
@@ -72,6 +134,31 @@ function getProgramHref(slug: string): string {
   return `/loan-programs/${slug}`;
 }
 
+function getAreaServed(area: ServiceArea) {
+  if (area.slug === "charlotte") {
+    return [
+      { "@type": "City", name: "Charlotte, North Carolina" },
+      { "@type": "AdministrativeArea", name: "Mecklenburg County, North Carolina" },
+    ];
+  }
+
+  if (area.slug === "lake-norman") {
+    return [
+      { "@type": "Place", name: "Lake Norman, North Carolina" },
+      { "@type": "City", name: "Huntersville, North Carolina" },
+      { "@type": "City", name: "Cornelius, North Carolina" },
+      { "@type": "City", name: "Davidson, North Carolina" },
+      { "@type": "City", name: "Mooresville, North Carolina" },
+      { "@type": "AdministrativeArea", name: "Mecklenburg County, North Carolina" },
+      { "@type": "AdministrativeArea", name: "Iredell County, North Carolina" },
+      { "@type": "AdministrativeArea", name: "Lincoln County, North Carolina" },
+      { "@type": "AdministrativeArea", name: "Catawba County, North Carolina" },
+    ];
+  }
+
+  return { "@type": "Place", name: area.name };
+}
+
 export default async function ServiceAreaPage({ params }: Props) {
   const { slug } = await params;
   const area = getServiceAreaBySlug(slug);
@@ -80,6 +167,8 @@ export default async function ServiceAreaPage({ params }: Props) {
   const nearbyAreas = area.nearbySlugs
     .map((s) => getServiceAreaBySlug(s))
     .filter(Boolean) as ServiceArea[];
+  const localResources = LOCAL_RESOURCES[area.slug] ?? [];
+  const localPageModified = LOCAL_PAGE_MODIFIED[area.slug];
 
   const pageUrl = `${origin}/service-areas/${area.slug}`;
   const schema = {
@@ -97,6 +186,10 @@ export default async function ServiceAreaPage({ params }: Props) {
         author: { "@id": `${origin}/#jacob-shope` },
         isPartOf: { "@id": `${origin}/#website` },
         about: { "@id": `${pageUrl}#mortgage-service` },
+        ...(localPageModified ? { dateModified: localPageModified } : {}),
+        ...(localResources.length > 0
+          ? { citation: localResources.map((resource) => resource.href) }
+          : {}),
       },
       {
         "@type": "Service",
@@ -107,16 +200,7 @@ export default async function ServiceAreaPage({ params }: Props) {
             : `Mortgage guidance in ${area.name}`,
         serviceType: "Mortgage brokerage and home loan guidance",
         provider: { "@id": `${origin}/#mpire-financial` },
-        areaServed:
-          area.slug === "lake-norman"
-            ? [
-                { "@type": "Place", name: "Lake Norman, North Carolina" },
-                { "@type": "City", name: "Huntersville, North Carolina" },
-                { "@type": "City", name: "Cornelius, North Carolina" },
-                { "@type": "City", name: "Davidson, North Carolina" },
-                { "@type": "City", name: "Mooresville, North Carolina" },
-              ]
-            : { "@type": "Place", name: area.name },
+        areaServed: getAreaServed(area),
         url: pageUrl,
       },
       {
@@ -187,6 +271,26 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
               <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
             </div>
+          </section>
+        )}
+
+        {localResources.length > 0 && (
+          <section className="mt-10 rounded-2xl border border-gold/25 bg-white p-6 md:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gold">Official local sources</p>
+            <h2 className="mt-2 text-2xl font-bold text-navy">Homebuying and property resources for {area.name}</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Property taxes, assistance programs, and public property records can affect a buyer&apos;s monthly payment and cash planning. I use official city, county, and state sources when those details matter to a mortgage scenario.
+            </p>
+            <ul className="mt-6 space-y-4">
+              {localResources.map((resource) => (
+                <li key={resource.href}>
+                  <a href={resource.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-gold hover:underline">
+                    {resource.label}
+                  </a>
+                  <p className="mt-1 text-sm leading-relaxed text-charcoal/80">{resource.detail}</p>
+                </li>
+              ))}
+            </ul>
           </section>
         )}
 
