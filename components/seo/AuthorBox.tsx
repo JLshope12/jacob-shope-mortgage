@@ -30,6 +30,7 @@ export function AuthorBox() {
 
       <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
         <Link href="/about" rel="author" className="text-gold hover:underline">About Jacob</Link>
+        <Link href="/licensing" className="text-gold hover:underline">Licensing &amp; NMLS</Link>
         <Link href="/mortgage-guides" className="text-gold hover:underline">Mortgage Guides</Link>
         <Link href="/blog" className="text-gold hover:underline">Mortgage &amp; Real Estate Insights</Link>
         <Link href="/charlotte-home-buying-mortgage-guide" className="text-gold hover:underline">Charlotte Home Buying Guide</Link>
