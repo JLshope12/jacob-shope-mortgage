@@ -7,6 +7,7 @@ const siteRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const aboutRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const firstTimeBuyerRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const localServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
+const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
 const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
 const refreshedLocalServiceRoutes = new Set([
   "/service-areas/charlotte",
@@ -17,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const mainRoutes = [
     "", "/about", "/apply", "/book", "/blog", "/calculators", "/calculators/payment",
     "/calculators/affordability", "/calculators/refinance", "/calculators/amortization",
-    "/contact", "/faq", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
+    "/contact", "/faq", "/licensing", "/loan-programs", "/mortgage-guides", "/newsletter", "/rates",
     "/service-areas", "/down-payment-assistance-charlotte", "/va-loans-charlotte",
     "/first-time-homebuyer-charlotte", "/first-responder-home-loans-charlotte",
     "/charlotte-home-buying-mortgage-guide", "/charlotte-housing-market-september-2026",
@@ -46,7 +47,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? aboutRefreshDate
           : path === "/first-time-homebuyer-charlotte"
             ? firstTimeBuyerRefreshDate
-            : siteRefreshDate,
+            : path === "/licensing"
+              ? licensingRefreshDate
+              : siteRefreshDate,
     changeFrequency:
       path === "/newsletter" || path === "/charlotte-housing-market-september-2026"
         ? "weekly"
@@ -87,7 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
               "/bridge-loans-charlotte",
             ].includes(path)
             ? 0.85
-            : path === "/newsletter"
+            : path === "/newsletter" || path === "/licensing"
               ? 0.8
               : 0.7,
   }));
