@@ -17,6 +17,7 @@ const GOOGLE_BUSINESS_URL =
   "https://www.google.com/maps/search/?api=1&query=Jacob+Shope+Mortgage+Broker&query_place_id=ChIJoYVzko0AvIcRA-l3WlYdLW8";
 const CORE_AUTHORITY_URLS = [
   "https://jacobshopemortgage.com/about",
+  "https://jacobshopemortgage.com/licensing",
   "https://jacobshopemortgage.com/mortgage-guides",
   "https://jacobshopemortgage.com/service-areas/charlotte",
   "https://jacobshopemortgage.com/service-areas/lake-norman",
