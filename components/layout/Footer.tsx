@@ -28,7 +28,15 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <p className="text-lg font-bold text-white">Jacob Shope</p>
-            <p className="mt-1 text-sm text-white/80">Charlotte Mortgage Broker | Charlotte &amp; Lake Norman</p>
+            <p className="mt-1 text-sm text-white/80">
+              <Link href="/service-areas/charlotte" className="transition-colors hover:text-gold">
+                Charlotte Mortgage Broker
+              </Link>{" "}
+              |{" "}
+              <Link href="/service-areas/lake-norman" className="transition-colors hover:text-gold">
+                Lake Norman Mortgage Broker
+              </Link>
+            </p>
             <p className="mt-2 text-sm text-white/70">Mortgage Loan Officer · NMLS# 2090979 · Mpire Financial</p>
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
               <a href={JACOB_NMLS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex text-sm font-medium text-gold hover:underline">
