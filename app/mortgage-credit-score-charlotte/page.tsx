@@ -8,6 +8,7 @@ const CFPB_MORTGAGE_CREDIT = "https://www.consumerfinance.gov/ask-cfpb/does-my-c
 const CFPB_CREDIT_CHECKS = "https://www.consumerfinance.gov/ask-cfpb/what-exactly-happens-when-a-mortgage-lender-checks-my-credit-en-2005/";
 const FANNIE_CREDIT_REQUIREMENTS = "https://selling-guide.fanniemae.com/sel/b3-5.1-01/general-requirements-credit-scores";
 const FANNIE_DU_CREDIT_UPDATE = "https://singlefamily.fanniemae.com/applications-technology/desktop-underwriter-desktop-originator/desktop-underwriter-credit-risk-assessment-updates";
+const FHFA_CREDIT_SCORES = "https://www.fhfa.gov/policy/credit-scores";
 
 export const metadata = {
   title: "Credit Score for a Mortgage in Charlotte | Jacob Shope",
@@ -51,6 +52,7 @@ const schema = {
         CFPB_CREDIT_CHECKS,
         FANNIE_CREDIT_REQUIREMENTS,
         FANNIE_DU_CREDIT_UPDATE,
+        FHFA_CREDIT_SCORES,
       ],
       about: ["Mortgage credit scores", "Mortgage qualification", "Charlotte mortgages", "Home financing"],
     },
@@ -140,6 +142,16 @@ export default function MortgageCreditScoreCharlottePage() {
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
             <a href={FANNIE_CREDIT_REQUIREMENTS} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Fannie Mae credit score requirements</a>
             <a href={FANNIE_DU_CREDIT_UPDATE} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Fannie Mae DU credit risk update</a>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">A current credit-model change to know about</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            On September 9, 2026, the Federal Housing Finance Agency announced that all approved Fannie Mae and Freddie Mac lenders may use VantageScore 4.0 when originating and selling eligible loans to the Enterprises. That does not create one universal mortgage score requirement, and it does not eliminate lender or loan-program rules. It is another reason borrowers should have the full mortgage file reviewed instead of relying on a single score number from a consumer app.
+          </p>
+          <div className="mt-5 text-sm font-medium">
+            <a href={FHFA_CREDIT_SCORES} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">FHFA credit score policy and September 2026 update</a>
           </div>
         </section>
 
