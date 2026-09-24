@@ -8,6 +8,7 @@ const aboutRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const firstTimeBuyerRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const localServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
 const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
+const creditGuideRefreshDate = new Date("2026-09-24T00:00:00-04:00");
 const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
 const refreshedLocalServiceRoutes = new Set([
   "/service-areas/charlotte",
@@ -49,7 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             ? firstTimeBuyerRefreshDate
             : path === "/licensing"
               ? licensingRefreshDate
-              : siteRefreshDate,
+              : path === "/mortgage-credit-score-charlotte"
+                ? creditGuideRefreshDate
+                : siteRefreshDate,
     changeFrequency:
       path === "/newsletter" || path === "/charlotte-housing-market-september-2026"
         ? "weekly"
