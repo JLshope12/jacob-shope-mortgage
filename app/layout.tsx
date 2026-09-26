@@ -19,6 +19,8 @@ const CORE_AUTHORITY_URLS = [
   "https://jacobshopemortgage.com/about",
   "https://jacobshopemortgage.com/licensing",
   "https://jacobshopemortgage.com/mortgage-guides",
+  "https://jacobshopemortgage.com/blog",
+  "https://jacobshopemortgage.com/charlotte-home-buying-mortgage-guide",
   "https://jacobshopemortgage.com/service-areas/charlotte",
   "https://jacobshopemortgage.com/service-areas/lake-norman",
   "https://jacobshopemortgage.com/mortgage-broker-vs-lender-charlotte",
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
   category: "Mortgage and real estate financing",
   title: "Jacob Shope | Charlotte Mortgage Broker",
   description:
-    "Local mortgage guidance for buyers, homeowners, veterans, first responders, and real estate investors across Charlotte and Lake Norman. NMLS# 2090979.",
+    "Local mortgage and real estate financing guidance for buyers, homeowners, veterans, first responders, Realtors, and real estate investors across Charlotte and Lake Norman. NMLS# 2090979.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -93,7 +95,7 @@ export default function RootLayout({
                 "@id": "https://jacobshopemortgage.com/#website",
                 url: "https://jacobshopemortgage.com",
                 name: "Jacob Shope Mortgage",
-                description: "Mortgage guidance and resources for Charlotte and Lake Norman.",
+                description: "Mortgage and real estate financing guidance for Charlotte and Lake Norman.",
                 publisher: { "@id": "https://jacobshopemortgage.com/#jacob-shope-mortgage" },
                 about: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
                 hasPart: CORE_AUTHORITY_URLS.map((url) => ({
@@ -186,6 +188,11 @@ export default function RootLayout({
                   "HELOCs",
                   "Mortgage qualification",
                   "Mortgage appraisals",
+                  "Charlotte real estate financing",
+                  "Lake Norman real estate financing",
+                  "Real estate investment financing",
+                  "New construction financing",
+                  "Home purchase financing",
                 ],
                 worksFor: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
               },
@@ -198,6 +205,7 @@ export default function RootLayout({
                 sameAs: [GOOGLE_BUSINESS_URL],
                 telephone: "+1-704-614-5340",
                 email: "shope@mpirefi.com",
+                description: "Mortgage brokerage and real estate financing guidance for homebuyers, homeowners, veterans, first responders, Realtors, and investors across Charlotte and Lake Norman.",
                 parentOrganization: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
                 employee: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
                 areaServed: [
