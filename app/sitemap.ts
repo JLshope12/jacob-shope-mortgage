@@ -3,12 +3,12 @@ import { getAllServiceAreaSlugs } from "@/data/service-areas";
 import { LOAN_PROGRAMS } from "@/data/loan-programs";
 
 const origin = "https://jacobshopemortgage.com";
-const siteRefreshDate = new Date("2026-09-20T00:00:00-04:00");
-const aboutRefreshDate = new Date("2026-09-20T00:00:00-04:00");
-const firstTimeBuyerRefreshDate = new Date("2026-09-20T00:00:00-04:00");
-const localServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
-const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
-const creditGuideRefreshDate = new Date("2026-09-24T00:00:00-04:00");
+const siteRefreshDate = new Date("2026-09-26T00:00:00-04:00");
+const aboutRefreshDate = new Date("2026-09-26T00:00:00-04:00");
+const firstTimeBuyerRefreshDate = new Date("2026-09-26T00:00:00-04:00");
+const localServiceRefreshDate = new Date("2026-09-26T00:00:00-04:00");
+const licensingRefreshDate = new Date("2026-09-26T00:00:00-04:00");
+const creditGuideRefreshDate = new Date("2026-09-26T00:00:00-04:00");
 const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
 const refreshedLocalServiceRoutes = new Set([
   "/service-areas/charlotte",
