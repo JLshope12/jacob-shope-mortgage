@@ -6,14 +6,11 @@ const origin = "https://jacobshopemortgage.com";
 const siteRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const aboutRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const firstTimeBuyerRefreshDate = new Date("2026-09-20T00:00:00-04:00");
-const localServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
+const charlotteServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
+const lakeNormanServiceRefreshDate = new Date("2026-10-04T00:00:00-04:00");
 const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
 const creditGuideRefreshDate = new Date("2026-09-24T00:00:00-04:00");
 const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
-const refreshedLocalServiceRoutes = new Set([
-  "/service-areas/charlotte",
-  "/service-areas/lake-norman",
-]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const mainRoutes = [
@@ -42,9 +39,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
     lastModified:
-      refreshedLocalServiceRoutes.has(path)
-        ? localServiceRefreshDate
-        : path === "/about"
+      path === "/service-areas/charlotte"
+        ? charlotteServiceRefreshDate
+        : path === "/service-areas/lake-norman"
+          ? lakeNormanServiceRefreshDate
+          : path === "/about"
           ? aboutRefreshDate
           : path === "/first-time-homebuyer-charlotte"
             ? firstTimeBuyerRefreshDate
