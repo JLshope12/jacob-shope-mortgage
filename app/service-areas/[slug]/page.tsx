@@ -71,7 +71,7 @@ const LOCAL_RESOURCES: Record<
 
 const LOCAL_PAGE_MODIFIED: Record<string, string> = {
   charlotte: "2026-09-21",
-  "lake-norman": "2026-09-21",
+  "lake-norman": "2026-10-04",
 };
 
 export async function generateStaticParams() {
@@ -101,7 +101,9 @@ export async function generateMetadata({ params }: Props) {
   const description =
     area.slug === "charlotte"
       ? "Compare Charlotte mortgage lender and loan options through Jacob Shope, a local mortgage broker and Mortgage Loan Officer with Mpire Financial. FHA, VA, conventional, jumbo, first-time buyer, investor, and construction financing."
-      : area.shortDescription;
+      : area.slug === "lake-norman"
+        ? "Local Lake Norman mortgage guidance from Jacob Shope for buyers and homeowners across Huntersville, Cornelius, Davidson, Mooresville, and the surrounding lake region."
+        : area.shortDescription;
 
   return {
     title,
