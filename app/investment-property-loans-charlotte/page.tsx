@@ -5,6 +5,8 @@ const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/investment-property-loans-charlotte`;
 const FANNIE_RENTAL_INCOME = "https://selling-guide.fanniemae.com/sel/b3-3.8-02/rental-income-subject-property";
 const FANNIE_RENTAL_GENERAL = "https://selling-guide.fanniemae.com/sel/b3-3.8-01/rental-income";
+const FANNIE_SHORT_TERM_RENTAL = "https://selling-guide.fanniemae.com/sel/b3-3.8-03/rental-income-subject-property-short-term-rental";
+const FANNIE_RECENT_INVESTMENT_RENTAL = "https://selling-guide.fanniemae.com/sel/b3-3.8-06/rental-income-non-subject-property-investment-properties-purchased-within-45-days-subject-property";
 
 export const metadata = {
   title: "Investment Property Loans Charlotte NC | Jacob Shope Mortgage",
@@ -33,8 +35,8 @@ export default function InvestmentPropertyLoansCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-09-08",
-        citation: [FANNIE_RENTAL_INCOME, FANNIE_RENTAL_GENERAL],
+        dateModified: "2026-10-06",
+        citation: [FANNIE_RENTAL_INCOME, FANNIE_RENTAL_GENERAL, FANNIE_SHORT_TERM_RENTAL, FANNIE_RECENT_INVESTMENT_RENTAL],
       },
       {
         "@type": "WebPage",
@@ -107,6 +109,17 @@ export default function InvestmentPropertyLoansCharlottePage() {
           <p className="mt-4 leading-relaxed text-charcoal">
             That is why I look at the property and the borrower together before assuming how much rent can be used for qualification.
           </p>
+        </section>
+
+        <section className="mt-14 rounded-2xl border border-gold/30 bg-white p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-gold">2026 agency update</p>
+          <h2 className="mt-2 text-2xl font-bold text-navy">Short-term rentals and recently purchased investment properties</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">Fannie Mae updated its rental-income guidance on September 2, 2026. The current Selling Guide has a dedicated section for qualifying rental income from one-unit short-term rental investment properties, including property-use eligibility and documentation standards for purchases and refinances.</p>
+          <p className="mt-4 leading-relaxed text-charcoal">Fannie Mae also has separate current guidance for investment properties purchased within 45 days of the new mortgage application. That guidance addresses eligible one-to-four-unit investment properties and the documentation used to determine qualifying rental income. These rules are specific to conventional agency financing, so I verify the current guide before deciding how rental income can be used in an investor scenario.</p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={FANNIE_SHORT_TERM_RENTAL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Fannie Mae: Short-Term Rental Income</a>
+            <a href={FANNIE_RECENT_INVESTMENT_RENTAL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Fannie Mae: Recently Purchased Investment Properties</a>
+          </div>
         </section>
 
         <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
