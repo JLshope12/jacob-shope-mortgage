@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "drafts_enabled": false,
+  "scheduling_enabled": false,
+  "default_mode": "draft",
+  "neutral_template_verified": false,
+  "private_scheduling_verified": false,
+  "audience_verified": false,
+  "max_content_age_hours": 6,
+  "audience_min": 1,
+  "audience_max": 10000,
+  "required_image_urls": [
+    "https://embed.filekitcdn.com/e/mZzXfjPQgqogyswj6sF2sq/7fDYPyDSBUi9f1ykJcf96p/email",
+    "https://embed.filekitcdn.com/e/mZzXfjPQgqogyswj6sF2sq/5Ni4ssvRkx8Q4Affhx9DN5/email",
+    "https://embed.filekitcdn.com/e/mZzXfjPQgqogyswj6sF2sq/6fcXpTfbzFw4EsvVideAhZ/email",
+    "https://embed.filekitcdn.com/e/mZzXfjPQgqogyswj6sF2sq/vV4hHbQLyRuZgn4exkQQsw/email"
+  ],
+  "postal_address": "600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246",
+  "signup_sync_enabled": false,
+  "signup_sync_audit": {
+    "tag_id": null,
+    "reviewed_at": null,
+    "no_other_automation_use": false
+  }
+}
