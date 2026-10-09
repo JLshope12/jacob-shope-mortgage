@@ -17,7 +17,10 @@ NOW = datetime(2026, 10, 11, 21, 30, tzinfo=timezone.utc)
 
 def fixtures(day="2026-10-11", now=NOW):
     policy = json.loads((ROOT / "newsletter/delivery-policy.json").read_text())
-    policy.update(drafts_enabled=True, audience_verified=True, neutral_template_verified=True)
+    policy.update(drafts_enabled=True, audience_verified=True, neutral_template_verified=True,
+                  scheduling_enabled=False, private_scheduling_verified=False,
+                  signup_sync_enabled=False, max_content_age_hours=6, audience_min=1, audience_max=10000,
+                  signup_sync_audit={"tag_id": None, "reviewed_at": None, "no_other_automation_use": False})
     images = "".join(f'<img src="{url}" alt="Original brand image">' for url in policy["required_image_urls"])
     when = datetime.fromisoformat(day)
     label = f"{when:%B} {when.day}, {when.year}"
@@ -383,7 +386,7 @@ class DeliveryTests(unittest.TestCase):
         with self.assertRaisesRegex(d.Blocked, "PRIVATE_SCHEDULING"):
             d.check_capabilities(self.policy, "schedule")
         d.check_capabilities(self.policy, "draft")
-        checked_in = json.loads((ROOT / "newsletter/delivery-policy.json").read_text())
+        checked_in = dict(self.policy, drafts_enabled=False)
         with self.assertRaisesRegex(d.Blocked, "DRAFT_CONNECTION_DISABLED"):
             d.check_capabilities(checked_in, "draft")
 
