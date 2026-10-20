@@ -200,9 +200,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     group: "nationwide",
     name: "Nationwide",
     shortDescription:
-      "Licensed in most states nationwide. Purchase and refinance loans across the country.",
+      "Mortgage availability in additional states depends on current licensing and program eligibility.",
     introParagraph:
-      "I'm licensed to originate mortgages in most states across the country. While my home base is the Charlotte area and I'm deeply connected to the Carolinas, I work with clients who are relocating, buying second homes, or refinancing properties in many other states. Whether you're moving to Florida, Texas, or another state where I'm licensed, I'll provide the same straightforward process: pre-approval, clear communication, and a path to closing. Licensing varies by state—reach out and I'll confirm whether I can help in your state.",
+      "My home base is the Charlotte area, and I primarily serve clients in North Carolina and South Carolina. For borrowers relocating, buying a second home, or financing property in another state, availability depends on current licensing and program eligibility. Reach out and I'll confirm whether I can help with your specific state and scenario.",
     whyLocal:
       "Even when we're working across state lines, you get a dedicated loan officer who will keep you informed and guide you through each step. I'll help you choose the right loan and get you to closing without surprises.",
     nearbySlugs: ["north-carolina", "south-carolina", "charlotte"],
