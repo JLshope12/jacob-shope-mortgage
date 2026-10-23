@@ -198,7 +198,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
   {
     slug: "nationwide",
     group: "nationwide",
-    name: "Nationwide",
+    name: "Additional States",
     shortDescription:
       "Mortgage availability in additional states depends on current licensing and program eligibility.",
     introParagraph:
