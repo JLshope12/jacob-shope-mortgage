@@ -93,7 +93,7 @@ export async function generateMetadata({ params }: Props) {
           : area.slug === "south-carolina"
             ? "South Carolina Mortgage Lender | Jacob Shope"
             : area.slug === "nationwide"
-              ? "Nationwide Mortgage Lender | Jacob Shope"
+              ? "Out-of-State Mortgage Inquiries | Jacob Shope"
               : area.slug === "charlotte-metro"
                 ? "Charlotte Metro Home Loans | Jacob Shope"
                 : `${area.name} Mortgage Broker | Jacob Shope`;
@@ -118,7 +118,7 @@ function getH1(area: ServiceArea): string {
   if (area.slug === "lake-norman") return "Lake Norman Mortgage Broker";
   if (area.slug === "north-carolina") return "North Carolina Mortgage Lender";
   if (area.slug === "south-carolina") return "South Carolina Mortgage Lender";
-  if (area.slug === "nationwide") return "Nationwide Mortgage Lender";
+  if (area.slug === "nationwide") return "Mortgage Availability Outside the Carolinas";
   if (area.slug === "charlotte-metro") return "Mortgage Options Across the Charlotte Metro";
   return `${area.name} Mortgage Broker`;
 }
@@ -126,7 +126,7 @@ function getH1(area: ServiceArea): string {
 function getCTAText(area: ServiceArea): string {
   if (area.slug === "north-carolina") return "Get Pre-Approved in North Carolina";
   if (area.slug === "south-carolina") return "Get Pre-Approved in South Carolina";
-  if (area.slug === "nationwide") return "Get Pre-Approved";
+  if (area.slug === "nationwide") return "Ask About State Availability";
   return `Get Pre-Approved for a Home in ${area.name}`;
 }
 
