@@ -151,13 +151,13 @@ export default function BlogPage() {
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Where should you start?</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-white/85">
-            If you are actively looking at a home, start with the current Charlotte housing-market update
+            If you are actively looking at a home, start with the latest available dated Charlotte housing-market analysis
             and the Charlotte Home Buying & Mortgage Guide. If you are comparing loan structures, go to
             Mortgage Guides. For changing rates and the weekly real estate conversation, use the newsletter.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link href="/charlotte-housing-market-september-2026" className="rounded-lg bg-gold px-5 py-3 font-semibold text-white hover:bg-gold/90">
-              September Charlotte Market Update
+              September 2026 Market Archive
             </Link>
             <Link href="/charlotte-home-buying-mortgage-guide" className="rounded-lg border border-white/40 px-5 py-3 font-semibold text-white hover:bg-white hover:text-navy">
               Charlotte Home Buying Guide
