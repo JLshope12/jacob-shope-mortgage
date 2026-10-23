@@ -29,7 +29,7 @@ export function Footer() {
           <div>
             <p className="text-lg font-bold text-white">Jacob Shope</p>
             <p className="mt-1 text-sm text-white/80">
-              <Link href="/service-areas/charlotte" className="transition-colors hover:text-gold">
+              <Link href="/" className="transition-colors hover:text-gold">
                 Charlotte Mortgage Broker
               </Link>{" "}
               |{" "}
