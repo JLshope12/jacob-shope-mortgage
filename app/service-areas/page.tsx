@@ -9,7 +9,7 @@ const GROUP_LABELS: Record<ServiceAreaGroup, string> = {
   "charlotte-metro": "Charlotte Metro",
   "north-carolina": "North Carolina",
   "south-carolina": "South Carolina",
-  nationwide: "Nationwide",
+  nationwide: "Other States",
 };
 
 const GROUP_ORDER: ServiceAreaGroup[] = [
