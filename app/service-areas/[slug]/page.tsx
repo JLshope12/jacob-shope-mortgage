@@ -109,6 +109,7 @@ export async function generateMetadata({ params }: Props) {
     title,
     description,
     alternates: { canonical: `/service-areas/${area.slug}` },
+    ...(area.slug === "nationwide" ? { robots: { index: false, follow: true } } : {}),
     authors: [{ name: "Jacob Shope", url: "/about" }],
   };
 }
