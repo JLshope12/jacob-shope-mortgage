@@ -31,7 +31,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/private-mortgage-insurance-charlotte", "/cash-out-refinance-charlotte",
     "/bridge-loans-charlotte",
   ];
-  const serviceRoutes = getAllServiceAreaSlugs().map((slug) => `/service-areas/${slug}`);
+  const serviceRoutes = getAllServiceAreaSlugs()
+    .filter((slug) => slug !== "nationwide")
+    .map((slug) => `/service-areas/${slug}`);
   const programRoutes = LOAN_PROGRAMS
     .filter((program) => !consolidatedProgramSlugs.has(program.slug))
     .map((program) => `/loan-programs/${program.slug}`);
