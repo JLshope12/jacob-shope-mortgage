@@ -5,7 +5,8 @@ import { LOAN_PROGRAMS } from "@/data/loan-programs";
 const origin = "https://jacobshopemortgage.com";
 const siteRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const aboutRefreshDate = new Date("2026-09-20T00:00:00-04:00");
-const firstTimeBuyerRefreshDate = new Date("2026-09-20T00:00:00-04:00");
+const firstTimeBuyerRefreshDate = new Date("2026-10-25T00:00:00-04:00");
+const sellerConcessionsRefreshDate = new Date("2026-10-25T00:00:00-04:00");
 const charlotteServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
 const lakeNormanServiceRefreshDate = new Date("2026-10-04T00:00:00-04:00");
 const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
@@ -49,7 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? aboutRefreshDate
           : path === "/first-time-homebuyer-charlotte"
             ? firstTimeBuyerRefreshDate
-            : path === "/licensing"
+            : path === "/seller-concessions-north-carolina"
+              ? sellerConcessionsRefreshDate
+              : path === "/licensing"
               ? licensingRefreshDate
               : path === "/mortgage-credit-score-charlotte"
                 ? creditGuideRefreshDate
