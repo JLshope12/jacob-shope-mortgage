@@ -56,7 +56,7 @@ export default function FirstTimeHomebuyerCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-09-18",
+        dateModified: "2026-10-25",
         citation: [HUD_BUYING_URL, HUD_FHA_URL, NCHFA_URL, CHARLOTTE_HOMEOWNERSHIP_URL],
       },
       {
@@ -146,6 +146,24 @@ export default function FirstTimeHomebuyerCharlottePage() {
         </section>
 
         <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-8">
+          <h2 className="text-2xl font-bold text-navy">Ask about a seller credit before writing an offer</h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-charcoal">
+            When a Charlotte or Lake Norman seller is open to negotiating, the best offer is not always the one with the lowest purchase price. A seller credit may help pay allowable closing costs or fund an eligible rate buydown, depending on your loan program and the actual transaction expenses.
+          </p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-charcoal">
+            A temporary buydown can lower the amount you pay during an initial period before the payment returns to the full note rate. Paying permanent discount points can reduce the rate for the life of the loan, but the upfront cost should be compared with the expected savings. With a Fannie Mae temporary buydown, you still qualify using the full note-rate payment.
+          </p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-charcoal">
+            I help you and your Realtor compare the purchase price, seller credit, monthly payment, cash to close, and loan rules before deciding what to request in an offer.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <Link href="/seller-concessions-north-carolina" className="text-gold hover:underline">Seller Credits and Rate Buydowns</Link>
+            <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Charlotte Closing Costs</Link>
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage Pre-Approval</Link>
+          </div>
+        </section>
+
+        <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-8">
           <h2 className="text-2xl font-bold text-navy">Build the financing plan before you shop</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
             First-time buyers usually have several questions at the same time. These guides go deeper on the parts of qualification and cash planning that most often shape the buying range.
@@ -157,6 +175,7 @@ export default function FirstTimeHomebuyerCharlottePage() {
             <Link href="/mortgage-closing-costs-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Closing Costs</Link>
             <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisal</Link>
             <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
+            <Link href="/seller-concessions-north-carolina" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Seller Concessions</Link>
           </div>
         </section>
 
