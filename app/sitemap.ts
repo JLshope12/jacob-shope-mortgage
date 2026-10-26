@@ -6,6 +6,7 @@ const origin = "https://jacobshopemortgage.com";
 const siteRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const aboutRefreshDate = new Date("2026-09-20T00:00:00-04:00");
 const firstTimeBuyerRefreshDate = new Date("2026-10-25T00:00:00-04:00");
+const investorConstructionRefreshDate = new Date("2026-10-26T00:00:00-04:00");
 const sellerConcessionsRefreshDate = new Date("2026-10-25T00:00:00-04:00");
 const charlotteServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
 const lakeNormanServiceRefreshDate = new Date("2026-10-04T00:00:00-04:00");
@@ -50,7 +51,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? aboutRefreshDate
           : path === "/first-time-homebuyer-charlotte"
             ? firstTimeBuyerRefreshDate
-            : path === "/seller-concessions-north-carolina"
+            : path === "/investment-property-loans-charlotte" || path === "/construction-loans-charlotte"
+              ? investorConstructionRefreshDate
+              : path === "/seller-concessions-north-carolina"
               ? sellerConcessionsRefreshDate
               : path === "/licensing"
               ? licensingRefreshDate
