@@ -137,6 +137,7 @@ export default function InvestmentPropertyLoansCharlottePage() {
           <div className="mt-6 flex flex-wrap gap-3 text-sm font-medium">
             <Link href="/dscr-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">DSCR Loans</Link>
             <Link href="/bridge-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Bridge Loans</Link>
+            <Link href="/construction-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Construction Financing</Link>
             <Link href="/home-equity-heloc-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">HELOC &amp; Home Equity</Link>
             <Link href="/cash-out-refinance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Cash-Out Refinance</Link>
             <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
