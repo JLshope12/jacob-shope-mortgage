@@ -145,6 +145,21 @@ export default function ConstructionLoansCharlottePage() {
           </div>
         </section>
 
+        <section className="mt-14">
+          <h2 className="text-2xl font-bold text-navy">Building a home to live in or building an investment?</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            The intended use of the finished property matters. A primary-residence construction loan and a non-owner-occupied build can have different down payment, reserve, builder-experience, appraisal, and permanent-financing requirements. A loan intended for a personal residence should not be presented as financing for a speculative build or rental property.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            For an investment build in Charlotte or Lake Norman, I start with the land position, plans and budget, the builder&apos;s experience, projected completion value, cash available, and the plan to sell or hold the property. These details help determine which financing paths are worth reviewing. Terms and availability are lender- and project-specific, and no approval or financing percentage is guaranteed.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 font-medium">
+            <Link href="/investment-property-loans-charlotte" className="text-gold hover:underline">Charlotte Investment Property Financing</Link>
+            <Link href="/bridge-loans-charlotte" className="text-gold hover:underline">Bridge &amp; Short-Term Loans</Link>
+            <Link href="/dscr-loans-charlotte" className="text-gold hover:underline">DSCR Loans for Finished Rentals</Link>
+          </div>
+        </section>
+
         <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-8">
           <h2 className="text-2xl font-bold text-navy">Construction financing topics to review early</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
