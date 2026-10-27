@@ -47,7 +47,7 @@ export default function ConstructionLoansCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-09-08",
+        dateModified: "2026-10-26",
         citation: [FANNIE_CTP_URL, VA_PURCHASE_URL, VA_HANDBOOK_URL],
       },
       {
