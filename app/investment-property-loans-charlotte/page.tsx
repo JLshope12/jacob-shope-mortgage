@@ -33,7 +33,7 @@ export default function InvestmentPropertyLoansCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-09-08",
+        dateModified: "2026-10-26",
         citation: [FANNIE_RENTAL_INCOME, FANNIE_RENTAL_GENERAL],
       },
       {
