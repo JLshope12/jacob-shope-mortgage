@@ -5,7 +5,7 @@ const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/first-time-homebuyer-charlotte`;
 const HUD_BUYING_URL = "https://www.hud.gov/helping-americans/buying-a-home";
 const HUD_FHA_URL = "https://www.hud.gov/buying/loans";
-const NCHFA_URL = "https://www.nchfa.com/home-ownership-partners/community-partners/community-programs/community-partners-loan-pool";
+const NCHFA_URL = "https://www.nchfa.com/home-buyers";
 const CHARLOTTE_HOMEOWNERSHIP_URL =
   "https://www.charlottenc.gov/Streets-and-Neighborhoods/Housing/Resources-for-Homeowners-Renters/Homeownership";
 
