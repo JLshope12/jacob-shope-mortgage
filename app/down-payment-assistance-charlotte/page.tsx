@@ -60,6 +60,7 @@ export default function DownPaymentAssistanceCharlottePage() {
       name: "Mpire Financial",
     },
     mainEntityOfPage: "https://jacobshopemortgage.com/down-payment-assistance-charlotte",
+    dateModified: "2026-10-28",
   };
 
   return (
@@ -108,6 +109,14 @@ export default function DownPaymentAssistanceCharlottePage() {
               >
                 Review HouseCharlotte program information
               </a>
+              <a
+                href="https://www.charlottenc.gov/Streets-and-Neighborhoods/Housing/Resources-for-Homeowners-Renters/Homeownership"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 block font-medium text-gold hover:underline"
+              >
+                City of Charlotte: official program overview
+              </a>
             </article>
 
             <article className="rounded-2xl border border-charcoal/10 bg-offwhite p-7">
@@ -143,6 +152,11 @@ export default function DownPaymentAssistanceCharlottePage() {
             <li><strong className="text-navy">3. Compare the full payment.</strong> Assistance can help with cash to close, but the first mortgage rate, mortgage insurance, taxes, insurance, and second-lien terms still matter.</li>
             <li><strong className="text-navy">4. Build the offer around real numbers.</strong> Before you write an offer, you should know the estimated payment, cash needed, and whether seller concessions could improve the structure further.</li>
           </ol>
+          <div className="mt-7 flex flex-wrap gap-4 text-sm font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Charlotte Pre-Approval Guide</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">Mortgage Credit Guide</Link>
+            <Link href="/seller-concessions-north-carolina" className="text-gold hover:underline">Seller Credits and Rate Buydowns</Link>
+          </div>
         </div>
       </section>
 
@@ -184,7 +198,7 @@ export default function DownPaymentAssistanceCharlottePage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/contact" className="rounded-lg bg-gold px-6 py-3 font-semibold text-white hover:bg-gold/90">Check My Options</Link>
-            <Link href="/loan-programs/first-time-buyer" className="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white hover:text-navy">First-Time Buyer Guide</Link>
+            <Link href="/first-time-homebuyer-charlotte" className="rounded-lg border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white hover:text-navy">First-Time Buyer Guide</Link>
           </div>
         </div>
       </section>
@@ -195,7 +209,7 @@ export default function DownPaymentAssistanceCharlottePage() {
           participating lender, underwriting guidelines, and property. This page is educational and is not a commitment to lend or a guarantee of assistance.
         </p>
         <p className="mt-3">
-          Sources: City of Charlotte / DreamKey Partners HouseCharlotte program information and North Carolina Housing Finance Agency NC Home Advantage Mortgage guidance, reviewed September 2026.
+          Sources: City of Charlotte / DreamKey Partners HouseCharlotte program information and North Carolina Housing Finance Agency NC Home Advantage Mortgage guidance, reviewed October 28, 2026.
         </p>
       </section>
     </div>
