@@ -11,6 +11,7 @@ const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDU
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
 const LINKEDIN_URL = "https://www.linkedin.com/in/jacob-shope-9b8972282";
 const BLOC_URL = "https://www.businessleadersofcharlotte.com/";
+const BLOC_PROFILE_URL = "https://www.businessleadersofcharlotte.com/Sys/PublicProfile/75758528";
 const CHARLOTTE_FIRE_URL = "https://www.charlottenc.gov/Public-Safety/Fire-Department";
 const CHARLOTTE_FIRE_PROMOTION_URL = "https://www.youtube.com/watch?v=BqQZO2EPxvo";
 const GOOGLE_BUSINESS_URL =
@@ -159,6 +160,11 @@ export default function RootLayout({
                     name: "Jacob Shope LinkedIn profile",
                   },
                   {
+                    "@type": "WebPage",
+                    url: BLOC_PROFILE_URL,
+                    name: "Jacob Shope member profile at Business Leaders of Charlotte",
+                  },
+                  {
                     "@type": "VideoObject",
                     url: CHARLOTTE_FIRE_PROMOTION_URL,
                     name: "Charlotte Fire Promotes Jacob Shope To Captain",
@@ -168,6 +174,7 @@ export default function RootLayout({
                   NMLS_URL,
                   GOOGLE_BUSINESS_URL,
                   LINKEDIN_URL,
+                  BLOC_PROFILE_URL,
                   "https://www.instagram.com/jlshopeloans/",
                   "https://www.facebook.com/jacob.shope.33",
                 ],
