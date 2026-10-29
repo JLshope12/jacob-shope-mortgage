@@ -5,6 +5,7 @@ const NMLS_URL = "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDU
 const MPIRE_URL = "https://www.mpirefinancialgroup.com/";
 const LINKEDIN_URL = "https://www.linkedin.com/in/jacob-shope-9b8972282";
 const BLOC_URL = "https://www.businessleadersofcharlotte.com/";
+const BLOC_PROFILE_URL = "https://www.businessleadersofcharlotte.com/Sys/PublicProfile/75758528";
 const CHARLOTTE_FIRE_URL = "https://www.charlottenc.gov/Public-Safety/Fire-Department";
 const CHARLOTTE_FIRE_PROMOTION_URL = "https://www.youtube.com/watch?v=BqQZO2EPxvo";
 const GOOGLE_BUSINESS_URL =
@@ -23,7 +24,7 @@ const profileSchema = {
   "@id": "https://jacobshopemortgage.com/about#profile",
   url: "https://jacobshopemortgage.com/about",
   name: "About Jacob Shope",
-  dateModified: "2026-09-19",
+  dateModified: "2026-10-29",
   mainEntity: {
     "@type": "Person",
     "@id": "https://jacobshopemortgage.com/#jacob-shope",
@@ -97,6 +98,7 @@ const profileSchema = {
       { "@type": "WebPage", url: NMLS_URL, name: "NMLS Consumer Access profile for Jacob Shope" },
       { "@type": "WebPage", url: GOOGLE_BUSINESS_URL, name: "Jacob Shope Mortgage Broker Google Business Profile" },
       { "@type": "WebPage", url: LINKEDIN_URL, name: "Jacob Shope LinkedIn profile" },
+      { "@type": "WebPage", url: BLOC_PROFILE_URL, name: "Jacob Shope member profile at Business Leaders of Charlotte" },
       {
         "@type": "VideoObject",
         url: CHARLOTTE_FIRE_PROMOTION_URL,
@@ -107,6 +109,7 @@ const profileSchema = {
       NMLS_URL,
       GOOGLE_BUSINESS_URL,
       LINKEDIN_URL,
+      BLOC_PROFILE_URL,
       "https://www.instagram.com/jlshopeloans/",
       "https://www.facebook.com/jacob.shope.33",
     ],
@@ -135,7 +138,7 @@ export default function AboutPage() {
             <a href={MPIRE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mpire Financial</a>
             <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Google Business Profile</a>
             <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">LinkedIn</a>
-            <a href={BLOC_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Business Leaders of Charlotte</a>
+            <a href={BLOC_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Business Leaders of Charlotte</a>
             <a href={CHARLOTTE_FIRE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Charlotte Fire Department</a>
             <a href={CHARLOTTE_FIRE_PROMOTION_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Charlotte Fire captain promotion</a>
             <a href="https://www.instagram.com/jlshopeloans/" target="_blank" rel="noopener noreferrer me" className="text-gold hover:underline">Instagram @jlshopeloans</a>
