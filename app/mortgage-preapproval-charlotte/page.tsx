@@ -5,6 +5,7 @@ const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/mortgage-preapproval-charlotte`;
 const CFPB_PREAPPROVAL_URL = "https://www.consumerfinance.gov/owning-a-home/explore/get-a-preapproval-letter/";
 const CFPB_SHOP_URL = "https://www.consumerfinance.gov/consumer-tools/mortgages/shopping-for-a-mortgage/";
+const CFPB_PAPERWORK_URL = "https://www.consumerfinance.gov/owning-a-home/explore/gather-and-update-your-paperwork/";
 
 export const metadata = {
   title: "Mortgage Pre-Approval in Charlotte | Jacob Shope",
@@ -41,8 +42,8 @@ const schema = {
       author: { "@id": `${origin}/#jacob-shope` },
       publisher: { "@id": `${origin}/#mpire-financial` },
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-      dateModified: "2026-09-08",
-      citation: [CFPB_PREAPPROVAL_URL, CFPB_SHOP_URL],
+      dateModified: "2026-10-30",
+      citation: [CFPB_PREAPPROVAL_URL, CFPB_SHOP_URL, CFPB_PAPERWORK_URL],
     },
     {
       "@type": "WebPage",
@@ -105,6 +106,7 @@ export default function MortgagePreapprovalCharlottePage() {
           <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
             <a href={CFPB_PREAPPROVAL_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB pre-approval guidance</a>
             <a href={CFPB_SHOP_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB mortgage shopping guide</a>
+            <a href={CFPB_PAPERWORK_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB paperwork checklist</a>
           </div>
         </section>
 
@@ -119,6 +121,23 @@ export default function MortgagePreapprovalCharlottePage() {
             <Link href="/mortgage-income-employment-charlotte" className="text-gold hover:underline">Income &amp; Employment Guide</Link>
             <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Closing Costs Guide</Link>
           </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">What to have ready for a mortgage pre-approval</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            You do not have to guess what paperwork applies to your situation. This is the starting list I use to identify what a Charlotte-area buyer may need before a serious home search.
+          </p>
+          <ul className="mt-5 list-disc space-y-3 pl-6 leading-relaxed text-charcoal">
+            <li><strong>Income:</strong> Recent pay stubs and W-2s, or tax returns and business records when self-employed. Variable pay, overtime, and other income may require additional history.</li>
+            <li><strong>Funds:</strong> Recent bank or asset statements for the proposed down payment, closing costs, and any reserves. If you expect gift funds, mention them early.</li>
+            <li><strong>Debts and credit:</strong> Know your current monthly obligations and flag any recent late payments, disputed accounts, or planned new debt so the full credit profile can be reviewed.</li>
+            <li><strong>Purchase plan:</strong> Share the expected price range, down payment, timeline, and whether you are considering a condo, existing home, or new construction.</li>
+          </ul>
+          <p className="mt-4 text-sm leading-relaxed text-charcoal">
+            Documentation varies by loan program and borrower. Request a secure upload method for financial records rather than sending sensitive documents in an ordinary email.
+          </p>
+          <a href={CFPB_PAPERWORK_URL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-medium text-gold hover:underline">Read the CFPB paperwork guidance</a>
         </section>
 
         <section className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -142,6 +161,21 @@ export default function MortgagePreapprovalCharlottePage() {
           </p>
           <p className="mt-4 leading-relaxed text-charcoal">
             Buyers who are early in the process can also review the <Link href="/first-time-homebuyer-charlotte" className="font-medium text-gold hover:underline">Charlotte first-time homebuyer guide</Link> and the broader <Link href="/mortgage-guides" className="font-medium text-gold hover:underline">mortgage guide library</Link> before deciding what to do next.
+          </p>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Before you submit an offer in Charlotte or Lake Norman</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            I recommend revisiting the numbers on the specific home before an offer is written. Your pre-approval amount is not a promise that every property or payment will fit the same way.
+          </p>
+          <ul className="mt-5 list-disc space-y-3 pl-6 leading-relaxed text-charcoal">
+            <li>Run a payment estimate using the property's expected taxes, homeowners insurance, HOA dues, and mortgage insurance when applicable. <Link href="/how-much-house-can-i-afford-charlotte" className="font-medium text-gold hover:underline">Review Charlotte affordability</Link>.</li>
+            <li>Confirm the funds you expect to need at closing, and discuss whether the offer should include seller-paid closing costs or a temporary rate buydown. <Link href="/seller-concessions-north-carolina" className="font-medium text-gold hover:underline">Understand seller concessions</Link>.</li>
+            <li>Tell your lender about the property type and timing. Condos, manufactured homes, and new construction may have requirements beyond your personal pre-approval. <Link href="/mortgage-appraisal-charlotte" className="font-medium text-gold hover:underline">Review appraisal considerations</Link>.</li>
+          </ul>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            When your Realtor is preparing an offer, I can help check how the proposed price, financing terms, and closing timeline work together.
           </p>
         </section>
 
