@@ -100,7 +100,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-1">
-            <p>Jacob Shope, NMLS# 2090979 | Mpire Financial LLC, NMLS# 2108504</p>
+            <p>Jacob Shope, NMLS# 2090979 | Mpire Financial Group LLC, NMLS# 2108504</p>
             <p>189 S Orange Ave #2020, Orlando, FL 32801</p>
             <p>
               Verify Jacob Shope&apos;s mortgage license through{" "}
@@ -135,7 +135,7 @@ export function Footer() {
           </p>
 
           <p className="text-[0.65rem] text-white/60 md:text-[0.7rem]">
-            © {new Date().getFullYear()} Jacob Shope | Mpire Financial LLC, NMLS# 2108504. All rights reserved.
+            © {new Date().getFullYear()} Jacob Shope | Mpire Financial Group LLC, NMLS# 2108504. All rights reserved.
           </p>
         </div>
       </div>
