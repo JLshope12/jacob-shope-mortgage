@@ -10,7 +10,7 @@ const GOOGLE_BUSINESS_URL =
 export const metadata = {
   title: "Jacob Shope Licensing | NMLS# 2090979 | Mpire Financial",
   description:
-    "Licensing and disclosure information for Jacob Shope, Mortgage Loan Officer NMLS# 2090979 with Mpire Financial LLC, NMLS# 2108504.",
+    "Licensing and disclosure information for Jacob Shope, Mortgage Loan Officer NMLS# 2090979 with Mpire Financial Group LLC, NMLS# 2108504.",
   alternates: { canonical: "/licensing" },
   authors: [{ name: "Jacob Shope", url: "/about" }],
 };
@@ -24,7 +24,7 @@ const schema = {
   about: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
   publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
   isPartOf: { "@id": "https://jacobshopemortgage.com/#website" },
-  dateModified: "2026-09-22",
+  dateModified: "2026-10-31",
   citation: [JACOB_NMLS_URL, MPIRE_URL, LINKEDIN_URL, GOOGLE_BUSINESS_URL],
 };
 
@@ -34,7 +34,7 @@ export default function LicensingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <LegalPage
         title="Licensing and Disclosures"
-        updated="September 22, 2026"
+        updated="October 31, 2026"
         sections={[
           {
             title: "Jacob Shope",
@@ -42,7 +42,7 @@ export default function LicensingPage() {
               <>
                 <p>Jacob Shope, Mortgage Loan Officer, NMLS# 2090979.</p>
                 <p>
-                  Mortgage guidance and educational resources on this site are associated with Jacob Shope and his work with Mpire Financial LLC.
+                  Mortgage guidance and educational resources on this site are associated with Jacob Shope and his work with Mpire Financial Group LLC.
                 </p>
                 <p>
                   <Link className="font-medium text-gold underline" href="/about" rel="author">
@@ -53,10 +53,10 @@ export default function LicensingPage() {
             ),
           },
           {
-            title: "Mpire Financial LLC",
+            title: "Mpire Financial Group LLC",
             content: (
               <>
-                <p>Mpire Financial LLC, NMLS# 2108504.</p>
+                <p>Mpire Financial Group LLC, NMLS# 2108504.</p>
                 <p>189 S Orange Ave #2020, Orlando, FL 32801.</p>
                 <p>
                   <a
