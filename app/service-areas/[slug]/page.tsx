@@ -40,6 +40,59 @@ const LOCAL_RESOURCES: Record<
       detail: "State homebuyer and down-payment-assistance resources maintained by NCHFA.",
     },
   ],
+  huntersville: [
+    {
+      href: MECKLENBURG_TAX_URL,
+      label: "Mecklenburg County property tax records",
+      detail: "Check assessed value and actual tax-bill information before estimating the monthly escrow amount.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "NC Housing Finance Agency homebuyer options",
+      detail: "Review official state mortgage and down-payment-assistance program information and eligibility.",
+    },
+  ],
+  cornelius: [
+    {
+      href: MECKLENBURG_TAX_URL,
+      label: "Mecklenburg County property tax records",
+      detail: "Review the property's assessed value and tax information when estimating the payment for an inland or waterfront home.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "NC Housing Finance Agency homebuyer options",
+      detail: "See current state-supported mortgage and down-payment-assistance resources.",
+    },
+  ],
+  davidson: [
+    {
+      href: MECKLENBURG_TAX_URL,
+      label: "Mecklenburg County property tax records",
+      detail: "Verify assessed value and tax information for a property located in Mecklenburg County.",
+    },
+    {
+      href: IREDELL_TAX_URL,
+      label: "Iredell County tax and land records",
+      detail: "For an address in Iredell County, use the county's official parcel and tax-record resources.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "NC Housing Finance Agency homebuyer options",
+      detail: "Explore official first-time buyer and other state home-financing resources.",
+    },
+  ],
+  mooresville: [
+    {
+      href: IREDELL_TAX_URL,
+      label: "Iredell County tax and land records",
+      detail: "Review county real-property records and tax information before estimating escrows.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "NC Housing Finance Agency homebuyer options",
+      detail: "Check current state homebuyer and down-payment-assistance eligibility.",
+    },
+  ],
   "lake-norman": [
     {
       href: MECKLENBURG_TAX_URL,
@@ -69,9 +122,36 @@ const LOCAL_RESOURCES: Record<
   ],
 };
 
+const LAKE_NORMAN_TOWN_BUYER_NOTES: Record<string, string[]> = {
+  huntersville: [
+    "Compare the total payment, not just the sale price: municipal and county property taxes, insurance, and HOA dues may all affect affordability.",
+    "For new construction, confirm the property completion timeline, builder requirements, and when the mortgage can close.",
+    "For townhomes or condominiums, ask early about any HOA fees and lender project-review requirements.",
+  ],
+  cornelius: [
+    "For waterfront or near-water properties, check the address-specific insurance needs and appraisal considerations before assuming the payment will match an inland home.",
+    "Review any HOA dues, property-use restrictions, or dock-related obligations that apply to the particular property.",
+    "Use the county's official property tax information to make a more realistic estimate of monthly escrows.",
+  ],
+  davidson: [
+    "Older homes, newer communities, and condominiums can have very different appraisal and property-condition considerations.",
+    "For a condominium or townhome, review HOA dues and any lender project requirements before making an offer.",
+    "Confirm the parcel's county and property-tax information rather than relying on a generic Davidson payment estimate.",
+  ],
+  mooresville: [
+    "For a new build, clarify whether the financing is for a completed home or a construction project with land, builder, and draw requirements.",
+    "For properties with acreage, well, or septic features, ask about any property-specific appraisal and underwriting documentation.",
+    "Check official Iredell County property records and include insurance, taxes, and any HOA dues in the payment estimate.",
+  ],
+};
+
 const LOCAL_PAGE_MODIFIED: Record<string, string> = {
   charlotte: "2026-09-21",
   "lake-norman": "2026-10-04",
+  huntersville: "2026-10-31",
+  cornelius: "2026-10-31",
+  davidson: "2026-10-31",
+  mooresville: "2026-10-31",
 };
 
 export async function generateStaticParams() {
@@ -172,6 +252,7 @@ export default async function ServiceAreaPage({ params }: Props) {
     .filter(Boolean) as ServiceArea[];
   const localResources = LOCAL_RESOURCES[area.slug] ?? [];
   const localPageModified = LOCAL_PAGE_MODIFIED[area.slug];
+  const townBuyerNotes = LAKE_NORMAN_TOWN_BUYER_NOTES[area.slug];
 
   const pageUrl = `${origin}/service-areas/${area.slug}`;
   const schema = {
@@ -273,6 +354,27 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/construction-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Construction Loans</Link>
               <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
               <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
+            </div>
+          </section>
+        )}
+
+        {townBuyerNotes && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">What to review before an offer in {area.name}</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              The property details can change the loan review and monthly payment. These are
+              practical questions worth resolving before you commit to a purchase.
+            </p>
+            <ul className="mt-5 list-disc space-y-3 pl-6 leading-relaxed text-charcoal">
+              {townBuyerNotes.map((note) => (
+                <li key={note}>{note}</li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium">
+              <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Pre-Approval Guide</Link>
+              <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Closing Costs</Link>
+              <Link href="/mortgage-appraisal-charlotte" className="text-gold hover:underline">Appraisal Guide</Link>
+              <Link href="/service-areas/lake-norman" className="text-gold hover:underline">Lake Norman Mortgage Guide</Link>
             </div>
           </section>
         )}
