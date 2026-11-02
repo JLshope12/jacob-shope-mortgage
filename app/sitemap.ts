@@ -15,6 +15,7 @@ const lakeNormanTownRefreshDate = new Date("2026-10-31T00:00:00-04:00");
 const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
 const creditGuideRefreshDate = new Date("2026-09-24T00:00:00-04:00");
 const dscrGuideRefreshDate = new Date("2026-11-01T00:00:00-04:00");
+const mortgageGuidesRefreshDate = new Date("2026-11-02T00:00:00-05:00");
 const preapprovalRefreshDate = new Date("2026-10-30T00:00:00-04:00");
 const consolidatedProgramSlugs = new Set(["first-time-buyer", "va"]);
 
@@ -65,7 +66,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
               ? sellerConcessionsRefreshDate
               : path === "/licensing"
               ? licensingRefreshDate
-              : path === "/dscr-loans-charlotte"
+              : path === "/mortgage-guides"
+                ? mortgageGuidesRefreshDate
+                : path === "/dscr-loans-charlotte"
                 ? dscrGuideRefreshDate
                 : path === "/mortgage-credit-score-charlotte"
                   ? creditGuideRefreshDate
