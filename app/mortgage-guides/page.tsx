@@ -21,6 +21,24 @@ const CORE_GUIDES = [
   ["Mortgage Broker vs Lender", "/mortgage-broker-vs-lender-charlotte"],
 ] as const;
 
+const OFFICIAL_MORTGAGE_RESOURCES = [
+  {
+    label: "CFPB: Buying a house",
+    href: "https://www.consumerfinance.gov/owning-a-home/",
+    description: "Neutral guidance for comparing loan offers, reviewing closing documents, and preparing for a home purchase.",
+  },
+  {
+    label: "VA: Veterans home loans",
+    href: "https://www.va.gov/housing-assistance/home-loans/",
+    description: "Official information on VA loan types, eligibility, and the Certificate of Eligibility.",
+  },
+  {
+    label: "NC Housing Finance Agency: Home buyers",
+    href: "https://www.nchfa.com/home-buyers",
+    description: "Current North Carolina homebuyer and down-payment-assistance program information.",
+  },
+] as const;
+
 export const metadata = {
   title: "Mortgage Guides by Jacob Shope | Charlotte & Lake Norman",
   description:
@@ -132,7 +150,8 @@ const collectionSchema = {
       author: { "@id": `${origin}/#jacob-shope` },
       publisher: { "@id": `${origin}/#mpire-financial` },
       isPartOf: { "@id": `${origin}/#website` },
-      dateModified: "2026-09-09",
+      dateModified: "2026-11-02",
+      citation: OFFICIAL_MORTGAGE_RESOURCES.map((resource) => resource.href),
       about: [
         "Mortgages",
         "Charlotte real estate financing",
@@ -220,6 +239,29 @@ export default function MortgageGuidesPage() {
             </section>
           ))}
         </div>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Official mortgage and homebuyer resources</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            Alongside my local guides, these government and state-agency resources are useful for
+            checking loan basics, reviewing closing paperwork, and confirming program eligibility
+            directly with the source. Requirements can change, so verify the current details for
+            your specific loan and property.
+          </p>
+          <ul className="mt-6 space-y-5">
+            {OFFICIAL_MORTGAGE_RESOURCES.map((resource) => (
+              <li key={resource.href}>
+                <a href={resource.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-gold hover:underline">
+                  {resource.label}
+                </a>
+                <p className="mt-1 text-sm leading-relaxed text-charcoal">{resource.description}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-sm leading-relaxed text-charcoal">
+            You can also <Link href="/licensing" className="font-medium text-gold hover:underline">verify my NMLS licensing details</Link> before you apply.
+          </p>
+        </section>
 
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Have a mortgage question that is not covered yet?</h2>
