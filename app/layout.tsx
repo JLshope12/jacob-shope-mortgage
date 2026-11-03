@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   applicationName: "Jacob Shope Mortgage",
   authors: [{ name: "Jacob Shope", url: "/about" }],
   creator: "Jacob Shope",
-  publisher: "Mpire Financial LLC",
+  publisher: "Mpire Financial Group LLC",
   category: "Mortgage and real estate financing",
   title: "Jacob Shope | Charlotte Mortgage Broker",
   description:
@@ -229,7 +229,7 @@ export default function RootLayout({
               {
                 "@type": "Organization",
                 "@id": "https://jacobshopemortgage.com/#mpire-financial",
-                name: "Mpire Financial LLC",
+                name: "Mpire Financial Group LLC",
                 url: MPIRE_URL,
                 sameAs: [MPIRE_URL],
                 identifier: {
