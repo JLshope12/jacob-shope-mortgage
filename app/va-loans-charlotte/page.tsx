@@ -6,6 +6,8 @@ const pageUrl = `${origin}/va-loans-charlotte`;
 const VA_ELIGIBILITY_URL = "https://www.va.gov/housing-assistance/home-loans/eligibility/";
 const VA_PURCHASE_URL = "https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/";
 const VA_BUYING_PROCESS_URL = "https://www.va.gov/housing-assistance/home-loans/home-buying-process/";
+const VA_COE_URL = "https://www.va.gov/housing-assistance/home-loans/how-to-request-coe/";
+const VA_COSTS_URL = "https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/";
 
 export const metadata = {
   title: "VA Loans Charlotte NC | Jacob Shope Mortgage",
@@ -20,12 +22,25 @@ const FAQS = [
   ["Do VA loans require a down payment?", "Many eligible VA borrowers can purchase with no down payment, although the final structure depends on entitlement, the property, the loan amount, and the full file."],
   ["Are VA appraisals different?", "VA appraisals include both a value opinion and minimum property requirement review. I help borrowers and Realtors understand the process before issues become surprises."],
   ["Can VA loans be used around Charlotte and Lake Norman?", "Yes. VA financing is widely used for eligible properties throughout Charlotte, Huntersville, Cornelius, Davidson, Mooresville, and the greater Lake Norman area."],
+  ["Does a Certificate of Eligibility mean my VA loan is approved?", "No. A COE confirms eligibility for the VA home loan benefit. The lender still reviews income, credit, debts, assets, and the property before approving a loan."],
+  ["Does the VA 4% seller-concession limit apply to every seller-paid closing cost?", "No. VA distinguishes ordinary buyer closing costs from seller concessions. Seller concessions such as paying the VA funding fee are subject to a 4% limit based on reasonable value; ordinary closing-cost credits are treated separately."],
+  ["Is a VA appraisal the same as a home inspection?", "No. VA explains that its appraisal estimates market value and does not replace a separate home inspection."],
 ] as const;
 
 export default function VALoansCharlottePage() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}#article`,
+        headline: "VA Loans in Charlotte, NC: Eligibility, Costs and Purchase Planning",
+        mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+        dateModified: "2026-11-03",
+        author: { "@id": `${origin}/#jacob-shope` },
+        publisher: { "@id": `${origin}/#mpire-financial` },
+        citation: [VA_ELIGIBILITY_URL, VA_PURCHASE_URL, VA_BUYING_PROCESS_URL, VA_COE_URL, VA_COSTS_URL],
+      },
       {
         "@type": "WebPage",
         "@id": `${pageUrl}#webpage`,
@@ -35,7 +50,7 @@ export default function VALoansCharlottePage() {
           "VA mortgage guidance for eligible veterans, active-duty service members, and military families buying in Charlotte and Lake Norman.",
         author: { "@id": `${origin}/#jacob-shope` },
         isPartOf: { "@id": `${origin}/#website` },
-        citation: [VA_ELIGIBILITY_URL, VA_PURCHASE_URL, VA_BUYING_PROCESS_URL],
+        citation: [VA_ELIGIBILITY_URL, VA_PURCHASE_URL, VA_BUYING_PROCESS_URL, VA_COE_URL, VA_COSTS_URL],
         about: [
           { "@type": "Thing", name: "VA home loans" },
           { "@type": "Place", name: "Charlotte, North Carolina" },
@@ -90,6 +105,50 @@ export default function VALoansCharlottePage() {
           ))}
         </section>
 
+        <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-7 md:p-8">
+          <h2 className="text-2xl font-bold text-navy">Before a VA offer: confirm your benefit and your budget</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            A Certificate of Eligibility (COE) confirms that you qualify for the VA home loan benefit. It is not a final mortgage approval.
+            VA says you can request a COE online, by mail, or in many cases through your lender. Veterans may need a DD214,
+            while active-duty service members may need a signed statement of service.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            I review the COE together with income, credit, existing debts, available cash, and your intended property before recommending a purchase range.
+            Around Charlotte and Lake Norman, it is also worth checking property taxes, insurance, homeowners association dues,
+            and whether the property has financing requirements that could affect the offer.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={VA_COE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA: How to request a COE</a>
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Charlotte pre-approval checklist</Link>
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-2xl border border-navy/10 bg-white p-7 md:p-8">
+          <h2 className="text-2xl font-bold text-navy">VA closing costs, seller credits and inspections</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            No down payment does not mean there are no expenses to plan for. VA purchase borrowers should review the Loan Estimate,
+            appraisal and inspection expenses, prepaid items, and any VA funding fee that applies. Some borrowers are exempt from
+            the funding fee, including certain borrowers receiving VA disability compensation. VA generally permits financing
+            the funding fee on a purchase loan, but not simply adding other closing costs to the loan amount.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            The VA makes an important distinction when negotiating seller credits: ordinary loan closing costs are separate from
+            the 4% limit on seller concessions. Certain benefits, such as a seller paying the VA funding fee, count as concessions.
+            What is usable still depends on the actual charges, contract and lender review. This can be more useful to plan
+            before writing an offer than assuming every seller credit follows the same limit.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            VA also explains that a VA appraisal is not a home inspection. Buyers should consider a separate inspection to
+            evaluate the condition of the home. For a house with unique features or construction near Lake Norman, I work
+            with the buyer and Realtor to review property and appraisal considerations early.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={VA_COSTS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA: Funding fee and closing costs (updated October 5, 2026)</a>
+            <Link href="/seller-concessions-north-carolina" className="text-gold hover:underline">Seller credit planning in North Carolina</Link>
+            <Link href="/mortgage-appraisal-charlotte" className="text-gold hover:underline">Charlotte mortgage appraisal guide</Link>
+          </div>
+        </section>
+
         <section className="mt-14">
           <h2 className="text-3xl font-bold tracking-tight text-navy">Common VA mortgage questions</h2>
           <div className="mt-6 space-y-5">
@@ -105,12 +164,14 @@ export default function VALoansCharlottePage() {
         <section className="mt-14 rounded-2xl border border-charcoal/10 bg-white p-7 md:p-8">
           <h2 className="text-2xl font-bold text-navy">Official VA home loan resources</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
-            For benefit eligibility and program rules, I use the Department of Veterans Affairs as the primary source. These official VA resources explain Certificate of Eligibility requirements, VA-backed purchase loans, and the home-buying process.
+            For benefit eligibility and program rules, I use the Department of Veterans Affairs as the primary source. These official VA resources explain eligibility, how to request a Certificate of Eligibility, VA-backed purchase loans, funding fees and closing costs, and the home-buying process.
           </p>
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
             <a href={VA_ELIGIBILITY_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA home loan eligibility</a>
             <a href={VA_PURCHASE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA-backed purchase loans</a>
             <a href={VA_BUYING_PROCESS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">VA home-buying process</a>
+            <a href={VA_COE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">How to request a COE</a>
+            <a href={VA_COSTS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Funding fee and closing costs</a>
           </div>
         </section>
 
