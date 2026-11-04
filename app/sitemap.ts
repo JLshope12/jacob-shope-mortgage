@@ -14,6 +14,7 @@ const lakeNormanServiceRefreshDate = new Date("2026-10-04T00:00:00-04:00");
 const lakeNormanTownRefreshDate = new Date("2026-10-31T00:00:00-04:00");
 const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
 const creditGuideRefreshDate = new Date("2026-09-24T00:00:00-04:00");
+const brokerVsLenderRefreshDate = new Date("2026-11-04T00:00:00-05:00");
 const vaGuideRefreshDate = new Date("2026-11-03T00:00:00-05:00");
 const dscrGuideRefreshDate = new Date("2026-11-01T00:00:00-04:00");
 const mortgageGuidesRefreshDate = new Date("2026-11-02T00:00:00-05:00");
@@ -73,6 +74,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
                 ? dscrGuideRefreshDate
                 : path === "/va-loans-charlotte"
                   ? vaGuideRefreshDate
+                : path === "/mortgage-broker-vs-lender-charlotte"
+                  ? brokerVsLenderRefreshDate
                 : path === "/mortgage-credit-score-charlotte"
                   ? creditGuideRefreshDate
                 : path === "/mortgage-preapproval-charlotte"
