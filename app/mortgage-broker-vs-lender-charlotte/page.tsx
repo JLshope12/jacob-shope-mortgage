@@ -5,6 +5,8 @@ const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/mortgage-broker-vs-lender-charlotte`;
 const CFPB_BROKER_URL = "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-mortgage-lender-and-a-mortgage-broker-en-130/";
 const CFPB_SHOP_URL = "https://www.consumerfinance.gov/owning-a-home/explore/contact-multiple-lenders/";
+const CFPB_COMPARE_URL = "https://www.consumerfinance.gov/owning-a-home/compare/compare-loan-estimates/";
+const CFPB_LOAN_ESTIMATE_URL = "https://www.consumerfinance.gov/owning-a-home/loan-estimate/";
 
 export const metadata = {
   title: "Mortgage Broker vs Lender in Charlotte | Jacob Shope",
@@ -19,6 +21,8 @@ const faq = [
   ["What is a direct mortgage lender?", "A direct lender is a financial institution or mortgage company that makes loans directly to borrowers through its own lending platform."],
   ["Is a mortgage broker the same as a loan officer?", "Not exactly. A loan officer is the licensed professional working with the borrower. A loan officer may work for a bank, direct lender, credit union, or mortgage brokerage."],
   ["Why might a Charlotte buyer use a mortgage broker?", "A broker can be useful when a buyer wants to compare structures, has a property or income scenario that needs more than one option, or simply wants someone to evaluate alternatives across multiple lending sources."],
+  ["Is a mortgage broker always cheaper than a bank?", "No. The better offer depends on the specific loan, rate, points, lender credits, origination charges, mortgage insurance, and closing timeline. Compare Loan Estimates for the same loan type and terms."],
+  ["How do I compare two Charlotte mortgage offers?", "Ask for Loan Estimates with the same loan amount, loan type, down payment, and rate-lock assumptions. Compare total monthly payment, origination charges, lender credits, estimated cash to close, and the five-year cost shown on page three."],
 ] as const;
 
 export default function MortgageBrokerVsLenderCharlottePage() {
@@ -33,8 +37,8 @@ export default function MortgageBrokerVsLenderCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-09-08",
-        citation: [CFPB_BROKER_URL, CFPB_SHOP_URL],
+        dateModified: "2026-11-04",
+        citation: [CFPB_BROKER_URL, CFPB_SHOP_URL, CFPB_COMPARE_URL, CFPB_LOAN_ESTIMATE_URL],
       },
       {
         "@type": "WebPage",
@@ -148,6 +152,50 @@ export default function MortgageBrokerVsLenderCharlottePage() {
             <Link href="/mortgage-credit-score-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Credit</Link>
             <Link href="/service-areas/charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Charlotte Mortgage Options</Link>
             <Link href="/service-areas/lake-norman" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Lake Norman Mortgage Options</Link>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">How to compare two mortgage offers fairly</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            A quoted rate by itself cannot tell you which loan costs less. The Consumer Financial Protection Bureau recommends
+            comparing official Loan Estimates for the same loan amount and loan type. Try to compare offers issued close
+            together, and confirm whether each rate is locked, because pricing can change from day to day.
+          </p>
+          <ol className="mt-5 list-decimal space-y-3 pl-5 leading-relaxed text-charcoal">
+            <li><strong>Start with the same assumptions.</strong> Compare the same purchase price, loan amount, down payment, program, and loan term. If one offer uses discount points and another does not, note that difference.</li>
+            <li><strong>Check the entire payment.</strong> Look at principal, interest, mortgage insurance if applicable, and estimated property taxes and insurance, not just the advertised rate.</li>
+            <li><strong>Compare charges and credits.</strong> The Loan Estimate shows origination charges in Section A, certain other lender-controlled charges in Section B, and lender credits in Section J. Ask what is included in each offer.</li>
+            <li><strong>Review cash needed at closing.</strong> A lower rate may require more upfront cash. A lender credit may offset closing costs but can come with a higher rate.</li>
+            <li><strong>Look beyond month one.</strong> The Comparisons section on page three provides a five-year cost snapshot. Also ask about expected closing timing and how the professional will handle issues during underwriting.</li>
+          </ol>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            A broker is not automatically cheaper than a bank or direct lender. The useful question is which complete
+            financing offer makes sense for your situation, after considering fees, timing, and tradeoffs.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href={CFPB_COMPARE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Compare Loan Estimates</a>
+            <a href={CFPB_LOAN_ESTIMATE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Loan Estimate explainer</a>
+          </div>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">Why the property matters around Charlotte and Lake Norman</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Two similar offers can become very different once the property is part of the conversation. A Charlotte
+            condominium may need project eligibility reviewed. A Lake Norman home may have HOA obligations, a
+            unique appraisal, or a higher price that changes the loan options. New construction also raises questions
+            about the builder, construction timeline, and whether the financing covers the build or only the finished home.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Before choosing a lender or broker, ask how the proposed loan handles that exact property and whether the
+            loan professional has a plan for the appraisal, underwriting, and contract deadlines.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <Link href="/mortgage-appraisal-charlotte" className="text-gold hover:underline">Charlotte Appraisal Guide</Link>
+            <Link href="/construction-loans-charlotte" className="text-gold hover:underline">Construction Financing</Link>
+            <Link href="/investment-property-loans-charlotte" className="text-gold hover:underline">Investment Property Loans</Link>
+            <Link href="/service-areas/lake-norman" className="text-gold hover:underline">Lake Norman Mortgage Guide</Link>
           </div>
         </section>
 
