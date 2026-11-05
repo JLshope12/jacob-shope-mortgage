@@ -6,6 +6,9 @@ const pageUrl = `${origin}/mortgage-credit-score-charlotte`;
 const CFPB_CREDIT_SCORE = "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-score-en-315/";
 const CFPB_MORTGAGE_CREDIT = "https://www.consumerfinance.gov/ask-cfpb/does-my-credit-score-affect-my-ability-to-get-a-mortgage-loan-or-the-mortgage-rate-i-pay-en-319/";
 const CFPB_CREDIT_CHECKS = "https://www.consumerfinance.gov/ask-cfpb/what-exactly-happens-when-a-mortgage-lender-checks-my-credit-en-2005/";
+const CFPB_SCORE_MODELS = "https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/answers/key-terms/";
+const CFPB_REPORT_ERRORS = "https://www.consumerfinance.gov/ask-cfpb/what-are-common-credit-report-errors-that-i-should-look-for-on-my-credit-report-en-313/";
+const CFPB_BUYER_CREDIT_PREP = "https://www.consumerfinance.gov/owning-a-home/prepare/get-your-money-situation-in-order/";
 const FANNIE_CREDIT_REQUIREMENTS = "https://selling-guide.fanniemae.com/sel/b3-5.1-01/general-requirements-credit-scores";
 const FANNIE_DU_CREDIT_UPDATE = "https://singlefamily.fanniemae.com/applications-technology/desktop-underwriter-desktop-originator/desktop-underwriter-credit-risk-assessment-updates";
 const FHFA_CREDIT_SCORES = "https://www.fhfa.gov/policy/credit-scores";
@@ -28,6 +31,14 @@ const FAQS = [
     "Not necessarily. It is more useful to review your full scenario and compare what is available now with the value of waiting.",
   ],
   [
+    "Will a 30-, 60-, or 90-day late payment automatically disqualify me?",
+    "Not automatically in every program. The type of account, severity, timing, current payment status, and the rest of the loan file all matter. A recent mortgage late may be reviewed differently from a late on another type of debt.",
+  ],
+  [
+    "Why is my mortgage credit score different from the score in my app?",
+    "There are different scoring models and credit-report sources. The score a mortgage lender uses can differ from the score displayed by your bank or credit-monitoring app.",
+  ],
+  [
     "Can paying down debt help before applying for a mortgage?",
     "Sometimes, but the effect depends on the account and timing. Review the mortgage strategy before making major credit changes.",
   ],
@@ -43,13 +54,16 @@ const schema = {
       description:
         "A Charlotte mortgage credit guide from Jacob Shope explaining how credit fits into the broader mortgage qualification picture.",
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-      dateModified: "2026-09-24",
+      dateModified: "2026-11-05",
       author: { "@id": `${origin}/#jacob-shope` },
       publisher: { "@id": `${origin}/#mpire-financial` },
       citation: [
         CFPB_CREDIT_SCORE,
         CFPB_MORTGAGE_CREDIT,
         CFPB_CREDIT_CHECKS,
+        CFPB_SCORE_MODELS,
+        CFPB_REPORT_ERRORS,
+        CFPB_BUYER_CREDIT_PREP,
         FANNIE_CREDIT_REQUIREMENTS,
         FANNIE_DU_CREDIT_UPDATE,
         FHFA_CREDIT_SCORES,
@@ -155,6 +169,70 @@ export default function MortgageCreditScoreCharlottePage() {
           </div>
         </section>
 
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">Why your mortgage credit score may look different from your app</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            A score you see through a bank, card issuer, or credit-monitoring app is useful for watching trends, but it may not
+            be the score used for mortgage underwriting or pricing. The CFPB explains that a person can have multiple credit
+            scores because scoring models, credit-report data, loan types, and the date of calculation can differ.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            For a Charlotte home purchase, compare mortgage options using the lender&apos;s actual credit review and loan program,
+            not a single number from an app. The score and the underlying payment history both matter.
+          </p>
+          <a href={CFPB_SCORE_MODELS} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-medium text-gold hover:underline">
+            CFPB: Why you have more than one credit score
+          </a>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">What if you have a 30-, 60-, or 90-day late payment?</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            An isolated late payment and a recent serious delinquency are not interchangeable. Underwriting may consider
+            the account type, how many payments were missed, when the delinquency occurred, whether the account is now current,
+            the reason and documentation, and the borrower&apos;s overall risk. Mortgage lates can receive different scrutiny
+            than a late payment on a credit card, installment loan, or student loan.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            If you have a reported late, send the relevant statement or payment history and explain what happened. We can
+            review the loan program and underwriting path before assuming that either approval or denial is certain.
+            An explanation by itself does not erase an accurate late payment, and an automated underwriting result is not
+            a promise of final loan approval.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Preapproval and documentation</Link>
+            <Link href="/fha-vs-conventional-charlotte" className="text-gold hover:underline">Compare FHA and conventional</Link>
+            <Link href="/va-loans-charlotte" className="text-gold hover:underline">VA loan guidance</Link>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">Three practical steps before you shop for a mortgage</h2>
+          <ol className="mt-5 list-decimal space-y-4 pl-6 leading-relaxed text-charcoal">
+            <li>
+              <strong>Review all three credit reports.</strong> Check reported balances, payment history, current account
+              status, and any recent missed payments. A credit report and a credit score are not the same thing.
+            </li>
+            <li>
+              <strong>Correct mistakes with evidence.</strong> If an account is incorrectly listed as late, the CFPB
+              recommends disputing the inaccurate information with the credit reporting company and the company that
+              supplied it. Keep supporting records. A truthful, accurate late is not a reporting error simply because
+              it makes qualifying harder.
+            </li>
+            <li>
+              <strong>Review the full loan plan before changing accounts.</strong> New debt, large balance changes, and
+              closing accounts can affect more than one part of the file. If you are comparing lenders, the CFPB explains
+              that multiple mortgage credit checks in a 45-day shopping window are generally treated as a single
+              inquiry, so comparison shopping need not mean accepting the first offer.
+            </li>
+          </ol>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href={CFPB_REPORT_ERRORS} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Common report errors and disputes</a>
+            <a href={CFPB_CREDIT_CHECKS} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Shopping for a mortgage and inquiries</a>
+            <a href={CFPB_BUYER_CREDIT_PREP} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Preparing your credit to buy</a>
+          </div>
+        </section>
+
         <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
           <h2 className="text-2xl font-bold text-navy">Common credit questions</h2>
           <div className="mt-6 space-y-6">
@@ -192,6 +270,7 @@ export default function MortgageCreditScoreCharlottePage() {
             <a href={CFPB_CREDIT_SCORE} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: What is a credit score?</a>
             <a href={CFPB_MORTGAGE_CREDIT} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Credit scores and mortgages</a>
             <a href={CFPB_CREDIT_CHECKS} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Mortgage credit checks</a>
+            <a href={CFPB_REPORT_ERRORS} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Correcting credit report errors</a>
           </div>
         </section>
 
