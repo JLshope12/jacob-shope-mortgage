@@ -6,6 +6,9 @@ const pageUrl = `${origin}/construction-loans-charlotte`;
 const FANNIE_CTP_URL = "https://singlefamily.fanniemae.com/learning-center/originating-and-underwriting/faqs-construction-permanent-financing";
 const VA_PURCHASE_URL = "https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/";
 const VA_HANDBOOK_URL = "https://www.benefits.va.gov/WARMS/docs/admin26/m26-07/vap26-7-chapter7-loans-requiring-special-underwriting-guaranty-and-other-considerations.pdf";
+const NC_CONTRACTOR_LOOKUP_URL = "https://www.nclbgc.org/";
+const MECK_PERMIT_URL = "https://code.mecknc.gov/permitting";
+const IREDELL_PERMIT_URL = "https://www.iredellcountync.gov/232/Development-Services";
 
 export const metadata = {
   title: "Construction Loans Charlotte NC | Jacob Shope Mortgage",
@@ -29,6 +32,10 @@ const FAQS = [
     "Sometimes. The treatment of owned land, a land purchase, and existing equity depends on the loan program, project structure, appraisal, and lender requirements.",
   ],
   [
+    "What should I have ready for construction loan pre-approval?",
+    "Start with the land address and ownership details, preliminary house plans and specifications, a line-item budget, builder information, expected timeline, and your income and asset documents. Lenders may request more as the project develops.",
+  ],
+  [
     "Can eligible veterans use VA financing to build a home?",
     "VA guidance confirms that eligible borrowers may use VA-backed purchase financing to build a new home, and the VA Lenders Handbook permits both one-time and two-time construction loans subject to program and lender requirements.",
   ],
@@ -47,8 +54,8 @@ export default function ConstructionLoansCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-10-26",
-        citation: [FANNIE_CTP_URL, VA_PURCHASE_URL, VA_HANDBOOK_URL],
+        dateModified: "2026-11-06",
+        citation: [FANNIE_CTP_URL, VA_PURCHASE_URL, VA_HANDBOOK_URL, NC_CONTRACTOR_LOOKUP_URL, MECK_PERMIT_URL, IREDELL_PERMIT_URL],
       },
       {
         "@type": "WebPage",
@@ -122,6 +129,38 @@ export default function ConstructionLoansCharlottePage() {
           <p className="mt-4 leading-relaxed text-charcoal">
             I work with buyers, veterans, builders, and Realtors on construction scenarios across Charlotte, Lake Norman, and surrounding North Carolina markets. The earlier we review the plans, budget, land, and borrower profile, the easier it is to identify a workable path.
           </p>
+        </section>
+
+        <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">What to have ready before construction loan pre-approval</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            You do not have to have every selection finalized to start the conversation. These are the first items I ask for so we can identify the loan structure and any project-level issues before you commit to a closing date.
+          </p>
+          <ul className="mt-5 list-disc space-y-3 pl-6 leading-relaxed text-charcoal">
+            <li><strong>Land:</strong> the property address or parcel, purchase contract if buying it, or deed and any land-loan balance if already owned.</li>
+            <li><strong>Plans and scope:</strong> floor plans, proposed square footage, specifications, site work, and any unusual design or property features.</li>
+            <li><strong>Builder:</strong> legal business name, license details where required, experience, construction contract or proposal, and target schedule.</li>
+            <li><strong>Budget:</strong> itemized hard and soft costs, site preparation, utilities, permits, contingency, and how cost overruns would be handled.</li>
+            <li><strong>Borrower:</strong> income and asset documents, expected funds available, credit profile, and whether the finished property will be your residence or an investment.</li>
+          </ul>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            A lender may require revisions, additional approvals, builder documentation, or a different closing structure. For help preparing your financing file, also see the <Link href="/mortgage-preapproval-charlotte" className="font-medium text-gold hover:underline">Charlotte mortgage pre-approval guide</Link>.
+          </p>
+        </section>
+
+        <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">Charlotte and Lake Norman construction: verify the builder and permits</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            In North Carolina, confirm a general contractor&apos;s current license and the scope of work through the state licensing board. A contractor&apos;s license alone does not replace the lender&apos;s builder review. If the property is in Mecklenburg County, its Code Enforcement office publishes residential permit and plan-review information. For projects in Iredell County, including parts of the Lake Norman market, begin with Iredell County Development Services and confirm the applicable municipal requirements for the specific address.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Before the construction contract and financing timeline are finalized, ask who is responsible for zoning checks, permitting, inspections, utility connections, and any septic or well approvals. The right office and permit sequence depend on the exact parcel, municipality, and work involved.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={NC_CONTRACTOR_LOOKUP_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">NC General Contractors Licensing Board</a>
+            <a href={MECK_PERMIT_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mecklenburg County Permitting</a>
+            <a href={IREDELL_PERMIT_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Iredell County Development Services</a>
+          </div>
         </section>
 
         <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
