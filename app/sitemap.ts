@@ -8,6 +8,7 @@ const aboutRefreshDate = new Date("2026-10-29T00:00:00-04:00");
 const firstTimeBuyerRefreshDate = new Date("2026-10-28T00:00:00-04:00");
 const downPaymentAssistanceRefreshDate = new Date("2026-10-28T00:00:00-04:00");
 const investorConstructionRefreshDate = new Date("2026-10-26T00:00:00-04:00");
+const constructionGuideRefreshDate = new Date("2026-11-06T00:00:00-05:00");
 const sellerConcessionsRefreshDate = new Date("2026-10-25T00:00:00-04:00");
 const charlotteServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
 const lakeNormanServiceRefreshDate = new Date("2026-10-04T00:00:00-04:00");
@@ -62,7 +63,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             ? firstTimeBuyerRefreshDate
             : path === "/down-payment-assistance-charlotte"
               ? downPaymentAssistanceRefreshDate
-              : path === "/investment-property-loans-charlotte" || path === "/construction-loans-charlotte"
+              : path === "/construction-loans-charlotte"
+              ? constructionGuideRefreshDate
+              : path === "/investment-property-loans-charlotte"
               ? investorConstructionRefreshDate
               : path === "/seller-concessions-north-carolina"
               ? sellerConcessionsRefreshDate
