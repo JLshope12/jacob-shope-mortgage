@@ -95,6 +95,16 @@ const LOCAL_RESOURCES: Record<
   ],
   "lake-norman": [
     {
+      href: "https://msc.fema.gov/portal/home",
+      label: "FEMA Flood Map Service Center",
+      detail: "Search an individual property address for official flood-hazard maps; confirm insurance requirements and pricing before relying on a payment estimate.",
+    },
+    {
+      href: "https://lnmc.org/faq-items/who-do-i-contact-about-docks-piers-shoreline-management-and-dredging/",
+      label: "Lake Norman Marine Commission: shoreline and dock permits",
+      detail: "The Marine Commission directs owners to Duke Energy Lake Use Permitting for questions about piers, docks, shoreline work, and dredging.",
+    },
+    {
       href: MECKLENBURG_TAX_URL,
       label: "Mecklenburg County property tax resources",
       detail: "Official property-tax information for Huntersville, Cornelius, Davidson, and other Mecklenburg County properties.",
@@ -147,7 +157,7 @@ const LAKE_NORMAN_TOWN_BUYER_NOTES: Record<string, string[]> = {
 
 const LOCAL_PAGE_MODIFIED: Record<string, string> = {
   charlotte: "2026-09-21",
-  "lake-norman": "2026-10-04",
+  "lake-norman": "2026-11-07",
   huntersville: "2026-10-31",
   cornelius: "2026-10-31",
   davidson: "2026-10-31",
@@ -354,6 +364,50 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/construction-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Construction Loans</Link>
               <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
               <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
+            </div>
+          </section>
+        )}
+
+        {area.slug === "lake-norman" && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">Buying a waterfront home around Lake Norman?</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Waterfront properties can require more review than an inland home. Before you write an offer, build the
+              mortgage payment around the specific address rather than assuming every lake property has the same
+              insurance, appraisal, or property-use considerations.
+            </p>
+            <ul className="mt-5 list-disc space-y-3 pl-6 leading-relaxed text-charcoal">
+              <li>
+                Check the address on the official{" "}
+                <a href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener noreferrer" className="font-medium text-gold hover:underline">
+                  FEMA Flood Map Service Center
+                </a>
+                , then request a property-specific insurance quote. A map is a starting point, not an insurance quote.
+              </li>
+              <li>
+                Ask the seller and your real estate agent for available dock, pier, and shoreline paperwork.
+                The{" "}
+                <a href="https://lnmc.org/faq-items/who-do-i-contact-about-docks-piers-shoreline-management-and-dredging/" target="_blank" rel="noopener noreferrer" className="font-medium text-gold hover:underline">
+                  Lake Norman Marine Commission
+                </a>{" "}
+                directs shoreline-permit questions to Duke Energy Lake Use Permitting. Verify the status of
+                any existing structures and any proposed changes with the appropriate authority.
+              </li>
+              <li>
+                Review property taxes, HOA dues, insurance costs, and any special property features early so the
+                total monthly payment is realistic. Confirm survey, access, and property-use questions with
+                the appropriate property professionals.
+              </li>
+              <li>
+                Discuss unusual waterfront features with the lender before appraisal ordering. Financing
+                requirements depend on the property, loan program, and appraisal findings.
+              </li>
+            </ul>
+            <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium">
+              <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage Pre-Approval</Link>
+              <Link href="/mortgage-appraisal-charlotte" className="text-gold hover:underline">Mortgage Appraisal Guide</Link>
+              <Link href="/construction-loans-charlotte" className="text-gold hover:underline">Construction Financing</Link>
+              <Link href="/service-areas/cornelius" className="text-gold hover:underline">Cornelius Mortgage Guide</Link>
             </div>
           </section>
         )}
