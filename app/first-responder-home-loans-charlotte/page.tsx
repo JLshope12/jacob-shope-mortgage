@@ -5,6 +5,8 @@ const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/first-responder-home-loans-charlotte`;
 const CITY_HOMEOWNERSHIP_URL =
   "https://www.charlottenc.gov/Streets-and-Neighborhoods/Housing/Resources-for-Homeowners-Renters/Homeownership";
+const HUD_GNND_URL = "https://www.hud.gov/helping-americans/good-neighbor";
+const NCHFA_ADVANTAGE_URL = "https://www.nchfa.com/home-buyers/buy-home/nc-home-advantage-mortgage";
 
 export const metadata = {
   title: "First Responder Home Loans in Charlotte | Jacob Shope",
@@ -32,6 +34,14 @@ const FAQS = [
     "Not by itself. VA loan eligibility is tied to qualifying military service. A first responder who is also an eligible veteran or service member may be able to use VA financing.",
   ],
   [
+    "Does HUD have a home discount for every first responder?",
+    "No. HUD's Good Neighbor Next Door program covers certain qualifying full-time law enforcement officers, teachers, firefighters and emergency medical technicians, but only for eligible HUD properties in designated revitalization areas. Availability is limited and the buyer must commit to 36 months of owner occupancy. Other job titles do not automatically qualify.",
+  ],
+  [
+    "Is North Carolina down payment assistance restricted to first responders?",
+    "No. NC Home Advantage Mortgage assistance is available to eligible first-time and repeat buyers through participating lenders, based on the current program rules. First responder employment alone does not establish eligibility or guarantee funding.",
+  ],
+  [
     "When should a first responder get pre-approved?",
     "Before making an offer is usually the most useful time. A pre-approval can help clarify the payment range, cash needed, income documentation, and loan structure before the buyer is under contract.",
   ],
@@ -40,6 +50,17 @@ const FAQS = [
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Article",
+      "@id": `${pageUrl}#article`,
+      headline: "First Responder Home Loans in Charlotte",
+      description: "A practical Charlotte-area mortgage guide for firefighters, EMTs, police and other first responders, with verified assistance resources and income preparation.",
+      author: { "@id": `${origin}/#jacob-shope` },
+      publisher: { "@id": `${origin}/#mpire-financial` },
+      mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+      dateModified: "2026-11-08",
+      citation: [HUD_GNND_URL, NCHFA_ADVANTAGE_URL, CITY_HOMEOWNERSHIP_URL],
+    },
     {
       "@type": "WebPage",
       "@id": `${pageUrl}#webpage`,
@@ -130,12 +151,51 @@ export default function FirstResponderHomeLoansCharlottePage() {
         </section>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-bold text-navy md:text-3xl">Charlotte homebuyer assistance is worth checking early</h2>
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">Three homebuyer assistance paths to compare</h2>
           <p className="mt-4 leading-relaxed text-charcoal">
-            Charlotte maintains local homeownership resources, including the HouseCharlotte program. Eligibility, assistance amounts, income limits, property rules, and program requirements can change, so buyers should verify the current rules before counting assistance as part of a purchase plan.
+            Not every program advertised as a &quot;first responder loan&quot; is actually tied to the job. Some are general mortgage or assistance programs with their own income, property, occupancy, and lender rules. These are three separate resources worth checking before you plan an offer around assistance.
+          </p>
+          <div className="mt-6 space-y-5">
+            <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-navy/5">
+              <h3 className="text-lg font-semibold text-navy">HUD Good Neighbor Next Door: limited eligible properties</h3>
+              <p className="mt-2 leading-relaxed text-charcoal">
+                HUD describes a 50% discount from the list price for eligible HUD-owned homes in designated revitalization areas. The program is limited to qualifying full-time law enforcement officers, pre-K through 12th grade teachers, firefighters and emergency medical technicians who meet HUD&apos;s employment and locality rules. The buyer must agree to live in the home for 36 months. Inventory is limited, and this is not a blanket 50% discount on regular Charlotte listings.
+              </p>
+              <a href={HUD_GNND_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-medium text-gold hover:underline">
+                HUD: Good Neighbor Next Door eligibility and available listings
+              </a>
+            </div>
+            <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-navy/5">
+              <h3 className="text-lg font-semibold text-navy">NC Home Advantage: assistance based on buyer eligibility</h3>
+              <p className="mt-2 leading-relaxed text-charcoal">
+                The North Carolina Housing Finance Agency offers qualifying first-time and repeat homebuyers assistance up to 3% of the loan amount through participating lenders. A separate $15,000 option may be available to eligible first-time buyers and military veterans. These are not automatic benefits of being a firefighter or EMT. Confirm current income, credit, property, occupancy, repayment and lender rules before budgeting around either option.
+              </p>
+              <a href={NCHFA_ADVANTAGE_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-medium text-gold hover:underline">
+                NC Housing Finance Agency: NC Home Advantage Mortgage
+              </a>
+            </div>
+            <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-navy/5">
+              <h3 className="text-lg font-semibold text-navy">HouseCharlotte: a city-specific homebuyer resource</h3>
+              <p className="mt-2 leading-relaxed text-charcoal">
+                The City of Charlotte publishes HouseCharlotte program information and housing-counseling resources. Assistance depends on the current program criteria and the property location, so do not assume a home elsewhere in the Charlotte metro or Lake Norman qualifies simply because it has a Charlotte mailing address.
+              </p>
+              <a href={CITY_HOMEOWNERSHIP_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-medium text-gold hover:underline">
+                City of Charlotte: homeownership and HouseCharlotte resources
+              </a>
+            </div>
+          </div>
+          <p className="mt-5 leading-relaxed text-charcoal">
+            Assistance terms and available funds can change. See the <Link href="/down-payment-assistance-charlotte" className="font-medium text-gold hover:underline">Charlotte down payment assistance guide</Link> for more context, and verify lender and program eligibility before using assistance in an offer.
+          </p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">What to have ready if you work shifts or overtime</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Before estimating a homebuying budget from your highest paycheck, collect recent pay stubs that show base pay and additional earnings separately, W-2s and other income records requested by the lender, and a description of how regularly you work overtime or earn differential pay. If you also have part-time EMS, off-duty, or second-job income, flag that early rather than assuming it all qualifies.
           </p>
           <p className="mt-4 leading-relaxed text-charcoal">
-            The City of Charlotte publishes current homeownership and HouseCharlotte information on its official housing site. You can review the current program details directly through the <a href={CITY_HOMEOWNERSHIP_URL} target="_blank" rel="noopener noreferrer" className="font-medium text-gold hover:underline">City of Charlotte homeownership resources</a>.
+            A lender may need to verify the earnings history and whether variable income is likely to continue. The qualifying amount can differ from your current take-home pay. This is especially useful to sort out before choosing a price range around Charlotte, Huntersville, Cornelius, Davidson or Mooresville. See the <Link href="/mortgage-income-employment-charlotte" className="font-medium text-gold hover:underline">income and employment guide</Link> for the broader documentation questions.
           </p>
         </section>
 
