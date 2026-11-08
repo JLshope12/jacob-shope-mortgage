@@ -197,6 +197,7 @@ export default function Home() {
               <Link href="/mortgage-broker-vs-lender-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Broker vs Lender</Link>
               <Link href="/loan-programs/fha" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">FHA Loans</Link>
               <Link href="/va-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">VA Loans</Link>
+              <Link href="/first-responder-home-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First Responder Home Loans</Link>
               <Link href="/loan-programs/conventional" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Conventional</Link>
               <Link href="/first-time-homebuyer-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">First-Time Buyers</Link>
               <Link href="/down-payment-assistance-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Down Payment Assistance</Link>
