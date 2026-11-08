@@ -4,6 +4,8 @@ import { LOAN_PROGRAMS } from "@/data/loan-programs";
 
 const origin = "https://jacobshopemortgage.com";
 const siteRefreshDate = new Date("2026-09-20T00:00:00-04:00");
+const homeRefreshDate = new Date("2026-11-08T00:00:00-05:00");
+const firstResponderRefreshDate = new Date("2026-11-08T00:00:00-05:00");
 const aboutRefreshDate = new Date("2026-10-29T00:00:00-04:00");
 const firstTimeBuyerRefreshDate = new Date("2026-10-28T00:00:00-04:00");
 const downPaymentAssistanceRefreshDate = new Date("2026-10-28T00:00:00-04:00");
@@ -51,7 +53,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
     lastModified:
-      path === "/service-areas/charlotte"
+      path === ""
+        ? homeRefreshDate
+        : path === "/first-responder-home-loans-charlotte"
+          ? firstResponderRefreshDate
+          : path === "/service-areas/charlotte"
         ? charlotteServiceRefreshDate
         : path === "/service-areas/lake-norman"
           ? lakeNormanServiceRefreshDate
