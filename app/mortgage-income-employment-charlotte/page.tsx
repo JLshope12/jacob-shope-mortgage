@@ -4,6 +4,25 @@ import { AuthorBox } from "@/components/seo/AuthorBox";
 const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/mortgage-income-employment-charlotte`;
 const FANNIE_INCOME = "https://selling-guide.fanniemae.com/sel/b3-3.1-01/general-income-information";
+const FANNIE_BASE_PAY = "https://selling-guide.fanniemae.com/sel/b3-3.3-01/base-income";
+const FANNIE_VARIABLE_PAY = "https://selling-guide.fanniemae.com/sel/b3-3.3-02/bonus-commission-overtime-and-tip-income";
+const FANNIE_DOCUMENTS = "https://selling-guide.fanniemae.com/sel/b3-3.2-01/standards-employment-and-income-documentation";
+const FANNIE_TAX_RETURNS = "https://selling-guide.fanniemae.com/sel/b3-3.1-02/tax-return-and-transcript-documentation-requirements";
+
+const FAQS = [
+  [
+    "Can firefighter, EMT, or nurse overtime count toward a mortgage?",
+    "It can, if the overtime meets the documentation, history, and stability requirements of the selected loan program. Conventional Fannie Mae guidance generally recommends a two-year history but may consider at least 12 months when positive factors support a shorter history. The lender still has to review the earnings trend.",
+  ],
+  [
+    "Does changing jobs automatically mean I have to wait two years?",
+    "No universal two-year waiting period applies to every job change. The lender reviews the new pay arrangement, work history, documentation, and program-specific requirements. A change from salary to commission or variable hours can require a different income analysis.",
+  ],
+  [
+    "What if my annual pay includes overtime that is dropping?",
+    "A lender generally cannot treat a past high-earning year as guaranteed ongoing income. Under Fannie Mae's conventional guidelines, decreasing bonus or overtime income requires review of whether earnings have stabilized; otherwise, that income may not qualify.",
+  ],
+] as const;
 
 export const metadata = {
   title: "Mortgage Income & Employment Questions | Charlotte | Jacob Shope",
@@ -22,8 +41,8 @@ const schema = {
       author: { "@id": `${origin}/#jacob-shope` },
       publisher: { "@id": `${origin}/#mpire-financial` },
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-      dateModified: "2026-09-08",
-      citation: [FANNIE_INCOME],
+      dateModified: "2026-11-11",
+      citation: [FANNIE_INCOME, FANNIE_BASE_PAY, FANNIE_VARIABLE_PAY, FANNIE_DOCUMENTS, FANNIE_TAX_RETURNS],
     },
     {
       "@type": "WebPage",
@@ -38,6 +57,24 @@ const schema = {
         { "@type": "Place", name: "Charlotte, North Carolina" },
         { "@type": "Place", name: "Lake Norman, North Carolina" },
       ],
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: origin },
+        { "@type": "ListItem", position: 2, name: "Mortgage Guides", item: `${origin}/mortgage-guides` },
+        { "@type": "ListItem", position: 3, name: "Mortgage Income and Employment", item: pageUrl },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: FAQS.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      })),
     },
   ],
 };
@@ -55,7 +92,15 @@ export default function MortgageIncomeEmploymentCharlottePage() {
         <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
           <h2 className="text-2xl font-bold text-navy">What agency guidance focuses on</h2>
           <p className="mt-4 leading-relaxed text-charcoal">Fannie Mae&apos;s current Selling Guide says stable and predictable income is foundational to underwriting and that lenders must document the income history and evaluate whether it is reasonably expected to continue. That is why two borrowers earning the same annual amount can still have different qualification outcomes.</p>
-          <a href={FANNIE_INCOME} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex text-sm font-medium text-gold hover:underline">Fannie Mae general income guidance</a>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Fannie Mae&apos;s guidance cited here applies to its conventional mortgages. FHA, VA, USDA, and other lenders or loan products can have different requirements, so the right analysis starts with the loan program.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={FANNIE_INCOME} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">General income rules</a>
+            <a href={FANNIE_BASE_PAY} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Fixed vs. variable base pay</a>
+            <a href={FANNIE_VARIABLE_PAY} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Overtime and bonus income rules</a>
+            <a href={FANNIE_DOCUMENTS} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Employment verification</a>
+          </div>
         </section>
 
         <section className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -71,9 +116,59 @@ export default function MortgageIncomeEmploymentCharlottePage() {
           ))}
         </section>
 
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">Overtime and shift work: a Charlotte first-responder example</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Firefighters, paramedics, nurses, and other shift workers may earn base pay plus overtime or other variable compensation. A big number on the latest W-2 does not mean the entire amount automatically counts as qualifying income.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            For example, someone with $72,000 in annual base pay and $18,000 of overtime last year should not assume the lender will qualify them at $90,000 this year. The lender needs the current year-to-date breakdown, prior earnings, and the pay pattern to determine which amount can be supported.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Under Fannie Mae&apos;s conventional bonus and overtime guidance, a two-year income history is recommended. At least 12 months may be considered when positive factors support a shorter history. Stable or increasing pay is averaged using the documented period, while declining pay requires evidence that the reduced level has stabilized; otherwise, the variable income may not qualify. That is a guideline summary, not an individual approval decision.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            If your schedule includes overtime, extra shifts, or fluctuating hours, share paystubs that separate those earnings and the available W-2 history early. I can review how that might affect your financing plan before you write an offer.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <Link href="/first-responder-home-loans-charlotte" className="text-gold hover:underline">First Responder Mortgage Guide</Link>
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Charlotte Pre-Approval Checklist</Link>
+            <a href={FANNIE_VARIABLE_PAY} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Read Fannie Mae&apos;s overtime guidance</a>
+          </div>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-navy md:text-3xl">What to gather for a useful income review</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Gathering the right documents early helps avoid relying on an income number the selected mortgage program cannot use.
+          </p>
+          <ul className="mt-5 list-disc space-y-3 pl-6 leading-relaxed text-charcoal">
+            <li><strong>W-2 employee with regular hours:</strong> A current paystub, available W-2s, and the employer&apos;s details. Lenders may use employer or approved third-party verification instead of requesting every document directly.</li>
+            <li><strong>Overtime, bonus, or changing hours:</strong> A current year-to-date paystub with earnings categories and prior-year earnings. Explain any meaningful schedule change or decline in overtime.</li>
+            <li><strong>Recent job change or return to work:</strong> The current offer or employment details, start date, pay arrangement, and earlier work history. Requirements vary depending on the program and situation.</li>
+            <li><strong>Self-employment or business ownership:</strong> Tell the lender how the business is taxed and have the applicable personal or business tax returns and supporting schedules available if required. A Form 1040 alone may not show the full income calculation.</li>
+          </ul>
+          <p className="mt-4 text-sm leading-relaxed text-charcoal">
+            These are starting points, not a universal document requirement. Ask for a secure upload link before sending financial information.
+          </p>
+          <a href={FANNIE_TAX_RETURNS} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-medium text-gold hover:underline">Fannie Mae tax-return documentation reference</a>
+        </section>
+
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-navy md:text-3xl">Why income questions need context</h2>
           <p className="mt-4 leading-relaxed text-charcoal">The important question is not just “what do you make?” but “what income can be documented and used under the applicable loan guidelines?” That is especially important for bonus, overtime, commission, self-employment, recent job changes, and employment gaps.</p>
+        </section>
+
+        <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">Income and employment FAQs</h2>
+          <div className="mt-6 space-y-6">
+            {FAQS.map(([question, answer]) => (
+              <div key={question}>
+                <h3 className="font-semibold text-navy">{question}</h3>
+                <p className="mt-2 leading-relaxed text-charcoal">{answer}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
