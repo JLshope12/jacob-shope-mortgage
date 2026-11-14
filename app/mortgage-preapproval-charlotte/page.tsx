@@ -6,6 +6,9 @@ const pageUrl = `${origin}/mortgage-preapproval-charlotte`;
 const CFPB_PREAPPROVAL_URL = "https://www.consumerfinance.gov/owning-a-home/explore/get-a-preapproval-letter/";
 const CFPB_SHOP_URL = "https://www.consumerfinance.gov/consumer-tools/mortgages/shopping-for-a-mortgage/";
 const CFPB_PAPERWORK_URL = "https://www.consumerfinance.gov/owning-a-home/explore/gather-and-update-your-paperwork/";
+const CFPB_PREQUAL_VS_PREAPPROVAL_URL = "https://www.consumerfinance.gov/ask-cfpb/whats-the-difference-between-a-prequalification-letter-and-a-preapproval-letter-en-127/";
+const CFPB_LOAN_ESTIMATES_URL = "https://www.consumerfinance.gov/owning-a-home/compare/compare-loan-estimates/";
+const NCREC_DUE_DILIGENCE_URL = "https://bulletins.ncrec.gov/due-diligence-fees-when-must-they-be-deposited/";
 
 export const metadata = {
   title: "Mortgage Pre-Approval in Charlotte | Jacob Shope",
@@ -28,6 +31,14 @@ const FAQS = [
     "Can a pre-approval be updated?",
     "Yes. If a home search takes time or finances change, the review may need to be refreshed.",
   ],
+  [
+    "Is a prequalification as reliable as a preapproval?",
+    "Not necessarily. Lenders use both terms differently. Ask what income, assets, debts, and credit were actually verified and what conditions remain instead of relying on the letter's label.",
+  ],
+  [
+    "Does a preapproval lock in my mortgage rate or lender?",
+    "No. A preapproval letter is not a guaranteed loan offer or an interest-rate lock. You can still compare official Loan Estimates from different lenders when you have a property and a signed offer.",
+  ],
 ] as const;
 
 const schema = {
@@ -42,8 +53,8 @@ const schema = {
       author: { "@id": `${origin}/#jacob-shope` },
       publisher: { "@id": `${origin}/#mpire-financial` },
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-      dateModified: "2026-10-30",
-      citation: [CFPB_PREAPPROVAL_URL, CFPB_SHOP_URL, CFPB_PAPERWORK_URL],
+      dateModified: "2026-11-14",
+      citation: [CFPB_PREAPPROVAL_URL, CFPB_SHOP_URL, CFPB_PAPERWORK_URL, CFPB_PREQUAL_VS_PREAPPROVAL_URL, CFPB_LOAN_ESTIMATES_URL, NCREC_DUE_DILIGENCE_URL],
     },
     {
       "@type": "WebPage",
@@ -154,6 +165,27 @@ export default function MortgagePreapprovalCharlottePage() {
           ))}
         </section>
 
+        <section className="mt-12 rounded-2xl bg-white p-7 shadow-sm ring-1 ring-navy/5">
+          <h2 className="text-2xl font-bold text-navy">What makes a preapproval useful when you write an offer?</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Two letters may both say &ldquo;preapproved&rdquo; even when one is based mostly on information the buyer provided and the other involved a deeper document review. The CFPB cautions that lenders use the terms prequalification and preapproval differently, so ask about the review behind the letter rather than its title.
+          </p>
+          <ul className="mt-5 list-disc space-y-3 pl-6 leading-relaxed text-charcoal">
+            <li><strong>What was verified?</strong> Ask whether credit, income, employment, assets, and monthly debts were reviewed using supporting documents or only estimated from the initial conversation.</li>
+            <li><strong>What still needs approval?</strong> Confirm any remaining documentation, underwriting conditions, and whether the loan still depends on property appraisal, insurance, title, and the lender&apos;s final review.</li>
+            <li><strong>Does the letter fit the offer?</strong> Check that purchase price, intended occupancy, loan type, down payment, and proposed closing timeline are consistent with the offer you plan to make.</li>
+            <li><strong>When does it need refreshing?</strong> Ask about the letter&apos;s expiration and what could change the financing picture, including a new debt, job or income change, or a different property type.</li>
+          </ul>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            A preapproval is neither a promise of final approval nor a rate lock. When you have a signed purchase contract, compare actual Loan Estimates for rate, discount points, lender fees, credits, payment, and cash to close. Choosing a preapproval provider does not require you to choose that lender for the final mortgage.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a href={CFPB_PREQUAL_VS_PREAPPROVAL_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: prequalification vs. preapproval</a>
+            <a href={CFPB_LOAN_ESTIMATES_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: comparing Loan Estimates</a>
+            <Link href="/mortgage-broker-vs-lender-charlotte" className="text-gold hover:underline">How to compare mortgage offers</Link>
+          </div>
+        </section>
+
         <section className="mt-12">
           <h2 className="text-2xl font-bold text-navy md:text-3xl">Why do this before shopping?</h2>
           <p className="mt-4 leading-relaxed text-charcoal">
@@ -177,6 +209,24 @@ export default function MortgagePreapprovalCharlottePage() {
           <p className="mt-4 leading-relaxed text-charcoal">
             When your Realtor is preparing an offer, I can help check how the proposed price, financing terms, and closing timeline work together.
           </p>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">North Carolina cash planning before the contract</h2>
+          <p className="mt-3 leading-relaxed text-charcoal">
+            For a Charlotte or Lake Norman purchase using the standard North Carolina Offer to Purchase and Contract, ask your Realtor about any proposed due diligence fee and earnest money deposit before you sign. These are separate from your down payment and can create an immediate need for cash well before the closing date.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Under the standard contract described by the North Carolina Real Estate Commission, a due diligence fee is typically paid to the seller and credited to the buyer at closing, but generally is not refundable if the buyer ends the contract, subject to the contract&apos;s exceptions. The terms of the actual agreement control. A financing setback does not automatically mean the buyer receives the fee back.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            My role is to help check the financing and cash-to-close estimates before those contract decisions. Your Realtor and closing attorney should answer questions about the legal effect of your deposit terms and deadlines.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a href={NCREC_DUE_DILIGENCE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">NC Real Estate Commission: due diligence fee</a>
+            <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Charlotte cash-to-close guide</Link>
+            <Link href="/seller-concessions-north-carolina" className="text-gold hover:underline">North Carolina seller concessions</Link>
+          </div>
         </section>
 
         <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
