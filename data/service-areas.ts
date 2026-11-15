@@ -70,7 +70,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
     shortDescription:
       "Serving Cornelius and the west shore of Lake Norman with purchase and refinance loans.",
     introParagraph:
-      "Cornelius sits on the western shore of Lake Norman and offers a mix of lakefront living, golf communities, and family-friendly neighborhoods. The town's parks, greenways, and strong schools attract buyers who want a small-town feel with quick access to Charlotte via I-77. From Jetton Park to popular subdivisions, buyers here often look at both conventional and jumbo financing for higher-priced homes. I help Cornelius buyers get pre-approved and choose the right loan for their budget and goals.",
+      "Cornelius sits along the eastern side of Lake Norman in northern Mecklenburg County and offers a mix of lakefront living, golf communities, and established neighborhoods. The town's parks, greenways, and strong schools attract buyers who want a small-town feel with quick access to Charlotte via I-77. From Jetton Park to popular subdivisions, buyers here often look at both conventional and jumbo financing for higher-priced homes. I help Cornelius buyers get pre-approved and choose the right loan for their budget and goals.",
     whyLocal:
       "I serve the Lake Norman corridor daily and understand how the Cornelius market works—from lakefront to inland subdivisions. You'll get straightforward advice and a smooth process so you can focus on finding your home.",
     nearbySlugs: ["huntersville", "lake-norman", "charlotte"],
@@ -94,9 +94,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     shortDescription:
       "Lake Norman mortgage lending: Cornelius, Davidson, Huntersville, Mooresville, and the greater lake region.",
     introParagraph:
-      "Lake Norman is one of the Southeast's premier lake communities, spanning Mecklenburg, Iredell, Catawba, and Lincoln counties. Towns like Cornelius, Davidson, Huntersville, and Mooresville offer everything from waterfront estates and golf-course homes to family subdivisions and new construction. The lake drives demand for both primary residences and second homes, and school districts in the area—including Lake Norman Charter and strong public options—draw families from across the region. Whether you're buying a condo near the water or a single-family home in Troutman or Sherrills Ford, I help Lake Norman buyers and refinancers with conventional, jumbo, FHA, VA, and USDA loans tailored to this unique market.",
+      "Lake Norman stretches across Mecklenburg, Iredell, Catawba, and Lincoln counties. Buyers in Cornelius, Davidson, Huntersville, Mooresville, Troutman, Sherrills Ford, and nearby communities may be comparing waterfront homes, inland resales, condos, and new construction. The property's county, taxes, insurance, appraisal, HOA or condo requirements, and any shoreline permits can affect the financing plan. I help buyers compare conventional, jumbo, FHA, and VA options when appropriate; USDA financing depends on the exact property's eligibility and the borrower's qualifications.",
     whyLocal:
-      "I've helped countless families buy and refinance around the lake. I know the nuances of lakefront lending, local appraisals, and how to get you to closing without surprises. You get a local partner who understands Lake Norman's neighborhoods and your goals.",
+      "I work with buyers, homeowners, and Realtors across the Lake Norman corridor. For lakefront properties, I help flag financing questions early, including flood insurance, appraisal considerations, condo review where applicable, and dock or shoreline documentation. Final eligibility, insurance requirements, and permit status must be confirmed for the specific property with the appropriate lender, insurer, county, or shoreline authority.",
     nearbySlugs: ["huntersville", "cornelius", "mooresville", "charlotte"],
   },
   {
