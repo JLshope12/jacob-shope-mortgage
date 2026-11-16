@@ -83,14 +83,29 @@ const LOCAL_RESOURCES: Record<
   ],
   mooresville: [
     {
+      href: "https://taxweb.iredellcountync.gov/PublicAccess/RealEstate.aspx",
+      label: "Iredell County real estate and parcel search",
+      detail: "Look up the actual property address and parcel before relying on a seller's tax estimate.",
+    },
+    {
       href: IREDELL_TAX_URL,
-      label: "Iredell County tax and land records",
-      detail: "Review county real-property records and tax information before estimating escrows.",
+      label: "Iredell County tax administration",
+      detail: "Confirm current property assessments and tax details, including applicable taxing jurisdictions.",
+    },
+    {
+      href: "https://www.iredellcountync.gov/DocumentCenter/View/23242/Town-of-Mooresville-Building-Permitting--Inspections-Information?bidId=",
+      label: "Iredell County guidance on Mooresville building permits",
+      detail: "Official county explanation that the Town handles building permits and inspections within Mooresville and its extraterritorial jurisdiction, while certain well, septic, and other reviews remain with the county.",
+    },
+    {
+      href: "https://www.rd.usda.gov/programs-services/single-family-housing-programs",
+      label: "USDA Rural Development property eligibility resources",
+      detail: "Check an address through USDA's official eligibility tools; a Mooresville mailing address does not establish USDA eligibility.",
     },
     {
       href: NCHFA_HOME_BUYERS_URL,
       label: "NC Housing Finance Agency homebuyer options",
-      detail: "Check current state homebuyer and down-payment-assistance eligibility.",
+      detail: "Review statewide mortgage and down-payment-assistance programs and current borrower requirements.",
     },
   ],
   "lake-norman": [
@@ -149,19 +164,21 @@ const LAKE_NORMAN_TOWN_BUYER_NOTES: Record<string, string[]> = {
     "Confirm the parcel's county and property-tax information rather than relying on a generic Davidson payment estimate.",
   ],
   mooresville: [
-    "For a new build, clarify whether the financing is for a completed home or a construction project with land, builder, and draw requirements.",
-    "For properties with acreage, well, or septic features, ask about any property-specific appraisal and underwriting documentation.",
-    "Check official Iredell County property records and include insurance, taxes, and any HOA dues in the payment estimate.",
+    "Look up the specific parcel in Iredell County records. Use current tax and assessment information as a starting point, and confirm the expected post-purchase tax bill and insurance cost rather than copying a seller's monthly escrow.",
+    "For completed builder inventory, review completion and occupancy documentation. For land plus construction, ask early about builder approval, plans, budget, contingencies, draws, and the lender's closing structure.",
+    "For properties on acreage or with a well or septic system, ask whether the loan program requires extra property, appraisal, water, or septic documentation.",
+    "For lakefront homes, check address-specific flood risk, request an insurance quote, and ask about existing dock or shoreline paperwork. A waterfront home may need a different appraisal review than an inland property.",
+    "For USDA financing, check the property's eligibility on USDA's official tools and the borrower's income and program qualifications. Do not assume all Mooresville addresses are eligible.",
   ],
 };
 
 const LOCAL_PAGE_MODIFIED: Record<string, string> = {
   charlotte: "2026-09-21",
-  "lake-norman": "2026-11-07",
+  "lake-norman": "2026-11-15",
   huntersville: "2026-10-31",
-  cornelius: "2026-10-31",
+  cornelius: "2026-11-16",
   davidson: "2026-10-31",
-  mooresville: "2026-10-31",
+  mooresville: "2026-11-16",
 };
 
 export async function generateStaticParams() {
@@ -232,6 +249,13 @@ function getAreaServed(area: ServiceArea) {
     return [
       { "@type": "City", name: "Charlotte, North Carolina" },
       { "@type": "AdministrativeArea", name: "Mecklenburg County, North Carolina" },
+    ];
+  }
+
+  if (area.slug === "mooresville") {
+    return [
+      { "@type": "City", name: "Mooresville, North Carolina" },
+      { "@type": "AdministrativeArea", name: "Iredell County, North Carolina" },
     ];
   }
 
@@ -429,6 +453,12 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Closing Costs</Link>
               <Link href="/mortgage-appraisal-charlotte" className="text-gold hover:underline">Appraisal Guide</Link>
               <Link href="/service-areas/lake-norman" className="text-gold hover:underline">Lake Norman Mortgage Guide</Link>
+              {area.slug === "mooresville" && (
+                <>
+                  <Link href="/construction-loans-charlotte" className="text-gold hover:underline">Construction Loan Guide</Link>
+                  <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-Time Buyer Guide</Link>
+                </>
+              )}
             </div>
           </section>
         )}
