@@ -68,9 +68,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     group: "charlotte-metro",
     name: "Cornelius",
     shortDescription:
-      "Serving Cornelius and the west shore of Lake Norman with purchase and refinance loans.",
+      "Serving Cornelius on the eastern side of Lake Norman with purchase and refinance options.",
     introParagraph:
-      "Cornelius sits along the eastern side of Lake Norman in northern Mecklenburg County and offers a mix of lakefront living, golf communities, and established neighborhoods. The town's parks, greenways, and strong schools attract buyers who want a small-town feel with quick access to Charlotte via I-77. From Jetton Park to popular subdivisions, buyers here often look at both conventional and jumbo financing for higher-priced homes. I help Cornelius buyers get pre-approved and choose the right loan for their budget and goals.",
+      "Cornelius sits along the eastern side of Lake Norman in northern Mecklenburg County and offers a mix of lakefront living, golf communities, and established neighborhoods. The town's parks, greenways, and access to Charlotte along I-77 appeal to buyers comparing inland neighborhoods and waterfront properties. From Jetton Park to popular subdivisions, buyers here often look at both conventional and jumbo financing for higher-priced homes. I help Cornelius buyers get pre-approved and choose the right loan for their budget and goals.",
     whyLocal:
       "I serve the Lake Norman corridor daily and understand how the Cornelius market works—from lakefront to inland subdivisions. You'll get straightforward advice and a smooth process so you can focus on finding your home.",
     nearbySlugs: ["huntersville", "lake-norman", "charlotte"],
@@ -104,11 +104,11 @@ export const SERVICE_AREAS: ServiceArea[] = [
     group: "charlotte-metro",
     name: "Mooresville",
     shortDescription:
-      "Mortgage loans in Mooresville, NC. NASCAR country, strong schools, and growing housing options.",
+      "Local mortgage guidance for Mooresville and Iredell County, from lakefront and resale homes to new builds and acreage.",
     introParagraph:
-      "Mooresville—known as Race City USA for its NASCAR ties—sits in Iredell County north of Lake Norman and offers a blend of small-town character and growth. The downtown area, Lake Norman access, and strong schools like Mooresville Graded School District attract families and commuters to Charlotte. New construction and resales are both active, with a range of price points. I work with Mooresville buyers on conventional, FHA, VA, and USDA loans so you can move quickly in this competitive area.",
+      "Mooresville sits in Iredell County along the north and eastern side of Lake Norman. Buyers may be comparing established homes near downtown, newer subdivisions, waterfront property, or homes with acreage. Those properties can require different financing reviews. A realistic mortgage plan starts with the exact parcel, its property taxes, insurance, HOA dues, and any property-specific appraisal or construction requirements. I help Mooresville buyers compare conventional, FHA, VA, jumbo, and, where the address and borrower qualify, USDA financing.",
     whyLocal:
-      "I serve the greater Lake Norman and I-77 corridor, including Mooresville. I'll help you get pre-approved and find the right loan so you can compete confidently in the Mooresville market.",
+      "I work with buyers and Realtors across Mooresville and the Lake Norman corridor. I'll help you compare the total payment and cash needed, identify property-specific documentation early, and coordinate the financing details with your agent. Final loan eligibility and terms depend on the borrower and property.",
     nearbySlugs: ["lake-norman", "huntersville", "concord", "north-carolina"],
   },
   {
