@@ -39,6 +39,14 @@ const FAQS = [
     "Can eligible veterans use VA financing to build a home?",
     "VA guidance confirms that eligible borrowers may use VA-backed purchase financing to build a new home, and the VA Lenders Handbook permits both one-time and two-time construction loans subject to program and lender requirements.",
   ],
+  [
+    "Is the initial construction draw an additional project cost?",
+    "Not when that draw releases money already accounted for in the financed construction budget. The draw schedule describes when funds are disbursed; the cost budget describes what the project costs. Both documents should be reconciled before closing.",
+  ],
+  [
+    "Should a builder deposit be added to the construction budget?",
+    "Only if the deposit represents a real project cost that is not already included in the itemized budget. First confirm what the deposit covers, whether it has already been paid, and how the lender will treat it. Do not add the same cost twice.",
+  ],
 ] as const;
 
 export default function ConstructionLoansCharlottePage() {
@@ -54,7 +62,7 @@ export default function ConstructionLoansCharlottePage() {
         author: { "@id": `${origin}/#jacob-shope` },
         publisher: { "@id": `${origin}/#mpire-financial` },
         mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-        dateModified: "2026-11-06",
+        dateModified: "2026-11-17",
         citation: [FANNIE_CTP_URL, VA_PURCHASE_URL, VA_HANDBOOK_URL, NC_CONTRACTOR_LOOKUP_URL, MECK_PERMIT_URL, IREDELL_PERMIT_URL],
       },
       {
@@ -146,6 +154,44 @@ export default function ConstructionLoansCharlottePage() {
           <p className="mt-4 leading-relaxed text-charcoal">
             A lender may require revisions, additional approvals, builder documentation, or a different closing structure. For help preparing your financing file, also see the <Link href="/mortgage-preapproval-charlotte" className="font-medium text-gold hover:underline">Charlotte mortgage pre-approval guide</Link>.
           </p>
+        </section>
+
+        <section className="mt-14 rounded-2xl border border-navy/10 bg-white p-8">
+          <h2 className="text-2xl font-bold text-navy">How to reconcile the land price, builder deposit, and first construction draw</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            One of the most useful checks before a construction closing is separating <strong>what the project costs</strong> from
+            <strong> when money is paid out</strong>. A draw schedule is not necessarily a list of new expenses. Likewise,
+            a builder deposit should not be added twice if the underlying work is already included in the construction budget.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            For example, suppose the land price is $85,000 and the signed construction budget is $400,000.
+            If the $400,000 already includes a $25,000 builder deposit, the land-plus-build subtotal is $485,000,
+            before any additional loan costs, reserves, or items excluded from that budget. A $40,000 initial construction
+            draw from that same budget would change the timing of disbursement, not increase the subtotal to $525,000.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            If the $25,000 deposit is actually a separate construction cost <em>outside</em> the signed $400,000 budget,
+            the land-plus-build subtotal would instead be $510,000. The difference is $25,000, not the amount of the initial draw.
+            These are illustrative figures, not a loan quote or a determination of how an individual lender will classify or fund the transaction.
+          </p>
+          <h3 className="mt-6 text-lg font-bold text-navy">The four documents I compare before treating a revised amount as final</h3>
+          <ol className="mt-3 list-decimal space-y-3 pl-6 leading-relaxed text-charcoal">
+            <li><strong>Signed builder contract and itemized budget:</strong> identify the actual scope, allowances, contingency, and all deposits.</li>
+            <li><strong>Deposit receipts and credits:</strong> confirm what was paid, what work the payment covers, and whether it is already reflected in the budget.</li>
+            <li><strong>Draw schedule:</strong> identify advances planned at closing versus payments released later for completed work.</li>
+            <li><strong>Current lender worksheet and disclosures:</strong> reconcile land costs, construction costs, any financed reserves or fees, borrower funds, and loan amount to the approved structure.</li>
+          </ol>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Owned land, land equity, and a new lot purchase can also change the available one-time-close structure.
+            Fannie Mae&apos;s construction-to-permanent FAQs discuss single-close financing when the borrower already owns
+            the lot and distinguish purchase treatment from a limited cash-out refinance. Those agency examples do not
+            establish that every lender or VA, conventional, or investor construction program will follow the same rules.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={FANNIE_CTP_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Fannie Mae: land ownership and single-closing FAQs</a>
+            <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Understanding cash to close</Link>
+            <Link href="/mortgage-appraisal-charlotte" className="text-gold hover:underline">Construction appraisal questions</Link>
+          </div>
         </section>
 
         <section className="mt-14 rounded-2xl bg-white p-8 ring-1 ring-navy/5">
