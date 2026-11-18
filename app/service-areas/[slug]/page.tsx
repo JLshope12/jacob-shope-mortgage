@@ -14,6 +14,8 @@ const origin = "https://jacobshopemortgage.com";
 const CHARLOTTE_HOMEOWNERSHIP_URL =
   "https://www.charlottenc.gov/Streets-and-Neighborhoods/Housing/Resources-for-Homeowners-Renters/Homeownership";
 const MECKLENBURG_TAX_URL = "https://tax.mecknc.gov/";
+const MECKLENBURG_2027_REVALUATION_URL = "https://news.mecknc.gov/we-value-mecklenburg-county-update-2027-property-revaluation";
+const CFPB_COMPARE_ESTIMATES_URL = "https://www.consumerfinance.gov/owning-a-home/compare/compare-loan-estimates/";
 const NCHFA_HOME_BUYERS_URL = "https://www.nchfa.com/home-buyers";
 const IREDELL_TAX_URL = "https://iredellcountync.gov/368/Tax-Administration-Land-Records";
 const LINCOLN_TAX_URL = "https://www.lincolncountync.gov/73/Tax-Department";
@@ -173,9 +175,9 @@ const LAKE_NORMAN_TOWN_BUYER_NOTES: Record<string, string[]> = {
 };
 
 const LOCAL_PAGE_MODIFIED: Record<string, string> = {
-  charlotte: "2026-09-21",
+  charlotte: "2026-11-18",
   "lake-norman": "2026-11-15",
-  huntersville: "2026-10-31",
+  huntersville: "2026-11-18",
   cornelius: "2026-11-16",
   davidson: "2026-10-31",
   mooresville: "2026-11-16",
@@ -364,6 +366,30 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/construction-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Construction Loans</Link>
               <Link href="/investment-property-loans-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Investment Property Loans</Link>
               <Link href="/mortgage-appraisal-charlotte" className="rounded-full border border-navy/20 px-4 py-2 text-navy hover:border-gold hover:text-gold">Mortgage Appraisals</Link>
+            </div>
+          </section>
+        )}
+
+        {(area.slug === "charlotte" || area.slug === "huntersville") && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">Check the 2027 Mecklenburg property revaluation before estimating your payment</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Mecklenburg County is updating property assessments using January 1, 2027 values. The county says notices are
+              expected in early 2027, while city, county, and town officials will set tax rates in the spring and tax bills
+              will follow in the summer. The revaluation announcement alone does not establish a future tax bill.
+            </p>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              For a Charlotte or Huntersville purchase, verify the actual parcel and current property taxes, including
+              applicable municipal taxes, and get a property-specific insurance quote. Do not assume that the seller&apos;s
+              existing tax bill or an online payment estimate will match your future cost. Compare the projected tax,
+              insurance, and escrow figures across Loan Estimates, along with the interest rate and closing costs.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium">
+              <a href={MECKLENBURG_2027_REVALUATION_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mecklenburg County: 2027 revaluation update</a>
+              <a href={MECKLENBURG_TAX_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mecklenburg property tax records</a>
+              <a href={CFPB_COMPARE_ESTIMATES_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Compare Loan Estimates</a>
+              <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Charlotte affordability guide</Link>
+              <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Charlotte closing-cost guide</Link>
             </div>
           </section>
         )}
