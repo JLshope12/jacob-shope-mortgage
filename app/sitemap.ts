@@ -12,7 +12,8 @@ const downPaymentAssistanceRefreshDate = new Date("2026-10-28T00:00:00-04:00");
 const investorConstructionRefreshDate = new Date("2026-11-13T00:00:00-05:00");
 const constructionGuideRefreshDate = new Date("2026-11-17T00:00:00-05:00");
 const sellerConcessionsRefreshDate = new Date("2026-10-25T00:00:00-04:00");
-const charlotteServiceRefreshDate = new Date("2026-09-21T00:00:00-04:00");
+const charlotteServiceRefreshDate = new Date("2026-11-18T00:00:00-05:00");
+const huntersvilleServiceRefreshDate = new Date("2026-11-18T00:00:00-05:00");
 const lakeNormanServiceRefreshDate = new Date("2026-11-15T00:00:00-05:00");
 const corneliusServiceRefreshDate = new Date("2026-11-16T00:00:00-05:00");
 const mooresvilleServiceRefreshDate = new Date("2026-11-16T00:00:00-05:00");
@@ -64,13 +65,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? firstResponderRefreshDate
           : path === "/service-areas/charlotte"
         ? charlotteServiceRefreshDate
+        : path === "/service-areas/huntersville"
+          ? huntersvilleServiceRefreshDate
         : path === "/service-areas/lake-norman"
           ? lakeNormanServiceRefreshDate
           : path === "/service-areas/cornelius"
           ? corneliusServiceRefreshDate
           : path === "/service-areas/mooresville"
           ? mooresvilleServiceRefreshDate
-          : ["/service-areas/huntersville", "/service-areas/davidson"].includes(path)
+          : path === "/service-areas/davidson"
           ? lakeNormanTownRefreshDate
           : path === "/about"
           ? aboutRefreshDate
