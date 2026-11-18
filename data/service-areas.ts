@@ -34,9 +34,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     shortDescription:
       "Serving the Queen City and Mecklenburg County with conventional, FHA, VA, and first-time buyer loans.",
     introParagraph:
-      "Charlotte is the largest city in North Carolina and one of the fastest-growing metros in the country. From South End and NoDa to Myers Park, Dilworth, and Ballantyne, neighborhoods offer a mix of historic bungalows, new construction, and townhomes. Strong school districts like Charlotte-Mecklenburg Schools (CMS) and proximity to top employers, the airport, and Lake Norman make the city a draw for families and professionals. Whether you're buying your first home in Plaza Midwood or upgrading in SouthPark, I help Charlotte buyers navigate pre-approval, competitive offers, and a smooth closing.",
+      "Charlotte buyers may be comparing a South End condo, an established home in Dilworth, or a new build farther from the center of the city. The financing details can differ by property: condominium project review, HOA dues, property taxes, insurance, appraisal conditions, and cash needed for closing all affect the plan. I help buyers and their Realtors compare conventional, FHA, VA, jumbo, and other available mortgage options while checking the full payment, pre-approval details, and timeline before an offer.",
     whyLocal:
-      "I live and work in the Charlotte area and know the market from the inside. As a local mortgage loan officer and Charlotte Fire Department captain, I'm invested in helping families here get into the right loan and the right neighborhood. I'll walk you through programs that fit the Queen City market and your timeline.",
+      "I grew up in the Charlotte area and serve the community as a Charlotte Fire Department captain as well as a mortgage professional. I help Charlotte buyers understand the property-specific numbers, compare mortgage structures, and coordinate the financing side with their Realtor. Final terms and approval depend on the borrower, property, and lender.",
     nearbySlugs: ["matthews", "mint-hill", "huntersville", "lake-norman", "concord"],
   },
   {
@@ -46,9 +46,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     shortDescription:
       "Mortgage lending in Huntersville and the Lake Norman region. New construction, resales, and first-time buyers.",
     introParagraph:
-      "Huntersville sits just north of Charlotte in the Lake Norman corridor and has grown into one of the area's most sought-after towns. Top-rated schools, parks like Latta Plantation and Discovery Place Kids, and easy access to I-77 make it ideal for families. Neighborhoods range from established communities like Vermillion and Birkdale to new builds in areas like Torrence Creek. Home prices and inventory vary by subdivision, and I help buyers from pre-approval through closing so they can move quickly when the right house hits the market.",
+      "Huntersville is in northern Mecklenburg County along the I-77 and Lake Norman corridor. Buyers may be comparing established neighborhoods, new construction, townhomes, or condominium properties. The full mortgage payment can depend on county and town property taxes, homeowners insurance, HOA dues, and any lender review required for the property. I help buyers check pre-approval, cash to close, builder timelines, and loan options before making an offer in Huntersville.",
     whyLocal:
-      "I'm based in the Huntersville area and know the builders, neighborhoods, and what it takes to get to closing in this competitive market. I work with buyers and Realtors across Lake Norman and Mecklenburg so you get local expertise and personal attention.",
+      "I live in the Lake Norman area and work with buyers and Realtors across Huntersville and the north Charlotte corridor. My role is to make the financing practical: compare the full payment and cash needed, identify any property or underwriting questions early, and keep the parties informed as the file moves toward closing.",
     nearbySlugs: ["cornelius", "lake-norman", "charlotte", "mooresville"],
   },
   {
