@@ -116,11 +116,11 @@ export const SERVICE_AREAS: ServiceArea[] = [
     group: "charlotte-metro",
     name: "Concord",
     shortDescription:
-      "Serving Concord, Cabarrus County, and the I-85 corridor with purchase and refinance loans.",
+      "Practical mortgage guidance for Concord and Cabarrus County, including tax estimates, new construction and first-time buyers.",
     introParagraph:
-      "Concord is Cabarrus County's largest city and sits along I-85 northeast of Charlotte. The area is known for the Charlotte Motor Speedway, strong schools including Cabarrus County Schools, and a mix of established neighborhoods and new development. Kannapolis and Harrisburg are nearby, and buyers often look for value and good commutes to Charlotte or the Research Triangle. I help Concord-area buyers with conventional, FHA, VA, USDA, and first-time buyer programs so you can lock in a rate and close with confidence.",
+      "Concord is in Cabarrus County northeast of Charlotte, along the I-85 corridor. Buyers may compare established neighborhoods, townhomes, condominiums, and new construction, including areas near downtown Concord and the Charlotte Motor Speedway. The actual parcel matters: property-tax districts, HOA dues, insurance, appraisal requirements, and builder completion dates can change the payment or closing plan. I help Concord buyers compare conventional, FHA, VA, jumbo, and other available options; USDA eligibility must be checked for the specific address and borrower.",
     whyLocal:
-      "I serve the greater Charlotte region, including Concord and Cabarrus County. You'll get clear communication and a process built for today's market so you can focus on finding the right home.",
+      "I serve Concord and the surrounding Cabarrus County communities as a Charlotte-area mortgage professional. I help buyers check county and municipal property taxes, total monthly payment, cash to close, and property-specific lending requirements before making an offer. Final terms and approval depend on the borrower, property, and lender.",
     nearbySlugs: ["charlotte", "mooresville", "gastonia", "north-carolina"],
   },
   {
