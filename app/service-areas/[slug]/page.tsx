@@ -20,6 +20,9 @@ const NCHFA_HOME_BUYERS_URL = "https://www.nchfa.com/home-buyers";
 const IREDELL_TAX_URL = "https://iredellcountync.gov/368/Tax-Administration-Land-Records";
 const LINCOLN_TAX_URL = "https://www.lincolncountync.gov/73/Tax-Department";
 const CATAWBA_TAX_URL = "https://catawbacountync.gov/county-services/tax/";
+const CABARRUS_TAX_BILLS_URL = "https://www.cabarruscounty.us/Government/Departments/Tax-Administration/Tax-Collections/Tax-Bill-Inquiry";
+const CABARRUS_TAX_RATES_URL = "https://www.cabarruscounty.us/Government/Departments/Tax-Administration/Tax-Collections/Tax-Rates";
+const CABARRUS_LAND_RECORDS_URL = "https://www.cabarruscounty.us/Government/Departments/Tax-Administration/Land-Records";
 
 const LOCAL_RESOURCES: Record<
   string,
@@ -81,6 +84,28 @@ const LOCAL_RESOURCES: Record<
       href: NCHFA_HOME_BUYERS_URL,
       label: "NC Housing Finance Agency homebuyer options",
       detail: "Explore official first-time buyer and other state home-financing resources.",
+    },
+  ],
+  concord: [
+    {
+      href: CABARRUS_TAX_BILLS_URL,
+      label: "Cabarrus County real estate tax bill inquiry",
+      detail: "Look up current or historical tax bills for the actual parcel. The county recommends township/map/parcel searches for historical records.",
+    },
+    {
+      href: CABARRUS_TAX_RATES_URL,
+      label: "Cabarrus County official tax rates",
+      detail: "Check county, city or town, and any applicable district tax rates before estimating your monthly property-tax escrow.",
+    },
+    {
+      href: CABARRUS_LAND_RECORDS_URL,
+      label: "Cabarrus County land and parcel records",
+      detail: "Use official land and GIS records to verify property identification and location before selecting tax jurisdictions.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "North Carolina Housing Finance Agency home buyers",
+      detail: "Review state-supported mortgage and down-payment-assistance options and confirm program eligibility with a participating lender.",
     },
   ],
   mooresville: [
@@ -181,6 +206,7 @@ const LOCAL_PAGE_MODIFIED: Record<string, string> = {
   cornelius: "2026-11-16",
   davidson: "2026-10-31",
   mooresville: "2026-11-16",
+  concord: "2026-11-19",
 };
 
 export async function generateStaticParams() {
@@ -390,6 +416,35 @@ export default async function ServiceAreaPage({ params }: Props) {
               <a href={CFPB_COMPARE_ESTIMATES_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Compare Loan Estimates</a>
               <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Charlotte affordability guide</Link>
               <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Charlotte closing-cost guide</Link>
+            </div>
+          </section>
+        )}
+
+        {area.slug === "concord" && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">What Concord buyers should check before estimating a payment</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Cabarrus County publishes its 2026–2027 property-tax rates by jurisdiction. For that fiscal year,
+              the county rate is $0.576 per $100 of taxable value and the City of Concord rate is $0.42 per $100.
+              For illustration, a property assessed at $400,000 inside Concord city limits would have $3,984
+              per year, or $332 per month, in combined county and standard city property tax alone. That is
+              not a property-specific tax quote. Additional districts may apply, and assessed value is not
+              necessarily the purchase price. Tax rates can change in future budget years.
+            </p>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Before making an offer, verify the parcel and its actual tax districts, request a homeowners
+              insurance estimate, and account for HOA dues if applicable. For condos, ask about lender
+              project-review requirements. For new construction, clarify completion and occupancy timing
+              and whether the builder&apos;s quoted payment includes realistic tax and insurance estimates.
+              Your Loan Estimate and final loan approval will depend on the borrower and property.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium">
+              <a href={CABARRUS_TAX_RATES_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Cabarrus County: 2026–2027 tax rates</a>
+              <a href={CABARRUS_TAX_BILLS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Check the parcel tax bill</a>
+              <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Full-payment affordability</Link>
+              <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage pre-approval</Link>
+              <Link href="/construction-loans-charlotte" className="text-gold hover:underline">Construction financing</Link>
+              <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-time buyer guide</Link>
             </div>
           </section>
         )}
