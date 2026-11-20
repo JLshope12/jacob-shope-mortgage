@@ -18,6 +18,7 @@ const lakeNormanServiceRefreshDate = new Date("2026-11-15T00:00:00-05:00");
 const corneliusServiceRefreshDate = new Date("2026-11-16T00:00:00-05:00");
 const mooresvilleServiceRefreshDate = new Date("2026-11-16T00:00:00-05:00");
 const concordServiceRefreshDate = new Date("2026-11-19T00:00:00-05:00");
+const gastoniaServiceRefreshDate = new Date("2026-11-20T00:00:00-05:00");
 const lakeNormanTownRefreshDate = new Date("2026-10-31T00:00:00-04:00");
 const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
 const creditGuideRefreshDate = new Date("2026-11-05T00:00:00-05:00");
@@ -76,6 +77,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? mooresvilleServiceRefreshDate
           : path === "/service-areas/concord"
           ? concordServiceRefreshDate
+          : path === "/service-areas/gastonia"
+          ? gastoniaServiceRefreshDate
           : path === "/service-areas/davidson"
           ? lakeNormanTownRefreshDate
           : path === "/about"
