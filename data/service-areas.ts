@@ -130,9 +130,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     shortDescription:
       "Mortgage lending in Gastonia and Gaston County. First-time buyers, conventional, FHA, and VA loans.",
     introParagraph:
-      "Gastonia is the largest city in Gaston County and sits west of Charlotte along I-85. The area offers more affordable entry points into the Charlotte metro while still providing access to jobs, schools, and amenities. Neighborhoods range from downtown-adjacent to suburban and rural, and USDA eligibility in parts of the county can mean 100% financing for qualified buyers. I help Gastonia and Gaston County buyers with conventional, FHA, VA, USDA, and first-time buyer programs so you can buy with a plan that fits your budget.",
+      "Gastonia sits west of Charlotte along I-85, with older homes near downtown, established neighborhoods, and new construction in surrounding communities. The actual parcel, taxing jurisdictions, HOA dues, property condition, and insurance needs can change the monthly payment or mortgage review. USDA financing may be an option for an eligible borrower and eligible address, but a Gastonia mailing address does not prove eligibility. I help Gaston County buyers compare conventional, FHA, VA, USDA, and first-time buyer options based on the specific home, total payment, and cash needed at closing.",
     whyLocal:
-      "I work with buyers across the Charlotte metro, including Gastonia. I'll walk you through loan options and get you pre-approved so you're ready when you find the right place in Gaston County.",
+      "I work with buyers in Gastonia and across Gaston County. Before a purchase, I help review the financing structure alongside tax and insurance estimates, property-specific lender requirements, and the documentation needed for a useful pre-approval.",
     nearbySlugs: ["charlotte", "concord", "matthews", "north-carolina"],
   },
   {
