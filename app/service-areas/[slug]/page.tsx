@@ -23,6 +23,9 @@ const CATAWBA_TAX_URL = "https://catawbacountync.gov/county-services/tax/";
 const CABARRUS_TAX_BILLS_URL = "https://www.cabarruscounty.us/Government/Departments/Tax-Administration/Tax-Collections/Tax-Bill-Inquiry";
 const CABARRUS_TAX_RATES_URL = "https://www.cabarruscounty.us/Government/Departments/Tax-Administration/Tax-Collections/Tax-Rates";
 const CABARRUS_LAND_RECORDS_URL = "https://www.cabarruscounty.us/Government/Departments/Tax-Administration/Land-Records";
+const GASTON_TAX_URL = "https://www.gastongov.com/583/Tax-Office";
+const GASTON_GIS_URL = "https://www.gastongov.com/677/Tax-Mapping-GIS";
+const USDA_HOUSING_URL = "https://www.rd.usda.gov/programs-services/single-family-housing-programs";
 
 const LOCAL_RESOURCES: Record<
   string,
@@ -106,6 +109,28 @@ const LOCAL_RESOURCES: Record<
       href: NCHFA_HOME_BUYERS_URL,
       label: "North Carolina Housing Finance Agency home buyers",
       detail: "Review state-supported mortgage and down-payment-assistance options and confirm program eligibility with a participating lender.",
+    },
+  ],
+  gastonia: [
+    {
+      href: GASTON_TAX_URL,
+      label: "Gaston County Tax Office: property values and tax bills",
+      detail: "Use official property-tax search, current bills, and valuation resources for the actual parcel rather than relying only on a listing estimate.",
+    },
+    {
+      href: GASTON_GIS_URL,
+      label: "Gaston County tax mapping and GIS",
+      detail: "Check the parcel and its mapped location; confirm jurisdiction and other property details with primary records.",
+    },
+    {
+      href: USDA_HOUSING_URL,
+      label: "USDA Rural Development housing program resources",
+      detail: "Use the official address-level eligibility tools and confirm household qualifications before assuming zero-down USDA financing is available.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "North Carolina Housing Finance Agency homebuyer resources",
+      detail: "Find state-supported homebuyer financing and assistance information; program terms and availability require verification.",
     },
   ],
   mooresville: [
@@ -207,6 +232,7 @@ const LOCAL_PAGE_MODIFIED: Record<string, string> = {
   davidson: "2026-10-31",
   mooresville: "2026-11-16",
   concord: "2026-11-19",
+  gastonia: "2026-11-20",
 };
 
 export async function generateStaticParams() {
@@ -444,6 +470,35 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Full-payment affordability</Link>
               <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage pre-approval</Link>
               <Link href="/construction-loans-charlotte" className="text-gold hover:underline">Construction financing</Link>
+              <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-time buyer guide</Link>
+            </div>
+          </section>
+        )}
+
+        {area.slug === "gastonia" && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">What Gastonia homebuyers should check before making an offer</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Before quoting the monthly payment, look up the specific home through Gaston County&apos;s
+              tax and parcel resources. Confirm whether county, municipal, or additional district
+              property taxes apply, plus HOA dues and a property-specific insurance estimate.
+              A seller&apos;s existing bill or an online estimate may not match the buyer&apos;s future
+              escrow amount, and assessed value does not necessarily equal the purchase price.
+            </p>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Older homes, acreage, manufactured homes, condominiums, and new construction can raise
+              different questions about appraisal, property condition, foundation requirements,
+              permits, and project eligibility. With a USDA loan, check the individual property
+              address and borrower qualifications through official USDA resources before relying
+              on the possibility of zero down. Program availability and final approval depend on
+              the lender, borrower, and property.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium">
+              <a href={GASTON_TAX_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Gaston County property taxes</a>
+              <a href={GASTON_GIS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Gaston County parcel mapping</a>
+              <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage pre-approval</Link>
+              <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Full payment and affordability</Link>
+              <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Cash-to-close guide</Link>
               <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-time buyer guide</Link>
             </div>
           </section>
