@@ -24,12 +24,11 @@ const profileSchema = {
   "@id": "https://jacobshopemortgage.com/about#profile",
   url: "https://jacobshopemortgage.com/about",
   name: "About Jacob Shope",
-  dateModified: "2026-10-29",
+  dateModified: "2026-11-21",
   mainEntity: {
     "@type": "Person",
     "@id": "https://jacobshopemortgage.com/#jacob-shope",
     name: "Jacob Shope",
-    alternateName: ["Jacob Shope Mortgage", "Jacob Shope Mortgage Broker"],
     disambiguatingDescription:
       "Charlotte-area Mortgage Loan Officer with Mpire Financial, NMLS# 2090979, and Charlotte Fire Department captain serving Charlotte and Lake Norman, North Carolina.",
     url: "https://jacobshopemortgage.com/about",
@@ -169,6 +168,36 @@ export default function AboutPage() {
             </div>
           </div>
           <Image src="/images/DSC_0156.jpg" alt="Jacob Shope's Charlotte Fire captain helmet" width={1800} height={1200} className="h-auto w-full rounded-2xl shadow-lg" sizes="(max-width: 1024px) 100vw, 45vw" />
+        </div>
+      </section>
+
+      <section className="border-y border-navy/10 bg-white py-14 md:py-20">
+        <div className="mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
+          <p className="font-semibold text-gold">Credentials and sources</p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy md:text-4xl">How to check the guidance and who is behind it</h2>
+          <p className="mt-5 leading-relaxed text-charcoal">
+            I work as a Mortgage Loan Officer with Mpire Financial, NMLS# 2090979. The guides on this site explain
+            financing choices in plain language, including the tradeoffs that can matter for a Charlotte or Lake Norman
+            purchase. They are educational starting points, not a loan approval, a rate quote, or a promise that any
+            one program is available for every borrower or property.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            Where a rule or local detail matters, I point readers to original sources such as federal mortgage agencies,
+            state housing programs, and county property records. A lender&apos;s current requirements, the property address,
+            and the full borrower file still need to be checked for a specific transaction.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            You can independently check my licensing through NMLS Consumer Access and see my public Business Leaders
+            of Charlotte member listing, which identifies Mpire Financial and links to this website. The company
+            relationship and disclosure information is also available on the licensing page.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
+            <a href={NMLS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Verify my NMLS registration</a>
+            <a href={BLOC_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Charlotte business directory profile</a>
+            <Link href="/licensing" className="text-gold hover:underline">Licensing and disclosures</Link>
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">How preapproval works</Link>
+            <Link href="/mortgage-credit-score-charlotte" className="text-gold hover:underline">How mortgage credit is reviewed</Link>
+          </div>
         </div>
       </section>
 
