@@ -82,9 +82,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
     shortDescription:
       "Local mortgage guidance for Davidson, North Carolina and the Lake Norman area.",
     introParagraph:
-      "Davidson combines a walkable college-town center with neighborhoods extending toward Lake Norman and the surrounding area. Buyers may encounter historic homes, newer construction, townhomes, condominiums, and higher-priced properties that require careful loan planning. I help Davidson buyers review conventional, jumbo, VA, and other available options while keeping the payment, appraisal, and closing timeline clear.",
+      "Davidson stretches across Mecklenburg and Iredell counties along the Lake Norman corridor. Buyers may be comparing an older home near downtown, a condo, newer construction, or a waterfront property. The exact parcel matters: town limits, county and special-district property taxes, insurance, HOA or condo requirements, property condition, and appraisal details can change the full payment and loan review. I help Davidson buyers compare conventional, jumbo, VA, and other available mortgage options and prepare a useful pre-approval before making an offer.",
     whyLocal:
-      "I live in the Lake Norman area and regularly work with buyers and Realtors along the I-77 corridor. That local connection makes it easier to communicate quickly, understand the property, and solve issues before they slow down the closing.",
+      "I work with buyers and Realtors across Davidson and the Lake Norman corridor. My job is to help check the full payment and cash needed, flag property-specific questions early, and coordinate financing with your agent. Loan terms and final approval depend on the borrower, property, and lender.",
     nearbySlugs: ["cornelius", "huntersville", "lake-norman", "mooresville"],
   },
   {
