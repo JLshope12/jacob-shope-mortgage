@@ -17,6 +17,10 @@ const MECKLENBURG_TAX_URL = "https://tax.mecknc.gov/";
 const MECKLENBURG_2027_REVALUATION_URL = "https://news.mecknc.gov/we-value-mecklenburg-county-update-2027-property-revaluation";
 const CFPB_COMPARE_ESTIMATES_URL = "https://www.consumerfinance.gov/owning-a-home/compare/compare-loan-estimates/";
 const NCHFA_HOME_BUYERS_URL = "https://www.nchfa.com/home-buyers";
+const DAVIDSON_PROPERTY_TAX_URL = "https://www.townofdavidson.org/1472/Property-Taxes";
+const DAVIDSON_TAX_INFORMATION_URL = "https://www.townofdavidson.org/975/Tax-Information";
+const DAVIDSON_GIS_URL = "https://www.townofdavidson.org/1524/Geographic-Information-Systems-GIS";
+const DAVIDSON_HISTORIC_DISTRICT_URL = "https://www.townofdavidson.org/1285/Local-Historic-District";
 const IREDELL_TAX_URL = "https://iredellcountync.gov/368/Tax-Administration-Land-Records";
 const LINCOLN_TAX_URL = "https://www.lincolncountync.gov/73/Tax-Department";
 const CATAWBA_TAX_URL = "https://catawbacountync.gov/county-services/tax/";
@@ -73,6 +77,21 @@ const LOCAL_RESOURCES: Record<
     },
   ],
   davidson: [
+    {
+      href: DAVIDSON_PROPERTY_TAX_URL,
+      label: "Town of Davidson: FY2027 property-tax rates",
+      detail: "Official town and county rate examples per $100 of assessed value. Check the parcel's taxing jurisdictions and the current tax year before estimating escrow.",
+    },
+    {
+      href: DAVIDSON_TAX_INFORMATION_URL,
+      label: "Town of Davidson: tax administration and assessments",
+      detail: "The town explains how tax billing and assessments are handled by Mecklenburg or Iredell County, depending on the property.",
+    },
+    {
+      href: DAVIDSON_GIS_URL,
+      label: "Town of Davidson: county GIS and property mapping",
+      detail: "Links to public Mecklenburg and Iredell mapping tools for checking the actual parcel, its county and property details.",
+    },
     {
       href: MECKLENBURG_TAX_URL,
       label: "Mecklenburg County property tax records",
@@ -211,9 +230,10 @@ const LAKE_NORMAN_TOWN_BUYER_NOTES: Record<string, string[]> = {
     "Use the county's official property tax information to make a more realistic estimate of monthly escrows.",
   ],
   davidson: [
-    "Older homes, newer communities, and condominiums can have very different appraisal and property-condition considerations.",
-    "For a condominium or townhome, review HOA dues and any lender project requirements before making an offer.",
-    "Confirm the parcel's county and property-tax information rather than relying on a generic Davidson payment estimate.",
+    "Confirm whether the actual parcel is in Mecklenburg or Iredell County and whether it is inside Davidson town limits. A Davidson mailing address alone does not establish taxing jurisdiction.",
+    "Check any HOA or condominium dues and lender project review early. Older homes may also raise appraisal or property-condition questions.",
+    "For a home in Davidson's local historic district, verify any proposed exterior work and applicable review requirements with the town before budgeting for renovations.",
+    "Use official parcel assessments and a property-specific insurance quote instead of assuming the seller's current escrow will be the future payment.",
   ],
   mooresville: [
     "Look up the specific parcel in Iredell County records. Use current tax and assessment information as a starting point, and confirm the expected post-purchase tax bill and insurance cost rather than copying a seller's monthly escrow.",
@@ -229,7 +249,7 @@ const LOCAL_PAGE_MODIFIED: Record<string, string> = {
   "lake-norman": "2026-11-15",
   huntersville: "2026-11-18",
   cornelius: "2026-11-16",
-  davidson: "2026-10-31",
+  davidson: "2026-11-22",
   mooresville: "2026-11-16",
   concord: "2026-11-19",
   gastonia: "2026-11-20",
@@ -442,6 +462,47 @@ export default async function ServiceAreaPage({ params }: Props) {
               <a href={CFPB_COMPARE_ESTIMATES_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">CFPB: Compare Loan Estimates</a>
               <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Charlotte affordability guide</Link>
               <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Charlotte closing-cost guide</Link>
+            </div>
+          </section>
+        )}
+
+        {area.slug === "davidson" && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">Davidson property taxes: why the exact county and parcel matter</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Davidson spans Mecklenburg and Iredell counties. The Town of Davidson&apos;s FY2027
+              property-tax page lists a town rate of $0.276 per $100 of assessed value, with
+              Mecklenburg County at $0.4927 and Iredell County at $0.50 per $100. Town taxes
+              apply only where the property is in the town&apos;s taxing jurisdiction. A Davidson
+              mailing address by itself does not prove a parcel is inside town limits.
+            </p>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              For an <strong>illustrative $500,000 assessed value</strong> inside town limits,
+              Davidson plus the standard Mecklenburg County rate would total about
+              <strong> $3,843.50 per year ($320.29 per month)</strong>, while Davidson plus the
+              standard Iredell County rate would total about
+              <strong> $3,880 per year ($323.33 per month)</strong>. Those examples exclude
+              other applicable taxing districts, exemptions, insurance, and HOA costs. They
+              are not a tax quote or a promise of future escrow. The assessed value is not
+              necessarily the purchase price.
+            </p>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Both counties have 2027 property revaluations scheduled. Mecklenburg County&apos;s
+              November 2, 2026 update says new values will be announced in early 2027 and
+              tax rates will subsequently be set by local officials. Before a purchase,
+              verify the parcel and current bills with the appropriate county, account for
+              the possibility of future assessment changes, and request a property-specific
+              insurance quote. For an older home, condominium, or historic-district property,
+              also check relevant property-condition, project, and town review requirements.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium">
+              <a href={DAVIDSON_PROPERTY_TAX_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Town of Davidson: FY2027 tax rates</a>
+              <a href={DAVIDSON_TAX_INFORMATION_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Town of Davidson: tax information</a>
+              <a href={MECKLENBURG_2027_REVALUATION_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Mecklenburg: 2027 revaluation update</a>
+              <a href={DAVIDSON_HISTORIC_DISTRICT_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Davidson historic-district requirements</a>
+              <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Compare the full monthly payment</Link>
+              <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage pre-approval guide</Link>
+              <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Closing costs and cash to close</Link>
             </div>
           </section>
         )}
