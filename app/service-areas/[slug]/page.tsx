@@ -30,6 +30,11 @@ const CABARRUS_LAND_RECORDS_URL = "https://www.cabarruscounty.us/Government/Depa
 const GASTON_TAX_URL = "https://www.gastongov.com/583/Tax-Office";
 const GASTON_GIS_URL = "https://www.gastongov.com/677/Tax-Mapping-GIS";
 const USDA_HOUSING_URL = "https://www.rd.usda.gov/programs-services/single-family-housing-programs";
+const UNION_COUNTY_FY27_TAX_URL = "https://www.unioncountync.gov/Home/Components/News/News/3512/";
+const UNION_COUNTY_PROPERTY_URL = "https://www.unioncountync.gov/government/departments-r-z/taxes-property";
+const UNION_COUNTY_GIS_URL = "https://www.unioncountync.gov/government/departments-f-p/gis-mapping";
+const INDIAN_TRAIL_TAX_URL = "https://www.indiantrail.org/217/Revenue-Tax-Department";
+const INDIAN_TRAIL_GIS_URL = "https://indiantrail.org/163/GIS-Maps";
 
 const LOCAL_RESOURCES: Record<
   string,
@@ -128,6 +133,43 @@ const LOCAL_RESOURCES: Record<
       href: NCHFA_HOME_BUYERS_URL,
       label: "North Carolina Housing Finance Agency home buyers",
       detail: "Review state-supported mortgage and down-payment-assistance options and confirm program eligibility with a participating lender.",
+    },
+  ],
+  "indian-trail": [
+    {
+      href: INDIAN_TRAIL_TAX_URL,
+      label: "Town of Indian Trail tax department",
+      detail: "The town explains its municipal levy, separate Union County billing, and property-specific stormwater fees.",
+    },
+    {
+      href: UNION_COUNTY_FY27_TAX_URL,
+      label: "Union County: FY2026-2027 property-tax rate",
+      detail: "The county confirms its 43.42-cent rate per $100 assessed value for the current fiscal year.",
+    },
+    {
+      href: UNION_COUNTY_PROPERTY_URL,
+      label: "Union County property search and tax bills",
+      detail: "Check the actual parcel and assessed value before estimating closing costs or escrow.",
+    },
+    {
+      href: INDIAN_TRAIL_GIS_URL,
+      label: "Indian Trail official town-boundary map",
+      detail: "Use the town's published mapping resources to investigate the jurisdiction; verify the parcel with county records.",
+    },
+    {
+      href: UNION_COUNTY_GIS_URL,
+      label: "Union County property mapping",
+      detail: "Use UC Atlas to check a parcel's mapped location and relevant property details.",
+    },
+    {
+      href: USDA_HOUSING_URL,
+      label: "USDA Rural Development eligibility resources",
+      detail: "Check the specific address and household qualifications; an Indian Trail or Union County mailing address does not establish eligibility.",
+    },
+    {
+      href: NCHFA_HOME_BUYERS_URL,
+      label: "NC Housing Finance Agency buyer programs",
+      detail: "Review official state-backed mortgage and down-payment-assistance information, subject to current program terms.",
     },
   ],
   gastonia: [
@@ -532,6 +574,46 @@ export default async function ServiceAreaPage({ params }: Props) {
               <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage pre-approval</Link>
               <Link href="/construction-loans-charlotte" className="text-gold hover:underline">Construction financing</Link>
               <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-time buyer guide</Link>
+            </div>
+          </section>
+        )}
+
+        {area.slug === "indian-trail" && (
+          <section className="mt-10 rounded-2xl border border-charcoal/10 bg-white p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-navy">Indian Trail mortgage payment planning: town limits, taxes, and stormwater</h2>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Union County confirms a <strong>FY2026–2027 county property-tax rate of $0.4342</strong> per
+              $100 of assessed value, while the Town of Indian Trail lists a <strong>municipal rate of
+              $0.17</strong> per $100. For a property actually inside Indian Trail town limits, those
+              standard rates total $0.6042 per $100. As an example, a <strong>$400,000 assessed
+              value</strong> would produce about <strong>$2,416.80 annually, or $201.40 monthly</strong>
+              in county and town property tax alone. This is an illustration, not a parcel-specific
+              quote or estimate of future assessed value.
+            </p>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Indian Trail bills its municipal taxes separately from Union County, and the town
+              lists residential stormwater fees that vary with the lot&apos;s impervious surface area.
+              Other district levies or assessments may apply. Verify whether the actual parcel
+              is within town boundaries and check both tax records before estimating escrow.
+              A mailing address, an old seller tax bill, or a builder&apos;s advertised payment
+              may not reflect the buyer&apos;s full future cost.
+            </p>
+            <p className="mt-4 leading-relaxed text-charcoal">
+              Before writing an offer, request the property-specific insurance quote and HOA
+              information, review any condominium or builder approval requirements, and compare
+              cash to close as well as the monthly payment. USDA zero-down financing depends on
+              borrower and address eligibility, not the town name. Final eligibility and loan
+              terms depend on lender review.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium">
+              <a href={INDIAN_TRAIL_TAX_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Town tax and stormwater fees</a>
+              <a href={UNION_COUNTY_FY27_TAX_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">County FY2027 rate</a>
+              <a href={INDIAN_TRAIL_GIS_URL} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">Town-boundary maps</a>
+              <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage pre-approval</Link>
+              <Link href="/how-much-house-can-i-afford-charlotte" className="text-gold hover:underline">Full monthly payment</Link>
+              <Link href="/mortgage-closing-costs-charlotte" className="text-gold hover:underline">Cash to close</Link>
+              <Link href="/first-time-homebuyer-charlotte" className="text-gold hover:underline">First-time buyer guide</Link>
+              <Link href="/construction-loans-charlotte" className="text-gold hover:underline">New construction financing</Link>
             </div>
           </section>
         )}
