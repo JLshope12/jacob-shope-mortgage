@@ -164,11 +164,11 @@ export const SERVICE_AREAS: ServiceArea[] = [
     group: "charlotte-metro",
     name: "Indian Trail",
     shortDescription:
-      "Serving Indian Trail, Union County, and the eastern Charlotte metro.",
+      "Mortgage guidance for Indian Trail and Union County buyers, including tax escrows, new construction, and first-time purchases.",
     introParagraph:
-      "Indian Trail is one of the fastest-growing towns in Union County and sits east of Charlotte. The area attracts families with strong schools (including Union County Public Schools), newer housing stock, and a balance of affordability and commute options to Charlotte and Monroe. Neighborhoods range from master-planned communities to smaller subdivisions. I help Indian Trail buyers with conventional, FHA, VA, USDA (in eligible zones), and first-time buyer programs so you can buy with confidence in this growing market.",
+      "Indian Trail is in Union County southeast of Charlotte, with established subdivisions, townhomes, and newer construction along the US 74 and Monroe Expressway corridors. An Indian Trail mailing address does not by itself establish whether a parcel falls within town limits. That distinction can change the property tax bill and monthly escrow; HOA dues, insurance, property condition, and builder timelines also matter. I help Indian Trail buyers compare conventional, FHA, VA, and first-time buyer options while checking address-specific USDA eligibility when appropriate.",
     whyLocal:
-      "I work with buyers across the Charlotte region, including Indian Trail and Union County. You'll get clear guidance and a smooth process so you can focus on finding the right home for your family.",
+      "I work with buyers and Realtors in Indian Trail and the eastern Charlotte region. My goal is to identify the property-specific costs and lending requirements early, explain the full payment and cash needed, and coordinate financing details with your agent. Program availability and approval depend on the borrower, property, and lender.",
     nearbySlugs: ["matthews", "mint-hill", "charlotte", "north-carolina"],
   },
   {
