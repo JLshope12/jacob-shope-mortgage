@@ -20,6 +20,7 @@ const mooresvilleServiceRefreshDate = new Date("2026-11-16T00:00:00-05:00");
 const concordServiceRefreshDate = new Date("2026-11-19T00:00:00-05:00");
 const gastoniaServiceRefreshDate = new Date("2026-11-20T00:00:00-05:00");
 const lakeNormanTownRefreshDate = new Date("2026-11-22T00:00:00-05:00");
+const indianTrailRefreshDate = new Date("2026-11-23T00:00:00-05:00");
 const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
 const creditGuideRefreshDate = new Date("2026-11-05T00:00:00-05:00");
 const brokerVsLenderRefreshDate = new Date("2026-11-04T00:00:00-05:00");
@@ -81,6 +82,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ? gastoniaServiceRefreshDate
           : path === "/service-areas/davidson"
           ? lakeNormanTownRefreshDate
+          : path === "/service-areas/indian-trail"
+          ? indianTrailRefreshDate
           : path === "/about"
           ? aboutRefreshDate
           : path === "/first-time-homebuyer-charlotte"
