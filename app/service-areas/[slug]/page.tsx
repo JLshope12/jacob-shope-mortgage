@@ -295,6 +295,7 @@ const LOCAL_PAGE_MODIFIED: Record<string, string> = {
   mooresville: "2026-11-16",
   concord: "2026-11-19",
   gastonia: "2026-11-20",
+  "indian-trail": "2026-11-23",
 };
 
 export async function generateStaticParams() {
