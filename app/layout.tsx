@@ -87,8 +87,8 @@ export default function RootLayout({
           `}
         </Script>
         <GoogleAnalytics />
-        <Script id="local-business-schema" type="application/ld+json">
-          {JSON.stringify({
+        <script id="local-business-schema" type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
               {
@@ -238,8 +238,8 @@ export default function RootLayout({
                 },
               },
             ],
-          })}
-        </Script>
+          }).replace(/</g, "\\u003c"),
+        }} />
         <Header />
         <main className="flex-1">{children}</main>
         <NewsletterSignup />
