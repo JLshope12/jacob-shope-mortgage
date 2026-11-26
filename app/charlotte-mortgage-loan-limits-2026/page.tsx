@@ -5,9 +5,9 @@ const origin = "https://jacobshopemortgage.com";
 const pageUrl = `${origin}/charlotte-mortgage-loan-limits-2026`;
 
 export const metadata = {
-  title: "2026 Charlotte Mortgage Loan Limits | FHA, Conventional & VA",
+  title: "2026 Charlotte Mortgage Loan Limits & 2027 Conforming Update",
   description:
-    "2026 Charlotte mortgage loan limits explained by Jacob Shope, including the conforming limit, FHA limits in Mecklenburg and nearby counties, VA entitlement, and when jumbo financing starts.",
+    "2026 Charlotte mortgage loan limits and the announced 2027 conforming limit, explained by Jacob Shope, with FHA, VA and jumbo financing guidance.",
   alternates: { canonical: "/charlotte-mortgage-loan-limits-2026" },
   authors: [{ name: "Jacob Shope", url: "/about" }],
 };
@@ -45,7 +45,7 @@ const schema = {
       description:
         "A current guide to 2026 conforming, FHA, VA, and jumbo loan-limit considerations for Charlotte-area buyers.",
       datePublished: "2026-09-05",
-      dateModified: "2026-09-05",
+      dateModified: "2026-11-26",
       author: { "@id": `${origin}/#jacob-shope` },
       publisher: { "@id": `${origin}/#mpire-financial` },
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
@@ -58,6 +58,9 @@ const schema = {
       ],
       citation: [
         "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026",
+        "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-for-2027",
+        "https://singlefamily.fanniemae.com/news-events/lender-letter-ll-2026-10-confirmation-conforming-loan-limit-values-2027",
+        "https://www.fhfa.gov/data/conforming-loan-limit",
         "https://www.hud.gov/news/hud-no-25-145",
         "https://www.va.gov/housing-assistance/home-loans/loan-limits/",
       ],
@@ -96,7 +99,7 @@ export default function CharlotteMortgageLoanLimits2026Page() {
     <div className="bg-offwhite">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
-        <p className="font-semibold text-gold">Updated September 2026 · Charlotte mortgage guide</p>
+        <p className="font-semibold text-gold">Updated November 26, 2026 · Charlotte mortgage guide</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-navy md:text-5xl">
           2026 Charlotte Mortgage Loan Limits
         </h1>
@@ -115,6 +118,25 @@ export default function CharlotteMortgageLoanLimits2026Page() {
         <div className="mt-8">
           <AuthorBox />
         </div>
+
+        <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
+          <h2 className="text-2xl font-bold text-navy">2027 conforming loan limit announced November 24</h2>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            FHFA announced that the national one-unit baseline conforming loan limit for 2027 will be $855,400, up $22,650 from the 2026 baseline of $832,750. Fannie Mae says the new values apply to whole loans delivered and mortgage-backed securities with issue dates on or after January 1, 2027. For a Charlotte-area purchase near year-end, confirm the property&apos;s county, number of units and your lender&apos;s implementation timing before relying on the higher limit.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            For example, a $1 million purchase with 15% down produces an $850,000 base loan before any other adjustments. That is above the 2026 one-unit baseline but within the announced 2027 baseline. It could change which conventional or jumbo options are worth comparing, subject to the applicable county limit and all other eligibility requirements.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            This announcement concerns conforming loans, not a new FHA county limit or a universal VA borrowing cap. The FHA figures below are for 2026; verify the separately published FHA limits for a 2027 transaction.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium text-gold">
+            <a href="https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-for-2027" target="_blank" rel="noopener noreferrer" className="hover:underline">FHFA: 2027 announcement</a>
+            <a href="https://www.fhfa.gov/data/conforming-loan-limit" target="_blank" rel="noopener noreferrer" className="hover:underline">FHFA: county loan limits</a>
+            <a href="https://singlefamily.fanniemae.com/news-events/lender-letter-ll-2026-10-confirmation-conforming-loan-limit-values-2027" target="_blank" rel="noopener noreferrer" className="hover:underline">Fannie Mae: effective dates</a>
+            <Link href="/mortgage-preapproval-charlotte" className="hover:underline">Charlotte mortgage preapproval</Link>
+          </div>
+        </section>
 
         <section className="mt-12 overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-navy/5">
           <div className="border-b border-navy/10 p-6 md:p-8">
