@@ -12,6 +12,7 @@ const CFPB_BUYER_CREDIT_PREP = "https://www.consumerfinance.gov/owning-a-home/pr
 const FANNIE_CREDIT_REQUIREMENTS = "https://selling-guide.fanniemae.com/sel/b3-5.1-01/general-requirements-credit-scores";
 const FANNIE_DU_CREDIT_UPDATE = "https://singlefamily.fanniemae.com/applications-technology/desktop-underwriter-desktop-originator/desktop-underwriter-credit-risk-assessment-updates";
 const FHFA_CREDIT_SCORES = "https://www.fhfa.gov/policy/credit-scores";
+const FHFA_FICO_10T = "https://www.fhfa.gov/news/news-release/u.s.-federal-housing-approves-fico-10t-and-publishes-timeline-for-safe-and-sound-implementation";
 
 export const metadata = {
   title: "Credit Score for a Mortgage in Charlotte | Jacob Shope",
@@ -54,7 +55,7 @@ const schema = {
       description:
         "A Charlotte mortgage credit guide from Jacob Shope explaining how credit fits into the broader mortgage qualification picture.",
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
-      dateModified: "2026-11-05",
+      dateModified: "2026-11-26",
       author: { "@id": `${origin}/#jacob-shope` },
       publisher: { "@id": `${origin}/#mpire-financial` },
       citation: [
@@ -67,6 +68,7 @@ const schema = {
         FANNIE_CREDIT_REQUIREMENTS,
         FANNIE_DU_CREDIT_UPDATE,
         FHFA_CREDIT_SCORES,
+        FHFA_FICO_10T,
       ],
       about: ["Mortgage credit scores", "Mortgage qualification", "Charlotte mortgages", "Home financing"],
     },
@@ -160,12 +162,20 @@ export default function MortgageCreditScoreCharlottePage() {
         </section>
 
         <section className="mt-12 rounded-2xl border border-navy/10 bg-white p-7">
-          <h2 className="text-2xl font-bold text-navy">A current credit-model change to know about</h2>
+          <h2 className="text-2xl font-bold text-navy">Mortgage credit score changes: VantageScore 4.0 and FICO 10T</h2>
           <p className="mt-3 leading-relaxed text-charcoal">
             On September 9, 2026, the Federal Housing Finance Agency announced that all approved Fannie Mae and Freddie Mac lenders may use VantageScore 4.0 when originating and selling eligible loans to the Enterprises. That does not create one universal mortgage score requirement, and it does not eliminate lender or loan-program rules. It is another reason borrowers should have the full mortgage file reviewed instead of relying on a single score number from a consumer app.
           </p>
-          <div className="mt-5 text-sm font-medium">
-            <a href={FHFA_CREDIT_SCORES} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">FHFA credit score policy and September 2026 update</a>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            On November 24, 2026, FHFA announced a phased implementation roadmap for FICO 10T for Fannie Mae and Freddie Mac. Approval of the scoring model is not the same as immediate availability for every mortgage. As of November 26, FHFA&apos;s credit score policy still identifies Classic FICO and VantageScore 4.0 as the options available for eligible deliveries, with further guidance to come for FICO 10T.
+          </p>
+          <p className="mt-4 leading-relaxed text-charcoal">
+            If you are planning a Charlotte or Lake Norman purchase, ask which model the lender can actually use for your loan, whether the result changes your eligibility or pricing, and whether the rest of the file supports the payment. Do not delay an application solely because a new score model has been announced, or assume that it will increase your score.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
+            <a href={FHFA_CREDIT_SCORES} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">FHFA credit score policy</a>
+            <a href={FHFA_FICO_10T} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline">FHFA: November 24, 2026 FICO 10T roadmap</a>
+            <Link href="/mortgage-preapproval-charlotte" className="text-gold hover:underline">Mortgage preapproval in Charlotte</Link>
           </div>
         </section>
 
