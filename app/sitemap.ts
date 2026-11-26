@@ -22,7 +22,8 @@ const gastoniaServiceRefreshDate = new Date("2026-11-20T00:00:00-05:00");
 const lakeNormanTownRefreshDate = new Date("2026-11-22T00:00:00-05:00");
 const indianTrailRefreshDate = new Date("2026-11-23T00:00:00-05:00");
 const licensingRefreshDate = new Date("2026-09-22T00:00:00-04:00");
-const creditGuideRefreshDate = new Date("2026-11-05T00:00:00-05:00");
+const creditGuideRefreshDate = new Date("2026-11-26T00:00:00-05:00");
+const loanLimitsRefreshDate = new Date("2026-11-26T00:00:00-05:00");
 const brokerVsLenderRefreshDate = new Date("2026-11-04T00:00:00-05:00");
 const vaGuideRefreshDate = new Date("2026-11-03T00:00:00-05:00");
 const dscrGuideRefreshDate = new Date("2026-11-01T00:00:00-04:00");
@@ -106,6 +107,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
                   ? vaGuideRefreshDate
                 : path === "/mortgage-broker-vs-lender-charlotte"
                   ? brokerVsLenderRefreshDate
+                : path === "/charlotte-mortgage-loan-limits-2026"
+                  ? loanLimitsRefreshDate
                 : path === "/mortgage-credit-score-charlotte"
                   ? creditGuideRefreshDate
                 : path === "/mortgage-preapproval-charlotte"
