@@ -19,9 +19,16 @@ const CORE_GUIDES = [
   ["Mortgage Closing Costs in Charlotte", "/mortgage-closing-costs-charlotte"],
   ["Mortgage Appraisals in Charlotte", "/mortgage-appraisal-charlotte"],
   ["Mortgage Broker vs Lender", "/mortgage-broker-vs-lender-charlotte"],
+  ["Charlotte Mortgage Loan Limits: 2026 and 2027 Update", "/charlotte-mortgage-loan-limits-2026"],
+  ["Charlotte Down Payment Assistance", "/down-payment-assistance-charlotte"],
 ] as const;
 
 const OFFICIAL_MORTGAGE_RESOURCES = [
+  {
+    label: "FHFA: Conforming loan limits",
+    href: "https://www.fhfa.gov/data/conforming-loan-limit",
+    description: "Official county-level conforming loan limits by year, including the announced 2027 limits. These are not FHA limits or a personal borrowing limit.",
+  },
   {
     label: "CFPB: Buying a house",
     href: "https://www.consumerfinance.gov/owning-a-home/",
@@ -54,7 +61,7 @@ const TOPICS = [
     links: [
       ["Charlotte Home Buying & Real Estate Financing Guide", "/charlotte-home-buying-mortgage-guide"],
       ["First Responder Home Loans in Charlotte", "/first-responder-home-loans-charlotte"],
-      ["2026 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
+      ["Charlotte Mortgage Loan Limits: 2026 and 2027 Update", "/charlotte-mortgage-loan-limits-2026"],
       ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
       ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
       ["First-Time Homebuyer Guide for Charlotte", "/first-time-homebuyer-charlotte"],
@@ -150,7 +157,7 @@ const collectionSchema = {
       author: { "@id": `${origin}/#jacob-shope` },
       publisher: { "@id": `${origin}/#mpire-financial` },
       isPartOf: { "@id": `${origin}/#website` },
-      dateModified: "2026-11-02",
+      dateModified: "2026-11-27",
       citation: OFFICIAL_MORTGAGE_RESOURCES.map((resource) => resource.href),
       about: [
         "Mortgages",
@@ -212,6 +219,8 @@ export default function MortgageGuidesPage() {
           <h2 className="text-xl font-bold text-navy">Core Charlotte and Lake Norman mortgage pages</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-charcoal">
             Start here for the local mortgage topics buyers, homeowners, veterans, and investors most often need.
+            If your purchase is planned for early 2027, review the loan-limit guide before choosing between conventional and jumbo financing.
+            The applicable limit depends on the county, number of units, and lender implementation timing; a loan limit is not a preapproval amount.
           </p>
           <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
             {CORE_GUIDES.map(([label, href]) => (
