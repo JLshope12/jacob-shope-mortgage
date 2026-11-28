@@ -28,6 +28,7 @@ const brokerVsLenderRefreshDate = new Date("2026-11-04T00:00:00-05:00");
 const vaGuideRefreshDate = new Date("2026-11-03T00:00:00-05:00");
 const dscrGuideRefreshDate = new Date("2026-11-01T00:00:00-04:00");
 const mortgageGuidesRefreshDate = new Date("2026-11-27T00:00:00-05:00");
+const insightsRefreshDate = new Date("2026-11-28T00:00:00-05:00");
 const preapprovalRefreshDate = new Date("2026-11-14T00:00:00-05:00");
 const closingCostsRefreshDate = new Date("2026-11-12T00:00:00-05:00");
 const incomeEmploymentRefreshDate = new Date("2026-11-11T00:00:00-05:00");
@@ -63,7 +64,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [...mainRoutes, ...serviceRoutes, ...programRoutes].map((path) => ({
     url: `${origin}${path}`,
     lastModified:
-      path === ""
+      path === "/blog"
+        ? insightsRefreshDate
+        : path === ""
         ? homeRefreshDate
         : path === "/first-responder-home-loans-charlotte"
           ? firstResponderRefreshDate
