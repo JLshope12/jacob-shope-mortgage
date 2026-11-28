@@ -16,6 +16,7 @@ const collections = [
     links: [
       ["Charlotte Housing Market September 2026", "/charlotte-housing-market-september-2026"],
       ["Charlotte Home Buying & Mortgage Guide", "/charlotte-home-buying-mortgage-guide"],
+      ["First-Time Homebuyer Guide", "/first-time-homebuyer-charlotte"],
       ["Mortgage Pre-Approval in Charlotte", "/mortgage-preapproval-charlotte"],
       ["How Much House Can I Afford in Charlotte?", "/how-much-house-can-i-afford-charlotte"],
       ["Mortgage Closing Costs in Charlotte", "/mortgage-closing-costs-charlotte"],
@@ -27,7 +28,8 @@ const collections = [
     description:
       "Compare the structure of common loan programs instead of assuming one option is automatically the best fit for every buyer or property.",
     links: [
-      ["2026 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
+      ["2026 and 2027 Charlotte Mortgage Loan Limits", "/charlotte-mortgage-loan-limits-2026"],
+      ["Mortgage Broker vs. Lender in Charlotte", "/mortgage-broker-vs-lender-charlotte"],
       ["FHA vs Conventional in Charlotte", "/fha-vs-conventional-charlotte"],
       ["VA Loans in Charlotte", "/va-loans-charlotte"],
       ["Private Mortgage Insurance Explained", "/private-mortgage-insurance-charlotte"],
@@ -82,6 +84,8 @@ const pageSchema = {
   name: "Charlotte Mortgage & Real Estate Insights",
   description:
     "Mortgage and real estate financing resources for Charlotte and Lake Norman buyers, homeowners, veterans, and investors.",
+  dateModified: "2026-11-28",
+  isPartOf: { "@id": "https://jacobshopemortgage.com/#website" },
   author: { "@id": "https://jacobshopemortgage.com/#jacob-shope" },
   publisher: { "@id": "https://jacobshopemortgage.com/#mpire-financial" },
   about: [
@@ -151,8 +155,8 @@ export default function BlogPage() {
         <section className="mt-12 rounded-2xl bg-navy p-8 text-white">
           <h2 className="text-2xl font-bold">Where should you start?</h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-white/85">
-            If you are actively looking at a home, start with the latest available dated Charlotte housing-market analysis
-            and the Charlotte Home Buying & Mortgage Guide. If you are comparing loan structures, go to
+            If you are actively looking at a home, start with the Charlotte Home Buying & Mortgage Guide.
+            The September 2026 market analysis is a historical reference, not a current market report. If you are comparing loan structures, go to
             Mortgage Guides. For changing rates and the weekly real estate conversation, use the newsletter.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
